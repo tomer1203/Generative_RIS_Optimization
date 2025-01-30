@@ -426,6 +426,7 @@ def diffusion_training(model_forward,model_diffusion,train_ldr,test_ldr, optimiz
             plt.title("capacity at iteration for different algorithms") # average results over a small test set of 8 tx locations
             # plt.show()
             save_fig("diffusion_capacity_per_iteration.pdf","plots")
+            plt.show()
 
         # print(rate.item())
 
