@@ -1,0 +1,1181 @@
+C:\Users\tomer\AppData\Local\Programs\Python\Python311\python.exe C:\Users\tomer\Documents\Projects\Digital_Twins_Optimization_in_Complex_Communication_Channels\Regression_Model\main.py 
+cpu
+
+batch_size =  32 
+loss = <function My_MSE_Loss at 0x0000019A719EDEE0>
+optimizer = Adam
+max_epochs =  50 
+lrn_rate = 0.0005 
+Collecting RIS configuration 
+
+Starting training with saved checkpoints
+epoch =   0 time left =0:06:39  loss =385274.7388 NMSE =15.06333 test_NMSE =34.32409 output normalized variation=0.16686 model capacity -inf, phsyfad capacity -inf
+epoch =   3 time left =0:02:24  loss =277864.1764 NMSE =14.43143 test_NMSE =23.53018 output normalized variation=0.14250 model capacity -inf, phsyfad capacity -inf
+epoch =   6 time left =0:01:20  loss =265346.9596 NMSE =13.90149 test_NMSE =20.98740 output normalized variation=0.22766 model capacity -inf, phsyfad capacity -inf
+epoch =   9 time left =0:00:50  loss =254122.4136 NMSE =13.14835 test_NMSE =22.13751 output normalized variation=0.27768 model capacity -inf, phsyfad capacity -inf
+epoch =  12 time left =0:00:31  loss =246037.8432 NMSE =12.80064 test_NMSE =21.93703 output normalized variation=0.32241 model capacity -inf, phsyfad capacity -inf
+epoch =  15 time left =0:00:25  loss =238697.8219 NMSE =12.67334 test_NMSE =21.99570 output normalized variation=0.33682 model capacity -inf, phsyfad capacity -inf
+epoch =  18 time left =0:00:21  loss =232285.0315 NMSE =11.86699 test_NMSE =22.41946 output normalized variation=0.38687 model capacity -inf, phsyfad capacity -inf
+epoch =  21 time left =0:00:18  loss =226470.2355 NMSE =11.83743 test_NMSE =23.16787 output normalized variation=0.40055 model capacity -inf, phsyfad capacity -inf
+epoch =  24 time left =0:00:15  loss =221333.9762 NMSE =11.50010 test_NMSE =23.13551 output normalized variation=0.41432 model capacity -inf, phsyfad capacity -inf
+epoch =  27 time left =0:00:12  loss =216957.2173 NMSE =11.12948 test_NMSE =23.27982 output normalized variation=0.45645 model capacity -inf, phsyfad capacity -inf
+epoch =  30 time left =0:00:09  loss =213102.1818 NMSE =10.97345 test_NMSE =23.12069 output normalized variation=0.46131 model capacity -inf, phsyfad capacity -inf
+epoch =  33 time left =0:00:06  loss =210202.2564 NMSE =10.84710 test_NMSE =23.04539 output normalized variation=0.47698 model capacity -inf, phsyfad capacity -inf
+epoch =  36 time left =0:00:04  loss =207490.1230 NMSE =10.49543 test_NMSE =23.77203 output normalized variation=0.49162 model capacity -inf, phsyfad capacity -inf
+epoch =  39 time left =0:00:03  loss =205470.6314 NMSE =10.50072 test_NMSE =23.71538 output normalized variation=0.48162 model capacity -inf, phsyfad capacity -inf
+epoch =  42 time left =0:00:02  loss =203716.4450 NMSE =10.40497 test_NMSE =23.36333 output normalized variation=0.49524 model capacity -inf, phsyfad capacity -inf
+epoch =  45 time left =0:00:01  loss =202168.2116 NMSE =10.45222 test_NMSE =23.67137 output normalized variation=0.50630 model capacity -inf, phsyfad capacity -inf
+epoch =  48 time left =0:00:00  loss =200698.6982 NMSE =10.25239 test_NMSE =23.95506 output normalized variation=0.50577 model capacity -inf, phsyfad capacity -inf
+Done Training
+Starting deep-training loop with optimization
+epoch 0 train dataset length 24000
+E0 I8% 0:29:12s train NMSE: 3.9798 optimized train NMSE: 161.0509 model capacity 101.2498 physfad_c capacity 24.2360 39.1594 sum(X): 458  446
+E0 I13% 1:02:40s train NMSE: 6.5571 optimized train NMSE: 48.9166 model capacity 40.5510 physfad_c capacity 23.8265 36.8393 sum(X): 453  440
+E0 I19% 1:21:46s train NMSE: 10.0099 optimized train NMSE: 44.7439 model capacity 37.6217 physfad_c capacity 24.1564 34.3295 sum(X): 461  443
+E0 I24% 1:32:13s train NMSE: 13.4858 optimized train NMSE: 41.2291 model capacity 38.5574 physfad_c capacity 24.5004 33.2672 sum(X): 463  446
+E0 I27% 1:48:01s train NMSE: 14.2372 optimized train NMSE: 30.7236 model capacity 33.9679 physfad_c capacity 25.2148 34.2774 sum(X): 449  437
+E0 I32% 1:52:12s train NMSE: 15.5977 optimized train NMSE: 26.4081 model capacity 31.7131 physfad_c capacity 24.5368 31.9804 sum(X): 458  448
+E0 I37% 1:54:49s train NMSE: 16.6231 optimized train NMSE: 22.4958 model capacity 29.2315 physfad_c capacity 24.1967 32.1782 sum(X): 447  442
+E0 I45% 1:50:27s train NMSE: 16.3108 optimized train NMSE: 22.3642 model capacity 30.4135 physfad_c capacity 24.3290 32.2987 sum(X): 451  445
+E0 I48% 1:58:38s train NMSE: 16.0202 optimized train NMSE: 19.9568 model capacity 28.3013 physfad_c capacity 22.8494 30.2202 sum(X): 444  440
+E0 I51% 2:06:05s train NMSE: 15.7840 optimized train NMSE: 19.1220 model capacity 27.4861 physfad_c capacity 24.0257 29.8199 sum(X): 444  442
+E0 I53% 2:12:37s train NMSE: 15.4839 optimized train NMSE: 19.4866 model capacity 27.3160 physfad_c capacity 24.1338 30.8325 sum(X): 443  439
+E0 I56% 2:18:40s train NMSE: 15.3301 optimized train NMSE: 21.7145 model capacity 29.9889 physfad_c capacity 24.1935 31.7678 sum(X): 446  441
+E0 I64% 2:12:26s train NMSE: 14.7651 optimized train NMSE: 19.6157 model capacity 27.4468 physfad_c capacity 24.3159 31.3423 sum(X): 442  438
+E0 I67% 2:17:31s train NMSE: 14.7000 optimized train NMSE: 18.2358 model capacity 28.1496 physfad_c capacity 24.7689 31.4470 sum(X): 450  445
+E0 I72% 2:16:56s train NMSE: 14.4968 optimized train NMSE: 18.2219 model capacity 27.3085 physfad_c capacity 24.4000 31.9244 sum(X): 447  443
+E0 I75% 2:21:22s train NMSE: 14.3420 optimized train NMSE: 18.5759 model capacity 28.0011 physfad_c capacity 24.1601 33.6922 sum(X): 447  441
+E0 I80% 2:20:28s train NMSE: 14.2391 optimized train NMSE: 17.6587 model capacity 29.8406 physfad_c capacity 24.3112 33.3053 sum(X): 452  444
+E0 I83% 2:24:15s train NMSE: 14.1690 optimized train NMSE: 17.6906 model capacity 30.0551 physfad_c capacity 25.5653 33.5532 sum(X): 453  445
+E0 I85% 2:27:41s train NMSE: 14.1041 optimized train NMSE: 18.6903 model capacity 30.5338 physfad_c capacity 24.3781 34.0274 sum(X): 450  442
+E0 I91% 2:26:30s train NMSE: 14.1023 optimized train NMSE: 18.3127 model capacity 29.5254 physfad_c capacity 24.2264 32.9548 sum(X): 452  447
+E0 I99% 2:21:40s train NMSE: 14.0811 optimized train NMSE: 18.0707 model capacity 28.7083 physfad_c capacity 24.2514 32.9584 sum(X): 446  443
+epoch 1 train dataset length 24672
+E1 I5% 2:14:49s train NMSE: 14.1348 optimized train NMSE: 18.4937 model capacity 33.6815 physfad_c capacity 24.5556 36.3697 sum(X): 454  442
+E1 I8% 2:18:52s train NMSE: 14.1130 optimized train NMSE: 18.7871 model capacity 30.7530 physfad_c capacity 25.2495 33.9986 sum(X): 451  440
+E1 I10% 2:22:35s train NMSE: 14.0902 optimized train NMSE: 19.8194 model capacity 31.2486 physfad_c capacity 25.4165 34.8023 sum(X): 448  441
+E1 I16% 2:22:58s train NMSE: 14.0174 optimized train NMSE: 18.0338 model capacity 30.5017 physfad_c capacity 25.3749 34.6790 sum(X): 456  446
+E1 I18% 2:26:16s train NMSE: 13.8501 optimized train NMSE: 18.1636 model capacity 31.9951 physfad_c capacity 24.0959 34.6027 sum(X): 453  440
+E1 I21% 2:29:36s train NMSE: 13.8460 optimized train NMSE: 17.5276 model capacity 31.7606 physfad_c capacity 24.1096 34.3964 sum(X): 453  440
+E1 I26% 2:29:36s train NMSE: 13.8868 optimized train NMSE: 18.7832 model capacity 31.6818 physfad_c capacity 24.0189 34.2850 sum(X): 457  447
+E1 I34% 2:26:46s train NMSE: 13.9716 optimized train NMSE: 19.0850 model capacity 30.5731 physfad_c capacity 24.9293 33.3129 sum(X): 452  441
+E1 I47% 2:19:01s train NMSE: 14.1737 optimized train NMSE: 21.3791 model capacity 32.4396 physfad_c capacity 24.5389 34.4234 sum(X): 463  448
+E1 I49% 2:21:52s train NMSE: 14.0948 optimized train NMSE: 18.1844 model capacity 30.7902 physfad_c capacity 24.4487 35.6097 sum(X): 455  444
+E1 I52% 2:24:31s train NMSE: 14.1181 optimized train NMSE: 18.8870 model capacity 31.6433 physfad_c capacity 24.7423 34.8110 sum(X): 451  439
+E1 I54% 2:27:12s train NMSE: 14.1134 optimized train NMSE: 18.1816 model capacity 30.7656 physfad_c capacity 24.6360 33.6259 sum(X): 449  437
+E1 I57% 2:29:43s train NMSE: 14.1805 optimized train NMSE: 18.4879 model capacity 31.3389 physfad_c capacity 24.8543 34.9842 sum(X): 457  446
+E1 I60% 2:32:12s train NMSE: 14.1479 optimized train NMSE: 18.6360 model capacity 30.7949 physfad_c capacity 24.7565 34.7299 sum(X): 448  441
+E1 I62% 2:34:28s train NMSE: 14.1397 optimized train NMSE: 19.4654 model capacity 32.1985 physfad_c capacity 24.7464 34.9683 sum(X): 454  444
+E1 I67% 2:34:15s train NMSE: 14.1136 optimized train NMSE: 18.8186 model capacity 32.3321 physfad_c capacity 25.3468 36.1021 sum(X): 458  443
+E1 I70% 2:36:18s train NMSE: 14.0974 optimized train NMSE: 18.6505 model capacity 32.6515 physfad_c capacity 24.4868 35.4502 sum(X): 456  443
+E1 I80% 2:31:22s train NMSE: 13.9586 optimized train NMSE: 17.4516 model capacity 32.6305 physfad_c capacity 24.6343 37.5090 sum(X): 459  442
+E1 I83% 2:33:18s train NMSE: 13.9084 optimized train NMSE: 20.6286 model capacity 36.6541 physfad_c capacity 24.0162 35.9654 sum(X): 461  442
+E1 I99% 2:24:48s train NMSE: 13.9825 optimized train NMSE: 18.9456 model capacity 31.7714 physfad_c capacity 24.9252 36.7241 sum(X): 465  446
+epoch 2 train dataset length 25312
+E2 I8% 2:19:34s train NMSE: 14.0940 optimized train NMSE: 21.8341 model capacity 43.2182 physfad_c capacity 25.0956 39.0886 sum(X): 478  438
+E2 I13% 2:20:07s train NMSE: 14.2901 optimized train NMSE: 17.6813 model capacity 30.9965 physfad_c capacity 25.0566 36.9849 sum(X): 472  452
+E2 I15% 2:22:18s train NMSE: 14.3254 optimized train NMSE: 20.0949 model capacity 31.7705 physfad_c capacity 25.0970 36.1479 sum(X): 460  441
+E2 I18% 2:24:32s train NMSE: 14.2789 optimized train NMSE: 17.9343 model capacity 30.9640 physfad_c capacity 25.3284 35.6670 sum(X): 458  439
+E2 I30% 2:19:57s train NMSE: 14.1030 optimized train NMSE: 16.9179 model capacity 32.8547 physfad_c capacity 24.1253 36.1407 sum(X): 460  442
+E2 I33% 2:22:06s train NMSE: 14.0332 optimized train NMSE: 16.9067 model capacity 34.8948 physfad_c capacity 23.7880 37.3750 sum(X): 473  447
+E2 I35% 2:24:09s train NMSE: 13.9563 optimized train NMSE: 18.0480 model capacity 34.5498 physfad_c capacity 25.1219 36.9641 sum(X): 469  442
+E2 I40% 2:24:35s train NMSE: 13.7086 optimized train NMSE: 16.2597 model capacity 32.4119 physfad_c capacity 25.4313 37.3452 sum(X): 464  445
+E2 I43% 2:26:34s train NMSE: 13.6882 optimized train NMSE: 17.9595 model capacity 33.4467 physfad_c capacity 23.9571 36.0656 sum(X): 468  446
+E2 I48% 2:26:57s train NMSE: 13.8373 optimized train NMSE: 18.7678 model capacity 34.5588 physfad_c capacity 24.5240 36.4034 sum(X): 472  442
+E2 I51% 2:28:50s train NMSE: 13.9482 optimized train NMSE: 18.7938 model capacity 35.6003 physfad_c capacity 24.9744 37.7645 sum(X): 475  445
+E2 I58% 2:27:34s train NMSE: 14.1027 optimized train NMSE: 17.2533 model capacity 35.2927 physfad_c capacity 25.0292 38.6300 sum(X): 469  445
+E2 I61% 2:29:20s train NMSE: 14.1396 optimized train NMSE: 16.3263 model capacity 34.3635 physfad_c capacity 24.8239 38.5397 sum(X): 469  441
+E2 I66% 2:29:32s train NMSE: 14.1464 optimized train NMSE: 15.9637 model capacity 35.7043 physfad_c capacity 24.7578 38.6454 sum(X): 466  438
+E2 I68% 2:31:07s train NMSE: 14.1451 optimized train NMSE: 16.4285 model capacity 33.8856 physfad_c capacity 23.4516 37.1145 sum(X): 458  436
+E2 I78% 2:28:19s train NMSE: 13.8482 optimized train NMSE: 16.4875 model capacity 35.0396 physfad_c capacity 24.0067 38.6106 sum(X): 460  436
+E2 I83% 2:28:25s train NMSE: 13.7113 optimized train NMSE: 16.3909 model capacity 35.3025 physfad_c capacity 25.0440 39.7834 sum(X): 472  446
+E2 I88% 2:28:32s train NMSE: 13.7610 optimized train NMSE: 16.1049 model capacity 36.8800 physfad_c capacity 24.5089 39.0656 sum(X): 467  440
+E2 I91% 2:29:56s train NMSE: 13.8347 optimized train NMSE: 17.2121 model capacity 38.3115 physfad_c capacity 25.4832 40.8378 sum(X): 475  443
+E2 I96% 2:29:59s train NMSE: 13.8901 optimized train NMSE: 16.6760 model capacity 36.2586 physfad_c capacity 24.5982 39.4996 sum(X): 470  442
+epoch 3 train dataset length 25952
+E3 I5% 2:26:21s train NMSE: 13.9949 optimized train NMSE: 23.1656 model capacity 41.1380 physfad_c capacity 25.8481 39.6778 sum(X): 496  451
+E3 I12% 2:25:34s train NMSE: 13.9999 optimized train NMSE: 17.6421 model capacity 36.0596 physfad_c capacity 24.0078 38.6329 sum(X): 478  448
+E3 I17% 2:26:01s train NMSE: 14.0226 optimized train NMSE: 16.5147 model capacity 36.2186 physfad_c capacity 24.0920 39.1611 sum(X): 473  442
+E3 I20% 2:27:42s train NMSE: 14.1073 optimized train NMSE: 16.8586 model capacity 34.6526 physfad_c capacity 24.8045 39.0085 sum(X): 470  443
+E3 I22% 2:29:19s train NMSE: 14.1921 optimized train NMSE: 20.2823 model capacity 37.1287 physfad_c capacity 24.8716 37.4360 sum(X): 482  448
+E3 I25% 2:30:57s train NMSE: 14.1175 optimized train NMSE: 16.5485 model capacity 35.5735 physfad_c capacity 25.9541 39.8917 sum(X): 469  440
+E3 I30% 2:31:17s train NMSE: 14.0997 optimized train NMSE: 18.0765 model capacity 37.6896 physfad_c capacity 25.8923 39.0869 sum(X): 489  448
+E3 I32% 2:32:51s train NMSE: 14.0776 optimized train NMSE: 17.0160 model capacity 35.6483 physfad_c capacity 25.2177 39.5846 sum(X): 477  444
+E3 I39% 2:31:56s train NMSE: 14.0868 optimized train NMSE: 16.3715 model capacity 34.8992 physfad_c capacity 24.6495 38.3300 sum(X): 475  445
+E3 I42% 2:33:26s train NMSE: 14.1692 optimized train NMSE: 15.6100 model capacity 36.5121 physfad_c capacity 25.9504 39.5723 sum(X): 481  444
+E3 I49% 2:32:26s train NMSE: 14.3168 optimized train NMSE: 15.6991 model capacity 37.4181 physfad_c capacity 24.6230 40.4220 sum(X): 482  441
+E3 I59% 2:30:21s train NMSE: 14.0381 optimized train NMSE: 15.1661 model capacity 40.1827 physfad_c capacity 25.1298 42.3525 sum(X): 487  440
+E3 I62% 2:31:42s train NMSE: 14.0181 optimized train NMSE: 21.0529 model capacity 42.7524 physfad_c capacity 25.9571 41.2116 sum(X): 491  441
+E3 I69% 2:30:47s train NMSE: 13.8921 optimized train NMSE: 17.4127 model capacity 33.4848 physfad_c capacity 23.8255 38.0034 sum(X): 478  445
+E3 I72% 2:32:04s train NMSE: 13.8628 optimized train NMSE: 16.0494 model capacity 35.1260 physfad_c capacity 25.1725 39.7634 sum(X): 476  442
+E3 I76% 2:32:13s train NMSE: 13.8693 optimized train NMSE: 15.9548 model capacity 37.2014 physfad_c capacity 24.2157 40.9649 sum(X): 479  442
+E3 I79% 2:33:30s train NMSE: 13.9546 optimized train NMSE: 17.7647 model capacity 42.5366 physfad_c capacity 25.1683 42.2881 sum(X): 488  444
+E3 I81% 2:34:46s train NMSE: 14.0384 optimized train NMSE: 15.6339 model capacity 39.2638 physfad_c capacity 24.3888 41.7465 sum(X): 486  444
+E3 I86% 2:34:55s train NMSE: 14.0692 optimized train NMSE: 14.5829 model capacity 38.7301 physfad_c capacity 25.0666 40.9132 sum(X): 486  446
+E3 I94% 2:33:59s train NMSE: 14.0109 optimized train NMSE: 15.8655 model capacity 36.1561 physfad_c capacity 25.0551 39.9276 sum(X): 481  443
+epoch 4 train dataset length 26592
+E4 I0% 2:32:11s train NMSE: 13.9431 optimized train NMSE: 16.1165 model capacity 41.6179 physfad_c capacity 24.3622 42.2381 sum(X): 512  446
+E4 I2% 2:33:38s train NMSE: 13.9389 optimized train NMSE: 14.9946 model capacity 41.4926 physfad_c capacity 27.5110 42.7309 sum(X): 511  447
+E4 I7% 2:34:00s train NMSE: 13.8635 optimized train NMSE: 16.0988 model capacity 35.8734 physfad_c capacity 25.5847 41.5113 sum(X): 489  444
+E4 I14% 2:33:22s train NMSE: 14.0534 optimized train NMSE: 17.1603 model capacity 40.7691 physfad_c capacity 26.5775 42.8354 sum(X): 510  449
+E4 I17% 2:34:47s train NMSE: 13.9862 optimized train NMSE: 16.2616 model capacity 40.2083 physfad_c capacity 25.9894 43.4880 sum(X): 502  445
+E4 I39% 2:28:17s train NMSE: 14.2354 optimized train NMSE: 17.7823 model capacity 50.2133 physfad_c capacity 25.0052 42.8389 sum(X): 507  441
+E4 I43% 2:28:36s train NMSE: 14.2556 optimized train NMSE: 17.5929 model capacity 35.3554 physfad_c capacity 26.7034 40.1261 sum(X): 494  445
+E4 I48% 2:28:56s train NMSE: 14.1000 optimized train NMSE: 23.1961 model capacity 35.2933 physfad_c capacity 24.1493 39.7130 sum(X): 494  445
+E4 I53% 2:29:12s train NMSE: 14.2042 optimized train NMSE: 18.8127 model capacity 33.4206 physfad_c capacity 25.6322 40.1389 sum(X): 506  448
+E4 I60% 2:28:35s train NMSE: 14.2870 optimized train NMSE: 17.7696 model capacity 38.0759 physfad_c capacity 26.4980 40.1976 sum(X): 511  442
+E4 I63% 2:29:48s train NMSE: 14.2860 optimized train NMSE: 18.9497 model capacity 38.6728 physfad_c capacity 26.0437 39.4790 sum(X): 514  444
+E4 I67% 2:30:06s train NMSE: 14.3502 optimized train NMSE: 17.0638 model capacity 33.2836 physfad_c capacity 24.3133 38.6398 sum(X): 479  437
+E4 I70% 2:31:15s train NMSE: 14.3480 optimized train NMSE: 19.3445 model capacity 35.3987 physfad_c capacity 25.1460 39.4238 sum(X): 498  446
+E4 I79% 2:29:46s train NMSE: 14.3731 optimized train NMSE: 17.3773 model capacity 35.6971 physfad_c capacity 25.8122 38.2427 sum(X): 494  447
+E4 I84% 2:30:01s train NMSE: 14.3842 optimized train NMSE: 15.2996 model capacity 37.9664 physfad_c capacity 25.8909 40.7976 sum(X): 507  446
+E4 I89% 2:30:17s train NMSE: 14.4072 optimized train NMSE: 17.1177 model capacity 37.6564 physfad_c capacity 28.0558 39.6347 sum(X): 501  446
+E4 I94% 2:31:34s train NMSE: 14.4113 optimized train NMSE: 15.7610 model capacity 36.4968 physfad_c capacity 25.2400 39.9090 sum(X): 504  446
+epoch 5 train dataset length 27136
+E5 I9% 2:28:41s train NMSE: 14.2265 optimized train NMSE: 20.3867 model capacity 40.0034 physfad_c capacity 25.1324 40.5748 sum(X): 511  445
+E5 I14% 2:28:18s train NMSE: 14.2932 optimized train NMSE: 17.2958 model capacity 37.9626 physfad_c capacity 27.7071 40.5636 sum(X): 503  443
+E5 I17% 2:30:18s train NMSE: 14.2440 optimized train NMSE: 16.8449 model capacity 37.6901 physfad_c capacity 24.8986 41.2155 sum(X): 501  441
+E5 I28% 2:29:31s train NMSE: 14.2136 optimized train NMSE: 15.7160 model capacity 40.9332 physfad_c capacity 25.2472 40.7853 sum(X): 511  442
+E5 I31% 2:30:21s train NMSE: 14.0814 optimized train NMSE: 20.7036 model capacity 41.0411 physfad_c capacity 25.2789 40.2362 sum(X): 522  446
+E5 I35% 2:29:53s train NMSE: 14.1366 optimized train NMSE: 17.4278 model capacity 36.4010 physfad_c capacity 24.8994 40.6662 sum(X): 505  448
+E5 I40% 2:29:26s train NMSE: 14.1165 optimized train NMSE: 15.5218 model capacity 35.6552 physfad_c capacity 24.9849 41.5706 sum(X): 494  442
+E5 I42% 2:31:26s train NMSE: 14.2040 optimized train NMSE: 18.4593 model capacity 37.1178 physfad_c capacity 26.4733 41.7004 sum(X): 491  443
+E5 I47% 2:32:11s train NMSE: 14.0742 optimized train NMSE: 14.9744 model capacity 39.0459 physfad_c capacity 25.4755 42.7834 sum(X): 501  444
+E5 I50% 2:33:03s train NMSE: 13.9535 optimized train NMSE: 15.2848 model capacity 38.4732 physfad_c capacity 24.9626 42.3662 sum(X): 489  438
+E5 I54% 2:33:47s train NMSE: 13.9632 optimized train NMSE: 15.1415 model capacity 41.1682 physfad_c capacity 27.0988 42.1872 sum(X): 509  449
+E5 I57% 2:34:42s train NMSE: 14.0122 optimized train NMSE: 16.6387 model capacity 40.2588 physfad_c capacity 25.5929 42.4814 sum(X): 501  441
+E5 I59% 2:36:45s train NMSE: 13.8314 optimized train NMSE: 15.6116 model capacity 38.2076 physfad_c capacity 25.0012 42.4446 sum(X): 486  442
+E5 I64% 2:36:24s train NMSE: 13.9187 optimized train NMSE: 14.1122 model capacity 39.1414 physfad_c capacity 25.6663 41.4696 sum(X): 491  444
+E5 I66% 2:37:16s train NMSE: 13.8037 optimized train NMSE: 16.3415 model capacity 40.3013 physfad_c capacity 27.1637 43.3753 sum(X): 495  441
+E5 I71% 2:37:58s train NMSE: 13.8863 optimized train NMSE: 16.2018 model capacity 41.5253 physfad_c capacity 25.6793 43.7055 sum(X): 509  446
+E5 I75% 2:39:48s train NMSE: 13.9435 optimized train NMSE: 14.7985 model capacity 40.7732 physfad_c capacity 25.3018 42.5093 sum(X): 499  445
+E5 I78% 2:40:38s train NMSE: 14.0099 optimized train NMSE: 16.8349 model capacity 40.2803 physfad_c capacity 25.3127 40.7082 sum(X): 494  448
+E5 I80% 2:42:33s train NMSE: 13.9848 optimized train NMSE: 16.4011 model capacity 40.2992 physfad_c capacity 26.6902 43.5418 sum(X): 502  448
+E5 I87% 2:42:55s train NMSE: 13.9425 optimized train NMSE: 14.9081 model capacity 37.5891 physfad_c capacity 24.1657 43.1330 sum(X): 485  446
+E5 I90% 2:43:33s train NMSE: 13.9704 optimized train NMSE: 15.3216 model capacity 38.5782 physfad_c capacity 25.6160 41.7698 sum(X): 483  443
+E5 I92% 2:44:12s train NMSE: 14.0521 optimized train NMSE: 16.2977 model capacity 40.4695 physfad_c capacity 28.1663 43.4977 sum(X): 498  453
+epoch 6 train dataset length 27840
+E6 I7% 2:40:22s train NMSE: 14.0600 optimized train NMSE: 14.4863 model capacity 44.9074 physfad_c capacity 25.4193 45.8270 sum(X): 510  444
+E6 I11% 2:41:07s train NMSE: 13.8862 optimized train NMSE: 16.2806 model capacity 41.3523 physfad_c capacity 24.7865 42.2379 sum(X): 510  447
+E6 I16% 2:43:12s train NMSE: 14.0311 optimized train NMSE: 20.0822 model capacity 45.3539 physfad_c capacity 26.6001 42.9695 sum(X): 522  445
+E6 I18% 2:45:24s train NMSE: 13.9668 optimized train NMSE: 14.8614 model capacity 37.9842 physfad_c capacity 25.1770 43.1601 sum(X): 498  447
+E6 I28% 2:41:50s train NMSE: 14.0005 optimized train NMSE: 15.9164 model capacity 39.9254 physfad_c capacity 27.5218 43.1995 sum(X): 524  450
+E6 I30% 2:42:35s train NMSE: 13.9790 optimized train NMSE: 29.2357 model capacity 42.8531 physfad_c capacity 25.1834 43.7815 sum(X): 516  450
+E6 I32% 2:43:22s train NMSE: 13.9856 optimized train NMSE: 14.9165 model capacity 41.2046 physfad_c capacity 25.5984 42.8609 sum(X): 532  453
+E6 I44% 2:41:03s train NMSE: 14.1982 optimized train NMSE: 14.6928 model capacity 40.3678 physfad_c capacity 25.5793 43.4202 sum(X): 511  446
+E6 I48% 2:43:01s train NMSE: 14.2883 optimized train NMSE: 16.5480 model capacity 40.2165 physfad_c capacity 26.3722 42.2113 sum(X): 511  448
+E6 I57% 2:42:10s train NMSE: 14.2072 optimized train NMSE: 15.5944 model capacity 40.5228 physfad_c capacity 26.1370 43.2065 sum(X): 511  451
+E6 I60% 2:44:17s train NMSE: 14.1909 optimized train NMSE: 14.0056 model capacity 41.9544 physfad_c capacity 29.2665 45.0446 sum(X): 517  451
+E6 I62% 2:46:25s train NMSE: 14.1371 optimized train NMSE: 14.8335 model capacity 41.8857 physfad_c capacity 26.9701 44.6500 sum(X): 524  456
+E6 I64% 2:48:34s train NMSE: 14.1081 optimized train NMSE: 17.3908 model capacity 42.9265 physfad_c capacity 24.6856 44.0272 sum(X): 520  455
+E6 I76% 2:48:53s train NMSE: 14.0215 optimized train NMSE: 16.0356 model capacity 40.6697 physfad_c capacity 27.3734 42.9284 sum(X): 512  445
+E6 I78% 2:49:33s train NMSE: 14.1173 optimized train NMSE: 15.8850 model capacity 39.3447 physfad_c capacity 27.1062 43.3090 sum(X): 514  448
+E6 I80% 2:51:43s train NMSE: 14.0852 optimized train NMSE: 14.2151 model capacity 39.9554 physfad_c capacity 26.3026 42.7999 sum(X): 494  443
+E6 I83% 2:52:21s train NMSE: 14.0857 optimized train NMSE: 15.7715 model capacity 40.1357 physfad_c capacity 26.0700 43.0299 sum(X): 509  446
+E6 I85% 2:52:54s train NMSE: 14.0651 optimized train NMSE: 14.6116 model capacity 41.7334 physfad_c capacity 25.8280 42.9862 sum(X): 509  447
+E6 I92% 2:53:14s train NMSE: 13.9678 optimized train NMSE: 13.9817 model capacity 41.8921 physfad_c capacity 26.1404 43.8579 sum(X): 500  442
+E6 I94% 2:55:17s train NMSE: 14.0464 optimized train NMSE: 15.3425 model capacity 41.2993 physfad_c capacity 25.6532 44.7393 sum(X): 504  441
+E6 I97% 2:57:20s train NMSE: 14.0270 optimized train NMSE: 14.7837 model capacity 39.1396 physfad_c capacity 24.3395 42.3602 sum(X): 499  442
+epoch 7 train dataset length 28512
+E7 I0% 2:54:43s train NMSE: 14.0219 optimized train NMSE: 17.2696 model capacity 48.0432 physfad_c capacity 28.0767 46.7156 sum(X): 556  454
+E7 I9% 2:53:37s train NMSE: 14.2498 optimized train NMSE: 14.6378 model capacity 43.3033 physfad_c capacity 25.2316 44.5969 sum(X): 526  446
+E7 I18% 2:52:31s train NMSE: 14.1280 optimized train NMSE: 14.3709 model capacity 42.7004 physfad_c capacity 25.5914 45.2402 sum(X): 522  445
+E7 I25% 2:51:37s train NMSE: 14.0958 optimized train NMSE: 15.9745 model capacity 43.8312 physfad_c capacity 27.8122 43.0473 sum(X): 529  451
+E7 I49% 2:44:02s train NMSE: 13.8623 optimized train NMSE: 17.9602 model capacity 41.3213 physfad_c capacity 25.0890 42.5978 sum(X): 518  445
+E7 I52% 2:46:20s train NMSE: 13.7553 optimized train NMSE: 14.6611 model capacity 39.5768 physfad_c capacity 26.2082 44.7726 sum(X): 507  448
+E7 I54% 2:47:09s train NMSE: 13.7787 optimized train NMSE: 17.3045 model capacity 41.4985 physfad_c capacity 26.8212 44.5764 sum(X): 512  443
+E7 I67% 2:47:01s train NMSE: 14.0130 optimized train NMSE: 17.2506 model capacity 48.1289 physfad_c capacity 27.6697 44.9054 sum(X): 554  460
+E7 I72% 2:47:28s train NMSE: 13.9285 optimized train NMSE: 14.8998 model capacity 40.1045 physfad_c capacity 25.9098 44.1008 sum(X): 502  447
+E7 I74% 2:49:39s train NMSE: 14.1171 optimized train NMSE: 16.5735 model capacity 39.8119 physfad_c capacity 26.2186 44.8007 sum(X): 498  444
+E7 I81% 2:46:44s train NMSE: 14.2098 optimized train NMSE: 14.6401 model capacity 38.6850 physfad_c capacity 27.7379 43.0572 sum(X): 515  453
+E7 I83% 2:47:20s train NMSE: 14.2756 optimized train NMSE: 16.1894 model capacity 40.8709 physfad_c capacity 27.4675 44.2435 sum(X): 513  452
+E7 I85% 2:49:35s train NMSE: 14.3457 optimized train NMSE: 15.9198 model capacity 40.4416 physfad_c capacity 27.5310 42.9077 sum(X): 516  452
+E7 I88% 2:50:13s train NMSE: 14.2481 optimized train NMSE: 15.0547 model capacity 40.0270 physfad_c capacity 25.2398 42.8073 sum(X): 500  447
+E7 I90% 2:50:52s train NMSE: 14.2795 optimized train NMSE: 15.3741 model capacity 39.8729 physfad_c capacity 27.6179 42.6159 sum(X): 522  448
+E7 I92% 2:53:07s train NMSE: 14.3464 optimized train NMSE: 13.8474 model capacity 40.7890 physfad_c capacity 27.4093 43.1542 sum(X): 520  449
+E7 I99% 2:51:55s train NMSE: 14.3318 optimized train NMSE: 40.4546 model capacity 46.1102 physfad_c capacity 25.7282 44.1576 sum(X): 511  446
+epoch 8 train dataset length 29056
+E8 I0% 2:53:10s train NMSE: 14.3907 optimized train NMSE: 15.6297 model capacity 41.8954 physfad_c capacity 25.5935 43.4153 sum(X): 519  440
+E8 I4% 2:53:47s train NMSE: 14.5677 optimized train NMSE: 14.9689 model capacity 41.3502 physfad_c capacity 27.6224 43.0881 sum(X): 534  445
+E8 I9% 2:55:57s train NMSE: 14.4624 optimized train NMSE: 14.3235 model capacity 42.1612 physfad_c capacity 27.6274 44.0918 sum(X): 543  450
+E8 I11% 2:56:43s train NMSE: 14.4984 optimized train NMSE: 18.5307 model capacity 42.4779 physfad_c capacity 25.9927 44.8867 sum(X): 537  447
+E8 I15% 2:57:20s train NMSE: 14.4704 optimized train NMSE: 15.0314 model capacity 43.4366 physfad_c capacity 27.6581 44.6180 sum(X): 553  459
+E8 I18% 2:59:41s train NMSE: 14.4353 optimized train NMSE: 14.4341 model capacity 41.8537 physfad_c capacity 26.2733 45.4505 sum(X): 521  443
+E8 I20% 3:00:31s train NMSE: 14.4155 optimized train NMSE: 14.9032 model capacity 42.9192 physfad_c capacity 27.1370 43.9521 sum(X): 529  447
+E8 I31% 2:56:05s train NMSE: 14.2328 optimized train NMSE: 13.9100 model capacity 40.5906 physfad_c capacity 26.8241 45.5332 sum(X): 513  443
+E8 I33% 2:58:27s train NMSE: 14.1842 optimized train NMSE: 16.9298 model capacity 44.5148 physfad_c capacity 27.3787 43.2631 sum(X): 553  457
+E8 I42% 2:57:14s train NMSE: 14.2802 optimized train NMSE: 33.1376 model capacity 47.0927 physfad_c capacity 27.8223 44.5383 sum(X): 552  452
+E8 I48% 2:59:09s train NMSE: 14.4696 optimized train NMSE: 16.4716 model capacity 41.1270 physfad_c capacity 27.6272 43.9948 sum(X): 536  450
+E8 I53% 2:57:47s train NMSE: 14.5757 optimized train NMSE: 14.6206 model capacity 41.2052 physfad_c capacity 28.7683 45.5644 sum(X): 549  453
+E8 I57% 2:58:08s train NMSE: 14.6206 optimized train NMSE: 14.4187 model capacity 42.1116 physfad_c capacity 27.5120 45.3393 sum(X): 546  445
+E8 I59% 3:00:23s train NMSE: 14.5559 optimized train NMSE: 14.3199 model capacity 43.9677 physfad_c capacity 27.2281 45.0200 sum(X): 559  439
+E8 I62% 3:02:38s train NMSE: 14.6180 optimized train NMSE: 15.6687 model capacity 43.8178 physfad_c capacity 26.1500 44.2924 sum(X): 566  457
+E8 I64% 3:03:12s train NMSE: 14.7325 optimized train NMSE: 14.1505 model capacity 41.1401 physfad_c capacity 25.2289 44.6249 sum(X): 530  443
+E8 I66% 3:03:49s train NMSE: 14.6869 optimized train NMSE: 16.3620 model capacity 43.7017 physfad_c capacity 27.1514 44.8215 sum(X): 565  458
+E8 I68% 3:06:09s train NMSE: 14.5852 optimized train NMSE: 15.4932 model capacity 40.5828 physfad_c capacity 25.6124 44.7399 sum(X): 528  445
+E8 I79% 3:07:50s train NMSE: 14.5090 optimized train NMSE: 14.2632 model capacity 40.1883 physfad_c capacity 25.6625 43.8304 sum(X): 543  441
+E8 I84% 3:09:59s train NMSE: 14.5625 optimized train NMSE: 14.3859 model capacity 45.0980 physfad_c capacity 28.7488 46.5763 sum(X): 588  450
+E8 I88% 3:10:23s train NMSE: 14.5875 optimized train NMSE: 15.7255 model capacity 41.9221 physfad_c capacity 26.4276 45.2568 sum(X): 566  458
+E8 I93% 3:10:46s train NMSE: 14.5257 optimized train NMSE: 14.2129 model capacity 41.7181 physfad_c capacity 26.7886 44.7653 sum(X): 540  448
+epoch 9 train dataset length 29760
+E9 I4% 3:05:31s train NMSE: 14.2067 optimized train NMSE: 13.5603 model capacity 47.0427 physfad_c capacity 26.4093 45.7014 sum(X): 581  443
+E9 I11% 3:04:15s train NMSE: 14.0224 optimized train NMSE: 13.9181 model capacity 44.3314 physfad_c capacity 27.8073 46.2987 sum(X): 563  450
+E9 I13% 3:06:40s train NMSE: 13.9989 optimized train NMSE: 16.6511 model capacity 44.4840 physfad_c capacity 28.1279 44.7716 sum(X): 591  461
+E9 I17% 3:08:59s train NMSE: 14.0039 optimized train NMSE: 13.8073 model capacity 39.6217 physfad_c capacity 26.5621 45.1824 sum(X): 532  449
+E9 I19% 3:09:48s train NMSE: 14.0743 optimized train NMSE: 15.4165 model capacity 40.0752 physfad_c capacity 29.2506 43.7651 sum(X): 543  452
+E9 I22% 3:12:18s train NMSE: 14.0614 optimized train NMSE: 14.5700 model capacity 41.3271 physfad_c capacity 26.7048 45.3850 sum(X): 544  448
+E9 I30% 3:10:54s train NMSE: 14.0180 optimized train NMSE: 18.1654 model capacity 46.0326 physfad_c capacity 29.0621 45.1359 sum(X): 566  456
+E9 I32% 3:11:36s train NMSE: 14.0540 optimized train NMSE: 13.9531 model capacity 41.5624 physfad_c capacity 27.6026 44.7724 sum(X): 553  451
+E9 I37% 3:13:48s train NMSE: 13.9259 optimized train NMSE: 14.9860 model capacity 39.9212 physfad_c capacity 25.6695 43.7086 sum(X): 535  449
+E9 I49% 3:13:24s train NMSE: 13.9863 optimized train NMSE: 15.3138 model capacity 42.6042 physfad_c capacity 26.3870 43.2771 sum(X): 559  454
+E9 I52% 3:15:47s train NMSE: 13.9603 optimized train NMSE: 14.8241 model capacity 41.3109 physfad_c capacity 26.4469 42.8080 sum(X): 548  447
+E9 I54% 3:16:22s train NMSE: 14.0446 optimized train NMSE: 14.8540 model capacity 39.9157 physfad_c capacity 25.8181 42.9494 sum(X): 529  437
+E9 I56% 3:17:00s train NMSE: 14.0482 optimized train NMSE: 14.2749 model capacity 41.1876 physfad_c capacity 27.1490 44.8001 sum(X): 560  448
+E9 I58% 3:19:26s train NMSE: 14.0484 optimized train NMSE: 13.5895 model capacity 41.1908 physfad_c capacity 26.9516 44.8476 sum(X): 547  450
+E9 I60% 3:21:51s train NMSE: 14.1366 optimized train NMSE: 14.9093 model capacity 42.0051 physfad_c capacity 27.0618 44.9070 sum(X): 555  448
+E9 I62% 3:24:18s train NMSE: 14.2768 optimized train NMSE: 15.5121 model capacity 41.1439 physfad_c capacity 26.2861 44.5925 sum(X): 548  451
+E9 I67% 3:24:40s train NMSE: 14.1318 optimized train NMSE: 13.5614 model capacity 42.4284 physfad_c capacity 26.6890 46.1196 sum(X): 550  450
+E9 I69% 3:25:13s train NMSE: 14.0380 optimized train NMSE: 13.5740 model capacity 42.1855 physfad_c capacity 25.9884 45.5487 sum(X): 547  449
+E9 I71% 3:27:33s train NMSE: 14.1410 optimized train NMSE: 13.8266 model capacity 43.1739 physfad_c capacity 25.5399 45.4364 sum(X): 550  442
+E9 I77% 3:25:57s train NMSE: 14.1928 optimized train NMSE: 13.5668 model capacity 45.4804 physfad_c capacity 27.4724 46.9463 sum(X): 593  455
+E9 I82% 3:26:19s train NMSE: 14.0390 optimized train NMSE: 15.0433 model capacity 44.1662 physfad_c capacity 26.8338 44.3142 sum(X): 563  451
+E9 I88% 3:24:44s train NMSE: 13.8968 optimized train NMSE: 13.7807 model capacity 43.3120 physfad_c capacity 28.1832 46.2633 sum(X): 555  452
+E9 I95% 3:21:15s train NMSE: 13.7662 optimized train NMSE: 13.4777 model capacity 42.0107 physfad_c capacity 24.6576 44.3487 sum(X): 525  445
+E9 I97% 3:23:40s train NMSE: 13.7989 optimized train NMSE: 17.7130 model capacity 44.2349 physfad_c capacity 29.1369 45.9038 sum(X): 569  458
+epoch 10 train dataset length 30528
+E10 I6% 3:18:31s train NMSE: 13.9880 optimized train NMSE: 13.9234 model capacity 46.1072 physfad_c capacity 28.1093 46.2206 sum(X): 614  460
+E10 I8% 3:19:14s train NMSE: 14.0656 optimized train NMSE: 15.2006 model capacity 46.0727 physfad_c capacity 30.5451 45.7659 sum(X): 609  466
+E10 I15% 3:19:34s train NMSE: 14.1605 optimized train NMSE: 24.1611 model capacity 45.6399 physfad_c capacity 28.5219 44.4041 sum(X): 556  470
+E10 I17% 3:20:15s train NMSE: 14.4168 optimized train NMSE: 13.5896 model capacity 41.9364 physfad_c capacity 29.3416 45.9926 sum(X): 552  457
+E10 I21% 3:18:58s train NMSE: 14.3105 optimized train NMSE: 14.0700 model capacity 41.6596 physfad_c capacity 27.2588 45.1480 sum(X): 556  457
+E10 I25% 3:21:19s train NMSE: 14.2869 optimized train NMSE: 21.8872 model capacity 46.3204 physfad_c capacity 27.5520 47.3016 sum(X): 566  452
+E10 I27% 3:23:51s train NMSE: 14.3682 optimized train NMSE: 14.8844 model capacity 41.8272 physfad_c capacity 28.8779 44.8400 sum(X): 544  457
+E10 I29% 3:26:21s train NMSE: 14.4108 optimized train NMSE: 14.9551 model capacity 40.1638 physfad_c capacity 27.3267 44.5921 sum(X): 540  457
+E10 I31% 3:28:53s train NMSE: 14.6442 optimized train NMSE: 24.3458 model capacity 43.8311 physfad_c capacity 28.6054 46.3714 sum(X): 539  459
+E10 I38% 3:29:02s train NMSE: 14.8259 optimized train NMSE: 14.7919 model capacity 42.4887 physfad_c capacity 28.9773 45.1054 sum(X): 555  459
+E10 I40% 3:31:28s train NMSE: 14.9288 optimized train NMSE: 15.4726 model capacity 41.3872 physfad_c capacity 26.2749 44.0919 sum(X): 548  460
+E10 I42% 3:31:53s train NMSE: 14.9445 optimized train NMSE: 13.9113 model capacity 43.4522 physfad_c capacity 27.9738 45.9146 sum(X): 559  457
+E10 I44% 3:34:19s train NMSE: 14.9023 optimized train NMSE: 12.9539 model capacity 44.1236 physfad_c capacity 26.8172 47.1036 sum(X): 558  444
+E10 I46% 3:34:48s train NMSE: 14.9481 optimized train NMSE: 14.0193 model capacity 45.6366 physfad_c capacity 29.1918 46.2138 sum(X): 593  461
+E10 I50% 3:35:08s train NMSE: 14.8935 optimized train NMSE: 13.3186 model capacity 43.4521 physfad_c capacity 25.1863 46.2933 sum(X): 561  453
+E10 I55% 3:37:25s train NMSE: 14.5143 optimized train NMSE: 13.5411 model capacity 42.2689 physfad_c capacity 28.1292 46.8159 sum(X): 560  458
+E10 I61% 3:33:52s train NMSE: 14.1696 optimized train NMSE: 14.5582 model capacity 42.2534 physfad_c capacity 25.4591 45.0279 sum(X): 554  449
+E10 I63% 3:36:21s train NMSE: 14.1589 optimized train NMSE: 15.5118 model capacity 42.5841 physfad_c capacity 27.3369 44.6960 sum(X): 572  458
+E10 I65% 3:38:44s train NMSE: 14.1799 optimized train NMSE: 16.9576 model capacity 44.1243 physfad_c capacity 27.9513 44.0288 sum(X): 577  458
+E10 I78% 3:36:21s train NMSE: 14.0117 optimized train NMSE: 13.9088 model capacity 43.3439 physfad_c capacity 27.7076 46.1234 sum(X): 574  445
+E10 I80% 3:38:44s train NMSE: 14.0849 optimized train NMSE: 13.7454 model capacity 42.4549 physfad_c capacity 25.8597 44.5000 sum(X): 551  451
+E10 I86% 3:36:58s train NMSE: 14.2099 optimized train NMSE: 16.9707 model capacity 44.9332 physfad_c capacity 27.9292 45.7492 sum(X): 598  458
+E10 I88% 3:37:28s train NMSE: 14.3146 optimized train NMSE: 14.9206 model capacity 43.5487 physfad_c capacity 27.5836 46.0893 sum(X): 566  457
+E10 I92% 3:37:49s train NMSE: 14.4325 optimized train NMSE: 13.4140 model capacity 42.3466 physfad_c capacity 28.3839 46.2014 sum(X): 549  450
+epoch 11 train dataset length 31296
+E11 I2% 3:33:53s train NMSE: 14.3872 optimized train NMSE: 14.1602 model capacity 45.8710 physfad_c capacity 30.6823 47.1951 sum(X): 623  472
+E11 I10% 3:32:14s train NMSE: 14.1485 optimized train NMSE: 14.6820 model capacity 41.9581 physfad_c capacity 26.6409 45.8303 sum(X): 556  448
+E11 I12% 3:32:55s train NMSE: 14.1596 optimized train NMSE: 14.4117 model capacity 42.1820 physfad_c capacity 26.4853 44.8784 sum(X): 567  456
+E11 I14% 3:33:36s train NMSE: 14.1605 optimized train NMSE: 14.5453 model capacity 42.3761 physfad_c capacity 28.5329 45.2912 sum(X): 574  456
+E11 I18% 3:34:05s train NMSE: 14.1497 optimized train NMSE: 14.7555 model capacity 42.1750 physfad_c capacity 28.5059 44.5605 sum(X): 567  456
+E11 I22% 3:34:22s train NMSE: 14.1686 optimized train NMSE: 15.1413 model capacity 45.1305 physfad_c capacity 28.9356 45.8242 sum(X): 580  456
+E11 I27% 3:36:46s train NMSE: 14.2047 optimized train NMSE: 13.2635 model capacity 45.2075 physfad_c capacity 30.9163 47.1782 sum(X): 604  454
+E11 I29% 3:39:21s train NMSE: 14.2299 optimized train NMSE: 14.1010 model capacity 42.4991 physfad_c capacity 27.4178 45.3892 sum(X): 563  454
+E11 I39% 3:37:01s train NMSE: 14.0950 optimized train NMSE: 13.9911 model capacity 42.9777 physfad_c capacity 28.9885 45.5296 sum(X): 569  457
+E11 I43% 3:39:25s train NMSE: 14.0428 optimized train NMSE: 14.2772 model capacity 43.3162 physfad_c capacity 27.4496 46.0208 sum(X): 588  456
+E11 I45% 3:39:52s train NMSE: 14.1504 optimized train NMSE: 14.7920 model capacity 44.6137 physfad_c capacity 30.4421 46.4218 sum(X): 616  463
+E11 I47% 3:42:22s train NMSE: 14.1590 optimized train NMSE: 13.4627 model capacity 44.0283 physfad_c capacity 27.0188 46.2568 sum(X): 596  455
+E11 I49% 3:44:51s train NMSE: 14.0961 optimized train NMSE: 14.0573 model capacity 44.4781 physfad_c capacity 30.1051 45.2427 sum(X): 613  465
+E11 I51% 3:47:23s train NMSE: 14.1439 optimized train NMSE: 14.7817 model capacity 44.6241 physfad_c capacity 30.7256 45.9400 sum(X): 631  470
+E11 I61% 3:49:05s train NMSE: 14.0935 optimized train NMSE: 14.8048 model capacity 44.5968 physfad_c capacity 27.2468 45.0420 sum(X): 571  447
+E11 I67% 3:49:09s train NMSE: 14.0276 optimized train NMSE: 13.7379 model capacity 44.8557 physfad_c capacity 29.5345 46.5990 sum(X): 604  459
+E11 I76% 3:47:07s train NMSE: 13.8947 optimized train NMSE: 13.3968 model capacity 43.2909 physfad_c capacity 29.1618 46.7024 sum(X): 560  452
+E11 I78% 3:49:38s train NMSE: 13.9855 optimized train NMSE: 13.2453 model capacity 44.1084 physfad_c capacity 30.3079 46.4559 sum(X): 603  464
+E11 I90% 3:45:08s train NMSE: 13.9163 optimized train NMSE: 13.2974 model capacity 44.6750 physfad_c capacity 27.2464 46.2405 sum(X): 579  453
+E11 I92% 3:47:35s train NMSE: 13.9537 optimized train NMSE: 13.9271 model capacity 46.1054 physfad_c capacity 30.8155 46.3533 sum(X): 633  478
+epoch 12 train dataset length 31936
+E12 I4% 3:36:05s train NMSE: 13.8839 optimized train NMSE: 13.9855 model capacity 41.9266 physfad_c capacity 25.1246 45.4759 sum(X): 549  451
+E12 I10% 3:36:21s train NMSE: 14.0401 optimized train NMSE: 13.2009 model capacity 43.5739 physfad_c capacity 26.4700 46.2895 sum(X): 567  453
+E12 I18% 3:34:12s train NMSE: 14.0080 optimized train NMSE: 14.4693 model capacity 42.7329 physfad_c capacity 26.7330 44.5633 sum(X): 549  451
+E12 I26% 3:32:05s train NMSE: 13.9033 optimized train NMSE: 13.2607 model capacity 45.0633 physfad_c capacity 28.5732 46.4110 sum(X): 612  459
+E12 I34% 3:27:49s train NMSE: 13.6514 optimized train NMSE: 13.0277 model capacity 44.6409 physfad_c capacity 27.1612 46.8393 sum(X): 579  457
+E12 I42% 3:27:40s train NMSE: 13.4995 optimized train NMSE: 14.0460 model capacity 44.9011 physfad_c capacity 30.4130 46.6992 sum(X): 620  473
+E12 I46% 3:27:53s train NMSE: 13.6517 optimized train NMSE: 15.8269 model capacity 44.0794 physfad_c capacity 27.5859 46.1227 sum(X): 556  452
+E12 I50% 3:30:14s train NMSE: 13.7693 optimized train NMSE: 13.7236 model capacity 43.1002 physfad_c capacity 28.2277 46.7540 sum(X): 571  455
+E12 I52% 3:30:48s train NMSE: 13.8240 optimized train NMSE: 13.3539 model capacity 43.8122 physfad_c capacity 30.2044 46.6320 sum(X): 598  457
+E12 I54% 3:33:25s train NMSE: 13.7282 optimized train NMSE: 13.7258 model capacity 46.1563 physfad_c capacity 31.2532 46.5391 sum(X): 641  488
+E12 I56% 3:36:01s train NMSE: 13.8385 optimized train NMSE: 14.1906 model capacity 43.2036 physfad_c capacity 26.0479 46.4355 sum(X): 554  450
+E12 I58% 3:36:36s train NMSE: 13.9109 optimized train NMSE: 13.8662 model capacity 43.2312 physfad_c capacity 28.1606 46.2749 sum(X): 579  454
+E12 I70% 3:30:00s train NMSE: 14.0141 optimized train NMSE: 14.6855 model capacity 44.0275 physfad_c capacity 27.7351 45.9461 sum(X): 587  456
+E12 I74% 3:28:08s train NMSE: 14.0325 optimized train NMSE: 14.0181 model capacity 43.6611 physfad_c capacity 27.8350 45.1453 sum(X): 573  447
+E12 I76% 3:28:33s train NMSE: 13.9597 optimized train NMSE: 13.8789 model capacity 44.3150 physfad_c capacity 27.6703 45.8937 sum(X): 592  461
+E12 I96% 3:23:10s train NMSE: 13.9700 optimized train NMSE: 14.2568 model capacity 43.6779 physfad_c capacity 27.5065 45.2541 sum(X): 592  462
+E12 I98% 3:23:41s train NMSE: 14.0139 optimized train NMSE: 14.2580 model capacity 44.7162 physfad_c capacity 30.8234 45.8309 sum(X): 638  495
+epoch 13 train dataset length 32480
+E13 I0% 3:24:42s train NMSE: 14.1639 optimized train NMSE: 13.6741 model capacity 43.3696 physfad_c capacity 27.9507 45.7952 sum(X): 577  459
+E13 I2% 3:27:22s train NMSE: 14.3093 optimized train NMSE: 14.4407 model capacity 45.7798 physfad_c capacity 34.0233 47.8437 sum(X): 665  484
+E13 I6% 3:29:48s train NMSE: 14.2660 optimized train NMSE: 14.2849 model capacity 43.0398 physfad_c capacity 27.3037 45.9289 sum(X): 594  456
+E13 I16% 3:27:15s train NMSE: 14.1067 optimized train NMSE: 14.8247 model capacity 44.7362 physfad_c capacity 28.4796 45.3775 sum(X): 594  462
+E13 I18% 3:27:38s train NMSE: 13.9892 optimized train NMSE: 13.8064 model capacity 43.4911 physfad_c capacity 27.5278 46.4501 sum(X): 571  453
+E13 I20% 3:30:12s train NMSE: 13.9094 optimized train NMSE: 13.4055 model capacity 43.4953 physfad_c capacity 31.3426 46.9956 sum(X): 604  468
+E13 I22% 3:30:40s train NMSE: 13.8532 optimized train NMSE: 13.9943 model capacity 41.6030 physfad_c capacity 25.1997 46.1376 sum(X): 532  445
+E13 I37% 3:23:13s train NMSE: 13.9314 optimized train NMSE: 14.8145 model capacity 45.7689 physfad_c capacity 27.5471 47.1660 sum(X): 607  453
+E13 I39% 3:23:47s train NMSE: 13.8816 optimized train NMSE: 13.1592 model capacity 45.4741 physfad_c capacity 28.1296 47.0158 sum(X): 616  457
+E13 I49% 3:25:31s train NMSE: 13.5204 optimized train NMSE: 13.3150 model capacity 44.4321 physfad_c capacity 31.7053 49.0602 sum(X): 627  464
+E13 I51% 3:25:58s train NMSE: 13.5367 optimized train NMSE: 61.2579 model capacity 55.2923 physfad_c capacity 27.6757 47.8262 sum(X): 583  457
+E13 I57% 3:21:41s train NMSE: 13.5620 optimized train NMSE: 14.0469 model capacity 46.6186 physfad_c capacity 27.4275 48.4570 sum(X): 585  456
+E13 I61% 3:19:44s train NMSE: 13.5502 optimized train NMSE: 19.5397 model capacity 49.6827 physfad_c capacity 27.2586 48.1083 sum(X): 613  467
+E13 I67% 3:17:45s train NMSE: 13.7222 optimized train NMSE: 19.0524 model capacity 44.7530 physfad_c capacity 27.1532 46.3581 sum(X): 547  458
+E13 I69% 3:18:16s train NMSE: 13.8096 optimized train NMSE: 14.3503 model capacity 42.5953 physfad_c capacity 28.8127 45.9816 sum(X): 547  465
+E13 I71% 3:18:47s train NMSE: 13.9327 optimized train NMSE: 13.9844 model capacity 43.0745 physfad_c capacity 30.9917 46.6045 sum(X): 530  467
+E13 I73% 3:21:19s train NMSE: 14.0422 optimized train NMSE: 14.4752 model capacity 43.0274 physfad_c capacity 27.2204 45.1417 sum(X): 518  456
+E13 I77% 3:21:29s train NMSE: 14.1248 optimized train NMSE: 14.1612 model capacity 43.8912 physfad_c capacity 29.2452 47.9669 sum(X): 537  459
+E13 I79% 3:23:59s train NMSE: 14.2937 optimized train NMSE: 13.2442 model capacity 44.0012 physfad_c capacity 30.4484 47.9973 sum(X): 544  465
+E13 I81% 3:24:24s train NMSE: 14.3669 optimized train NMSE: 13.8497 model capacity 46.0840 physfad_c capacity 31.4036 48.5867 sum(X): 577  463
+E13 I83% 3:26:56s train NMSE: 14.4156 optimized train NMSE: 13.6529 model capacity 47.1556 physfad_c capacity 28.2837 48.8056 sum(X): 568  455
+E13 I87% 3:27:08s train NMSE: 14.6088 optimized train NMSE: 15.8596 model capacity 47.2088 physfad_c capacity 27.8057 45.5384 sum(X): 585  465
+E13 I89% 3:29:42s train NMSE: 14.6065 optimized train NMSE: 14.1310 model capacity 47.0309 physfad_c capacity 33.0980 47.8703 sum(X): 616  488
+E13 I93% 3:29:49s train NMSE: 14.6020 optimized train NMSE: 15.0496 model capacity 43.7032 physfad_c capacity 30.3059 45.7139 sum(X): 565  476
+epoch 14 train dataset length 33248
+E14 I0% 3:29:15s train NMSE: 14.4390 optimized train NMSE: 14.0033 model capacity 44.7482 physfad_c capacity 31.9018 47.1987 sum(X): 605  473
+E14 I2% 3:31:50s train NMSE: 14.2908 optimized train NMSE: 14.6479 model capacity 44.1965 physfad_c capacity 29.9218 45.8525 sum(X): 576  459
+E14 I8% 3:29:40s train NMSE: 14.1917 optimized train NMSE: 13.8410 model capacity 44.4499 physfad_c capacity 27.0648 47.0433 sum(X): 596  481
+E14 I12% 3:29:55s train NMSE: 14.2340 optimized train NMSE: 13.5299 model capacity 44.3529 physfad_c capacity 30.1794 47.5252 sum(X): 621  481
+E14 I13% 3:30:24s train NMSE: 14.1050 optimized train NMSE: 13.2383 model capacity 45.1819 physfad_c capacity 31.1912 46.8257 sum(X): 600  468
+E14 I15% 3:33:02s train NMSE: 14.1286 optimized train NMSE: 15.7929 model capacity 46.0270 physfad_c capacity 28.9890 47.1750 sum(X): 584  460
+E14 I17% 3:33:21s train NMSE: 14.0784 optimized train NMSE: 14.1960 model capacity 46.1061 physfad_c capacity 31.6852 47.2287 sum(X): 642  486
+E14 I19% 3:35:54s train NMSE: 14.0305 optimized train NMSE: 13.9607 model capacity 45.1267 physfad_c capacity 28.4185 46.9761 sum(X): 589  455
+E14 I21% 3:36:15s train NMSE: 14.0191 optimized train NMSE: 12.6375 model capacity 45.9100 physfad_c capacity 28.1887 47.8859 sum(X): 605  452
+E14 I23% 3:36:36s train NMSE: 14.0371 optimized train NMSE: 14.2912 model capacity 43.8116 physfad_c capacity 27.9659 44.9932 sum(X): 580  452
+E14 I29% 3:34:19s train NMSE: 14.0611 optimized train NMSE: 13.4334 model capacity 45.0030 physfad_c capacity 30.7659 47.3686 sum(X): 620  470
+E14 I33% 3:34:35s train NMSE: 14.0917 optimized train NMSE: 13.1231 model capacity 44.4238 physfad_c capacity 27.0111 49.1593 sum(X): 563  451
+E14 I35% 3:35:02s train NMSE: 14.1021 optimized train NMSE: 12.8440 model capacity 45.8230 physfad_c capacity 31.8140 48.2810 sum(X): 635  471
+E14 I38% 3:33:01s train NMSE: 14.0100 optimized train NMSE: 13.3930 model capacity 47.6723 physfad_c capacity 28.6806 48.2176 sum(X): 630  456
+E14 I40% 3:33:22s train NMSE: 13.9882 optimized train NMSE: 13.3545 model capacity 47.1521 physfad_c capacity 28.5194 49.2325 sum(X): 605  459
+E14 I46% 3:33:16s train NMSE: 13.8241 optimized train NMSE: 11.6889 model capacity 48.0131 physfad_c capacity 33.9843 49.9727 sum(X): 709  491
+E14 I50% 3:33:25s train NMSE: 13.8658 optimized train NMSE: 13.1810 model capacity 45.4633 physfad_c capacity 29.4378 47.3593 sum(X): 587  455
+E14 I52% 3:35:59s train NMSE: 13.8762 optimized train NMSE: 13.2956 model capacity 44.7974 physfad_c capacity 26.7999 47.2181 sum(X): 536  444
+E14 I56% 3:34:02s train NMSE: 13.9628 optimized train NMSE: 12.4133 model capacity 44.8573 physfad_c capacity 29.1259 49.2160 sum(X): 594  469
+E14 I60% 3:34:10s train NMSE: 14.0827 optimized train NMSE: 12.9262 model capacity 46.2204 physfad_c capacity 30.5544 49.5378 sum(X): 617  468
+E14 I62% 3:36:38s train NMSE: 14.2098 optimized train NMSE: 14.5913 model capacity 49.6234 physfad_c capacity 32.5752 49.2037 sum(X): 707  510
+E14 I67% 3:38:39s train NMSE: 14.1199 optimized train NMSE: 13.4066 model capacity 47.0550 physfad_c capacity 32.1105 48.0260 sum(X): 675  511
+E14 I69% 3:39:05s train NMSE: 14.1265 optimized train NMSE: 15.1096 model capacity 45.5689 physfad_c capacity 30.6233 46.4709 sum(X): 603  465
+E14 I73% 3:39:14s train NMSE: 14.0526 optimized train NMSE: 13.8374 model capacity 44.0248 physfad_c capacity 29.9708 46.3019 sum(X): 556  465
+E14 I75% 3:41:46s train NMSE: 14.1443 optimized train NMSE: 13.9102 model capacity 44.2527 physfad_c capacity 28.6553 47.1606 sum(X): 568  464
+E14 I77% 3:42:07s train NMSE: 14.1588 optimized train NMSE: 14.1144 model capacity 44.0587 physfad_c capacity 29.6212 46.5832 sum(X): 582  478
+E14 I79% 3:42:23s train NMSE: 14.1306 optimized train NMSE: 13.8736 model capacity 44.3091 physfad_c capacity 28.1119 47.7217 sum(X): 566  463
+E14 I81% 3:44:50s train NMSE: 14.0581 optimized train NMSE: 15.7739 model capacity 44.0714 physfad_c capacity 26.6043 45.1607 sum(X): 559  451
+E14 I85% 3:44:51s train NMSE: 14.0429 optimized train NMSE: 13.2709 model capacity 45.3926 physfad_c capacity 29.9957 47.2145 sum(X): 618  467
+E14 I89% 3:47:10s train NMSE: 14.0821 optimized train NMSE: 11.1402 model capacity 48.1614 physfad_c capacity 30.7263 50.7093 sum(X): 652  471
+E14 I90% 3:49:41s train NMSE: 14.0552 optimized train NMSE: 13.2380 model capacity 47.4307 physfad_c capacity 30.0252 50.2462 sum(X): 651  466
+E14 I92% 3:52:13s train NMSE: 14.0513 optimized train NMSE: 12.5441 model capacity 44.9266 physfad_c capacity 28.0109 48.8038 sum(X): 602  459
+E14 I96% 3:52:04s train NMSE: 13.9531 optimized train NMSE: 14.5677 model capacity 45.7502 physfad_c capacity 25.3629 47.8145 sum(X): 567  450
+E14 I98% 3:54:26s train NMSE: 14.0200 optimized train NMSE: 13.6498 model capacity 46.5123 physfad_c capacity 29.3494 48.1111 sum(X): 612  459
+epoch 15 train dataset length 34336
+E15 I0% 3:56:29s train NMSE: 14.0377 optimized train NMSE: 16.7541 model capacity 49.4188 physfad_c capacity 29.3679 48.1863 sum(X): 642  459
+E15 I6% 3:54:05s train NMSE: 14.2849 optimized train NMSE: 13.9583 model capacity 47.8830 physfad_c capacity 28.9297 50.3271 sum(X): 663  477
+E15 I7% 3:54:27s train NMSE: 14.3679 optimized train NMSE: 13.3973 model capacity 46.1678 physfad_c capacity 30.6267 48.6645 sum(X): 637  466
+E15 I22% 3:48:22s train NMSE: 14.0093 optimized train NMSE: 12.2480 model capacity 44.9334 physfad_c capacity 28.2057 48.9842 sum(X): 597  459
+E15 I30% 3:45:38s train NMSE: 13.7865 optimized train NMSE: 12.9601 model capacity 44.3196 physfad_c capacity 27.8920 46.9326 sum(X): 561  450
+E15 I34% 3:43:27s train NMSE: 13.6422 optimized train NMSE: 13.6522 model capacity 44.4526 physfad_c capacity 26.5075 46.2911 sum(X): 591  462
+E15 I37% 3:41:13s train NMSE: 13.5832 optimized train NMSE: 12.6402 model capacity 46.3505 physfad_c capacity 30.3933 48.2820 sum(X): 633  469
+E15 I41% 3:43:28s train NMSE: 13.8228 optimized train NMSE: 13.1179 model capacity 46.2262 physfad_c capacity 29.6266 48.4523 sum(X): 626  461
+E15 I47% 3:43:15s train NMSE: 13.9086 optimized train NMSE: 13.9348 model capacity 48.2773 physfad_c capacity 31.1361 48.9133 sum(X): 693  490
+E15 I48% 3:45:49s train NMSE: 13.9049 optimized train NMSE: 16.3547 model capacity 46.8637 physfad_c capacity 31.2245 47.6472 sum(X): 677  473
+E15 I56% 3:45:16s train NMSE: 13.9565 optimized train NMSE: 13.1108 model capacity 45.2999 physfad_c capacity 27.7362 47.6296 sum(X): 604  463
+E15 I60% 3:45:12s train NMSE: 13.9011 optimized train NMSE: 14.0405 model capacity 45.1272 physfad_c capacity 27.8035 47.3639 sum(X): 595  462
+E15 I67% 3:44:43s train NMSE: 13.8639 optimized train NMSE: 16.0639 model capacity 46.3170 physfad_c capacity 28.2910 46.7422 sum(X): 610  469
+E15 I76% 3:41:48s train NMSE: 13.8463 optimized train NMSE: 12.3136 model capacity 46.2863 physfad_c capacity 28.5763 48.9820 sum(X): 625  463
+E15 I86% 3:43:10s train NMSE: 14.1377 optimized train NMSE: 13.9099 model capacity 46.9804 physfad_c capacity 26.5290 48.7216 sum(X): 634  459
+E15 I91% 3:42:50s train NMSE: 14.2457 optimized train NMSE: 12.7892 model capacity 46.2970 physfad_c capacity 29.3137 49.2152 sum(X): 627  460
+E15 I93% 3:43:00s train NMSE: 14.3126 optimized train NMSE: 18.4707 model capacity 51.3355 physfad_c capacity 31.8067 50.1691 sum(X): 713  476
+E15 I95% 3:45:24s train NMSE: 14.2800 optimized train NMSE: 12.5282 model capacity 46.1732 physfad_c capacity 29.5429 48.9748 sum(X): 648  461
+E15 I97% 3:47:49s train NMSE: 14.3071 optimized train NMSE: 13.1796 model capacity 46.1667 physfad_c capacity 31.2213 49.9109 sum(X): 668  491
+epoch 16 train dataset length 34944
+E16 I0% 3:46:09s train NMSE: 14.4179 optimized train NMSE: 13.9737 model capacity 43.2689 physfad_c capacity 29.7037 47.0945 sum(X): 590  459
+E16 I4% 3:48:25s train NMSE: 14.5060 optimized train NMSE: 13.6149 model capacity 46.5707 physfad_c capacity 30.6959 49.0138 sum(X): 725  512
+E16 I7% 3:48:23s train NMSE: 14.5076 optimized train NMSE: 12.5116 model capacity 44.6093 physfad_c capacity 26.8057 49.7816 sum(X): 591  455
+E16 I9% 3:50:55s train NMSE: 14.4626 optimized train NMSE: 14.4596 model capacity 44.7913 physfad_c capacity 29.3534 47.8087 sum(X): 584  465
+E16 I11% 3:53:21s train NMSE: 14.4914 optimized train NMSE: 12.5403 model capacity 46.0276 physfad_c capacity 31.3810 50.9321 sum(X): 649  475
+E16 I13% 3:53:38s train NMSE: 14.3824 optimized train NMSE: 19.0089 model capacity 49.2299 physfad_c capacity 28.7154 49.4373 sum(X): 634  465
+E16 I15% 3:56:06s train NMSE: 14.3095 optimized train NMSE: 13.3256 model capacity 47.2719 physfad_c capacity 29.0399 49.7756 sum(X): 630  466
+E16 I16% 3:58:36s train NMSE: 14.2295 optimized train NMSE: 17.6714 model capacity 50.3627 physfad_c capacity 28.6037 48.2254 sum(X): 654  472
+E16 I18% 4:01:07s train NMSE: 14.1379 optimized train NMSE: 14.0860 model capacity 48.3025 physfad_c capacity 30.6060 48.7902 sum(X): 664  473
+E16 I22% 4:01:08s train NMSE: 14.2723 optimized train NMSE: 12.9496 model capacity 47.9077 physfad_c capacity 31.8578 49.7095 sum(X): 687  486
+E16 I26% 4:01:01s train NMSE: 14.3368 optimized train NMSE: 13.4898 model capacity 45.8988 physfad_c capacity 31.6692 48.5810 sum(X): 627  474
+E16 I33% 3:53:39s train NMSE: 14.5560 optimized train NMSE: 15.0433 model capacity 45.8524 physfad_c capacity 29.5619 47.0890 sum(X): 617  457
+E16 I46% 3:50:01s train NMSE: 14.0025 optimized train NMSE: 13.6557 model capacity 48.2570 physfad_c capacity 33.5506 49.0999 sum(X): 698  503
+E16 I49% 3:50:04s train NMSE: 13.9485 optimized train NMSE: 13.4071 model capacity 47.0159 physfad_c capacity 29.6324 48.7804 sum(X): 652  470
+E16 I51% 3:50:22s train NMSE: 14.0340 optimized train NMSE: 14.5313 model capacity 46.5615 physfad_c capacity 31.5643 48.6813 sum(X): 648  490
+E16 I55% 3:52:32s train NMSE: 13.9973 optimized train NMSE: 13.0541 model capacity 46.2499 physfad_c capacity 32.3139 49.4899 sum(X): 676  486
+E16 I59% 3:54:35s train NMSE: 14.1048 optimized train NMSE: 13.0751 model capacity 45.9359 physfad_c capacity 28.1254 49.1159 sum(X): 611  469
+E16 I62% 3:56:42s train NMSE: 14.1460 optimized train NMSE: 13.4998 model capacity 45.9403 physfad_c capacity 27.0785 48.6592 sum(X): 611  470
+E16 I68% 3:58:29s train NMSE: 14.1834 optimized train NMSE: 12.8141 model capacity 47.0943 physfad_c capacity 28.3824 49.1336 sum(X): 633  480
+E16 I71% 3:56:14s train NMSE: 14.1244 optimized train NMSE: 12.9632 model capacity 47.7283 physfad_c capacity 29.1779 49.5779 sum(X): 643  462
+E16 I75% 3:56:00s train NMSE: 14.0519 optimized train NMSE: 16.5537 model capacity 48.8276 physfad_c capacity 27.3788 48.9639 sum(X): 628  462
+E16 I81% 3:53:14s train NMSE: 13.9979 optimized train NMSE: 14.1642 model capacity 51.3793 physfad_c capacity 33.5868 50.6555 sum(X): 766  521
+E16 I82% 3:55:33s train NMSE: 14.0191 optimized train NMSE: 13.7084 model capacity 45.5136 physfad_c capacity 30.4231 49.0089 sum(X): 638  466
+E16 I86% 3:57:37s train NMSE: 14.1133 optimized train NMSE: 14.1301 model capacity 43.1411 physfad_c capacity 29.4401 47.1725 sum(X): 592  474
+E16 I90% 3:57:26s train NMSE: 14.0807 optimized train NMSE: 13.5758 model capacity 43.2763 physfad_c capacity 28.8610 47.7865 sum(X): 595  492
+E16 I92% 3:57:35s train NMSE: 14.0883 optimized train NMSE: 14.8189 model capacity 42.6104 physfad_c capacity 28.8987 47.3884 sum(X): 567  467
+E16 I93% 3:57:41s train NMSE: 14.0672 optimized train NMSE: 14.5005 model capacity 43.9835 physfad_c capacity 33.7074 48.0402 sum(X): 587  480
+E16 I97% 3:57:24s train NMSE: 14.2010 optimized train NMSE: 12.7960 model capacity 45.2596 physfad_c capacity 30.1467 47.7556 sum(X): 609  490
+epoch 17 train dataset length 35840
+E17 I2% 3:59:23s train NMSE: 13.8303 optimized train NMSE: 13.1676 model capacity 47.1012 physfad_c capacity 31.5133 48.8113 sum(X): 681  501
+E17 I4% 4:01:50s train NMSE: 13.8204 optimized train NMSE: 13.1510 model capacity 47.7361 physfad_c capacity 31.7002 49.8376 sum(X): 683  489
+E17 I12% 3:58:30s train NMSE: 13.9767 optimized train NMSE: 12.9118 model capacity 48.8505 physfad_c capacity 34.2615 50.3227 sum(X): 705  490
+E17 I14% 4:00:59s train NMSE: 14.0368 optimized train NMSE: 13.9015 model capacity 47.5274 physfad_c capacity 28.9143 47.7206 sum(X): 691  487
+E17 I20% 3:58:26s train NMSE: 14.1549 optimized train NMSE: 14.0813 model capacity 46.1332 physfad_c capacity 31.7296 48.9151 sum(X): 650  472
+E17 I21% 4:00:48s train NMSE: 14.1966 optimized train NMSE: 12.8080 model capacity 46.6159 physfad_c capacity 30.2426 50.5691 sum(X): 656  468
+E17 I23% 4:03:12s train NMSE: 14.2125 optimized train NMSE: 13.1228 model capacity 46.7512 physfad_c capacity 30.4396 48.7057 sum(X): 659  468
+E17 I25% 4:03:23s train NMSE: 14.1715 optimized train NMSE: 13.2085 model capacity 46.8282 physfad_c capacity 29.6256 48.6962 sum(X): 663  468
+E17 I27% 4:05:47s train NMSE: 14.0457 optimized train NMSE: 14.4569 model capacity 47.0493 physfad_c capacity 29.9254 47.8125 sum(X): 662  480
+E17 I34% 4:02:49s train NMSE: 14.0956 optimized train NMSE: 14.4273 model capacity 47.4488 physfad_c capacity 29.6838 46.6449 sum(X): 641  457
+E17 I38% 4:00:25s train NMSE: 14.0263 optimized train NMSE: 13.8504 model capacity 47.5557 physfad_c capacity 29.6514 48.0060 sum(X): 671  468
+E17 I39% 4:00:35s train NMSE: 13.9573 optimized train NMSE: 15.8449 model capacity 48.1394 physfad_c capacity 29.8616 48.3382 sum(X): 690  471
+E17 I41% 4:02:56s train NMSE: 13.9287 optimized train NMSE: 13.1275 model capacity 46.0674 physfad_c capacity 29.7947 48.7600 sum(X): 661  478
+E17 I45% 4:00:39s train NMSE: 13.9308 optimized train NMSE: 12.7995 model capacity 45.4462 physfad_c capacity 30.3757 48.4125 sum(X): 670  475
+E17 I46% 4:00:50s train NMSE: 13.7895 optimized train NMSE: 13.1172 model capacity 46.8101 physfad_c capacity 29.2260 49.7316 sum(X): 688  466
+E17 I48% 4:01:03s train NMSE: 13.8392 optimized train NMSE: 13.1487 model capacity 46.7111 physfad_c capacity 28.8753 49.8893 sum(X): 665  456
+E17 I50% 4:03:19s train NMSE: 13.9890 optimized train NMSE: 12.3995 model capacity 49.7312 physfad_c capacity 31.6276 51.0992 sum(X): 755  479
+E17 I52% 4:03:24s train NMSE: 13.9787 optimized train NMSE: 12.8060 model capacity 50.8256 physfad_c capacity 31.7593 51.7838 sum(X): 765  488
+E17 I55% 4:03:16s train NMSE: 13.9640 optimized train NMSE: 12.7744 model capacity 46.7045 physfad_c capacity 30.8184 50.1486 sum(X): 668  483
+E17 I59% 4:03:09s train NMSE: 13.9245 optimized train NMSE: 13.0348 model capacity 45.8591 physfad_c capacity 28.8075 49.3166 sum(X): 622  461
+E17 I66% 4:02:15s train NMSE: 14.0278 optimized train NMSE: 13.5876 model capacity 44.8777 physfad_c capacity 28.9637 48.0150 sum(X): 594  468
+E17 I68% 4:02:18s train NMSE: 13.8950 optimized train NMSE: 14.3412 model capacity 45.1872 physfad_c capacity 30.5291 46.9149 sum(X): 591  463
+E17 I75% 4:01:15s train NMSE: 13.9478 optimized train NMSE: 14.7437 model capacity 45.1254 physfad_c capacity 28.5293 47.0122 sum(X): 573  456
+E17 I82% 3:53:39s train NMSE: 14.0420 optimized train NMSE: 13.8194 model capacity 47.0058 physfad_c capacity 32.0241 49.5421 sum(X): 627  499
+E17 I89% 3:48:18s train NMSE: 14.0408 optimized train NMSE: 13.1734 model capacity 48.0019 physfad_c capacity 32.8325 49.3058 sum(X): 663  500
+E17 I93% 3:48:03s train NMSE: 13.8414 optimized train NMSE: 164.8162 model capacity 69.0155 physfad_c capacity 29.3450 49.0772 sum(X): 626  463
+E17 I95% 3:50:22s train NMSE: 13.8326 optimized train NMSE: 15.3537 model capacity 47.1400 physfad_c capacity 32.2670 47.3672 sum(X): 658  472
+E17 I98% 3:47:59s train NMSE: 13.9930 optimized train NMSE: 15.0968 model capacity 46.6978 physfad_c capacity 28.4789 47.6887 sum(X): 626  464
+epoch 18 train dataset length 36736
+E18 I5% 3:42:48s train NMSE: 14.7917 optimized train NMSE: 14.6727 model capacity 46.8885 physfad_c capacity 30.5976 47.7259 sum(X): 638  462
+E18 I16% 3:37:07s train NMSE: 14.6011 optimized train NMSE: 17.3191 model capacity 50.1204 physfad_c capacity 29.2680 49.2134 sum(X): 675  459
+E18 I17% 3:37:21s train NMSE: 14.5629 optimized train NMSE: 13.5898 model capacity 49.8287 physfad_c capacity 29.3076 49.4562 sum(X): 704  459
+E18 I19% 3:37:34s train NMSE: 14.4892 optimized train NMSE: 21.1981 model capacity 52.5522 physfad_c capacity 28.7965 51.0825 sum(X): 727  478
+E18 I21% 3:39:55s train NMSE: 14.6908 optimized train NMSE: 18.1866 model capacity 50.1337 physfad_c capacity 31.4701 49.9613 sum(X): 686  493
+E18 I28% 3:36:55s train NMSE: 15.0745 optimized train NMSE: 17.0481 model capacity 45.2868 physfad_c capacity 32.9955 48.2722 sum(X): 676  496
+E18 I30% 3:37:03s train NMSE: 15.0666 optimized train NMSE: 14.1704 model capacity 45.2503 physfad_c capacity 31.1105 48.4625 sum(X): 644  480
+E18 I31% 3:37:14s train NMSE: 15.2332 optimized train NMSE: 14.4603 model capacity 46.3121 physfad_c capacity 33.3906 49.4464 sum(X): 707  518
+E18 I35% 3:35:04s train NMSE: 15.2258 optimized train NMSE: 14.3139 model capacity 49.0086 physfad_c capacity 30.2832 49.5771 sum(X): 691  501
+E18 I37% 3:35:18s train NMSE: 15.2611 optimized train NMSE: 14.1592 model capacity 46.6485 physfad_c capacity 26.7357 47.7508 sum(X): 592  458
+E18 I38% 3:37:31s train NMSE: 15.0478 optimized train NMSE: 13.3581 model capacity 47.6018 physfad_c capacity 33.2664 49.9554 sum(X): 645  480
+E18 I40% 3:37:36s train NMSE: 14.9592 optimized train NMSE: 14.0564 model capacity 47.0519 physfad_c capacity 29.6339 48.4381 sum(X): 609  469
+E18 I42% 3:39:53s train NMSE: 14.8468 optimized train NMSE: 15.4385 model capacity 46.7467 physfad_c capacity 29.7681 47.7623 sum(X): 645  474
+E18 I45% 3:37:29s train NMSE: 14.6900 optimized train NMSE: 14.4110 model capacity 46.7884 physfad_c capacity 30.6620 49.2509 sum(X): 643  474
+E18 I49% 3:37:24s train NMSE: 14.6198 optimized train NMSE: 13.3673 model capacity 46.1163 physfad_c capacity 31.6544 48.8813 sum(X): 668  479
+E18 I52% 3:35:08s train NMSE: 14.5346 optimized train NMSE: 13.7712 model capacity 46.4885 physfad_c capacity 29.2850 48.1294 sum(X): 632  463
+E18 I59% 3:34:12s train NMSE: 14.4444 optimized train NMSE: 13.4600 model capacity 48.4446 physfad_c capacity 32.2285 48.9949 sum(X): 657  465
+E18 I61% 3:34:14s train NMSE: 14.4529 optimized train NMSE: 17.8677 model capacity 48.6429 physfad_c capacity 30.3452 47.0791 sum(X): 670  487
+E18 I63% 3:34:23s train NMSE: 14.4151 optimized train NMSE: 13.7704 model capacity 48.0868 physfad_c capacity 33.4447 49.3319 sum(X): 741  485
+E18 I64% 3:36:49s train NMSE: 14.5302 optimized train NMSE: 13.8703 model capacity 46.2445 physfad_c capacity 33.0986 48.9415 sum(X): 673  483
+E18 I66% 3:39:10s train NMSE: 14.5203 optimized train NMSE: 14.7242 model capacity 44.5908 physfad_c capacity 30.9607 47.9089 sum(X): 600  459
+E18 I68% 3:41:27s train NMSE: 14.6295 optimized train NMSE: 13.5323 model capacity 46.1234 physfad_c capacity 29.2084 48.7693 sum(X): 633  465
+E18 I70% 3:43:46s train NMSE: 14.6775 optimized train NMSE: 13.0829 model capacity 46.8049 physfad_c capacity 32.8712 49.8170 sum(X): 708  500
+E18 I73% 3:45:48s train NMSE: 14.7081 optimized train NMSE: 13.3810 model capacity 46.4452 physfad_c capacity 30.6073 48.8783 sum(X): 682  485
+E18 I75% 3:48:11s train NMSE: 14.7256 optimized train NMSE: 13.1953 model capacity 47.4338 physfad_c capacity 28.6052 47.9260 sum(X): 638  473
+E18 I77% 3:48:22s train NMSE: 14.7875 optimized train NMSE: 15.1725 model capacity 48.2472 physfad_c capacity 29.9571 48.5055 sum(X): 638  475
+E18 I80% 3:50:17s train NMSE: 14.7997 optimized train NMSE: 12.8753 model capacity 46.4274 physfad_c capacity 30.1758 49.0536 sum(X): 646  468
+E18 I82% 3:52:33s train NMSE: 14.6027 optimized train NMSE: 12.8749 model capacity 47.8530 physfad_c capacity 34.7420 50.0900 sum(X): 788  523
+E18 I84% 3:52:49s train NMSE: 14.6343 optimized train NMSE: 14.0058 model capacity 46.7344 physfad_c capacity 30.9563 49.1398 sum(X): 670  496
+E18 I85% 3:55:09s train NMSE: 14.5482 optimized train NMSE: 14.1806 model capacity 47.7535 physfad_c capacity 32.2659 49.1929 sum(X): 699  490
+E18 I89% 3:54:58s train NMSE: 14.4009 optimized train NMSE: 14.1945 model capacity 47.0670 physfad_c capacity 31.1682 48.2581 sum(X): 662  476
+E18 I91% 3:55:03s train NMSE: 14.2236 optimized train NMSE: 12.5583 model capacity 47.6332 physfad_c capacity 32.1925 49.7605 sum(X): 684  474
+E18 I92% 3:57:17s train NMSE: 14.2262 optimized train NMSE: 14.6228 model capacity 46.0060 physfad_c capacity 30.3699 47.1726 sum(X): 630  471
+E18 I94% 3:57:27s train NMSE: 14.1721 optimized train NMSE: 14.0055 model capacity 46.6095 physfad_c capacity 29.9064 49.3593 sum(X): 647  472
+E18 I96% 3:59:45s train NMSE: 14.1762 optimized train NMSE: 13.9161 model capacity 47.9612 physfad_c capacity 31.7620 49.0793 sum(X): 722  497
+epoch 19 train dataset length 37856
+E19 I5% 3:55:22s train NMSE: 14.2827 optimized train NMSE: 12.6373 model capacity 47.1480 physfad_c capacity 31.9385 50.2514 sum(X): 691  468
+E19 I7% 3:57:41s train NMSE: 14.2950 optimized train NMSE: 12.9252 model capacity 47.8250 physfad_c capacity 35.0200 50.3965 sum(X): 763  510
+E19 I10% 3:57:34s train NMSE: 14.3198 optimized train NMSE: 14.1619 model capacity 47.1187 physfad_c capacity 31.2602 49.2745 sum(X): 695  486
+E19 I12% 3:59:58s train NMSE: 14.3819 optimized train NMSE: 12.3971 model capacity 48.1723 physfad_c capacity 33.6285 50.6707 sum(X): 710  479
+E19 I14% 4:02:21s train NMSE: 14.4393 optimized train NMSE: 13.4828 model capacity 49.0989 physfad_c capacity 30.9673 49.6507 sum(X): 694  478
+E19 I20% 4:01:29s train NMSE: 14.2177 optimized train NMSE: 13.8687 model capacity 48.0243 physfad_c capacity 31.9033 49.0377 sum(X): 672  470
+E19 I25% 4:00:53s train NMSE: 14.1257 optimized train NMSE: 13.9781 model capacity 50.4603 physfad_c capacity 32.4525 49.0301 sum(X): 769  509
+E19 I30% 4:02:27s train NMSE: 14.0492 optimized train NMSE: 13.4083 model capacity 44.9632 physfad_c capacity 31.9314 47.2371 sum(X): 621  514
+E19 I32% 4:02:41s train NMSE: 14.1737 optimized train NMSE: 12.8005 model capacity 45.0661 physfad_c capacity 32.7409 49.9027 sum(X): 595  483
+E19 I36% 4:04:39s train NMSE: 14.1292 optimized train NMSE: 14.0401 model capacity 45.0996 physfad_c capacity 30.9374 48.2499 sum(X): 589  502
+E19 I41% 3:59:56s train NMSE: 14.1032 optimized train NMSE: 13.5029 model capacity 45.3795 physfad_c capacity 29.9481 47.5124 sum(X): 578  473
+E19 I57% 3:46:00s train NMSE: 13.9114 optimized train NMSE: 14.0735 model capacity 46.9158 physfad_c capacity 31.9537 49.0691 sum(X): 667  486
+E19 I59% 3:46:06s train NMSE: 13.8146 optimized train NMSE: 13.4310 model capacity 47.8730 physfad_c capacity 33.1753 48.6922 sum(X): 699  507
+E19 I61% 3:46:14s train NMSE: 13.8504 optimized train NMSE: 18.9048 model capacity 49.5459 physfad_c capacity 31.0975 46.8621 sum(X): 681  480
+E19 I63% 3:46:21s train NMSE: 13.8850 optimized train NMSE: 14.4122 model capacity 46.7539 physfad_c capacity 33.2743 48.2605 sum(X): 650  485
+E19 I68% 3:43:35s train NMSE: 13.8627 optimized train NMSE: 13.8362 model capacity 45.9102 physfad_c capacity 30.3934 48.2453 sum(X): 602  466
+E19 I71% 3:43:19s train NMSE: 13.9061 optimized train NMSE: 13.8581 model capacity 47.3516 physfad_c capacity 32.6344 49.2107 sum(X): 745  511
+E19 I73% 3:45:30s train NMSE: 13.9984 optimized train NMSE: 14.4176 model capacity 47.0208 physfad_c capacity 31.3535 49.0676 sum(X): 698  479
+E19 I74% 3:47:44s train NMSE: 14.1406 optimized train NMSE: 13.9488 model capacity 47.9542 physfad_c capacity 29.0372 50.0716 sum(X): 714  496
+E19 I76% 3:49:58s train NMSE: 14.2065 optimized train NMSE: 13.8432 model capacity 47.6972 physfad_c capacity 33.8219 49.7488 sum(X): 722  493
+E19 I81% 3:49:16s train NMSE: 14.1114 optimized train NMSE: 13.6312 model capacity 48.9862 physfad_c capacity 35.4818 50.6032 sum(X): 795  501
+E19 I85% 3:51:01s train NMSE: 14.1958 optimized train NMSE: 14.7261 model capacity 48.2835 physfad_c capacity 29.8460 49.7271 sum(X): 740  488
+E19 I86% 3:53:12s train NMSE: 14.2871 optimized train NMSE: 13.7905 model capacity 46.4358 physfad_c capacity 30.2391 48.4492 sum(X): 676  471
+E19 I93% 3:50:02s train NMSE: 14.2658 optimized train NMSE: 14.3474 model capacity 46.6697 physfad_c capacity 30.4543 49.4603 sum(X): 661  463
+E19 I95% 3:50:06s train NMSE: 14.2395 optimized train NMSE: 13.8206 model capacity 47.8373 physfad_c capacity 32.6657 50.3010 sum(X): 743  501
+E19 I96% 3:52:11s train NMSE: 14.2153 optimized train NMSE: 12.4467 model capacity 46.9019 physfad_c capacity 30.7844 50.7877 sum(X): 677  476
+E19 I98% 3:52:17s train NMSE: 14.2067 optimized train NMSE: 14.3880 model capacity 48.9775 physfad_c capacity 32.6039 49.9548 sum(X): 789  541
+E19 I100% 3:54:25s train NMSE: 14.1586 optimized train NMSE: 14.0755 model capacity 47.4373 physfad_c capacity 31.9201 49.6010 sum(X): 744  513
+epoch 20 train dataset length 38752
+E20 I0% 3:54:36s train NMSE: 14.1797 optimized train NMSE: 17.4771 model capacity 49.5926 physfad_c capacity 33.8827 50.2367 sum(X): 708  486
+E20 I2% 3:54:44s train NMSE: 14.1400 optimized train NMSE: 13.1847 model capacity 47.5608 physfad_c capacity 33.6427 49.1808 sum(X): 733  491
+E20 I5% 3:56:30s train NMSE: 14.0133 optimized train NMSE: 14.2780 model capacity 46.9724 physfad_c capacity 28.8329 48.3125 sum(X): 687  469
+E20 I8% 3:56:10s train NMSE: 13.6922 optimized train NMSE: 13.3543 model capacity 46.5106 physfad_c capacity 30.5857 49.7783 sum(X): 666  464
+E20 I17% 3:52:45s train NMSE: 13.6681 optimized train NMSE: 13.3340 model capacity 47.6470 physfad_c capacity 31.1208 49.5778 sum(X): 719  482
+E20 I18% 3:52:59s train NMSE: 13.6611 optimized train NMSE: 12.0775 model capacity 48.4188 physfad_c capacity 31.2618 51.5046 sum(X): 728  475
+E20 I20% 3:53:04s train NMSE: 13.7114 optimized train NMSE: 14.3141 model capacity 48.8011 physfad_c capacity 30.4610 49.3111 sum(X): 693  464
+E20 I21% 3:55:10s train NMSE: 13.7081 optimized train NMSE: 13.1895 model capacity 50.2613 physfad_c capacity 36.7443 51.1487 sum(X): 840  504
+E20 I23% 3:55:20s train NMSE: 13.8167 optimized train NMSE: 13.0372 model capacity 49.8302 physfad_c capacity 34.4327 52.1191 sum(X): 796  493
+E20 I28% 3:52:40s train NMSE: 13.9546 optimized train NMSE: 13.2926 model capacity 49.3556 physfad_c capacity 32.9219 51.8109 sum(X): 754  483
+E20 I30% 3:52:50s train NMSE: 13.8263 optimized train NMSE: 13.4673 model capacity 49.6923 physfad_c capacity 30.7822 49.8543 sum(X): 751  493
+E20 I31% 3:54:54s train NMSE: 13.8694 optimized train NMSE: 14.2123 model capacity 47.4782 physfad_c capacity 31.3880 49.2447 sum(X): 692  480
+E20 I33% 3:55:02s train NMSE: 13.9457 optimized train NMSE: 13.0850 model capacity 47.9593 physfad_c capacity 30.5752 50.1997 sum(X): 711  472
+E20 I38% 3:56:20s train NMSE: 14.1230 optimized train NMSE: 13.1756 model capacity 47.7858 physfad_c capacity 31.2954 50.7601 sum(X): 665  469
+E20 I40% 3:56:24s train NMSE: 14.0404 optimized train NMSE: 12.7434 model capacity 48.1999 physfad_c capacity 35.2394 51.8342 sum(X): 743  495
+E20 I46% 3:55:09s train NMSE: 14.1686 optimized train NMSE: 12.6024 model capacity 49.1603 physfad_c capacity 32.2897 50.1875 sum(X): 741  475
+E20 I55% 3:51:24s train NMSE: 13.8227 optimized train NMSE: 12.7570 model capacity 49.2028 physfad_c capacity 30.4129 50.5375 sum(X): 703  476
+E20 I56% 3:51:25s train NMSE: 14.0009 optimized train NMSE: 12.0632 model capacity 49.2320 physfad_c capacity 33.5365 50.8222 sum(X): 718  489
+E20 I58% 3:51:28s train NMSE: 14.0257 optimized train NMSE: 13.8363 model capacity 49.1954 physfad_c capacity 32.5121 49.8706 sum(X): 710  483
+E20 I66% 3:45:49s train NMSE: 14.0987 optimized train NMSE: 13.0737 model capacity 48.2145 physfad_c capacity 35.0084 51.2208 sum(X): 753  502
+E20 I68% 3:47:48s train NMSE: 13.9782 optimized train NMSE: 13.5240 model capacity 48.4671 physfad_c capacity 30.4158 51.5646 sum(X): 686  469
+E20 I69% 3:47:49s train NMSE: 13.9657 optimized train NMSE: 11.8845 model capacity 49.4060 physfad_c capacity 29.5380 51.8926 sum(X): 720  484
+E20 I71% 3:49:49s train NMSE: 14.0032 optimized train NMSE: 20.2965 model capacity 52.8911 physfad_c capacity 30.8788 52.4165 sum(X): 739  509
+E20 I74% 3:47:30s train NMSE: 13.8710 optimized train NMSE: 14.1035 model capacity 47.3776 physfad_c capacity 31.9646 49.9014 sum(X): 752  522
+E20 I78% 3:47:04s train NMSE: 13.7522 optimized train NMSE: 15.2061 model capacity 44.7827 physfad_c capacity 31.7535 46.7624 sum(X): 647  507
+E20 I86% 3:37:32s train NMSE: 14.1222 optimized train NMSE: 14.7812 model capacity 43.3952 physfad_c capacity 32.3089 47.8594 sum(X): 613  492
+E20 I88% 3:39:30s train NMSE: 14.1530 optimized train NMSE: 13.7283 model capacity 45.6741 physfad_c capacity 32.7186 48.6964 sum(X): 609  476
+E20 I91% 3:39:08s train NMSE: 14.1830 optimized train NMSE: 14.5040 model capacity 45.2669 physfad_c capacity 34.2974 48.2645 sum(X): 596  487
+E20 I92% 3:39:10s train NMSE: 14.2362 optimized train NMSE: 12.9121 model capacity 46.6417 physfad_c capacity 31.7190 50.1142 sum(X): 606  486
+E20 I94% 3:41:04s train NMSE: 14.2822 optimized train NMSE: 13.6874 model capacity 46.2752 physfad_c capacity 36.1156 48.7141 sum(X): 619  520
+epoch 21 train dataset length 39712
+E21 I2% 3:37:42s train NMSE: 14.2211 optimized train NMSE: 13.0981 model capacity 46.1026 physfad_c capacity 29.9124 48.8235 sum(X): 589  475
+E21 I11% 3:33:51s train NMSE: 14.2476 optimized train NMSE: 13.4403 model capacity 47.6469 physfad_c capacity 31.6263 49.6425 sum(X): 649  491
+E21 I15% 3:35:27s train NMSE: 14.2054 optimized train NMSE: 13.5572 model capacity 46.9562 physfad_c capacity 30.3622 48.2366 sum(X): 587  468
+E21 I18% 3:35:07s train NMSE: 14.2459 optimized train NMSE: 13.2077 model capacity 47.3822 physfad_c capacity 30.9608 50.2521 sum(X): 609  460
+E21 I23% 3:32:22s train NMSE: 14.2530 optimized train NMSE: 13.7546 model capacity 46.4798 physfad_c capacity 31.4698 49.8216 sum(X): 614  488
+E21 I24% 3:34:14s train NMSE: 14.1745 optimized train NMSE: 15.1540 model capacity 46.9646 physfad_c capacity 35.6435 48.6298 sum(X): 673  524
+E21 I26% 3:34:08s train NMSE: 14.1271 optimized train NMSE: 11.9930 model capacity 46.8513 physfad_c capacity 33.4806 50.2543 sum(X): 636  499
+E21 I27% 3:36:01s train NMSE: 14.0989 optimized train NMSE: 14.1715 model capacity 46.5120 physfad_c capacity 33.6038 48.4896 sum(X): 628  504
+E21 I39% 3:33:20s train NMSE: 13.9181 optimized train NMSE: 14.9779 model capacity 47.9664 physfad_c capacity 31.8140 48.8850 sum(X): 656  474
+E21 I40% 3:35:05s train NMSE: 13.9514 optimized train NMSE: 14.6483 model capacity 47.0700 physfad_c capacity 32.0802 48.0331 sum(X): 675  512
+E21 I42% 3:36:53s train NMSE: 14.0207 optimized train NMSE: 13.4234 model capacity 47.2154 physfad_c capacity 32.4421 48.5282 sum(X): 651  467
+E21 I44% 3:38:40s train NMSE: 14.0959 optimized train NMSE: 14.6433 model capacity 45.8933 physfad_c capacity 29.6351 47.3913 sum(X): 650  463
+E21 I47% 3:36:09s train NMSE: 14.2094 optimized train NMSE: 14.0761 model capacity 46.0551 physfad_c capacity 32.7840 48.7191 sum(X): 675  480
+E21 I52% 3:33:15s train NMSE: 14.1958 optimized train NMSE: 14.2612 model capacity 48.1506 physfad_c capacity 32.7050 49.2031 sum(X): 734  527
+E21 I53% 3:35:00s train NMSE: 14.1960 optimized train NMSE: 14.4893 model capacity 48.1065 physfad_c capacity 32.6192 49.0390 sum(X): 755  551
+E21 I56% 3:34:26s train NMSE: 14.1510 optimized train NMSE: 14.1666 model capacity 45.6088 physfad_c capacity 30.2479 47.2021 sum(X): 652  476
+E21 I61% 3:31:32s train NMSE: 13.8708 optimized train NMSE: 14.1132 model capacity 44.7097 physfad_c capacity 29.2568 47.9099 sum(X): 632  482
+E21 I63% 3:31:22s train NMSE: 14.0429 optimized train NMSE: 13.8026 model capacity 44.8420 physfad_c capacity 31.5793 48.0636 sum(X): 641  490
+E21 I64% 3:31:15s train NMSE: 13.9776 optimized train NMSE: 13.1297 model capacity 46.3796 physfad_c capacity 32.6887 48.5746 sum(X): 671  486
+E21 I68% 3:28:47s train NMSE: 14.0501 optimized train NMSE: 14.3645 model capacity 45.4759 physfad_c capacity 29.9941 47.2948 sum(X): 644  489
+E21 I69% 3:28:36s train NMSE: 13.9518 optimized train NMSE: 12.3861 model capacity 46.9874 physfad_c capacity 32.7183 50.2783 sum(X): 662  500
+E21 I77% 3:24:56s train NMSE: 14.2032 optimized train NMSE: 14.0739 model capacity 47.7904 physfad_c capacity 31.2193 48.5332 sum(X): 643  470
+E21 I81% 3:24:21s train NMSE: 14.2098 optimized train NMSE: 14.2889 model capacity 47.7441 physfad_c capacity 31.2070 49.1369 sum(X): 655  490
+E21 I85% 3:23:19s train NMSE: 14.1873 optimized train NMSE: 13.9468 model capacity 45.5235 physfad_c capacity 29.4448 47.8073 sum(X): 638  470
+E21 I87% 3:23:04s train NMSE: 14.1734 optimized train NMSE: 13.3361 model capacity 46.1142 physfad_c capacity 32.4913 49.4560 sum(X): 682  502
+E21 I89% 3:22:45s train NMSE: 14.2996 optimized train NMSE: 14.2646 model capacity 44.8901 physfad_c capacity 34.4449 48.0266 sum(X): 686  518
+E21 I90% 3:22:32s train NMSE: 14.3578 optimized train NMSE: 12.9704 model capacity 47.3004 physfad_c capacity 30.4103 49.5886 sum(X): 682  473
+E21 I92% 3:22:18s train NMSE: 14.1679 optimized train NMSE: 12.1698 model capacity 46.9417 physfad_c capacity 32.0514 49.5142 sum(X): 670  468
+E21 I97% 3:19:19s train NMSE: 14.1326 optimized train NMSE: 11.9550 model capacity 48.6447 physfad_c capacity 29.3775 50.4710 sum(X): 657  472
+E21 I98% 3:19:00s train NMSE: 14.1180 optimized train NMSE: 11.8034 model capacity 48.8576 physfad_c capacity 33.0810 50.1536 sum(X): 665  497
+epoch 22 train dataset length 40672
+E22 I0% 3:16:45s train NMSE: 14.3030 optimized train NMSE: 13.5721 model capacity 49.0620 physfad_c capacity 34.6152 49.9277 sum(X): 745  537
+E22 I2% 3:16:36s train NMSE: 14.1174 optimized train NMSE: 14.3517 model capacity 47.5790 physfad_c capacity 31.6122 48.7247 sum(X): 736  508
+E22 I6% 3:11:44s train NMSE: 14.2602 optimized train NMSE: 12.8380 model capacity 48.2668 physfad_c capacity 32.2100 50.8091 sum(X): 718  480
+E22 I8% 3:13:26s train NMSE: 14.1348 optimized train NMSE: 12.9394 model capacity 46.4285 physfad_c capacity 28.9169 48.3915 sum(X): 681  481
+E22 I9% 3:13:18s train NMSE: 14.0805 optimized train NMSE: 13.0758 model capacity 46.8896 physfad_c capacity 31.8866 48.5035 sum(X): 692  503
+E22 I11% 3:13:10s train NMSE: 14.0364 optimized train NMSE: 11.8415 model capacity 49.1696 physfad_c capacity 34.2603 52.1412 sum(X): 734  532
+E22 I14% 3:10:38s train NMSE: 14.0523 optimized train NMSE: 12.4228 model capacity 50.0448 physfad_c capacity 32.0317 51.7265 sum(X): 730  500
+E22 I16% 3:10:27s train NMSE: 13.9539 optimized train NMSE: 11.7563 model capacity 49.2730 physfad_c capacity 33.4278 50.4257 sum(X): 688  500
+E22 I22% 3:10:52s train NMSE: 14.0522 optimized train NMSE: 11.5148 model capacity 48.7339 physfad_c capacity 34.0363 51.7853 sum(X): 686  499
+E22 I25% 3:12:07s train NMSE: 14.1054 optimized train NMSE: 12.4219 model capacity 48.1247 physfad_c capacity 31.6606 49.9833 sum(X): 700  484
+E22 I27% 3:11:54s train NMSE: 14.2010 optimized train NMSE: 12.7556 model capacity 49.7377 physfad_c capacity 33.0564 50.2554 sum(X): 733  514
+E22 I28% 3:11:36s train NMSE: 14.2190 optimized train NMSE: 12.9650 model capacity 49.1193 physfad_c capacity 32.5446 50.8857 sum(X): 717  479
+E22 I30% 3:13:12s train NMSE: 14.1933 optimized train NMSE: 13.4949 model capacity 48.1035 physfad_c capacity 32.9000 48.9516 sum(X): 706  487
+E22 I35% 3:08:14s train NMSE: 14.0991 optimized train NMSE: 12.7678 model capacity 47.2855 physfad_c capacity 30.9775 49.2608 sum(X): 685  479
+E22 I39% 3:09:03s train NMSE: 13.9730 optimized train NMSE: 13.0768 model capacity 48.4708 physfad_c capacity 30.6921 49.2481 sum(X): 701  488
+E22 I41% 3:08:48s train NMSE: 14.0059 optimized train NMSE: 12.5293 model capacity 48.7558 physfad_c capacity 33.6226 52.0490 sum(X): 682  475
+E22 I46% 3:07:40s train NMSE: 13.9545 optimized train NMSE: 12.2849 model capacity 49.8662 physfad_c capacity 29.6069 50.8977 sum(X): 692  473
+E22 I50% 3:06:34s train NMSE: 14.1311 optimized train NMSE: 13.3069 model capacity 51.4285 physfad_c capacity 35.9434 52.9269 sum(X): 741  502
+E22 I55% 3:03:38s train NMSE: 14.1305 optimized train NMSE: 10.8467 model capacity 49.7051 physfad_c capacity 32.7511 52.4332 sum(X): 693  472
+E22 I60% 3:02:35s train NMSE: 14.0684 optimized train NMSE: 11.2885 model capacity 51.6013 physfad_c capacity 34.4309 52.6716 sum(X): 766  495
+E22 I61% 3:04:07s train NMSE: 14.0450 optimized train NMSE: 11.4865 model capacity 50.7247 physfad_c capacity 32.8841 52.6652 sum(X): 727  488
+E22 I63% 3:05:40s train NMSE: 14.0966 optimized train NMSE: 12.7309 model capacity 50.1515 physfad_c capacity 31.8173 52.5381 sum(X): 715  494
+E22 I65% 3:07:12s train NMSE: 14.0191 optimized train NMSE: 11.9878 model capacity 49.1058 physfad_c capacity 34.5048 52.6359 sum(X): 718  504
+E22 I69% 3:07:53s train NMSE: 13.8904 optimized train NMSE: 12.3288 model capacity 49.6539 physfad_c capacity 32.1118 50.7536 sum(X): 708  486
+E22 I74% 3:08:31s train NMSE: 13.9360 optimized train NMSE: 11.6062 model capacity 49.8848 physfad_c capacity 32.5532 50.7760 sum(X): 771  532
+E22 I79% 3:03:45s train NMSE: 13.8792 optimized train NMSE: 12.2106 model capacity 49.7435 physfad_c capacity 30.4660 51.4482 sum(X): 717  471
+E22 I85% 3:00:28s train NMSE: 13.9911 optimized train NMSE: 12.5786 model capacity 50.5186 physfad_c capacity 35.5850 50.6067 sum(X): 797  536
+E22 I87% 3:01:58s train NMSE: 13.9979 optimized train NMSE: 13.1425 model capacity 49.4479 physfad_c capacity 29.0702 50.8364 sum(X): 704  465
+E22 I88% 3:01:41s train NMSE: 14.0130 optimized train NMSE: 12.7237 model capacity 49.2900 physfad_c capacity 33.7300 49.0269 sum(X): 715  510
+E22 I90% 3:01:20s train NMSE: 14.0741 optimized train NMSE: 12.7583 model capacity 48.2301 physfad_c capacity 30.8016 50.8212 sum(X): 696  484
+E22 I91% 3:01:00s train NMSE: 14.0347 optimized train NMSE: 12.5354 model capacity 49.6326 physfad_c capacity 33.7833 51.1480 sum(X): 726  498
+E22 I93% 3:00:46s train NMSE: 13.9995 optimized train NMSE: 13.5216 model capacity 51.3678 physfad_c capacity 33.7271 52.6127 sum(X): 740  503
+E22 I94% 3:02:14s train NMSE: 14.0152 optimized train NMSE: 12.0315 model capacity 50.2926 physfad_c capacity 32.2667 50.8585 sum(X): 708  497
+epoch 23 train dataset length 41728
+E23 I5% 2:56:15s train NMSE: 14.0027 optimized train NMSE: 11.8968 model capacity 50.5380 physfad_c capacity 31.5671 52.0027 sum(X): 696  499
+E23 I8% 2:53:53s train NMSE: 13.8481 optimized train NMSE: 11.3661 model capacity 50.0269 physfad_c capacity 32.6640 53.2966 sum(X): 675  486
+E23 I12% 2:49:23s train NMSE: 13.9524 optimized train NMSE: 12.4449 model capacity 53.6800 physfad_c capacity 34.1563 53.8929 sum(X): 822  527
+E23 I15% 2:48:43s train NMSE: 13.8138 optimized train NMSE: 12.0625 model capacity 49.8106 physfad_c capacity 35.5091 51.6652 sum(X): 699  511
+E23 I17% 2:48:26s train NMSE: 13.7862 optimized train NMSE: 12.3567 model capacity 50.9204 physfad_c capacity 38.3692 51.7440 sum(X): 732  509
+E23 I20% 2:47:47s train NMSE: 13.7492 optimized train NMSE: 12.4257 model capacity 49.4742 physfad_c capacity 30.9704 50.7305 sum(X): 694  497
+E23 I26% 2:46:14s train NMSE: 13.7941 optimized train NMSE: 13.2155 model capacity 48.7911 physfad_c capacity 34.7754 50.4960 sum(X): 696  497
+E23 I28% 2:47:40s train NMSE: 13.8727 optimized train NMSE: 65.5398 model capacity 64.9516 physfad_c capacity 32.4783 51.7137 sum(X): 736  493
+E23 I29% 2:49:06s train NMSE: 13.9034 optimized train NMSE: 11.3456 model capacity 51.2597 physfad_c capacity 34.0522 52.7818 sum(X): 725  503
+E23 I31% 2:48:45s train NMSE: 13.8770 optimized train NMSE: 12.7613 model capacity 49.7764 physfad_c capacity 32.1733 49.5962 sum(X): 715  528
+E23 I32% 2:48:30s train NMSE: 13.8718 optimized train NMSE: 11.7181 model capacity 51.3115 physfad_c capacity 34.2085 52.6419 sum(X): 772  517
+E23 I37% 2:43:58s train NMSE: 14.0718 optimized train NMSE: 13.1497 model capacity 49.9988 physfad_c capacity 33.8906 50.1997 sum(X): 725  493
+E23 I40% 2:44:58s train NMSE: 14.3053 optimized train NMSE: 12.1256 model capacity 48.9229 physfad_c capacity 28.9488 51.1991 sum(X): 716  471
+E23 I41% 2:44:38s train NMSE: 14.2273 optimized train NMSE: 11.6867 model capacity 49.2202 physfad_c capacity 32.0454 51.6562 sum(X): 739  489
+E23 I52% 2:35:12s train NMSE: 14.0615 optimized train NMSE: 11.4975 model capacity 51.3517 physfad_c capacity 31.0768 52.5547 sum(X): 743  489
+E23 I54% 2:36:34s train NMSE: 14.2066 optimized train NMSE: 13.2233 model capacity 51.0608 physfad_c capacity 30.8264 50.0121 sum(X): 836  539
+E23 I58% 2:35:29s train NMSE: 14.0437 optimized train NMSE: 15.9408 model capacity 50.1209 physfad_c capacity 30.5550 49.9126 sum(X): 734  486
+E23 I60% 2:36:49s train NMSE: 14.0525 optimized train NMSE: 13.9537 model capacity 47.0046 physfad_c capacity 34.9551 49.7740 sum(X): 763  540
+E23 I61% 2:38:09s train NMSE: 13.9817 optimized train NMSE: 14.1344 model capacity 46.1023 physfad_c capacity 33.4188 48.9446 sum(X): 716  475
+E23 I66% 2:37:01s train NMSE: 13.8560 optimized train NMSE: 12.2237 model capacity 48.1020 physfad_c capacity 29.9706 51.4811 sum(X): 647  460
+E23 I71% 2:34:14s train NMSE: 14.0647 optimized train NMSE: 12.5685 model capacity 48.5836 physfad_c capacity 28.2990 51.2864 sum(X): 668  501
+E23 I74% 2:35:06s train NMSE: 14.2277 optimized train NMSE: 12.2031 model capacity 49.7797 physfad_c capacity 32.0459 53.0813 sum(X): 673  484
+E23 I86% 2:25:39s train NMSE: 14.1235 optimized train NMSE: 12.5471 model capacity 49.8131 physfad_c capacity 30.1040 51.9018 sum(X): 686  497
+E23 I87% 2:25:23s train NMSE: 14.0786 optimized train NMSE: 14.4344 model capacity 47.3905 physfad_c capacity 29.8329 46.6407 sum(X): 663  494
+E23 I89% 2:26:39s train NMSE: 13.8827 optimized train NMSE: 13.8619 model capacity 48.2486 physfad_c capacity 33.8446 48.3021 sum(X): 718  495
+E23 I90% 2:27:56s train NMSE: 13.9060 optimized train NMSE: 13.8830 model capacity 47.6639 physfad_c capacity 31.9875 48.7568 sum(X): 720  507
+E23 I100% 2:22:27s train NMSE: 13.8184 optimized train NMSE: 12.0642 model capacity 50.2009 physfad_c capacity 32.8855 53.0641 sum(X): 683  478
+epoch 24 train dataset length 42592
+E24 I2% 2:20:03s train NMSE: 13.8464 optimized train NMSE: 11.2136 model capacity 50.5363 physfad_c capacity 35.5083 52.7797 sum(X): 652  487
+E24 I8% 2:20:07s train NMSE: 13.8764 optimized train NMSE: 12.7096 model capacity 50.8813 physfad_c capacity 33.5536 51.3461 sum(X): 658  512
+E24 I9% 2:19:51s train NMSE: 13.8197 optimized train NMSE: 10.9562 model capacity 51.2593 physfad_c capacity 32.7347 53.2407 sum(X): 679  508
+E24 I15% 2:19:50s train NMSE: 13.8404 optimized train NMSE: 10.9664 model capacity 50.9993 physfad_c capacity 31.8438 53.5222 sum(X): 692  497
+E24 I17% 2:21:04s train NMSE: 13.7961 optimized train NMSE: 10.7150 model capacity 51.1960 physfad_c capacity 31.3975 53.4956 sum(X): 697  485
+E24 I26% 2:15:41s train NMSE: 13.8809 optimized train NMSE: 13.4930 model capacity 53.1068 physfad_c capacity 33.6864 51.5577 sum(X): 845  529
+E24 I27% 2:16:55s train NMSE: 13.8261 optimized train NMSE: 11.8806 model capacity 53.3614 physfad_c capacity 34.3567 54.0431 sum(X): 833  518
+E24 I30% 2:14:51s train NMSE: 13.9405 optimized train NMSE: 11.0467 model capacity 52.8960 physfad_c capacity 35.3762 53.7704 sum(X): 886  532
+E24 I33% 2:12:48s train NMSE: 13.7299 optimized train NMSE: 10.3981 model capacity 52.4712 physfad_c capacity 34.9741 53.4056 sum(X): 872  523
+E24 I38% 2:13:10s train NMSE: 13.5992 optimized train NMSE: 10.6499 model capacity 52.3306 physfad_c capacity 32.5930 53.2664 sum(X): 844  528
+E24 I45% 2:09:57s train NMSE: 13.5508 optimized train NMSE: 11.5149 model capacity 49.1163 physfad_c capacity 30.8913 51.1600 sum(X): 740  476
+E24 I48% 2:07:55s train NMSE: 13.6649 optimized train NMSE: 10.7318 model capacity 51.5117 physfad_c capacity 34.5884 53.5346 sum(X): 874  554
+E24 I51% 2:07:17s train NMSE: 13.6788 optimized train NMSE: 11.3332 model capacity 50.8515 physfad_c capacity 34.1697 52.1941 sum(X): 797  504
+E24 I53% 2:08:25s train NMSE: 13.7451 optimized train NMSE: 9.5984 model capacity 53.5353 physfad_c capacity 37.0842 54.0391 sum(X): 939  550
+E24 I54% 2:09:37s train NMSE: 13.6267 optimized train NMSE: 11.1532 model capacity 50.9880 physfad_c capacity 31.5990 52.4503 sum(X): 810  498
+E24 I57% 2:07:38s train NMSE: 13.7085 optimized train NMSE: 11.3378 model capacity 51.3177 physfad_c capacity 31.9980 53.6592 sum(X): 762  470
+E24 I59% 2:08:43s train NMSE: 13.7821 optimized train NMSE: 10.5733 model capacity 51.9733 physfad_c capacity 37.3377 53.6922 sum(X): 818  506
+E24 I62% 2:08:03s train NMSE: 13.6048 optimized train NMSE: 82.1726 model capacity 64.9697 physfad_c capacity 33.2361 53.1462 sum(X): 858  521
+E24 I66% 2:05:41s train NMSE: 13.8860 optimized train NMSE: 18.6076 model capacity 54.1615 physfad_c capacity 31.5696 51.4584 sum(X): 826  515
+E24 I68% 2:05:27s train NMSE: 13.9423 optimized train NMSE: 11.7111 model capacity 51.7910 physfad_c capacity 33.6147 52.0991 sum(X): 864  505
+E24 I69% 2:06:29s train NMSE: 14.1525 optimized train NMSE: 10.7854 model capacity 51.3451 physfad_c capacity 31.3982 53.6854 sum(X): 815  472
+E24 I71% 2:06:15s train NMSE: 14.2182 optimized train NMSE: 12.0241 model capacity 50.8453 physfad_c capacity 34.6360 53.5639 sum(X): 881  521
+E24 I74% 2:05:36s train NMSE: 14.1710 optimized train NMSE: 11.5779 model capacity 52.8090 physfad_c capacity 32.4574 52.6020 sum(X): 883  499
+E24 I78% 2:05:48s train NMSE: 14.4941 optimized train NMSE: 10.3844 model capacity 56.2943 physfad_c capacity 36.1320 54.8913 sum(X): 978  540
+E24 I80% 2:05:32s train NMSE: 14.5583 optimized train NMSE: 11.2535 model capacity 52.0352 physfad_c capacity 36.2362 53.3360 sum(X): 810  504
+E24 I83% 2:04:54s train NMSE: 14.4417 optimized train NMSE: 10.6342 model capacity 52.4240 physfad_c capacity 32.1482 54.0486 sum(X): 771  483
+E24 I84% 2:05:55s train NMSE: 14.3612 optimized train NMSE: 10.6549 model capacity 51.7972 physfad_c capacity 32.8382 53.4448 sum(X): 783  511
+E24 I86% 2:06:55s train NMSE: 14.1700 optimized train NMSE: 10.2065 model capacity 53.3645 physfad_c capacity 36.9767 54.4034 sum(X): 862  512
+E24 I89% 2:04:58s train NMSE: 14.1968 optimized train NMSE: 11.7978 model capacity 51.1177 physfad_c capacity 30.5347 52.1300 sum(X): 750  479
+E24 I93% 2:01:22s train NMSE: 14.0153 optimized train NMSE: 12.2473 model capacity 50.9533 physfad_c capacity 34.4935 50.9018 sum(X): 837  518
+E24 I95% 2:02:20s train NMSE: 13.8861 optimized train NMSE: 11.2931 model capacity 52.1544 physfad_c capacity 34.8340 53.8461 sum(X): 845  512
+E24 I96% 2:03:19s train NMSE: 13.8191 optimized train NMSE: 13.0847 model capacity 52.0223 physfad_c capacity 35.2769 52.5988 sum(X): 885  532
+E24 I98% 2:03:02s train NMSE: 13.9888 optimized train NMSE: 78.7750 model capacity 63.9715 physfad_c capacity 36.8061 50.4512 sum(X): 838  528
+epoch 25 train dataset length 43648
+E25 I1% 2:00:48s train NMSE: 14.1699 optimized train NMSE: 11.7415 model capacity 50.4131 physfad_c capacity 32.2124 50.9539 sum(X): 797  491
+E25 I3% 2:00:33s train NMSE: 14.1924 optimized train NMSE: 11.5860 model capacity 50.3234 physfad_c capacity 34.0388 51.0932 sum(X): 778  501
+E25 I4% 2:01:32s train NMSE: 14.3312 optimized train NMSE: 10.9022 model capacity 52.1475 physfad_c capacity 31.4822 53.5641 sum(X): 772  488
+E25 I6% 2:02:28s train NMSE: 14.4711 optimized train NMSE: 10.3514 model capacity 51.9014 physfad_c capacity 34.4179 53.4150 sum(X): 789  498
+E25 I7% 2:02:12s train NMSE: 14.5099 optimized train NMSE: 10.9038 model capacity 51.9693 physfad_c capacity 35.2646 52.5041 sum(X): 879  516
+E25 I9% 2:01:56s train NMSE: 14.6422 optimized train NMSE: 12.3454 model capacity 50.8117 physfad_c capacity 33.5209 50.7498 sum(X): 808  494
+E25 I10% 2:01:38s train NMSE: 14.6744 optimized train NMSE: 10.3133 model capacity 50.6750 physfad_c capacity 32.4950 51.3821 sum(X): 805  493
+E25 I15% 1:59:22s train NMSE: 14.8971 optimized train NMSE: 12.1326 model capacity 47.7970 physfad_c capacity 35.1342 49.6092 sum(X): 694  522
+E25 I18% 1:58:46s train NMSE: 14.7984 optimized train NMSE: 11.8483 model capacity 47.7398 physfad_c capacity 36.1276 49.5242 sum(X): 692  554
+E25 I19% 1:59:41s train NMSE: 14.6801 optimized train NMSE: 12.1777 model capacity 48.5221 physfad_c capacity 32.1707 50.2904 sum(X): 708  513
+E25 I23% 1:58:26s train NMSE: 14.4544 optimized train NMSE: 11.3647 model capacity 47.8772 physfad_c capacity 37.2266 49.8862 sum(X): 720  549
+E25 I26% 1:56:27s train NMSE: 14.3575 optimized train NMSE: 11.0047 model capacity 50.8212 physfad_c capacity 36.8667 53.1360 sum(X): 778  569
+E25 I40% 1:48:04s train NMSE: 14.4772 optimized train NMSE: 427.1750 model capacity 84.6383 physfad_c capacity 32.6825 51.0809 sum(X): 871  503
+E25 I43% 1:48:27s train NMSE: 14.6583 optimized train NMSE: 11.9611 model capacity 48.2651 physfad_c capacity 30.8814 48.0490 sum(X): 771  490
+E25 I47% 1:47:14s train NMSE: 14.4783 optimized train NMSE: 12.1062 model capacity 48.5225 physfad_c capacity 35.0585 50.5725 sum(X): 816  528
+E25 I50% 1:46:26s train NMSE: 14.5345 optimized train NMSE: 11.4371 model capacity 49.9483 physfad_c capacity 36.6511 51.2078 sum(X): 850  525
+E25 I51% 1:47:12s train NMSE: 14.5940 optimized train NMSE: 12.4323 model capacity 47.6234 physfad_c capacity 35.2760 48.6774 sum(X): 801  518
+E25 I53% 1:46:51s train NMSE: 14.7067 optimized train NMSE: 11.2364 model capacity 51.6155 physfad_c capacity 37.0973 52.4173 sum(X): 868  545
+E25 I57% 1:45:39s train NMSE: 15.2012 optimized train NMSE: 11.4606 model capacity 50.6035 physfad_c capacity 33.0234 51.1984 sum(X): 772  493
+E25 I63% 1:41:49s train NMSE: 15.0901 optimized train NMSE: 11.1022 model capacity 54.1023 physfad_c capacity 35.7050 53.7096 sum(X): 871  532
+E25 I65% 1:42:33s train NMSE: 15.0958 optimized train NMSE: 29.3169 model capacity 58.2303 physfad_c capacity 37.0075 52.3851 sum(X): 760  586
+E25 I70% 1:39:52s train NMSE: 14.9608 optimized train NMSE: 52.9721 model capacity 56.1171 physfad_c capacity 34.2439 49.8346 sum(X): 595  487
+E25 I73% 1:40:13s train NMSE: 15.2776 optimized train NMSE: 31.1703 model capacity 50.0497 physfad_c capacity 31.1172 46.7314 sum(X): 548  474
+E25 I75% 1:39:51s train NMSE: 15.2729 optimized train NMSE: 16.3824 model capacity 49.8139 physfad_c capacity 34.2300 50.3809 sum(X): 637  548
+E25 I79% 1:39:40s train NMSE: 15.5547 optimized train NMSE: 30.0091 model capacity 52.5653 physfad_c capacity 32.2363 47.7230 sum(X): 650  529
+E25 I85% 1:35:00s train NMSE: 15.5878 optimized train NMSE: 28.0842 model capacity 55.9557 physfad_c capacity 35.4443 47.8759 sum(X): 634  509
+E25 I92% 1:31:00s train NMSE: 15.7295 optimized train NMSE: 15.0963 model capacity 42.0702 physfad_c capacity 30.7158 47.9202 sum(X): 578  487
+E25 I94% 1:31:38s train NMSE: 15.5843 optimized train NMSE: 30.5879 model capacity 45.7425 physfad_c capacity 33.0118 44.1170 sum(X): 567  505
+E25 I95% 1:32:16s train NMSE: 15.6737 optimized train NMSE: 15.4650 model capacity 40.7149 physfad_c capacity 36.0736 45.1233 sum(X): 654  547
+E25 I97% 1:32:55s train NMSE: 15.7336 optimized train NMSE: 13.4942 model capacity 41.6090 physfad_c capacity 33.2506 46.8828 sum(X): 540  496
+E25 I98% 1:33:32s train NMSE: 15.8207 optimized train NMSE: 14.6404 model capacity 42.3320 physfad_c capacity 33.5739 46.3840 sum(X): 557  509
+E25 I100% 1:34:11s train NMSE: 15.8408 optimized train NMSE: 16.6020 model capacity 42.0223 physfad_c capacity 35.0209 44.2815 sum(X): 569  540
+epoch 26 train dataset length 44672
+E26 I0% 1:34:03s train NMSE: 15.8441 optimized train NMSE: 14.9728 model capacity 43.7588 physfad_c capacity 33.4745 45.8750 sum(X): 554  512
+E26 I1% 1:33:42s train NMSE: 15.8373 optimized train NMSE: 15.9442 model capacity 44.6831 physfad_c capacity 33.1070 44.0781 sum(X): 533  500
+E26 I4% 1:33:52s train NMSE: 15.9558 optimized train NMSE: 45.3448 model capacity 49.8676 physfad_c capacity 34.7528 42.8554 sum(X): 620  565
+E26 I7% 1:33:03s train NMSE: 15.9376 optimized train NMSE: 16.9826 model capacity 42.4034 physfad_c capacity 35.6837 42.9509 sum(X): 602  580
+E26 I14% 1:29:01s train NMSE: 15.8772 optimized train NMSE: 15.1138 model capacity 43.0190 physfad_c capacity 35.6251 44.9241 sum(X): 540  523
+E26 I17% 1:29:09s train NMSE: 15.8687 optimized train NMSE: 15.2998 model capacity 42.9823 physfad_c capacity 32.9117 44.3335 sum(X): 521  501
+E26 I23% 1:24:43s train NMSE: 15.7083 optimized train NMSE: 15.9760 model capacity 43.9241 physfad_c capacity 34.0162 43.4943 sum(X): 620  545
+E26 I24% 1:24:20s train NMSE: 15.6794 optimized train NMSE: 15.0208 model capacity 42.8857 physfad_c capacity 34.2503 44.2690 sum(X): 529  498
+E26 I26% 1:24:52s train NMSE: 15.6556 optimized train NMSE: 16.2325 model capacity 44.2922 physfad_c capacity 33.4084 46.2514 sum(X): 603  535
+E26 I27% 1:25:24s train NMSE: 15.5512 optimized train NMSE: 14.4953 model capacity 41.8010 physfad_c capacity 32.8325 45.0962 sum(X): 547  510
+E26 I29% 1:25:01s train NMSE: 15.5719 optimized train NMSE: 17.6238 model capacity 43.8895 physfad_c capacity 35.0096 42.2994 sum(X): 623  558
+E26 I34% 1:23:00s train NMSE: 15.2931 optimized train NMSE: 16.0696 model capacity 42.6010 physfad_c capacity 34.9157 43.8468 sum(X): 572  522
+E26 I36% 1:24:19s train NMSE: 15.2541 optimized train NMSE: 41.1216 model capacity 49.9413 physfad_c capacity 37.5969 44.7589 sum(X): 584  574
+E26 I42% 1:24:14s train NMSE: 15.0704 optimized train NMSE: 14.2367 model capacity 43.7791 physfad_c capacity 33.1458 46.5077 sum(X): 510  479
+E26 I43% 1:24:54s train NMSE: 14.9521 optimized train NMSE: 206.1986 model capacity 67.3885 physfad_c capacity 34.9764 45.0747 sum(X): 617  540
+E26 I49% 1:23:19s train NMSE: 15.2613 optimized train NMSE: 15.2178 model capacity 43.6365 physfad_c capacity 30.8986 44.6751 sum(X): 526  488
+E26 I54% 1:21:37s train NMSE: 15.4398 optimized train NMSE: 181.5792 model capacity 76.3951 physfad_c capacity 36.7056 47.0328 sum(X): 798  548
+E26 I57% 1:21:35s train NMSE: 15.5447 optimized train NMSE: 16.8219 model capacity 43.5289 physfad_c capacity 34.4123 44.1431 sum(X): 548  492
+E26 I59% 1:22:40s train NMSE: 15.6209 optimized train NMSE: 18.7284 model capacity 42.4562 physfad_c capacity 37.0767 42.5106 sum(X): 596  537
+E26 I62% 1:22:30s train NMSE: 15.9388 optimized train NMSE: 18.7087 model capacity 42.0635 physfad_c capacity 35.4244 44.3339 sum(X): 679  528
+E26 I66% 1:21:48s train NMSE: 16.4987 optimized train NMSE: 17.3756 model capacity 40.0805 physfad_c capacity 34.0738 42.6960 sum(X): 526  496
+E26 I67% 1:22:50s train NMSE: 16.6927 optimized train NMSE: 20.0197 model capacity 41.3032 physfad_c capacity 32.7390 42.8747 sum(X): 517  491
+E26 I69% 1:23:49s train NMSE: 17.0182 optimized train NMSE: 17.6786 model capacity 40.0270 physfad_c capacity 35.7155 42.4159 sum(X): 521  520
+E26 I72% 1:24:09s train NMSE: 17.5584 optimized train NMSE: 18.7310 model capacity 39.3119 physfad_c capacity 33.9627 41.0872 sum(X): 543  532
+E26 I76% 1:21:54s train NMSE: 17.9432 optimized train NMSE: 17.4265 model capacity 40.0605 physfad_c capacity 33.6752 43.9762 sum(X): 528  519
+E26 I77% 1:21:24s train NMSE: 17.9722 optimized train NMSE: 18.1785 model capacity 39.6231 physfad_c capacity 41.3213 44.4713 sum(X): 583  580
+E26 I80% 1:20:26s train NMSE: 17.9212 optimized train NMSE: 17.5387 model capacity 40.6267 physfad_c capacity 34.3907 40.8751 sum(X): 517  514
+E26 I85% 1:19:40s train NMSE: 17.6498 optimized train NMSE: 16.5477 model capacity 40.9976 physfad_c capacity 33.4319 42.9765 sum(X): 529  511
+E26 I86% 1:19:53s train NMSE: 17.5649 optimized train NMSE: 16.1381 model capacity 40.3778 physfad_c capacity 35.7184 42.7846 sum(X): 533  525
+E26 I87% 1:19:24s train NMSE: 17.4030 optimized train NMSE: 16.9842 model capacity 40.3540 physfad_c capacity 34.9901 43.7263 sum(X): 516  510
+E26 I92% 1:17:50s train NMSE: 17.0266 optimized train NMSE: 17.7501 model capacity 41.3594 physfad_c capacity 37.5828 44.6684 sum(X): 741  562
+E26 I97% 1:15:46s train NMSE: 16.7692 optimized train NMSE: 18.4220 model capacity 45.6242 physfad_c capacity 36.0643 45.1229 sum(X): 705  546
+epoch 27 train dataset length 45696
+E27 I0% 1:14:42s train NMSE: 16.4924 optimized train NMSE: 17.8788 model capacity 42.9685 physfad_c capacity 32.2654 42.9173 sum(X): 628  510
+E27 I3% 1:13:41s train NMSE: 16.3515 optimized train NMSE: 16.6689 model capacity 41.4365 physfad_c capacity 34.5699 44.4884 sum(X): 564  514
+E27 I7% 1:12:09s train NMSE: 16.1614 optimized train NMSE: 15.8880 model capacity 41.1662 physfad_c capacity 37.0007 44.1935 sum(X): 567  541
+E27 I10% 1:11:48s train NMSE: 16.2039 optimized train NMSE: 15.9008 model capacity 41.5421 physfad_c capacity 36.2356 44.2599 sum(X): 588  529
+E27 I13% 1:10:46s train NMSE: 16.1847 optimized train NMSE: 16.7117 model capacity 41.0487 physfad_c capacity 36.3029 44.6693 sum(X): 597  541
+E27 I17% 1:08:35s train NMSE: 16.0239 optimized train NMSE: 16.5234 model capacity 42.2621 physfad_c capacity 32.8363 44.3275 sum(X): 624  514
+E27 I20% 1:07:34s train NMSE: 15.8955 optimized train NMSE: 16.2895 model capacity 43.6229 physfad_c capacity 34.3041 45.4609 sum(X): 689  558
+E27 I24% 1:06:02s train NMSE: 15.8050 optimized train NMSE: 15.2492 model capacity 41.9581 physfad_c capacity 31.9317 43.0990 sum(X): 492  478
+E27 I25% 1:06:08s train NMSE: 15.6741 optimized train NMSE: 15.0027 model capacity 41.8669 physfad_c capacity 36.2597 45.0633 sum(X): 566  515
+E27 I27% 1:06:14s train NMSE: 15.4482 optimized train NMSE: 15.4477 model capacity 42.0190 physfad_c capacity 32.1721 44.0438 sum(X): 541  497
+E27 I28% 1:06:20s train NMSE: 15.4592 optimized train NMSE: 16.4339 model capacity 42.0563 physfad_c capacity 37.1113 43.9495 sum(X): 558  536
+E27 I29% 1:06:25s train NMSE: 15.4316 optimized train NMSE: 14.9798 model capacity 42.0403 physfad_c capacity 33.5695 44.1399 sum(X): 538  510
+E27 I31% 1:05:54s train NMSE: 15.4429 optimized train NMSE: 16.4660 model capacity 41.8680 physfad_c capacity 31.7223 42.8108 sum(X): 522  493
+E27 I32% 1:05:58s train NMSE: 15.5243 optimized train NMSE: 15.3089 model capacity 41.7944 physfad_c capacity 34.0147 44.1174 sum(X): 624  580
+E27 I34% 1:05:27s train NMSE: 15.3909 optimized train NMSE: 15.6625 model capacity 41.5467 physfad_c capacity 37.0126 45.6464 sum(X): 649  582
+E27 I36% 1:04:23s train NMSE: 15.2650 optimized train NMSE: 16.0209 model capacity 42.6879 physfad_c capacity 33.4298 44.5587 sum(X): 625  575
+E27 I38% 1:03:49s train NMSE: 15.3243 optimized train NMSE: 15.5398 model capacity 42.0613 physfad_c capacity 39.8492 46.1309 sum(X): 764  633
+E27 I41% 1:02:45s train NMSE: 15.4427 optimized train NMSE: 15.4335 model capacity 41.7125 physfad_c capacity 35.4369 43.8730 sum(X): 539  506
+E27 I42% 1:02:14s train NMSE: 15.3862 optimized train NMSE: 16.0711 model capacity 41.6306 physfad_c capacity 34.6460 45.2636 sum(X): 566  528
+E27 I45% 1:01:09s train NMSE: 15.4739 optimized train NMSE: 16.2957 model capacity 41.5519 physfad_c capacity 36.5443 43.6664 sum(X): 638  597
+E27 I49% 0:59:31s train NMSE: 15.4795 optimized train NMSE: 18.0283 model capacity 42.8273 physfad_c capacity 34.9118 43.5290 sum(X): 600  543
+E27 I50% 0:59:00s train NMSE: 15.3739 optimized train NMSE: 16.3489 model capacity 42.0371 physfad_c capacity 33.9527 43.3891 sum(X): 532  498
+E27 I55% 0:56:22s train NMSE: 15.6944 optimized train NMSE: 15.4790 model capacity 42.2859 physfad_c capacity 33.1382 44.9176 sum(X): 522  498
+E27 I56% 0:56:21s train NMSE: 15.7508 optimized train NMSE: 17.6134 model capacity 42.2566 physfad_c capacity 35.9962 42.3749 sum(X): 704  628
+E27 I57% 0:55:49s train NMSE: 15.7698 optimized train NMSE: 15.5163 model capacity 42.2814 physfad_c capacity 36.4875 43.5504 sum(X): 561  523
+E27 I59% 0:55:47s train NMSE: 15.6550 optimized train NMSE: 14.7962 model capacity 42.2358 physfad_c capacity 38.5097 45.7460 sum(X): 644  571
+E27 I62% 0:54:43s train NMSE: 15.4386 optimized train NMSE: 14.7898 model capacity 42.5683 physfad_c capacity 34.4315 44.6942 sum(X): 573  502
+E27 I63% 0:54:11s train NMSE: 15.5019 optimized train NMSE: 15.8285 model capacity 42.3069 physfad_c capacity 33.1974 44.0154 sum(X): 546  507
+E27 I64% 0:54:07s train NMSE: 15.5128 optimized train NMSE: 15.5627 model capacity 42.8251 physfad_c capacity 38.7931 43.9357 sum(X): 616  542
+E27 I67% 0:52:34s train NMSE: 15.3141 optimized train NMSE: 15.3630 model capacity 42.7144 physfad_c capacity 36.7060 45.4742 sum(X): 699  603
+E27 I69% 0:52:02s train NMSE: 15.2418 optimized train NMSE: 14.3111 model capacity 43.1000 physfad_c capacity 34.0994 46.3875 sum(X): 595  504
+E27 I70% 0:51:58s train NMSE: 15.1589 optimized train NMSE: 16.2087 model capacity 44.5300 physfad_c capacity 36.7617 46.0584 sum(X): 708  544
+E27 I71% 0:51:26s train NMSE: 15.1815 optimized train NMSE: 16.0799 model capacity 42.3990 physfad_c capacity 32.7603 43.9649 sum(X): 512  494
+E27 I84% 0:45:14s train NMSE: 15.1230 optimized train NMSE: 15.8292 model capacity 42.9364 physfad_c capacity 34.2029 44.0549 sum(X): 549  519
+E27 I85% 0:44:41s train NMSE: 15.0656 optimized train NMSE: 15.5198 model capacity 43.0355 physfad_c capacity 36.7750 44.9402 sum(X): 568  534
+E27 I88% 0:43:13s train NMSE: 15.2010 optimized train NMSE: 16.4820 model capacity 42.8977 physfad_c capacity 31.2158 43.7178 sum(X): 507  485
+E27 I90% 0:42:40s train NMSE: 15.2807 optimized train NMSE: 15.9965 model capacity 43.6796 physfad_c capacity 34.9221 45.6569 sum(X): 608  566
+E27 I92% 0:41:13s train NMSE: 15.3312 optimized train NMSE: 17.0366 model capacity 45.9305 physfad_c capacity 36.1232 47.3680 sum(X): 869  541
+E27 I95% 0:40:08s train NMSE: 15.1505 optimized train NMSE: 14.4266 model capacity 44.7314 physfad_c capacity 35.9563 47.3679 sum(X): 755  529
+E27 I99% 0:38:31s train NMSE: 14.8472 optimized train NMSE: 14.2192 model capacity 45.2042 physfad_c capacity 34.1147 46.7915 sum(X): 820  507
+epoch 28 train dataset length 46976
+E28 I3% 0:37:02s train NMSE: 14.8504 optimized train NMSE: 14.3881 model capacity 44.7281 physfad_c capacity 33.2425 46.6714 sum(X): 776  505
+E28 I8% 0:34:38s train NMSE: 14.6890 optimized train NMSE: 14.8647 model capacity 43.8579 physfad_c capacity 31.9858 46.3562 sum(X): 714  511
+E28 I12% 0:33:25s train NMSE: 14.6673 optimized train NMSE: 14.2529 model capacity 44.7088 physfad_c capacity 33.7736 47.1004 sum(X): 812  499
+E28 I14% 0:33:13s train NMSE: 14.5783 optimized train NMSE: 15.6098 model capacity 45.8370 physfad_c capacity 35.8377 46.0429 sum(X): 863  528
+E28 I15% 0:33:00s train NMSE: 14.5793 optimized train NMSE: 14.7264 model capacity 44.9861 physfad_c capacity 38.4363 47.0401 sum(X): 934  549
+E28 I16% 0:32:47s train NMSE: 14.4772 optimized train NMSE: 13.6665 model capacity 44.9063 physfad_c capacity 32.5701 46.7523 sum(X): 804  545
+E28 I18% 0:32:34s train NMSE: 14.5009 optimized train NMSE: 14.5854 model capacity 43.5056 physfad_c capacity 35.2736 46.4192 sum(X): 730  532
+E28 I19% 0:32:02s train NMSE: 14.4260 optimized train NMSE: 14.6309 model capacity 44.3349 physfad_c capacity 34.9985 48.2755 sum(X): 847  543
+E28 I22% 0:30:58s train NMSE: 14.3638 optimized train NMSE: 14.4328 model capacity 45.1243 physfad_c capacity 33.4150 46.0190 sum(X): 761  517
+E28 I25% 0:30:09s train NMSE: 14.3070 optimized train NMSE: 13.7243 model capacity 45.3717 physfad_c capacity 32.5564 46.7221 sum(X): 701  495
+E28 I26% 0:29:38s train NMSE: 14.5176 optimized train NMSE: 14.3973 model capacity 46.4606 physfad_c capacity 36.3933 46.7800 sum(X): 764  521
+E28 I29% 0:28:32s train NMSE: 14.4957 optimized train NMSE: 16.0372 model capacity 44.6307 physfad_c capacity 31.4713 45.1451 sum(X): 678  494
+E28 I31% 0:27:12s train NMSE: 14.5700 optimized train NMSE: 14.7287 model capacity 43.3005 physfad_c capacity 36.5515 46.2556 sum(X): 635  497
+E28 I34% 0:26:22s train NMSE: 14.6024 optimized train NMSE: 14.0802 model capacity 45.2507 physfad_c capacity 35.8082 47.7705 sum(X): 875  524
+E28 I35% 0:25:50s train NMSE: 14.6270 optimized train NMSE: 13.9066 model capacity 46.0560 physfad_c capacity 39.7122 49.0936 sum(X): 993  591
+E28 I37% 0:25:31s train NMSE: 14.7318 optimized train NMSE: 14.1716 model capacity 46.2539 physfad_c capacity 38.4616 46.6171 sum(X): 861  569
+E28 I38% 0:25:11s train NMSE: 14.6926 optimized train NMSE: 14.6944 model capacity 44.0665 physfad_c capacity 33.8719 45.6802 sum(X): 675  488
+E28 I40% 0:24:51s train NMSE: 14.5740 optimized train NMSE: 14.9560 model capacity 43.9893 physfad_c capacity 34.4008 45.7627 sum(X): 724  519
+E28 I42% 0:23:31s train NMSE: 14.5055 optimized train NMSE: 14.1172 model capacity 44.4551 physfad_c capacity 34.7829 46.7354 sum(X): 715  504
+E28 I46% 0:22:01s train NMSE: 14.5419 optimized train NMSE: 13.8943 model capacity 45.1343 physfad_c capacity 34.9851 46.1006 sum(X): 776  544
+E28 I48% 0:21:27s train NMSE: 14.6555 optimized train NMSE: 15.4087 model capacity 43.8594 physfad_c capacity 30.7386 43.9682 sum(X): 632  477
+E28 I49% 0:21:04s train NMSE: 14.6879 optimized train NMSE: 15.4693 model capacity 44.6456 physfad_c capacity 31.3085 44.4316 sum(X): 711  492
+E28 I50% 0:20:31s train NMSE: 14.7352 optimized train NMSE: 15.4806 model capacity 44.0435 physfad_c capacity 31.2026 44.6843 sum(X): 689  499
+E28 I52% 0:19:57s train NMSE: 14.7464 optimized train NMSE: 14.1010 model capacity 43.1797 physfad_c capacity 33.6850 47.1428 sum(X): 651  488
+E28 I53% 0:19:33s train NMSE: 14.7133 optimized train NMSE: 13.8009 model capacity 43.8406 physfad_c capacity 34.9431 46.7424 sum(X): 755  499
+E28 I54% 0:19:08s train NMSE: 14.7081 optimized train NMSE: 15.8948 model capacity 44.5471 physfad_c capacity 30.7567 45.2144 sum(X): 703  536
+E28 I59% 0:17:22s train NMSE: 14.6498 optimized train NMSE: 14.2508 model capacity 42.9828 physfad_c capacity 34.4151 48.7325 sum(X): 752  524
+E28 I60% 0:16:56s train NMSE: 14.7167 optimized train NMSE: 14.1809 model capacity 44.0143 physfad_c capacity 35.0796 47.1345 sum(X): 817  516
+E28 I61% 0:16:21s train NMSE: 14.6367 optimized train NMSE: 14.2782 model capacity 45.5351 physfad_c capacity 35.6823 47.8438 sum(X): 776  518
+E28 I63% 0:15:54s train NMSE: 14.5205 optimized train NMSE: 14.9779 model capacity 46.6310 physfad_c capacity 32.1581 47.2201 sum(X): 803  520
+E28 I64% 0:15:25s train NMSE: 14.4610 optimized train NMSE: 12.9351 model capacity 49.2080 physfad_c capacity 38.2467 51.2563 sum(X): 1000  533
+E28 I65% 0:14:57s train NMSE: 14.4517 optimized train NMSE: 14.3340 model capacity 45.9535 physfad_c capacity 37.1920 47.9828 sum(X): 855  514
+E28 I67% 0:14:28s train NMSE: 14.5168 optimized train NMSE: 14.2703 model capacity 45.7776 physfad_c capacity 35.8756 47.1793 sum(X): 915  556
+E28 I68% 0:13:51s train NMSE: 14.5757 optimized train NMSE: 13.0781 model capacity 45.5451 physfad_c capacity 37.8343 47.3958 sum(X): 954  563
+E28 I69% 0:13:15s train NMSE: 14.6788 optimized train NMSE: 13.5532 model capacity 47.5795 physfad_c capacity 40.3284 49.4370 sum(X): 1047  599
+E28 I71% 0:12:38s train NMSE: 14.5946 optimized train NMSE: 14.1731 model capacity 43.8358 physfad_c capacity 30.9509 45.4131 sum(X): 644  495
+E28 I74% 0:11:18s train NMSE: 14.4910 optimized train NMSE: 12.0934 model capacity 47.3096 physfad_c capacity 38.7446 49.5851 sum(X): 993  542
+E28 I76% 0:10:05s train NMSE: 14.5613 optimized train NMSE: 15.2459 model capacity 47.4068 physfad_c capacity 34.6308 46.8516 sum(X): 892  529
+E28 I78% 0:09:28s train NMSE: 14.4848 optimized train NMSE: 15.0245 model capacity 44.9708 physfad_c capacity 32.7607 46.0295 sum(X): 822  535
+E28 I80% 0:08:15s train NMSE: 14.6151 optimized train NMSE: 14.9961 model capacity 42.5777 physfad_c capacity 32.9292 45.5265 sum(X): 652  517
+E28 I82% 0:07:38s train NMSE: 14.5873 optimized train NMSE: 14.4228 model capacity 43.9505 physfad_c capacity 37.5786 48.2956 sum(X): 935  574
+E28 I83% 0:07:05s train NMSE: 14.5356 optimized train NMSE: 13.4657 model capacity 45.2990 physfad_c capacity 37.2367 47.3014 sum(X): 855  545
+E28 I86% 0:05:50s train NMSE: 14.7684 optimized train NMSE: 14.2790 model capacity 45.4042 physfad_c capacity 33.7033 46.4312 sum(X): 679  484
+E28 I87% 0:05:16s train NMSE: 14.7892 optimized train NMSE: 15.6313 model capacity 46.0782 physfad_c capacity 31.0946 45.0830 sum(X): 649  494
+E28 I90% 0:04:02s train NMSE: 14.7414 optimized train NMSE: 13.9736 model capacity 44.9180 physfad_c capacity 34.0968 45.2673 sum(X): 711  494
+E28 I91% 0:03:25s train NMSE: 14.8179 optimized train NMSE: 14.5542 model capacity 45.1566 physfad_c capacity 35.4718 46.7090 sum(X): 736  528
+E28 I93% 0:02:48s train NMSE: 14.6969 optimized train NMSE: 14.2290 model capacity 44.6729 physfad_c capacity 35.8465 47.0274 sum(X): 715  491
+E28 I94% 0:02:10s train NMSE: 14.5491 optimized train NMSE: 12.8737 model capacity 43.8043 physfad_c capacity 34.6975 47.6768 sum(X): 723  516
+E28 I95% 0:01:32s train NMSE: 14.5407 optimized train NMSE: 14.6216 model capacity 44.5659 physfad_c capacity 36.0121 46.4451 sum(X): 843  529
+E28 I97% 0:00:54s train NMSE: 14.5673 optimized train NMSE: 14.1714 model capacity 43.9265 physfad_c capacity 34.4397 46.6145 sum(X): 682  505
+E28 I99% -1 day, 23:59:36s train NMSE: 14.4624 optimized train NMSE: 14.1759 model capacity 45.0539 physfad_c capacity 35.3717 46.9355 sum(X): 829  529
+epoch 29 train dataset length 48608
+E29 I1% -1 day, 23:58:43s train NMSE: 14.4469 optimized train NMSE: 13.6844 model capacity 47.2553 physfad_c capacity 33.5614 47.1571 sum(X): 864  536
+E29 I3% -1 day, 23:58:05s train NMSE: 14.3979 optimized train NMSE: 14.0418 model capacity 44.5622 physfad_c capacity 34.2044 47.5531 sum(X): 757  510
+E29 I5% -1 day, 23:56:47s train NMSE: 14.5477 optimized train NMSE: 14.4620 model capacity 44.7725 physfad_c capacity 35.9934 46.7402 sum(X): 789  605
+E29 I7% -1 day, 23:56:06s train NMSE: 14.5781 optimized train NMSE: 14.5906 model capacity 43.6860 physfad_c capacity 32.3535 44.6467 sum(X): 606  480
+E29 I12% -1 day, 23:53:38s train NMSE: 14.4836 optimized train NMSE: 14.6307 model capacity 46.1806 physfad_c capacity 38.5821 47.3646 sum(X): 882  525
+E29 I17% -1 day, 23:51:19s train NMSE: 14.4308 optimized train NMSE: 14.1078 model capacity 45.6137 physfad_c capacity 36.4576 47.3339 sum(X): 836  525
+E29 I20% -1 day, 23:50:00s train NMSE: 14.5076 optimized train NMSE: 14.5867 model capacity 44.7659 physfad_c capacity 33.7579 46.4377 sum(X): 681  490
+E29 I21% -1 day, 23:49:27s train NMSE: 14.6244 optimized train NMSE: 14.1678 model capacity 46.4725 physfad_c capacity 36.3295 47.8685 sum(X): 832  531
+E29 I24% -1 day, 23:48:06s train NMSE: 14.6439 optimized train NMSE: 14.5550 model capacity 45.0842 physfad_c capacity 33.3675 46.6187 sum(X): 781  514
+E29 I25% -1 day, 23:47:22s train NMSE: 14.6507 optimized train NMSE: 14.0706 model capacity 45.3360 physfad_c capacity 36.3199 48.3368 sum(X): 827  512
+E29 I26% -1 day, 23:46:49s train NMSE: 14.6881 optimized train NMSE: 15.0725 model capacity 46.0166 physfad_c capacity 37.2306 46.7320 sum(X): 800  532
+E29 I29% -1 day, 23:45:39s train NMSE: 14.6170 optimized train NMSE: 14.8542 model capacity 42.6965 physfad_c capacity 31.1490 45.0251 sum(X): 575  472
+E29 I30% -1 day, 23:45:07s train NMSE: 14.6251 optimized train NMSE: 13.3772 model capacity 43.7729 physfad_c capacity 36.4514 46.8213 sum(X): 640  506
+E29 I36% -1 day, 23:42:44s train NMSE: 14.4510 optimized train NMSE: 13.5343 model capacity 46.5314 physfad_c capacity 38.5164 48.9063 sum(X): 909  565
+E29 I38% -1 day, 23:41:53s train NMSE: 14.3270 optimized train NMSE: 14.7899 model capacity 47.8779 physfad_c capacity 38.0594 47.8485 sum(X): 999  603
+E29 I41% -1 day, 23:40:46s train NMSE: 14.3299 optimized train NMSE: 14.3237 model capacity 44.3020 physfad_c capacity 36.0792 47.6257 sum(X): 679  503
+E29 I42% -1 day, 23:40:08s train NMSE: 14.3109 optimized train NMSE: 14.6519 model capacity 45.2601 physfad_c capacity 36.5220 48.0768 sum(X): 876  520
+E29 I43% -1 day, 23:39:21s train NMSE: 14.4020 optimized train NMSE: 14.9218 model capacity 46.5217 physfad_c capacity 38.6788 47.3259 sum(X): 925  573
+E29 I47% -1 day, 23:37:41s train NMSE: 14.2367 optimized train NMSE: 13.5215 model capacity 46.6634 physfad_c capacity 35.7289 47.9166 sum(X): 911  536
+E29 I49% -1 day, 23:36:52s train NMSE: 14.2178 optimized train NMSE: 12.9166 model capacity 46.2005 physfad_c capacity 32.5119 47.4358 sum(X): 807  525
+E29 I50% -1 day, 23:36:14s train NMSE: 14.1751 optimized train NMSE: 14.6068 model capacity 45.8612 physfad_c capacity 32.3415 47.4723 sum(X): 781  537
+E29 I55% -1 day, 23:33:58s train NMSE: 14.1320 optimized train NMSE: 14.4043 model capacity 45.2636 physfad_c capacity 38.7157 48.2034 sum(X): 909  599
+E29 I58% -1 day, 23:32:44s train NMSE: 14.1168 optimized train NMSE: 14.1830 model capacity 45.0046 physfad_c capacity 38.0838 46.6751 sum(X): 768  513
+E29 I59% -1 day, 23:31:52s train NMSE: 14.2367 optimized train NMSE: 15.5545 model capacity 45.9412 physfad_c capacity 35.4631 45.5836 sum(X): 854  568
+E29 I62% -1 day, 23:30:37s train NMSE: 14.4056 optimized train NMSE: 15.3910 model capacity 44.1681 physfad_c capacity 32.3743 46.1688 sum(X): 634  532
+E29 I63% -1 day, 23:29:44s train NMSE: 14.4600 optimized train NMSE: 20.9529 model capacity 48.7357 physfad_c capacity 36.4426 47.5653 sum(X): 1011  631
+E29 I65% -1 day, 23:28:51s train NMSE: 14.3684 optimized train NMSE: 14.8963 model capacity 44.4300 physfad_c capacity 39.7985 47.8551 sum(X): 743  561
+E29 I67% -1 day, 23:27:34s train NMSE: 14.3505 optimized train NMSE: 14.5796 model capacity 43.8466 physfad_c capacity 33.4184 46.9946 sum(X): 655  494
+E29 I68% -1 day, 23:26:39s train NMSE: 14.3761 optimized train NMSE: 15.9039 model capacity 44.1492 physfad_c capacity 32.6014 44.9711 sum(X): 747  506
+E29 I71% -1 day, 23:25:21s train NMSE: 14.4248 optimized train NMSE: 14.4380 model capacity 44.5704 physfad_c capacity 36.7717 46.6555 sum(X): 728  502
+E29 I72% -1 day, 23:24:42s train NMSE: 14.4426 optimized train NMSE: 13.4566 model capacity 46.4306 physfad_c capacity 35.6374 48.8929 sum(X): 769  501
+E29 I74% -1 day, 23:23:45s train NMSE: 14.4473 optimized train NMSE: 15.1268 model capacity 45.6946 physfad_c capacity 35.8589 48.2036 sum(X): 696  506
+E29 I79% -1 day, 23:21:29s train NMSE: 14.7124 optimized train NMSE: 15.0896 model capacity 44.5779 physfad_c capacity 29.7776 45.6227 sum(X): 644  486
+E29 I80% -1 day, 23:20:31s train NMSE: 14.6358 optimized train NMSE: 14.3868 model capacity 47.0840 physfad_c capacity 35.2592 47.5980 sum(X): 828  569
+E29 I84% -1 day, 23:18:35s train NMSE: 14.4665 optimized train NMSE: 14.8370 model capacity 43.8216 physfad_c capacity 37.2194 47.6465 sum(X): 589  559
+E29 I86% -1 day, 23:17:55s train NMSE: 14.4813 optimized train NMSE: 15.0345 model capacity 43.0849 physfad_c capacity 31.6672 45.3680 sum(X): 519  494
+E29 I87% -1 day, 23:16:54s train NMSE: 14.4251 optimized train NMSE: 14.2035 model capacity 43.5462 physfad_c capacity 34.6926 45.7397 sum(X): 590  544
+E29 I91% -1 day, 23:14:57s train NMSE: 14.4949 optimized train NMSE: 15.4265 model capacity 42.9767 physfad_c capacity 37.5000 45.5343 sum(X): 546  521
+E29 I93% -1 day, 23:13:59s train NMSE: 14.6571 optimized train NMSE: 15.0762 model capacity 43.1324 physfad_c capacity 34.3856 45.6394 sum(X): 597  535
+E29 I95% -1 day, 23:13:18s train NMSE: 14.7609 optimized train NMSE: 14.5050 model capacity 43.1602 physfad_c capacity 35.1209 45.4456 sum(X): 611  564
+E29 I96% -1 day, 23:12:37s train NMSE: 14.8806 optimized train NMSE: 15.0187 model capacity 43.5848 physfad_c capacity 33.4940 46.5489 sum(X): 611  571
+E29 I99% -1 day, 23:11:41s train NMSE: 14.9257 optimized train NMSE: 14.2734 model capacity 43.1090 physfad_c capacity 33.1925 46.3818 sum(X): 547  521
+Running Optimization on DL Model
+iter #0 input distance from zero: 910.66 model capacity loss: 44.0174 physfad_c capacity 53.8598, NMSE 15.0694
+iter #20 input distance from zero: 909.80 model capacity loss: 44.9252 physfad_c capacity 53.5947, NMSE 14.3918
+iter #40 input distance from zero: 909.77 model capacity loss: 45.4273 physfad_c capacity 53.3463, NMSE 13.9122
+iter #60 input distance from zero: 907.86 model capacity loss: 45.4272 physfad_c capacity 53.2935, NMSE 13.8622
+iter #80 input distance from zero: 905.45 model capacity loss: 45.4272 physfad_c capacity 53.2674, NMSE 13.8474
+iter #100 input distance from zero: 902.96 model capacity loss: 45.4273 physfad_c capacity 53.2456, NMSE 13.8385
+iter #120 input distance from zero: 900.33 model capacity loss: 45.4273 physfad_c capacity 53.2266, NMSE 13.8316
+iter #140 input distance from zero: 897.74 model capacity loss: 45.4274 physfad_c capacity 53.2113, NMSE 13.8267
+iter #160 input distance from zero: 895.13 model capacity loss: 45.4275 physfad_c capacity 53.2008, NMSE 13.8247
+iter #180 input distance from zero: 892.51 model capacity loss: 45.4276 physfad_c capacity 53.1959, NMSE 13.8264
+iter #200 input distance from zero: 889.94 model capacity loss: 45.4276 physfad_c capacity 53.1973, NMSE 13.8324
+iter #220 input distance from zero: 887.45 model capacity loss: 45.4277 physfad_c capacity 53.2052, NMSE 13.8428
+iter #240 input distance from zero: 885.06 model capacity loss: 45.4278 physfad_c capacity 53.2196, NMSE 13.8570
+iter #260 input distance from zero: 882.63 model capacity loss: 45.4280 physfad_c capacity 53.2394, NMSE 13.8732
+iter #280 input distance from zero: 880.22 model capacity loss: 45.4281 physfad_c capacity 53.2634, NMSE 13.8881
+iter #300 input distance from zero: 877.85 model capacity loss: 45.4282 physfad_c capacity 53.2894, NMSE 13.8967
+iter #320 input distance from zero: 875.46 model capacity loss: 45.4283 physfad_c capacity 53.3167, NMSE 13.8939
+iter #340 input distance from zero: 873.01 model capacity loss: 45.4284 physfad_c capacity 53.3418, NMSE 13.8756
+iter #360 input distance from zero: 870.51 model capacity loss: 45.4285 physfad_c capacity 53.3638, NMSE 13.8438
+iter #380 input distance from zero: 867.98 model capacity loss: 45.4287 physfad_c capacity 53.3825, NMSE 13.8034
+iter #400 input distance from zero: 865.46 model capacity loss: 45.4288 physfad_c capacity 53.3994, NMSE 13.7585
+iter #420 input distance from zero: 862.94 model capacity loss: 45.4289 physfad_c capacity 53.4164, NMSE 13.7140
+iter #440 input distance from zero: 860.37 model capacity loss: 45.4291 physfad_c capacity 53.4355, NMSE 13.6745
+iter #460 input distance from zero: 857.77 model capacity loss: 45.4292 physfad_c capacity 53.4575, NMSE 13.6430
+iter #480 input distance from zero: 855.13 model capacity loss: 45.4294 physfad_c capacity 53.4823, NMSE 13.6205
+iter #500 input distance from zero: 852.53 model capacity loss: 45.4295 physfad_c capacity 53.5093, NMSE 13.6066
+iter #520 input distance from zero: 849.90 model capacity loss: 45.4297 physfad_c capacity 53.5378, NMSE 13.6000
+iter #540 input distance from zero: 847.25 model capacity loss: 45.4298 physfad_c capacity 53.5678, NMSE 13.5993
+iter #560 input distance from zero: 844.57 model capacity loss: 45.4300 physfad_c capacity 53.6031, NMSE 13.6046
+iter #580 input distance from zero: 841.87 model capacity loss: 45.4302 physfad_c capacity 53.6698, NMSE 13.6248
+iter #600 input distance from zero: 839.18 model capacity loss: 45.4303 physfad_c capacity 54.2501, NMSE 13.9627
+iter #620 input distance from zero: 836.48 model capacity loss: 45.4305 physfad_c capacity 53.7411, NMSE 13.5176
+iter #640 input distance from zero: 833.82 model capacity loss: 45.4307 physfad_c capacity 53.6572, NMSE 13.5636
+iter #660 input distance from zero: 831.16 model capacity loss: 45.4309 physfad_c capacity 53.6776, NMSE 13.5720
+iter #680 input distance from zero: 828.54 model capacity loss: 45.4311 physfad_c capacity 53.7014, NMSE 13.5759
+iter #700 input distance from zero: 825.97 model capacity loss: 45.4312 physfad_c capacity 53.7256, NMSE 13.5778
+iter #720 input distance from zero: 823.48 model capacity loss: 45.4314 physfad_c capacity 53.7498, NMSE 13.5784
+iter #740 input distance from zero: 821.02 model capacity loss: 45.4316 physfad_c capacity 53.7742, NMSE 13.5780
+iter #760 input distance from zero: 818.62 model capacity loss: 45.4319 physfad_c capacity 53.7984, NMSE 13.5765
+iter #780 input distance from zero: 816.27 model capacity loss: 45.4321 physfad_c capacity 53.8227, NMSE 13.5739
+iter #800 input distance from zero: 813.90 model capacity loss: 45.4323 physfad_c capacity 53.8449, NMSE 13.5701
+iter #820 input distance from zero: 811.51 model capacity loss: 45.4325 physfad_c capacity 53.8638, NMSE 13.5652
+iter #840 input distance from zero: 809.25 model capacity loss: 45.4327 physfad_c capacity 53.8819, NMSE 13.5597
+iter #860 input distance from zero: 806.93 model capacity loss: 45.4329 physfad_c capacity 53.8995, NMSE 13.5536
+iter #880 input distance from zero: 804.60 model capacity loss: 45.4331 physfad_c capacity 53.9165, NMSE 13.5466
+iter #900 input distance from zero: 802.34 model capacity loss: 45.4333 physfad_c capacity 53.9330, NMSE 13.5391
+iter #920 input distance from zero: 800.06 model capacity loss: 45.4336 physfad_c capacity 53.9488, NMSE 13.5309
+iter #940 input distance from zero: 797.79 model capacity loss: 45.4338 physfad_c capacity 53.9641, NMSE 13.5222
+iter #960 input distance from zero: 795.57 model capacity loss: 45.4340 physfad_c capacity 53.9786, NMSE 13.5128
+iter #980 input distance from zero: 793.31 model capacity loss: 45.4343 physfad_c capacity 53.9924, NMSE 13.5028
+iter #1000 input distance from zero: 791.13 model capacity loss: 45.4345 physfad_c capacity 54.0053, NMSE 13.4919
+iter #1020 input distance from zero: 788.92 model capacity loss: 45.4347 physfad_c capacity 54.0174, NMSE 13.4803
+iter #1040 input distance from zero: 786.68 model capacity loss: 45.4350 physfad_c capacity 54.0285, NMSE 13.4679
+iter #1060 input distance from zero: 784.42 model capacity loss: 45.4352 physfad_c capacity 54.0384, NMSE 13.4548
+iter #1080 input distance from zero: 782.22 model capacity loss: 45.4355 physfad_c capacity 54.0471, NMSE 13.4410
+iter #1100 input distance from zero: 780.00 model capacity loss: 45.4357 physfad_c capacity 54.0545, NMSE 13.4263
+iter #1120 input distance from zero: 777.78 model capacity loss: 45.4360 physfad_c capacity 54.0606, NMSE 13.4108
+iter #1140 input distance from zero: 775.90 model capacity loss: 45.4362 physfad_c capacity 54.0717, NMSE 13.4082
+iter #1160 input distance from zero: 773.86 model capacity loss: 45.4364 physfad_c capacity 54.0784, NMSE 13.3982
+iter #1180 input distance from zero: 771.66 model capacity loss: 45.4367 physfad_c capacity 54.0809, NMSE 13.3803
+iter #1200 input distance from zero: 769.43 model capacity loss: 45.4369 physfad_c capacity 54.0814, NMSE 13.3585
+iter #1220 input distance from zero: 767.19 model capacity loss: 45.4372 physfad_c capacity 54.0802, NMSE 13.3342
+iter #1240 input distance from zero: 764.95 model capacity loss: 45.4374 physfad_c capacity 54.0768, NMSE 13.3079
+iter #1260 input distance from zero: 762.70 model capacity loss: 45.4377 physfad_c capacity 54.0710, NMSE 13.2799
+iter #1280 input distance from zero: 760.40 model capacity loss: 45.4379 physfad_c capacity 54.0630, NMSE 13.2501
+iter #1300 input distance from zero: 758.08 model capacity loss: 45.4382 physfad_c capacity 54.0528, NMSE 13.2184
+iter #1320 input distance from zero: 755.74 model capacity loss: 45.4385 physfad_c capacity 54.0399, NMSE 13.1845
+iter #1340 input distance from zero: 753.36 model capacity loss: 45.4387 physfad_c capacity 54.0246, NMSE 13.1483
+iter #1360 input distance from zero: 750.94 model capacity loss: 45.4390 physfad_c capacity 54.0061, NMSE 13.1097
+iter #1380 input distance from zero: 748.52 model capacity loss: 45.4393 physfad_c capacity 53.9846, NMSE 13.0684
+iter #1400 input distance from zero: 746.07 model capacity loss: 45.4395 physfad_c capacity 53.9558, NMSE 13.0220
+iter #1420 input distance from zero: 743.58 model capacity loss: 45.4398 physfad_c capacity 53.9227, NMSE 12.9725
+iter #1440 input distance from zero: 741.07 model capacity loss: 45.4401 physfad_c capacity 53.8875, NMSE 12.9215
+iter #1460 input distance from zero: 738.54 model capacity loss: 45.4403 physfad_c capacity 53.8515, NMSE 12.8701
+iter #1480 input distance from zero: 736.01 model capacity loss: 45.4406 physfad_c capacity 53.8139, NMSE 12.8178
+iter #1500 input distance from zero: 733.47 model capacity loss: 45.4409 physfad_c capacity 53.7751, NMSE 12.7652
+iter #1520 input distance from zero: 730.94 model capacity loss: 45.4412 physfad_c capacity 53.7364, NMSE 12.7139
+iter #1540 input distance from zero: 728.41 model capacity loss: 45.4415 physfad_c capacity 53.6987, NMSE 12.6651
+iter #1560 input distance from zero: 725.92 model capacity loss: 45.4417 physfad_c capacity 53.6635, NMSE 12.6199
+iter #1580 input distance from zero: 723.41 model capacity loss: 45.4420 physfad_c capacity 53.6317, NMSE 12.5795
+iter #1600 input distance from zero: 720.89 model capacity loss: 45.4423 physfad_c capacity 53.6041, NMSE 12.5442
+iter #1620 input distance from zero: 718.34 model capacity loss: 45.4426 physfad_c capacity 53.5812, NMSE 12.5143
+iter #1640 input distance from zero: 715.76 model capacity loss: 45.4429 physfad_c capacity 53.5628, NMSE 12.4898
+iter #1660 input distance from zero: 713.16 model capacity loss: 45.4432 physfad_c capacity 53.5482, NMSE 12.4699
+iter #1680 input distance from zero: 710.53 model capacity loss: 45.4435 physfad_c capacity 53.5370, NMSE 12.4501
+iter #1700 input distance from zero: 707.87 model capacity loss: 45.4438 physfad_c capacity 53.5284, NMSE 12.4313
+iter #1720 input distance from zero: 705.91 model capacity loss: 45.4441 physfad_c capacity 53.5721, NMSE 12.4575
+iter #1740 input distance from zero: 703.47 model capacity loss: 45.4443 physfad_c capacity 53.5759, NMSE 12.4518
+iter #1760 input distance from zero: 700.89 model capacity loss: 45.4446 physfad_c capacity 53.5709, NMSE 12.4388
+iter #1780 input distance from zero: 698.28 model capacity loss: 45.4449 physfad_c capacity 53.5649, NMSE 12.4250
+iter #1800 input distance from zero: 695.71 model capacity loss: 45.4452 physfad_c capacity 53.5584, NMSE 12.4108
+iter #1820 input distance from zero: 693.19 model capacity loss: 45.4455 physfad_c capacity 53.5507, NMSE 12.3961
+iter #1840 input distance from zero: 690.62 model capacity loss: 45.4458 physfad_c capacity 53.5413, NMSE 12.3810
+iter #1860 input distance from zero: 688.09 model capacity loss: 45.4461 physfad_c capacity 53.5291, NMSE 12.3658
+iter #1880 input distance from zero: 685.55 model capacity loss: 45.4464 physfad_c capacity 53.5134, NMSE 12.3511
+iter #1900 input distance from zero: 683.00 model capacity loss: 45.4467 physfad_c capacity 53.4937, NMSE 12.3384
+iter #1920 input distance from zero: 680.50 model capacity loss: 45.4470 physfad_c capacity 53.4698, NMSE 12.3291
+iter #1940 input distance from zero: 677.96 model capacity loss: 45.4473 physfad_c capacity 53.4411, NMSE 12.3252
+iter #1960 input distance from zero: 675.42 model capacity loss: 45.4476 physfad_c capacity 53.4087, NMSE 12.3283
+iter #1980 input distance from zero: 672.83 model capacity loss: 45.4479 physfad_c capacity 53.3756, NMSE 12.3302
+iter #2000 input distance from zero: 670.24 model capacity loss: 45.4482 physfad_c capacity 53.3490, NMSE 12.3173
+iter #2020 input distance from zero: 667.60 model capacity loss: 45.4486 physfad_c capacity 53.3396, NMSE 12.3038
+iter #2040 input distance from zero: 664.96 model capacity loss: 45.4489 physfad_c capacity 53.3531, NMSE 12.3006
+iter #2060 input distance from zero: 662.35 model capacity loss: 45.4492 physfad_c capacity 53.3788, NMSE 12.3200
+iter #2080 input distance from zero: 659.74 model capacity loss: 45.4495 physfad_c capacity 53.4152, NMSE 12.3751
+iter #2100 input distance from zero: 657.12 model capacity loss: 45.4498 physfad_c capacity 53.5071, NMSE 12.5053
+iter #2120 input distance from zero: 654.48 model capacity loss: 45.4502 physfad_c capacity 53.6787, NMSE 12.7655
+iter #2140 input distance from zero: 651.82 model capacity loss: 45.4505 physfad_c capacity 53.8373, NMSE 13.0558
+iter #2160 input distance from zero: 649.12 model capacity loss: 45.4508 physfad_c capacity 53.9546, NMSE 13.2479
+iter #2180 input distance from zero: 646.40 model capacity loss: 45.4512 physfad_c capacity 54.0631, NMSE 13.3779
+iter #2200 input distance from zero: 643.66 model capacity loss: 45.4515 physfad_c capacity 54.1825, NMSE 13.4635
+iter #2220 input distance from zero: 640.89 model capacity loss: 45.4518 physfad_c capacity 54.2376, NMSE 13.5105
+iter #2240 input distance from zero: 638.13 model capacity loss: 45.4522 physfad_c capacity 54.2190, NMSE 13.4678
+iter #2260 input distance from zero: 635.36 model capacity loss: 45.4525 physfad_c capacity 54.2386, NMSE 13.3989
+iter #2280 input distance from zero: 633.26 model capacity loss: 45.4528 physfad_c capacity 54.2732, NMSE 13.3757
+iter #2300 input distance from zero: 630.83 model capacity loss: 45.4531 physfad_c capacity 54.2968, NMSE 13.3468
+iter #2320 input distance from zero: 628.22 model capacity loss: 45.4534 physfad_c capacity 54.3199, NMSE 13.3889
+iter #2340 input distance from zero: 625.58 model capacity loss: 45.4537 physfad_c capacity 54.3113, NMSE 13.4373
+iter #2360 input distance from zero: 622.91 model capacity loss: 45.4541 physfad_c capacity 54.2791, NMSE 13.4872
+iter #2380 input distance from zero: 620.20 model capacity loss: 45.4544 physfad_c capacity 54.1929, NMSE 13.4757
+iter #2400 input distance from zero: 617.54 model capacity loss: 45.4547 physfad_c capacity 54.0398, NMSE 13.4001
+iter #2420 input distance from zero: 614.86 model capacity loss: 45.4550 physfad_c capacity 53.8092, NMSE 13.2799
+iter #2440 input distance from zero: 612.15 model capacity loss: 45.4554 physfad_c capacity 53.5337, NMSE 13.1256
+iter #2460 input distance from zero: 609.49 model capacity loss: 45.4557 physfad_c capacity 53.2688, NMSE 12.9695
+iter #2480 input distance from zero: 606.84 model capacity loss: 45.4561 physfad_c capacity 53.0210, NMSE 12.8388
+iter #2500 input distance from zero: 604.18 model capacity loss: 45.4564 physfad_c capacity 52.7828, NMSE 12.7271
+iter #2520 input distance from zero: 601.50 model capacity loss: 45.4567 physfad_c capacity 52.5715, NMSE 12.6118
+iter #2540 input distance from zero: 598.81 model capacity loss: 45.4571 physfad_c capacity 52.4032, NMSE 12.4922
+iter #2560 input distance from zero: 596.13 model capacity loss: 45.4574 physfad_c capacity 52.2750, NMSE 12.3914
+iter #2580 input distance from zero: 593.44 model capacity loss: 45.4578 physfad_c capacity 52.1792, NMSE 12.3160
+iter #2600 input distance from zero: 590.76 model capacity loss: 45.4581 physfad_c capacity 52.1115, NMSE 12.2624
+iter #2620 input distance from zero: 588.11 model capacity loss: 45.4585 physfad_c capacity 52.0681, NMSE 12.2244
+iter #2640 input distance from zero: 585.44 model capacity loss: 45.4589 physfad_c capacity 52.0453, NMSE 12.1955
+iter #2660 input distance from zero: 582.75 model capacity loss: 45.4592 physfad_c capacity 52.0394, NMSE 12.1713
+iter #2680 input distance from zero: 580.07 model capacity loss: 45.4596 physfad_c capacity 52.0463, NMSE 12.1493
+iter #2700 input distance from zero: 577.40 model capacity loss: 45.4599 physfad_c capacity 52.0619, NMSE 12.1268
+iter #2720 input distance from zero: 574.74 model capacity loss: 45.4603 physfad_c capacity 52.0836, NMSE 12.1014
+iter #2740 input distance from zero: 572.10 model capacity loss: 45.4606 physfad_c capacity 52.1082, NMSE 12.0722
+iter #2760 input distance from zero: 569.47 model capacity loss: 45.4610 physfad_c capacity 52.1328, NMSE 12.0299
+iter #2780 input distance from zero: 566.80 model capacity loss: 45.4613 physfad_c capacity 52.1555, NMSE 11.9828
+iter #2800 input distance from zero: 564.12 model capacity loss: 45.4617 physfad_c capacity 52.1746, NMSE 11.9331
+iter #2820 input distance from zero: 561.48 model capacity loss: 45.4620 physfad_c capacity 52.1887, NMSE 11.8818
+iter #2840 input distance from zero: 558.92 model capacity loss: 45.4624 physfad_c capacity 52.1973, NMSE 11.8293
+iter #2860 input distance from zero: 556.35 model capacity loss: 45.4627 physfad_c capacity 52.2003, NMSE 11.7756
+iter #2880 input distance from zero: 553.76 model capacity loss: 45.4630 physfad_c capacity 52.1974, NMSE 11.7212
+iter #2900 input distance from zero: 551.21 model capacity loss: 45.4634 physfad_c capacity 52.1883, NMSE 11.6670
+iter #2920 input distance from zero: 548.63 model capacity loss: 45.4637 physfad_c capacity 52.1725, NMSE 11.6132
+iter #2940 input distance from zero: 545.72 model capacity loss: 45.4661 physfad_c capacity 52.1498, NMSE 11.5413
+iter #2960 input distance from zero: 542.54 model capacity loss: 45.4697 physfad_c capacity 52.1155, NMSE 11.4579
+iter #2980 input distance from zero: 539.35 model capacity loss: 45.4732 physfad_c capacity 52.0704, NMSE 11.3770
+iter #3000 input distance from zero: 536.16 model capacity loss: 45.4768 physfad_c capacity 52.0137, NMSE 11.3000
+iter #3020 input distance from zero: 532.99 model capacity loss: 45.4803 physfad_c capacity 51.9456, NMSE 11.2267
+iter #3040 input distance from zero: 530.14 model capacity loss: 45.4835 physfad_c capacity 51.8323, NMSE 11.1043
+iter #3060 input distance from zero: 527.43 model capacity loss: 45.4864 physfad_c capacity 51.7192, NMSE 11.0128
+iter #3080 input distance from zero: 524.60 model capacity loss: 45.4896 physfad_c capacity 51.6242, NMSE 10.9595
+iter #3100 input distance from zero: 521.72 model capacity loss: 45.4928 physfad_c capacity 51.5251, NMSE 10.9126
+iter #3120 input distance from zero: 518.86 model capacity loss: 45.4960 physfad_c capacity 51.4225, NMSE 10.8697
+iter #3140 input distance from zero: 516.02 model capacity loss: 45.4991 physfad_c capacity 51.3143, NMSE 10.8292
+iter #3160 input distance from zero: 513.21 model capacity loss: 45.5022 physfad_c capacity 51.2012, NMSE 10.7920
+iter #3180 input distance from zero: 510.38 model capacity loss: 45.5053 physfad_c capacity 51.0800, NMSE 10.7571
+iter #3200 input distance from zero: 507.54 model capacity loss: 45.5083 physfad_c capacity 50.9515, NMSE 10.7239
+iter #3220 input distance from zero: 504.70 model capacity loss: 45.5113 physfad_c capacity 50.8177, NMSE 10.6920
+iter #3240 input distance from zero: 501.87 model capacity loss: 45.5143 physfad_c capacity 50.6837, NMSE 10.6629
+iter #3260 input distance from zero: 499.01 model capacity loss: 45.5173 physfad_c capacity 50.5508, NMSE 10.6365
+iter #3280 input distance from zero: 496.14 model capacity loss: 45.5203 physfad_c capacity 50.4189, NMSE 10.6116
+iter #3300 input distance from zero: 493.25 model capacity loss: 45.5234 physfad_c capacity 50.2953, NMSE 10.5889
+iter #3320 input distance from zero: 490.34 model capacity loss: 45.5264 physfad_c capacity 50.1826, NMSE 10.5684
+iter #3340 input distance from zero: 487.42 model capacity loss: 45.5295 physfad_c capacity 50.0828, NMSE 10.5502
+iter #3360 input distance from zero: 484.54 model capacity loss: 45.5325 physfad_c capacity 49.9969, NMSE 10.5341
+iter #3380 input distance from zero: 481.66 model capacity loss: 45.5355 physfad_c capacity 49.9241, NMSE 10.5185
+iter #3400 input distance from zero: 478.80 model capacity loss: 45.5386 physfad_c capacity 49.8636, NMSE 10.5028
+iter #3420 input distance from zero: 475.99 model capacity loss: 45.5416 physfad_c capacity 49.8132, NMSE 10.4860
+iter #3440 input distance from zero: 473.15 model capacity loss: 45.5446 physfad_c capacity 49.7702, NMSE 10.4671
+iter #3460 input distance from zero: 470.85 model capacity loss: 45.5461 physfad_c capacity 49.7491, NMSE 10.4512
+iter #3480 input distance from zero: 468.31 model capacity loss: 45.5486 physfad_c capacity 49.7238, NMSE 10.4333
+iter #3500 input distance from zero: 465.67 model capacity loss: 45.5513 physfad_c capacity 49.6988, NMSE 10.4116
+iter #3520 input distance from zero: 462.99 model capacity loss: 45.5541 physfad_c capacity 49.6736, NMSE 10.3853
+iter #3540 input distance from zero: 460.29 model capacity loss: 45.5569 physfad_c capacity 49.6468, NMSE 10.3546
+iter #3560 input distance from zero: 457.63 model capacity loss: 45.5596 physfad_c capacity 49.6212, NMSE 10.3201
+iter #3580 input distance from zero: 454.93 model capacity loss: 45.5624 physfad_c capacity 49.5925, NMSE 10.2831
+iter #3600 input distance from zero: 452.22 model capacity loss: 45.5651 physfad_c capacity 49.5622, NMSE 10.2455
+iter #3620 input distance from zero: 449.93 model capacity loss: 45.5660 physfad_c capacity 49.5218, NMSE 10.2187
+iter #3640 input distance from zero: 447.91 model capacity loss: 45.5662 physfad_c capacity 49.4759, NMSE 10.1966
+iter #3660 input distance from zero: 445.98 model capacity loss: 45.5657 physfad_c capacity 49.4278, NMSE 10.1780
+iter #3680 input distance from zero: 444.05 model capacity loss: 45.5662 physfad_c capacity 49.3799, NMSE 10.1650
+iter #3700 input distance from zero: 442.14 model capacity loss: 45.5661 physfad_c capacity 49.3369, NMSE 10.1592
+iter #3720 input distance from zero: 440.20 model capacity loss: 45.5661 physfad_c capacity 49.3041, NMSE 10.1609
+iter #3740 input distance from zero: 438.24 model capacity loss: 45.5661 physfad_c capacity 49.2802, NMSE 10.1712
+iter #3760 input distance from zero: 436.27 model capacity loss: 45.5661 physfad_c capacity 49.2680, NMSE 10.1832
+iter #3780 input distance from zero: 434.31 model capacity loss: 45.5661 physfad_c capacity 49.2658, NMSE 10.1966
+iter #3800 input distance from zero: 432.37 model capacity loss: 45.5661 physfad_c capacity 49.2712, NMSE 10.2093
+iter #3820 input distance from zero: 430.41 model capacity loss: 45.5662 physfad_c capacity 49.2803, NMSE 10.2274
+iter #3840 input distance from zero: 428.52 model capacity loss: 45.5662 physfad_c capacity 49.2879, NMSE 10.2562
+iter #3860 input distance from zero: 426.61 model capacity loss: 45.5661 physfad_c capacity 49.2911, NMSE 10.2968
+iter #3880 input distance from zero: 424.69 model capacity loss: 45.5661 physfad_c capacity 49.2876, NMSE 10.3480
+iter #3900 input distance from zero: 423.29 model capacity loss: 45.5661 physfad_c capacity 49.2856, NMSE 10.4022
+iter #3920 input distance from zero: 422.15 model capacity loss: 45.5657 physfad_c capacity 49.2742, NMSE 10.4502
+iter #3940 input distance from zero: 420.51 model capacity loss: 45.5658 physfad_c capacity 49.2510, NMSE 10.5169
+iter #3960 input distance from zero: 418.86 model capacity loss: 45.5658 physfad_c capacity 49.2181, NMSE 10.5829
+iter #3980 input distance from zero: 417.14 model capacity loss: 45.5660 physfad_c capacity 49.1794, NMSE 10.6600
+iter #4000 input distance from zero: 415.50 model capacity loss: 45.5658 physfad_c capacity 49.1329, NMSE 10.7301
+iter #4020 input distance from zero: 413.85 model capacity loss: 45.5660 physfad_c capacity 49.0808, NMSE 10.8197
+iter #4040 input distance from zero: 412.28 model capacity loss: 45.5661 physfad_c capacity 49.0231, NMSE 10.9104
+iter #4060 input distance from zero: 410.74 model capacity loss: 45.5661 physfad_c capacity 48.9602, NMSE 11.0065
+iter #4080 input distance from zero: 409.21 model capacity loss: 45.5661 physfad_c capacity 48.8933, NMSE 11.1055
+iter #4100 input distance from zero: 407.76 model capacity loss: 45.5662 physfad_c capacity 48.8226, NMSE 11.2106
+iter #4120 input distance from zero: 406.28 model capacity loss: 45.5661 physfad_c capacity 48.7491, NMSE 11.3212
+iter #4140 input distance from zero: 404.82 model capacity loss: 45.5661 physfad_c capacity 48.6731, NMSE 11.4349
+iter #4160 input distance from zero: 403.34 model capacity loss: 45.5661 physfad_c capacity 48.5955, NMSE 11.5538
+iter #4180 input distance from zero: 401.84 model capacity loss: 45.5661 physfad_c capacity 48.5166, NMSE 11.6812
+iter #4200 input distance from zero: 400.32 model capacity loss: 45.5662 physfad_c capacity 48.4375, NMSE 11.8138
+iter #4220 input distance from zero: 398.83 model capacity loss: 45.5662 physfad_c capacity 48.3591, NMSE 11.9428
+iter #4240 input distance from zero: 397.33 model capacity loss: 45.5661 physfad_c capacity 48.2820, NMSE 12.0764
+iter #4260 input distance from zero: 395.86 model capacity loss: 45.5661 physfad_c capacity 48.2070, NMSE 12.2015
+iter #4280 input distance from zero: 394.44 model capacity loss: 45.5658 physfad_c capacity 48.1342, NMSE 12.3171
+iter #4300 input distance from zero: 392.92 model capacity loss: 45.5659 physfad_c capacity 48.0659, NMSE 12.4489
+iter #4320 input distance from zero: 391.43 model capacity loss: 45.5661 physfad_c capacity 48.0020, NMSE 12.5811
+iter #4340 input distance from zero: 390.00 model capacity loss: 45.5662 physfad_c capacity 47.9422, NMSE 12.7084
+iter #4360 input distance from zero: 388.62 model capacity loss: 45.5657 physfad_c capacity 47.8864, NMSE 12.8317
+iter #4380 input distance from zero: 387.23 model capacity loss: 45.5662 physfad_c capacity 47.8364, NMSE 12.9545
+iter #4400 input distance from zero: 385.86 model capacity loss: 45.5662 physfad_c capacity 47.7919, NMSE 13.0769
+iter #4420 input distance from zero: 385.28 model capacity loss: 45.5661 physfad_c capacity 47.8183, NMSE 13.2808
+iter #4440 input distance from zero: 384.29 model capacity loss: 45.5661 physfad_c capacity 47.8145, NMSE 13.4285
+iter #4460 input distance from zero: 383.06 model capacity loss: 45.5661 physfad_c capacity 47.7989, NMSE 13.5491
+iter #4480 input distance from zero: 381.81 model capacity loss: 45.5661 physfad_c capacity 47.7874, NMSE 13.6588
+iter #4500 input distance from zero: 380.57 model capacity loss: 45.5661 physfad_c capacity 47.7829, NMSE 13.7609
+iter #4520 input distance from zero: 379.38 model capacity loss: 45.5661 physfad_c capacity 47.7859, NMSE 13.8585
+iter #4540 input distance from zero: 378.21 model capacity loss: 45.5659 physfad_c capacity 47.7938, NMSE 13.9505
+iter #4560 input distance from zero: 376.94 model capacity loss: 45.5661 physfad_c capacity 47.8138, NMSE 14.0443
+iter #4580 input distance from zero: 375.72 model capacity loss: 45.5662 physfad_c capacity 47.8380, NMSE 14.1306
+iter #4600 input distance from zero: 374.53 model capacity loss: 45.5661 physfad_c capacity 47.8641, NMSE 14.2073
+iter #4620 input distance from zero: 373.33 model capacity loss: 45.5661 physfad_c capacity 47.8932, NMSE 14.2765
+iter #4640 input distance from zero: 372.10 model capacity loss: 45.5659 physfad_c capacity 47.9253, NMSE 14.3372
+iter #4660 input distance from zero: 370.90 model capacity loss: 45.5661 physfad_c capacity 47.9545, NMSE 14.3889
+iter #4680 input distance from zero: 369.70 model capacity loss: 45.5659 physfad_c capacity 47.9836, NMSE 14.4345
+iter #4700 input distance from zero: 368.38 model capacity loss: 45.5662 physfad_c capacity 48.0177, NMSE 14.4779
+iter #4720 input distance from zero: 367.22 model capacity loss: 45.5658 physfad_c capacity 48.0376, NMSE 14.5064
+iter #4740 input distance from zero: 365.88 model capacity loss: 45.5661 physfad_c capacity 48.0665, NMSE 14.5366
+iter #4760 input distance from zero: 364.59 model capacity loss: 45.5661 physfad_c capacity 48.0880, NMSE 14.5580
+iter #4780 input distance from zero: 363.29 model capacity loss: 45.5661 physfad_c capacity 48.1047, NMSE 14.5727
+iter #4800 input distance from zero: 362.00 model capacity loss: 45.5662 physfad_c capacity 48.1191, NMSE 14.5824
+iter #4820 input distance from zero: 360.75 model capacity loss: 45.5661 physfad_c capacity 48.1275, NMSE 14.5854
+iter #4840 input distance from zero: 359.55 model capacity loss: 45.5662 physfad_c capacity 48.1328, NMSE 14.5836
+iter #4860 input distance from zero: 358.31 model capacity loss: 45.5661 physfad_c capacity 48.1376, NMSE 14.5785
+iter #4880 input distance from zero: 357.17 model capacity loss: 45.5660 physfad_c capacity 48.1346, NMSE 14.5658
+iter #4900 input distance from zero: 356.04 model capacity loss: 45.5660 physfad_c capacity 48.1336, NMSE 14.5518
+iter #4920 input distance from zero: 354.91 model capacity loss: 45.5659 physfad_c capacity 48.1281, NMSE 14.5328
+iter #4940 input distance from zero: 353.71 model capacity loss: 45.5661 physfad_c capacity 48.1284, NMSE 14.5158
+iter #4960 input distance from zero: 352.54 model capacity loss: 45.5661 physfad_c capacity 48.1239, NMSE 14.4942
+iter #4980 input distance from zero: 351.38 model capacity loss: 45.5661 physfad_c capacity 48.1145, NMSE 14.4683
+Done optimization
+tensor([[ 1.0051e+01,  1.2865e-04, -2.9632e-04, -2.0607e-04, -8.2792e-05,
+         -5.2593e-04,  2.9211e+00,  1.3348e+01,  5.0384e-04, -1.5467e-03,
+          8.5491e-05, -3.8915e-04,  3.1396e-04,  5.2107e-04,  3.0786e-04,
+          2.1235e+00, -4.0012e-04,  1.1796e+01,  5.4112e-06,  1.5466e+01,
+          8.4469e-04,  3.2500e-05,  1.2584e-04, -4.4599e-04, -1.9430e-04,
+          4.6033e-04, -1.7659e-04,  3.4371e-04,  4.1008e+00, -3.5320e-04,
+         -1.3155e-03, -6.2565e-04,  5.8573e+00,  3.4617e-04,  4.9756e-05,
+          7.2718e-04,  5.9397e-04,  2.0608e+00, -7.3924e-04,  8.5675e+00,
+          7.1247e-04,  8.5364e-05,  8.8546e-04,  4.2451e+00,  9.3370e+00,
+          9.4210e+00,  3.2715e+00,  8.8692e+00,  2.1069e+00, -3.4259e-05,
+          6.7366e-05, -1.1729e-04,  4.4281e+00,  3.8730e-04,  7.1867e-01,
+          8.3184e-04,  1.7446e+00, -1.5339e-03, -2.5114e-04,  6.9215e-04,
+         -7.4346e-04,  4.5046e+00,  1.3949e+00, -6.5558e-04, -6.5840e-04,
+          1.4465e-03,  9.0237e-04,  4.6850e-01,  1.0661e-03,  7.1497e-04,
+         -2.7241e-04, -2.0276e-04, -3.7172e-04,  2.1895e-04,  4.3999e-04,
+         -9.1710e-05, -5.2617e-04,  4.2131e-04, -7.9056e-04,  1.0735e+00,
+          1.0432e+01,  1.4390e-03, -9.1522e-04,  4.8908e+00,  4.0156e-04,
+          6.9978e-04,  6.9789e+00, -9.1675e-04,  7.5525e-04, -4.0394e-04,
+         -1.3018e-05,  6.1054e+00, -3.4250e-04, -6.0103e-05, -5.9928e-04,
+         -9.8200e-04,  3.9313e-05, -5.1864e-04,  5.6186e-05,  1.5048e-03,
+         -2.2475e+00,  4.6229e+00,  8.3849e-04, -1.9709e-04,  1.0645e+01,
+         -1.1198e-04,  3.5275e-05,  2.9814e-04,  1.2786e-03, -1.6177e-04,
+         -4.5583e-04, -9.3794e-04,  1.2376e+01,  7.9862e-05,  2.8580e-04,
+          7.0732e+00,  6.5865e+00, -7.1184e-05,  1.5605e-03, -2.9845e-04,
+          7.2357e-04, -5.9468e-04,  4.9791e-04, -3.0467e-04,  2.5097e-04,
+          8.0628e+00,  8.9203e-05,  1.1760e-03,  1.2052e-03, -5.5142e-05,
+          4.4219e-04, -4.3456e-04, -4.5648e-04,  3.0195e-04, -1.3969e-03,
+         -5.6222e-05,  6.1117e-05,  6.9655e+00,  4.1805e+00,  2.1896e+00,
+         -7.7073e-05,  9.4299e+00, -7.3801e-04,  7.2317e-05,  1.7337e+00,
+          7.2540e-04, -9.2934e-05,  3.1909e-04,  3.6199e-04,  2.1229e-04,
+          3.7696e-04,  3.0864e-04,  5.5048e-04,  9.5440e+00,  1.2815e-04,
+         -2.6818e-04,  3.2047e-04,  4.5872e+00,  7.0962e-04,  2.9172e+00,
+          5.9267e+00,  4.0239e+00,  8.3644e+00,  5.3150e+00,  1.0485e+01,
+         -3.1064e-04,  2.6278e-01, -7.6753e-04, -1.7618e-04, -6.4271e-04,
+         -4.7427e-05, -7.1705e-04, -3.1802e-04, -4.5292e-04,  2.9216e-05,
+          7.5754e+00,  1.0301e+01, -1.2497e-04,  6.2223e-04, -1.5768e-04,
+         -8.0179e-04, -8.2967e-05,  3.6864e-04,  3.1071e-04,  1.9186e-04,
+          2.6269e-03,  1.4177e-06,  7.1262e+00, -1.3863e-03, -2.5186e-04,
+         -4.2505e-04,  4.3601e-04,  1.1450e-03,  7.6023e-04, -2.9371e-04,
+          7.0591e-01,  6.9977e+00, -3.8062e-04, -1.4455e-03, -2.2508e-04,
+          4.0922e-04, -3.0225e-04,  9.9709e-04, -1.2105e-03,  9.5420e-05,
+          8.6750e-05,  1.3741e-03,  3.8455e-04,  5.2984e-04,  1.1698e-04,
+          8.6009e-06,  2.9644e-04, -7.9398e-05,  1.4195e-03, -9.4260e-04,
+         -8.4261e-05,  4.1983e-05,  7.2325e-04,  3.2113e+00, -9.2676e-04,
+          7.8055e-04,  1.0455e+01,  1.0651e+01,  8.3589e-04,  3.3797e+00,
+         -3.2426e-04, -1.5877e-04, -2.9729e-04, -4.4175e-04,  2.9841e-04,
+         -1.7053e-04, -1.9455e-04,  1.8383e-04,  7.9408e-04, -1.5790e-04,
+         -3.4644e-04, -4.6506e-04,  3.6275e-04, -6.9567e-04,  7.4984e-05,
+          2.4596e-04, -6.6847e-04, -2.5308e-04, -4.8992e-04, -7.2490e-04,
+          4.6983e+00,  1.2513e-03,  1.1054e-04,  2.0298e-04, -1.6716e-04,
+         -7.6317e-04,  1.4284e-03, -9.0418e-04,  1.1699e-03, -1.2865e-04,
+          1.8007e-04, -8.2507e-04,  4.5962e-04,  1.5862e-03,  9.4114e-04,
+         -4.8175e-04,  6.6242e-04,  1.2222e+00, -9.0842e-04]],
+       requires_grad=True)
+
+End Simulation
+
+Process finished with exit code 0
