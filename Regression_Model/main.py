@@ -517,7 +517,7 @@ def train(model, loss_func, optimizer,physfad, train_ldr, test_ldr, max_epochs, 
             NMSE_TEST.append(test_NMSE)
             # save checkpoint
             # dt = time.strftime("%Y_%m_%d-%H_%M_%S")
-            # fn = ".\\Log\\" + str(dt) + str("-") + \
+            # fn = "./Log/" + str(dt) + str("-") + \
             #      str(epoch) + "_checkpoint.pt"
 
             # info_dict = {
@@ -565,19 +565,19 @@ def generate_dataset(dataset_name,dataset_post_name,dataset_path,batch_size,data
     scipy.io.savemat(tx_y_file_name,{"y_tx_modified":tx_y.detach().numpy()})
 
 def load_data(batch_size,output_size,output_shape,physfad,device):
-    train_RIS_file = "..\\Data\\conditional_RISConfiguration.mat"#"..\\Data\\full_range_RISConfiguration.mat" # full_range_RISConfiguration
-    # train_RIS_file = "..\\Data\\new_full_RISConfiguration.mat"
-    train_H_file = "..\\Data\\conditional_H_realizations.mat"#"..\\Data\\full_range_H_realizations.mat" # full_range_H_realizations
-    # train_H_file = "..\\Data\\new_full_H_realizations.mat"
-    train_tx_file = "..\\Data\\"
-    train_H_capacity_file = "..\\Data\\full_H_capacity.txt" # full_H_capacity
-    train_ris_gradients_file = "..\\Data\\full_ris_gradients.pt"
+    train_RIS_file = "../Data/conditional_RISConfiguration.mat"#"../Data/full_range_RISConfiguration.mat" # full_range_RISConfiguration
+    # train_RIS_file = "../Data/new_full_RISConfiguration.mat"
+    train_H_file = "../Data/conditional_H_realizations.mat"#"../Data/full_range_H_realizations.mat" # full_range_H_realizations
+    # train_H_file = "../Data/new_full_H_realizations.mat"
+    train_tx_file = "../Data/"
+    train_H_capacity_file = "../Data/full_H_capacity.txt" # full_H_capacity
+    train_ris_gradients_file = "../Data/full_ris_gradients.pt"
     train_ds = RISDataset(train_RIS_file, train_H_file, train_H_capacity_file,train_ris_gradients_file,train_tx_file, calculate_capacity=True,calculate_gradients=True,physfad=physfad,only_fres=False,
                         batch_size=batch_size,virtual_batch_size=16,output_size=output_size, output_shape=output_shape, device=device)
-    test_RIS_file = "..\\Data\\conditional_RISConfiguration_test.mat"
-    test_H_file = "..\\Data\\conditional_H_realizations_test.mat"
-    test_H_capacity_file = "..\\Data\\Test_full_H_capacity.txt"
-    test_ris_gradients_file = "..\\Data\\Test_full_ris_gradients.pt"
+    test_RIS_file = "../Data/conditional_RISConfiguration_test.mat"
+    test_H_file = "../Data/conditional_H_realizations_test.mat"
+    test_H_capacity_file = "../Data/Test_full_H_capacity.txt"
+    test_ris_gradients_file = "../Data/Test_full_ris_gradients.pt"
 
     test_ds = RISDataset(test_RIS_file, test_H_file, test_H_capacity_file,test_ris_gradients_file,train_tx_file, calculate_capacity=True,calculate_gradients=True,physfad=physfad,only_fres=False,
                          batch_size=batch_size,virtual_batch_size=16,output_size=output_size, output_shape=output_shape, device=device)
@@ -743,14 +743,14 @@ def main():
 
     NMSE_LST_SIZE = 10
     print("Collecting RIS configuration ")
-    # generate_dataset("conditional","","..\\Data\\",16,128,physfad,input_size=135)
-    generate_dataset("conditional","_test","..\\Data\\",16,64,physfad,input_size=135)
+    # generate_dataset("conditional","","../Data/",16,128,physfad,input_size=135)
+    generate_dataset("conditional","_test","../Data/",16,64,physfad,input_size=135)
     train_ds,test_ds,train_ldr, test_ldr = load_data(batch_size,output_size,output_shape,physfad,device)
     if load_model:
         print("Loading model")
-        # net_forward.load_state_dict(torch.load(".\\Models\\large_model_long_tr_op_loop.pt"))
-        net_forward.load_state_dict(torch.load(".\\Models\\Full_Main_model.pt"))
-        # net.load_state_dict(torch.load(".\\Models\\rate_model.pt"))
+        # net_forward.load_state_dict(torch.load("./Models/large_model_long_tr_op_loop.pt"))
+        net_forward.load_state_dict(torch.load("./Models/Full_Main_model.pt"))
+        # net.load_state_dict(torch.load("./Models/rate_model.pt"))
         # optimizer = T.optim.Adam([net_forward.hyp_net.parameters(),net_forward.main_net.linear_layers.parameters()], lr=lrn_rate)
         optimizer = T.optim.Adam(net_forward.parameters(), lr=lrn_rate)
         optimizer_diffusion = T.optim.Adam(net_diffusion.parameters(), lr=lrn_rate)
@@ -789,7 +789,7 @@ def main():
         plt.legend(["Train NMSE", "Test NMSE"])
         plt.xlabel("epochs")
         plt.show()
-        torch.save(net.state_dict(),".\\Models\\Full_Main_model.pt")
+        torch.save(net.state_dict(),"./Models/Full_Main_model.pt")
 
     if device != torch.device('cpu'):
         print("Moving data to cpu")
@@ -821,10 +821,10 @@ def main():
         print("load_new_data: " + str(load_new_data))
 
 
-        optimized_train_RIS_file = "..\\Data\\optimized_RISConfiguration.mat"
-        optimized_train_H_file = "..\\Data\\optimized_H_realizations.mat"
-        optimized_train_H_capacity_file = "..\\Data\\optimized_H_capacity.txt"
-        optimized_gradients_file = "..\\Data\\optimized_channel_gradients.pt"
+        optimized_train_RIS_file = "../Data/optimized_RISConfiguration.mat"
+        optimized_train_H_file = "../Data/optimized_H_realizations.mat"
+        optimized_train_H_capacity_file = "../Data/optimized_H_capacity.txt"
+        optimized_gradients_file = "../Data/optimized_channel_gradients.pt"
         train_and_optimize(net,
                            loss_func,
                            optimizer, physfad,
@@ -836,7 +836,7 @@ def main():
                            NMSE_LST_SIZE,
                            load_new_data, optimized_train_RIS_file, optimized_train_H_file, optimized_train_H_capacity_file,optimized_gradients_file,device)
 
-        torch.save(net.state_dict(), ".\\Models\\Full_Main_model.pt")
+        torch.save(net.state_dict(), "./Models/Full_Main_model.pt")
     if find_optimal_lr:
         device_cpu = torch.device('cpu')
 
@@ -865,9 +865,9 @@ def main():
     if optimize_model:
         device_cpu = torch.device('cpu')
         device_cuda = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-        # optimized_train_RIS_file = "..\\Data\\large_model_optimized_RISConfiguration.mat"
-        # optimized_train_H_file = "..\\Data\\large_model_optimized_H_realizations.mat"
-        # optimized_train_H_capacity_file = "..\\Data\\large_model_optimized_H_capacity.txt"
+        # optimized_train_RIS_file = "../Data/large_model_optimized_RISConfiguration.mat"
+        # optimized_train_H_file = "../Data/large_model_optimized_H_realizations.mat"
+        # optimized_train_H_capacity_file = "../Data/large_model_optimized_H_capacity.txt"
         # train_ds = RISDataset(optimized_train_RIS_file, optimized_train_H_file, optimized_train_H_capacity_file, calculate_capacity=False,
         #                       output_size=output_size, output_shape=output_shape, device=device)
         #
@@ -921,14 +921,14 @@ def main():
         physfad_capacity = np.array(physfad_capacity)
         zogd_capacity = np.array([x.detach().numpy() for x in zogd_capacity])
         # random_search_capacity = np.array([x.detach().numpy() for x in random_search_capacity])
-        np.save(".\\outputs\\time_lst.npy",time_lst)
-        np.save(".\\outputs\\physfad_time_lst.npy",physfad_time_lst)
-        np.save(".\\outputs\\zogd_time_lst.npy",zogd_time_lst)
-        np.save(".\\outputs\\rand_search_time_lst.npy",rand_search_time_lst)
-        np.save(".\\outputs\\dnn_physfad_capacity_lst.npy",dnn_physfad_capacity_lst)
-        np.save(".\\outputs\\physfad_capacity.npy",physfad_capacity)
-        np.save(".\\outputs\\zogd_capacity.npy",zogd_capacity)
-        np.save(".\\outputs\\random_search_capacity.npy",random_search_capacity)
+        np.save("./outputs/time_lst.npy",time_lst)
+        np.save("./outputs/physfad_time_lst.npy",physfad_time_lst)
+        np.save("./outputs/zogd_time_lst.npy",zogd_time_lst)
+        np.save("./outputs/rand_search_time_lst.npy",rand_search_time_lst)
+        np.save("./outputs/dnn_physfad_capacity_lst.npy",dnn_physfad_capacity_lst)
+        np.save("./outputs/physfad_capacity.npy",physfad_capacity)
+        np.save("./outputs/zogd_capacity.npy",zogd_capacity)
+        np.save("./outputs/random_search_capacity.npy",random_search_capacity)
 
         plot_model_optimization(time_lst,dnn_physfad_capacity_lst,model_capacity_lst,physfad_time_lst,physfad_capacity,zogd_time_lst,zogd_capacity,rand_search_time_lst,random_search_capacity,device)
 
@@ -979,7 +979,7 @@ def main():
                 SNR_results[i, 4, attempt] = physfad_capacity[physfad_time_lst-physfad_time_lst[0]< time_lst[max_index]-time_lst[0]][-1]
                 SNR_results[i, 5, attempt] = zogd_capacity[zogd_time_lst-zogd_time_lst[0]< time_lst[max_index]-time_lst[0]][-1]
                 SNR_results[i, 6, attempt] = max(random_search_capacity[rand_search_time_lst - rand_search_time_lst[0] < time_lst[max_index] - time_lst[0]])
-        np.save(".\\outputs\\SNR_results.npy",SNR_results)
+        np.save("./outputs/SNR_results.npy",SNR_results)
         plt.plot(1/noise_array,np.mean(SNR_results[:,0,:],axis=1))
         plt.plot(1/noise_array,np.mean(SNR_results[:,1,:],axis=1))
         plt.plot(1/noise_array,np.mean(SNR_results[:,2,:],axis=1))
