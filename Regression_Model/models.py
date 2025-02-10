@@ -143,10 +143,14 @@ class main_Net(nn.Module):
 
 # Old network(no use of hypernetwork)
 class Net_diffusion(nn.Module):
-    def __init__(self,input_size,output_size,hidden_size):
+    def __init__(self,config):
         super(Net_diffusion, self).__init__()
         # calculate the product of a list
         prod = lambda lst: reduce(lambda x, y: x * y, lst)
+
+        input_size  = config.diffusion_inp_size
+        output_size = config.input_size # the diffusion network is a denoising network
+        hidden_size = config.hidden_size
 
         self.hid1 = nn.Linear(input_size, hidden_size * 6,dtype=torch.float64)  # 8-(10-10)-1
         self.dropout1 = nn.Dropout(0.1)
@@ -186,8 +190,8 @@ class Net_diffusion(nn.Module):
         z = T.relu(self.hid5(z))
         # z = self.dropout2(z)
         z = self.oupt(z)  # no activation
-
-        return z
+        normalized_output = T.nn.functional.sigmoid(z)
+        return normalized_output
 class Net(nn.Module):
     def __init__(self,input_size,hidden_size,output_length,output_shape,model_output_capacity):
         super(Net, self).__init__()

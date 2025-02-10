@@ -7,6 +7,7 @@ import time
 import random
 from models import *
 from dataset import *
+from conf import Config
 from ChannelMatrixEvaluation import (test_configurations_capacity,
                                        physfad_channel_optimization,
                                      zeroth_grad_optimization,random_search_optimization)
@@ -16,9 +17,9 @@ import datetime
 from functools import reduce
 import cProfile,pstats,io
 from utils import (print_train_iteration, plot_train_epoch, plot_model_optimization, plus_1_cyclic, test_model,
-                   NMSE,test_dnn_optimization, cosine_similarity,cosine_score,get_gradient_score,get_physfad_grads,
-                   directional_derivative_accuracy,copy_with_gradients,copy_without_gradients,open_virtual_batch,
-                   estimate_gradient,shrinkage,save_fig)
+                   NMSE, test_dnn_optimization, cosine_similarity, cosine_score, get_gradient_score, get_physfad_grads,
+                   directional_derivative_accuracy, copy_with_gradients, copy_without_gradients, open_virtual_batch,
+                   zo_estimate_gradient, shrinkage, save_fig)
 # -----------------------------------------------------------
 
 
@@ -309,7 +310,7 @@ def annealed_langevin(model,physfad,starting_configuration,tx_x,tx_y, number_of_
     return rate_list
 
 
-def diffusion_training(model_forward,model_diffusion,train_ldr,test_ldr, optimizer,optimizer_diffusion, physfad, max_epochs, ep_log_interval, output_size, output_shape,
+def diffusion_training(model_forward,model_diffusion,train_ldr,test_ldr, optimizer,optimizer_diffusion, physfad,config, max_epochs, ep_log_interval, output_size, output_shape,
                        model_output_capacity, device="cpu"):
 
     # X=torch.randn([1,264],device=device)
@@ -322,7 +323,7 @@ def diffusion_training(model_forward,model_diffusion,train_ldr,test_ldr, optimiz
     for i in range(1000):
         # (X, _, tx_x, tx_y, _, Y_ground_truth) = next(iter(train_ldr))
         # X = X[0, 0, :].unsqueeze(0).clone().detach().requires_grad_(True).to(device)
-        X = torch.randn([batch_size, 135], device=device,dtype=torch.float64)
+        X = torch.randn([batch_size, config.input_size], device=device,dtype=torch.float64)
         tx_x_diff = 19.5 * torch.randn([batch_size, 3], device=device,dtype=torch.float64) - 3.3
         tx_y_diff = 11.5 * torch.randn([batch_size, 3], device=device,dtype=torch.float64) - 2.8
         tx_x, tx_y = x_tx_orig + tx_x_diff, y_tx_orig + tx_y_diff
@@ -333,9 +334,9 @@ def diffusion_training(model_forward,model_diffusion,train_ldr,test_ldr, optimiz
         improved_X = model_diffusion(torch.hstack([X,tx_x,tx_y,sigma]))
         # H_approx = model_forward(tx_x,tx_y,improved_X)
         epsilon = 0.0001
-        x_distance = ((improved_X - X) ** 2).sum(dim=1)
+        x_distance = ((improved_X - X) ** 2).sum(dim=1)/config.input_size
         sigma_distance = ((x_distance - sigma.squeeze(1)) ** 2).mean()
-        sigma_grad = torch.autograd.grad(-sigma_distance, improved_X, retain_graph=True, create_graph=True)[0]
+        sigma_grad = torch.autograd.grad(sigma_distance, improved_X, retain_graph=True, create_graph=True)[0]
         # acc_gradients = get_physfad_grads(improved_X, tx_x, tx_y, physfad, device, noise=None)
         # plt.plot(acc_gradients.squeeze(0))
         # M_list = [4,8,16,32,64,128]
@@ -353,13 +354,14 @@ def diffusion_training(model_forward,model_diffusion,train_ldr,test_ldr, optimiz
         # plt.legend(legened_list)
         # plt.show()
 
-        grad_inp_16 = estimate_gradient(capacity_physfad, improved_X, tx_x, tx_y, epsilon, 16, device)
+        grad_inp_16 = zo_estimate_gradient(capacity_physfad, torch.special.logit(improved_X) , tx_x, tx_y, epsilon, 16, device)
 
 
 
         # grad_inp_8 = estimate_gradient(capacity_physfad, improved_X, tx_x, tx_y, epsilon, 8, device)
 
         grad_inp = grad_inp_16
+        print(abs(grad_inp).sum(), abs(sigma_grad).sum())
         total_grad = grad_inp#+sigma_grad # TODO: reintroduce the sigma value here
 
         # rate_approx = capacity_loss(H_approx.reshape(H_approx.shape[0], output_size, output_shape[0], output_shape[1]), list_out=True,
@@ -376,7 +378,7 @@ def diffusion_training(model_forward,model_diffusion,train_ldr,test_ldr, optimiz
         # optimizer.step()
         optimizer_diffusion.step()
         # print(rate.item())
-        if i % 16 == 0:
+        if i % 16 == 0 and i != 0:
             acc_rate = 0
             # print(len(test_ldr))
             ald_capacity_avg = np.zeros(10)
@@ -394,6 +396,7 @@ def diffusion_training(model_forward,model_diffusion,train_ldr,test_ldr, optimiz
                 for i,(iter,capac) in enumerate(ald_results):
                     ald_capacity_avg[i] += capac
                     ald_iter_list[i] = iter
+
                 (zogd_time_lst, zogd_capacity, zogd_gradient_score) = zeroth_grad_optimization(device, physfad,
                                                                                                X.clone().detach().requires_grad_(
                                                                                                    False).to(
@@ -537,7 +540,8 @@ def generate_dataset(dataset_name,dataset_post_name,dataset_path,batch_size,data
                                                             sigmaN=torch.tensor(1, dtype=torch.float64), device=device,list_out=True)
 
 
-    X = torch.randn([dataset_size, input_size], device=device, dtype=torch.float64)
+    # X = torch.randn([dataset_size, input_size], device=device, dtype=torch.float64)
+    X = torch.rand([dataset_size, input_size], device=device, dtype=torch.float64)
     tx_x_diff = 19.5 * torch.randn([int(dataset_size/batch_size), 3], device=device, dtype=torch.float64) - 3.3
     tx_y_diff = 11.5 * torch.randn([int(dataset_size/batch_size), 3], device=device, dtype=torch.float64) - 2.8
     tx_x, tx_y = x_tx_orig + tx_x_diff, y_tx_orig + tx_y_diff
@@ -572,14 +576,14 @@ def load_data(batch_size,output_size,output_shape,physfad,device):
     train_tx_file = "../Data/"
     train_H_capacity_file = "../Data/full_H_capacity.txt" # full_H_capacity
     train_ris_gradients_file = "../Data/full_ris_gradients.pt"
-    train_ds = RISDataset(train_RIS_file, train_H_file, train_H_capacity_file,train_ris_gradients_file,train_tx_file, calculate_capacity=True,calculate_gradients=True,physfad=physfad,only_fres=False,
+    train_ds = RISDataset(train_RIS_file, train_H_file, train_H_capacity_file,train_ris_gradients_file,train_tx_file, calculate_capacity=False,calculate_gradients=False,physfad=physfad,only_fres=False,
                         batch_size=batch_size,virtual_batch_size=16,output_size=output_size, output_shape=output_shape, device=device)
     test_RIS_file = "../Data/conditional_RISConfiguration_test.mat"
     test_H_file = "../Data/conditional_H_realizations_test.mat"
     test_H_capacity_file = "../Data/Test_full_H_capacity.txt"
     test_ris_gradients_file = "../Data/Test_full_ris_gradients.pt"
 
-    test_ds = RISDataset(test_RIS_file, test_H_file, test_H_capacity_file,test_ris_gradients_file,train_tx_file, calculate_capacity=True,calculate_gradients=True,physfad=physfad,only_fres=False,
+    test_ds = RISDataset(test_RIS_file, test_H_file, test_H_capacity_file,test_ris_gradients_file,train_tx_file, calculate_capacity=False,calculate_gradients=False,physfad=physfad,only_fres=False,
                          batch_size=batch_size,virtual_batch_size=16,output_size=output_size, output_shape=output_shape, device=device)
 
     train_ldr = T.utils.data.DataLoader(train_ds,
@@ -695,22 +699,23 @@ def main():
     # device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     device = torch.device("cpu") # force choosing cpu
     print(device)
+    config = Config()
     # 0. get started
-    T.manual_seed(4)  # representative results
-    np.random.seed(4)
+    T.manual_seed(config.seed)  # representative results
+    np.random.seed(config.seed)
 
-    batch_size = 16# 320
-    output_size = 120
-    output_shape = (4, 3)
-    inp_size = 135 # 264
-    hidden_size =40
+    batch_size = config.batch_size# 320
+    output_size = config.output_size
+    output_shape = (config.output_shape[0], config.output_shape[1])
+    inp_size = config.input_size # 264
+    hidden_size = config.hidden_size
     model_output_capacity = False
 
     # 1. create DataLoader objects
 
         # 2. create network
     # net_forward = Net(inp_size,50,120,(4,3),False).to(device)
-    net_diffusion = Net_diffusion(135+6+1,inp_size,50).to(device)
+    net_diffusion = Net_diffusion(config).to(device)
     net_forward = hypernetwork_and_main_model(inp_size,hidden_size,120,(4,3),model_output_capacity).to(device)
 
     # 3. train model
@@ -723,7 +728,7 @@ def main():
     diffusion_mode = True
     training_mode = False
     activate_train_and_optimize = False  # can be added to the train mode
-    find_optimal_lr = False
+    find_optimal_lr = True
     optimize_model = True
     run_snr_graph = False
     loss_func = My_MSE_Loss
@@ -731,7 +736,7 @@ def main():
     # optimizer = T.optim.Adam(net.hyp_net.parameters(), lr=lrn_rate)  # weight_decay=0.001
     optimizer_diffusion = T.optim.Adam(net_diffusion.parameters(), lr=lrn_rate)  # weight_decay=0.001
     optimizer = T.optim.Adam(net_forward.parameters(),lr=lrn_rate)
-    physfad = physfad_c(device=device)
+    physfad = physfad_c(config,device=device)
     physfad.set_configuration()
     print("\nbatch_size = %3d " % batch_size)
     print("loss = " + str(loss_func))
@@ -744,7 +749,7 @@ def main():
     NMSE_LST_SIZE = 10
     print("Collecting RIS configuration ")
     # generate_dataset("conditional","","../Data/",16,128,physfad,input_size=135)
-    generate_dataset("conditional","_test","../Data/",16,64,physfad,input_size=135)
+    # generate_dataset("conditional","_test","../Data/",16,64,physfad,input_size=135)
     train_ds,test_ds,train_ldr, test_ldr = load_data(batch_size,output_size,output_shape,physfad,device)
     if load_model:
         print("Loading model")
@@ -762,6 +767,7 @@ def main():
                            optimizer,
                            optimizer_diffusion,
                            physfad,
+                           config,
                            max_epochs,
                            ep_log_interval,
                            output_size,
@@ -795,7 +801,7 @@ def main():
         print("Moving data to cpu")
         device = torch.device('cpu')
         net = net.to(device)
-        physfad = physfad_c(device=device)
+        physfad = physfad_c(config,device=device)
         physfad.set_configuration()
         train_ds, test_ds, train_ldr, test_ldr = load_data(batch_size, output_size, output_shape, physfad, device)
         optimizer = T.optim.Adam(net.parameters(), lr=lrn_rate)
@@ -842,11 +848,15 @@ def main():
 
         print("Finding Best Learning Rate")
 
-        (X, _, tx_x, tx_y, _, _) = next(iter(train_ldr))  # (predictors, targets)
+        (X, _, tx_x, tx_y, _, _) = open_virtual_batch(next(iter(train_ldr))) # (predictors, targets)
         # (X,_,tx_x,tx_y, _, _) = next(iter(train_ldr))  # (predictors, targets)
-
-        initial_inp = X[0, 0, :].unsqueeze(0).clone().detach().requires_grad_(True).to(device_cpu)
-        learning_rates = np.arange(0.005,0.05,0.005)
+        tx_x = torch.tensor([0, 0, 0]).unsqueeze(0).to(device).type(torch.float64)
+        tx_y = torch.tensor([4, 4.5, 5]).unsqueeze(0).to(device).type(torch.float64)
+        initial_inp = X[0, :].unsqueeze(0).clone().detach().requires_grad_(True).to(device_cpu)
+        # learning_rates = np.arange(0.005,0.05,0.005)
+        learning_rates = np.arange(0.05,0.4,0.05)
+        # learning_rates = np.arange(0.05,0.5,0.05)
+        learning_rates = np.arange(0.1,0.25,0.05)
         num_of_iter = 50
         num_of_lr = len(learning_rates)
         capacities_curves =np.zeros([num_of_lr,num_of_iter])
@@ -858,6 +868,24 @@ def main():
                                                                                             noise_power=1,learning_rate=lr,
                                                                                             num_of_iterations=num_of_iter)  # 50
             capacities_curves[i] = physfad_capacity
+            # print(test_configurations_capacity(physfad, physfad_inputs, tx_x, tx_y, device, list_out=False, noise=None)[0])
+            # print(test_configurations_capacity(physfad, physfad_inputs, tx_x, tx_y, device, list_out=False, noise=None)[0])
+            # (freq, x_tx, y_tx, fres_tx, chi_tx, gamma_tx,
+            #  x_rx, y_rx, fres_rx, chi_rx, gamma_rx,
+            #  x_env, y_env, fres_env, chi_env, gamma_env, x_ris_c, y_ris_c) = physfad.parameters
+            plt.plot((physfad_inputs[-1]).detach().numpy())
+            plt.show()
+            # plt.scatter(x_env, y_env)
+            # plt.show()
+            # epsilon = 0.1
+            # x_env = x_env+epsilon*torch.randn_like(x_env)
+            # y_env = y_env+epsilon*torch.randn_like(y_env)
+            # physfad.parameters = (freq, x_tx, y_tx, fres_tx, chi_tx, gamma_tx,
+            #  x_rx, y_rx, fres_rx, chi_rx, gamma_rx,
+            #  x_env, y_env, fres_env, chi_env, gamma_env, x_ris_c, y_ris_c)
+            # plt.scatter(x_env,y_env)
+            # plt.show()
+            # print(test_configurations_capacity(physfad, physfad_inputs, tx_x, tx_y, device, list_out=False,noise=None)[0])
         plt.plot(capacities_curves.T)
         plt.legend([str(x) for x in learning_rates])
         plt.show()
@@ -901,7 +929,7 @@ def main():
         (rand_search_time_lst, random_search_capacity) = random_search_optimization(physfad,50, device_cpu, noise_power=1,
                                                                                     initial_inp=initial_inp.clone().detach().to(device_cpu),tx_x=tx_x,tx_y=tx_y)
         net = net.to(device_cuda)
-        cuda_physfad = physfad_c(device=device_cuda)
+        cuda_physfad = physfad_c(config,device=device_cuda)
         cuda_physfad.set_configuration()
 
         (time_lst, opt_inp_lst, model_capacity_lst,gradient_score_lst) = optimize(cuda_physfad,

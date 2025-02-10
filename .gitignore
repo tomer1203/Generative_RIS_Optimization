@@ -173,4 +173,6 @@ cython_debug/
 
 
 # Specific logging/data folders
-Data/*
+Data/
+Regression_Model/logs/
+Regression_Model/plots/

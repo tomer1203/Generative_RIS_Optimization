@@ -173,21 +173,27 @@ def generate_m_random_points_on_Nsphere(batch_size,m,N,device):
     norm_mat = np.expand_dims(np.linalg.norm(random_mat,axis=2),axis=2)
     tensor_output = torch.tensor(random_mat / norm_mat,device=device)
     return tensor_output
-def estimate_gradient(func,x,tx_x,tx_y,epsilon,m,device):
-    N = x.shape[-1]
-    batch_size = x.shape[0]
-    rand_vec = generate_m_random_points_on_Nsphere(batch_size,m,N,device)
+def zo_estimate_gradient(func, x_unristricted, tx_x, tx_y, epsilon, m, device):
+    N = x_unristricted.shape[-1]
+    batch_size = x_unristricted.shape[0]
+    batch_of_rand_vecs = generate_m_random_points_on_Nsphere(batch_size,m,N,device)
     f_x_plus_eps = torch.zeros((batch_size,m,1), device=device,dtype=torch.float64)
     f_x_minus_eps = torch.zeros((batch_size,m,1), device=device,dtype=torch.float64)
     with torch.no_grad():
-        for i,vectors in enumerate(rand_vec):# TODO: broadcast this(currently broadcasting only the random_points).. I need to combine both the batches and the locations into the same dimension
-            current_x = x[i].type(torch.float64)
-            current_tx_x,current_tx_y = tx_x[i].unsqueeze(0),tx_y[i].unsqueeze(0)
-            f_x_plus_eps[i] = func(current_x+epsilon*vectors,current_tx_x,current_tx_y)
-            f_x_minus_eps[i] = func(current_x-epsilon*vectors,current_tx_x,current_tx_y)
+        # TODO: broadcast this(currently broadcasting only the random_points)..
+        #  I need to combine both the batches and the locations into the same dimension
+        for i,rand_vectors in enumerate(batch_of_rand_vecs):
+            current_tx_x, current_tx_y = tx_x[i].unsqueeze(0), tx_y[i].unsqueeze(0)
+            current_x = x_unristricted[i].type(torch.float64)
+            # get sample of points
+            normalized_x_plus_epsilon = torch.nn.functional.sigmoid(current_x+epsilon*rand_vectors)
+            normalized_x_minus_epsilon = torch.nn.functional.sigmoid(current_x-epsilon*rand_vectors)
+            # test function on sample
+            f_x_plus_eps[i] = func(normalized_x_plus_epsilon,current_tx_x,current_tx_y)
+            f_x_minus_eps[i] = func(normalized_x_minus_epsilon,current_tx_x,current_tx_y)
             # TODO: and then I need to reseperate the batches and points into their own dimensions..
 
-    return torch.sum((f_x_plus_eps-f_x_minus_eps)*rand_vec/(2*epsilon),dim=1)/m
+    return torch.sum((f_x_plus_eps-f_x_minus_eps)*batch_of_rand_vecs/(2*epsilon),dim=1)/m
 
 def cosine_similarity(A,B):
     eps = 1e-10

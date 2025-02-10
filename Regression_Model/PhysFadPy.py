@@ -6,33 +6,38 @@ import math
 import datetime
 from utils import OrderedDict
 class physfad_c():
-    def __init__(self,device):
+    def __init__(self,config,device):
+        self.config = config
         self.device = device
         self.W_dict = OrderedDict(size_limit=256)
-    def __call__(self,ris_configuration,cond_tx_x,cond_tx_y):
+
+    def __call__(self,ris_configuration_normalized,cond_tx_x,cond_tx_y):
         (freq, x_tx, y_tx, fres_tx, chi_tx, gamma_tx,
          x_rx, y_rx, fres_rx, chi_rx, gamma_rx,
          x_env, y_env, fres_env, chi_env, gamma_env, x_ris_c, y_ris_c) = self.parameters
-        if torch.any(~torch.isfinite(ris_configuration)):
+        if torch.any(~torch.isfinite(ris_configuration_normalized)):
             print("in physfad H calculations received configuration with non-finite values")
-        if not torch.is_tensor(ris_configuration):
-            ris_configuration = torch.tensor(ris_configuration, device=self.device)
-        ris_configuration_2 = self.fill_ris_config(ris_configuration ** 2)
-        # fres_ris_c  = ris_configuration_2[:, 0:45]
-        # chi_ris_c   = ris_configuration_2[:, 45:90]
-        # gamma_ris_c = ris_configuration_2[:, 90:135]
-        fres_ris_c  = ris_configuration_2[:, self.N_RIS*0:self.N_RIS*1]
-        chi_ris_c   = ris_configuration_2[:, self.N_RIS*1:self.N_RIS*2]
-        gamma_ris_c = ris_configuration_2[:, self.N_RIS*2:self.N_RIS*3]
-        if (cond_tx_x,cond_tx_y) in self.W_dict:
-            W = self.W_dict[(cond_tx_x,cond_tx_y)]
-        else:
-            W = self.get_bessel_w(self.freq,
-                             cond_tx_x, cond_tx_y,
-                             x_rx, y_rx,
-                             x_env, y_env,
-                             x_ris_c, y_ris_c, self.device)
-            self.W_dict[(cond_tx_x,cond_tx_y)] = W
+        if not torch.is_tensor(ris_configuration_normalized):
+            ris_configuration_normalized = torch.tensor(ris_configuration_normalized, device=self.device)
+
+        ris_configuration_full = self.fill_ris_config(ris_configuration_normalized)
+        # ris_configuration = ris_configuration_full
+        ris_configuration = self.scale_output_to_range(ris_configuration_full)
+        # fres_ris_c  = ris_configuration[:, 0:45]
+        # chi_ris_c   = ris_configuration[:, 45:90]
+        # gamma_ris_c = ris_configuration[:, 90:135]
+        fres_ris_c  = ris_configuration[:, self.N_RIS*0:self.N_RIS*1]
+        chi_ris_c   = ris_configuration[:, self.N_RIS*1:self.N_RIS*2]
+        gamma_ris_c = ris_configuration[:, self.N_RIS*2:self.N_RIS*3]
+        # if (cond_tx_x,cond_tx_y) in self.W_dict:
+        #     W = self.W_dict[(cond_tx_x,cond_tx_y)]
+        # else:
+        W = self.get_bessel_w(self.freq,
+                         cond_tx_x, cond_tx_y,
+                         x_rx, y_rx,
+                         x_env, y_env,
+                         x_ris_c, y_ris_c, self.device)
+        self.W_dict[(cond_tx_x,cond_tx_y)] = W
         H = self.GetH(freq, W,
                  cond_tx_x, cond_tx_y, fres_tx, chi_tx, gamma_tx,
                  x_rx, y_rx, fres_rx, chi_rx, gamma_rx,
@@ -362,6 +367,19 @@ class physfad_c():
         gamma_ris = 0 * torch.zeros((batch_size, number_of_elements), dtype=torch.float64, device=self.device,requires_grad=False)
 
         return torch.hstack([fres, chi_ris, gamma_ris])
+
+    def scale_output_to_range(self, normelized_output):
+        batch_size = normelized_output.shape[0]
+        num_config = normelized_output.shape[1]
+        assert num_config % 3 == 0, "configuration count should be divisible by three"
+        num_ris_elements = num_config // 3
+        fres_output = normelized_output[:,0 * num_ris_elements:1 * num_ris_elements]
+        chi_output = normelized_output[:,1 * num_ris_elements:2 * num_ris_elements]
+        gamma_output = normelized_output[:,2 * num_ris_elements:3 * num_ris_elements]
+        fres_output_rescaled = fres_output * self.config.fres_max_range
+        chi_output_rescaled = chi_output * self.config.chi_max_range
+        gamma_output_rescaled = gamma_output * self.config.gamma_max_range
+        return torch.hstack([fres_output_rescaled, chi_output_rescaled, gamma_output_rescaled])
 
 #             ((2*pi*fres(ii))^2-(2*pi*freq(ff))^2)/
 #             ((2 * torch.pi * fres[0, i]) ** 2 - (2 * torch.pi * freq[f]) ** 2)
