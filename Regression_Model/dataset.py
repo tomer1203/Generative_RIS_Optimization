@@ -73,6 +73,7 @@ class RISDataset(T.utils.data.Dataset):
             current_x = x_with_grads[i*self.virtual_batch_size:(i+1)*self.virtual_batch_size]
             self.gradients[i*self.virtual_batch_size:(i+1)*self.virtual_batch_size] = \
                 get_physfad_grads(current_x, current_tx_x,current_tx_y, physfad, device=self.device,noise=noise)
+
         torch.save(self.gradients,self.gradients_path)
         return self.gradients
     def add_new_items(self,X,X_gradients,Y,Y_capacity):

@@ -29,15 +29,15 @@ class physfad_c():
         fres_ris_c  = ris_configuration[:, self.N_RIS*0:self.N_RIS*1]
         chi_ris_c   = ris_configuration[:, self.N_RIS*1:self.N_RIS*2]
         gamma_ris_c = ris_configuration[:, self.N_RIS*2:self.N_RIS*3]
-        # if (cond_tx_x,cond_tx_y) in self.W_dict:
-        #     W = self.W_dict[(cond_tx_x,cond_tx_y)]
-        # else:
-        W = self.get_bessel_w(self.freq,
-                         cond_tx_x, cond_tx_y,
-                         x_rx, y_rx,
-                         x_env, y_env,
-                         x_ris_c, y_ris_c, self.device)
-        self.W_dict[(cond_tx_x,cond_tx_y)] = W
+        if (cond_tx_x,cond_tx_y) in self.W_dict:
+            W = self.W_dict[(cond_tx_x,cond_tx_y)]
+        else:
+            W = self.get_bessel_w(self.freq,
+                             cond_tx_x, cond_tx_y,
+                             x_rx, y_rx,
+                             x_env, y_env,
+                             x_ris_c, y_ris_c, self.device)
+            self.W_dict[(cond_tx_x,cond_tx_y)] = W
         H = self.GetH(freq, W,
                  cond_tx_x, cond_tx_y, fres_tx, chi_tx, gamma_tx,
                  x_rx, y_rx, fres_rx, chi_rx, gamma_rx,

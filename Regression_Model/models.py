@@ -177,17 +177,17 @@ class Net_diffusion(nn.Module):
 
     def forward(self, x):
 
-        z = T.relu(self.hid1(x**2))
+        z = T.sigmoid(self.hid1(x**2))
         # if x.shape[0] != 1:  # batch_size==1
         # z = self.bn1(z)
         # z = self.dropout1(z)
-        z = T.relu(self.hid2(z))
+        z = T.sigmoid(self.hid2(z))
         # z = self.bn2(z)
         # z = self.bn2(z)
-        z = T.relu(self.hid3(z))
+        z = T.sigmoid(self.hid3(z))
         # z = self.bn3(z)
-        z = T.relu(self.hid4(z))
-        z = T.relu(self.hid5(z))
+        z = T.sigmoid(self.hid4(z))
+        z = T.sigmoid(self.hid5(z))
         # z = self.dropout2(z)
         z = self.oupt(z)  # no activation
         normalized_output = T.nn.functional.sigmoid(z)

@@ -22,6 +22,17 @@ from rate_model import capacity_loss
 #     return capacity_loss(H,torch.ones(H.shape[0]),noise,list_out=list_out),H
 
 def test_configurations_capacity(physfad,ris_configuration,tx_x,tx_y,device,list_out=False,noise=None):
+    tx_size = tx_x.shape[0]
+    ris_configuration_size = ris_configuration.shape[0]
+    batch_size = ris_configuration_size // tx_size
+    if tx_size != 1:
+        H = torch.zeros([ris_configuration_size, physfad.config.output_size,physfad.config.output_shape[0],physfad.config.output_shape[1]],dtype=torch.complex64)
+        for i in range(len(tx_x)):
+            batch_of_H = physfad(ris_configuration[i * batch_size:(i + 1) * batch_size], tx_x[i].unsqueeze(0), tx_y[i].unsqueeze(0))
+            if batch_size == 1:
+                batch_of_H = batch_of_H.unsqueeze(0)
+            H[i*batch_size:(i+1)*batch_size] = batch_of_H
+        return capacity_loss(H, sigmaN=noise, list_out=list_out, device=device), H
     H = physfad(ris_configuration,tx_x,tx_y)
     return capacity_loss(H,sigmaN=noise,list_out=list_out,device=device),H
 
@@ -29,24 +40,30 @@ def test_configurations_capacity(physfad,ris_configuration,tx_x,tx_y,device,list
 def physfad_channel_optimization(device,physfad,starting_inp=None,tx_x=None,tx_y=None,noise_power = 1, learning_rate=0.005,num_of_iterations=150):
     iters = 0
     # num_of_iterations = 150
+
     if starting_inp is None:
         estOptInp = torch.randn([1, physfad.N_RIS_PARAMS], requires_grad=True, device=device)
         # tx_x = torch.randn([1,3],requires_grad=False,device=device)
         # tx_y = torch.randn([1,3],requires_grad=False,device=device)
+        batch_size = 1
     else:
         estOptInp = starting_inp
+        batch_size = starting_inp.shape[0]
     # old_result = torch.from_numpy(np.loadtxt("Physfad_optimal_parameters.txt"))
     # estOptInp = old_result.unsqueeze(0).clone().detach().to(device).requires_grad_(True)
     # scipy.io.savemat("estOptInp.mat", {"estOptInp": estOptInp.cpu().detach().numpy()})
 
     time_lst = []
     physfad_capacity_lst = []
-    Inp_optimizer = torch.optim.Adam([estOptInp], lr=learning_rate) # 0.1
+    Inp_optimizer = torch.optim.SGD([estOptInp], lr=learning_rate) # 0.1
     current_loss = torch.Tensor([1])
+    # H = torch.zeros([batch_size,physfad.config.output_size,physfad.config.output_shape[0],physfad.config.output_shape[1]],dtype=torch.complex64)
     while (current_loss.item() > -600 and iters < num_of_iterations):
         Inp_optimizer.zero_grad()
         estOptInp_norm = torch.nn.functional.sigmoid(estOptInp)
         # estOptInp_norm = estOptInp
+        # for b in range(batch_size):
+        #     H[b] = physfad(estOptInp_norm[b].unsqueeze(0),tx_x[b].unsqueeze(0),tx_y[b].unsqueeze(0))
         H = physfad(estOptInp_norm,tx_x,tx_y)
         # scipy.io.savemat("H_python_mat.mat", {"H_python_mat": H.cpu().detach().numpy()})
         # loss = -torch.sum(torch.abs(H[:,0,1]))
@@ -121,10 +138,10 @@ def zeroth_grad_optimization(device,physfad,starting_inp=None,tx_x=None,tx_y=Non
         # tx_y = torch.randn([1, 3], requires_grad=False, device=device).cpu().detach().numpy()
     else:
         estOptInp = starting_inp
-    estOptInp_logit = torch.special.logit(estOptInp)
+
     epsilon = 0.0001
     m = 4
-    lr = 1
+    lr = 0.1
     time_lst = []
     physfad_capacity_lst = []
     gradient_score_lst = []
@@ -142,6 +159,7 @@ def zeroth_grad_optimization(device,physfad,starting_inp=None,tx_x=None,tx_y=Non
         # print(gradient_score)
         # gradient_score_lst.append(gradient_score)
         estOptInp = estOptInp - lr * grad_inp
+        estOptInp = torch.clip(estOptInp,0,1)
         out = capacity_physfad(estOptInp, tx_x, tx_y)
         time_lst.append(datetime.datetime.now())
         physfad_capacity_lst.append(-out)

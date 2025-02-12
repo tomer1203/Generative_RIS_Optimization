@@ -177,8 +177,8 @@ def zo_estimate_gradient(func, x_unristricted, tx_x, tx_y, epsilon, m, device):
     N = x_unristricted.shape[-1]
     batch_size = x_unristricted.shape[0]
     batch_of_rand_vecs = generate_m_random_points_on_Nsphere(batch_size,m,N,device)
-    f_x_plus_eps = torch.zeros((batch_size,m,1), device=device,dtype=torch.float64)
-    f_x_minus_eps = torch.zeros((batch_size,m,1), device=device,dtype=torch.float64)
+    f_x_plus_eps = torch.zeros((batch_size,m), device=device,dtype=torch.float64)
+    f_x_minus_eps = torch.zeros((batch_size,m), device=device,dtype=torch.float64)
     with torch.no_grad():
         # TODO: broadcast this(currently broadcasting only the random_points)..
         #  I need to combine both the batches and the locations into the same dimension
@@ -186,14 +186,13 @@ def zo_estimate_gradient(func, x_unristricted, tx_x, tx_y, epsilon, m, device):
             current_tx_x, current_tx_y = tx_x[i].unsqueeze(0), tx_y[i].unsqueeze(0)
             current_x = x_unristricted[i].type(torch.float64)
             # get sample of points
-            normalized_x_plus_epsilon = torch.nn.functional.sigmoid(current_x+epsilon*rand_vectors)
-            normalized_x_minus_epsilon = torch.nn.functional.sigmoid(current_x-epsilon*rand_vectors)
+            normalized_x_plus_epsilon = current_x+epsilon*rand_vectors
+            normalized_x_minus_epsilon =current_x-epsilon*rand_vectors
             # test function on sample
             f_x_plus_eps[i] = func(normalized_x_plus_epsilon,current_tx_x,current_tx_y)
             f_x_minus_eps[i] = func(normalized_x_minus_epsilon,current_tx_x,current_tx_y)
             # TODO: and then I need to reseperate the batches and points into their own dimensions..
-
-    return torch.sum((f_x_plus_eps-f_x_minus_eps)*batch_of_rand_vecs/(2*epsilon),dim=1)/m
+    return torch.sum((f_x_plus_eps-f_x_minus_eps).unsqueeze(2)*batch_of_rand_vecs/(2*epsilon),dim=1)/m
 
 def cosine_similarity(A,B):
     eps = 1e-10
@@ -202,15 +201,23 @@ def cosine_similarity(A,B):
     dot_product = (A*B).sum()
     return dot_product/norm
 
-def get_physfad_grads(estOptInp,tx_x,tx_y,physfad,device,noise=None):
+def get_physfad_grads(estOptInp,tx_x,tx_y,physfad,device,noise=None,broadcast_tx=True):
     # physfad_capacity, physfad_H = test_configurations_capacity(physfad,rate_model,estOptInp, noise=noise,list_out=True)
     # physfad_grad = -torch.autograd.grad(physfad_capacity, estOptInp,retain_graph=True)[0]# TODO NOTE TO SELF: THIS SHOULD BE FIXED PROBABLY NEED TO CALCULATE EACH GRADIENT SEPERATLY
     # return physfad_grad
     physfad_grad = torch.zeros(estOptInp.shape, device=physfad.device)
+
     for i in range(estOptInp.shape[0]): # for every element in batch
         # print("physfad " + str(i))
         estOptInp_i = estOptInp[i]
-        Y_opt_capacity_i, Y_opt_gt_i = test_configurations_capacity(physfad, estOptInp_i,tx_x,tx_y, device=device, list_out=True,noise=noise)
+        if broadcast_tx:
+            tx_x_i = tx_x
+            tx_y_i = tx_y
+        else:
+            tx_x_i = tx_x[i].unsqueeze(0)
+            tx_y_i = tx_y[i].unsqueeze(0)
+
+        Y_opt_capacity_i, Y_opt_gt_i = test_configurations_capacity(physfad, estOptInp_i,tx_x_i,tx_y_i, device=device, list_out=True,noise=noise)
         physfad_grad[i] = torch.autograd.grad(-Y_opt_capacity_i, estOptInp_i, retain_graph=True)[0]
     return physfad_grad
 
