@@ -115,7 +115,7 @@ class RISDataset(T.utils.data.Dataset):
             # ## End DEBUG
 
     def __len__(self):
-        return len(self.x_data)//self.virtual_batch_size
+        return len(self.x_data)//self.batch_size
 
     def __getitem__(self, idx):
         preds = self.x_data[self.batch_size*idx:self.batch_size*(idx+1), :]  # or just [idx]

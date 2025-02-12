@@ -558,31 +558,31 @@ def train(model, loss_func, optimizer,physfad, train_ldr, test_ldr, max_epochs, 
             # }
             # T.save(info_dict, fn)
     return (NMSE_Train, NMSE_TEST)
-def generate_dataset(dataset_name,dataset_post_name,dataset_path,batch_size,dataset_size,physfad,input_size):
+def generate_dataset(dataset_name,dataset_post_name,dataset_path,virt_batch_size,dataset_size,physfad,input_size):
     device = torch.device("cpu")
     # device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     print("cuda" if torch.cuda.is_available() else "cpu")
-    x_tx_orig = torch.tensor([0, 0, 0]).repeat(int(dataset_size/batch_size), 1).to(device)
-    y_tx_orig = torch.tensor([4, 4.5, 5]).repeat(int(dataset_size/batch_size), 1).to(device)
+    x_tx_orig = torch.tensor([0, 0, 0]).repeat(int(dataset_size / virt_batch_size), 1).to(device)
+    y_tx_orig = torch.tensor([4, 4.5, 5]).repeat(int(dataset_size / virt_batch_size), 1).to(device)
     capacity_physfad = lambda x, tx_x, tx_y: -capacity_loss(physfad(x, tx_x, tx_y),
                                                             sigmaN=torch.tensor(1, dtype=torch.float64), device=device,list_out=True)
 
 
     # X = torch.randn([dataset_size, input_size], device=device, dtype=torch.float64)
     X = torch.rand([dataset_size, input_size], device=device, dtype=torch.float64)
-    tx_x_diff = 19.5 * torch.rand([int(dataset_size/batch_size), 3], device=device, dtype=torch.float64) - 3.3
-    tx_y_diff = 11.5 * torch.rand([int(dataset_size/batch_size), 3], device=device, dtype=torch.float64) - 2.8
+    tx_x_diff = 19.5 * torch.rand([int(dataset_size / virt_batch_size), 3], device=device, dtype=torch.float64) - 3.3
+    tx_y_diff = 11.5 * torch.rand([int(dataset_size / virt_batch_size), 3], device=device, dtype=torch.float64) - 2.8
     tx_x, tx_y = x_tx_orig + tx_x_diff, y_tx_orig + tx_y_diff
-    rate, H = test_configurations_capacity(physfad, X[0:batch_size], tx_x[0].unsqueeze(0), tx_y[0].unsqueeze(0), device, list_out=False,
+    rate, H = test_configurations_capacity(physfad, X[0:virt_batch_size], tx_x[0].unsqueeze(0), tx_y[0].unsqueeze(0), device, list_out=False,
                                            noise=None)
     rate_dataset = torch.zeros(dataset_size)
     H_dataset = torch.zeros([dataset_size,*H.shape[1:]],dtype=torch.complex64)
 
-    for batch_idx in range(int(dataset_size/batch_size)):
-        print("generating batches",dataset_post_name,": ", 100*batch_idx*batch_size/dataset_size,"%")
-        rate, H = test_configurations_capacity(physfad, X[batch_size*batch_idx:batch_size*(batch_idx+1)], tx_x[batch_idx].unsqueeze(0), tx_y[batch_idx].unsqueeze(0), device, list_out=True, noise=None)
-        rate_dataset[batch_size*batch_idx:batch_size*(batch_idx+1)] = rate
-        H_dataset[batch_size*batch_idx:batch_size*(batch_idx+1)] = H
+    for batch_idx in range(int(dataset_size / virt_batch_size)):
+        print("generating batches", dataset_post_name,": ", 100 * batch_idx * virt_batch_size / dataset_size, "%")
+        rate, H = test_configurations_capacity(physfad, X[virt_batch_size * batch_idx:virt_batch_size * (batch_idx + 1)], tx_x[batch_idx].unsqueeze(0), tx_y[batch_idx].unsqueeze(0), device, list_out=True, noise=None)
+        rate_dataset[virt_batch_size * batch_idx:virt_batch_size * (batch_idx + 1)] = rate
+        H_dataset[virt_batch_size * batch_idx:virt_batch_size * (batch_idx + 1)] = H
 
     ris_configuration_file_name = dataset_path+dataset_name+"_RISConfiguration"+dataset_post_name+".mat"
     H_mat_file_name = dataset_path+dataset_name+"_H_realizations"+dataset_post_name+".mat"
@@ -776,8 +776,8 @@ def main():
 
     NMSE_LST_SIZE = 10
     print("Collecting RIS configuration ")
-    # generate_dataset("conditional","","../Data/",16,128,physfad,input_size=135)
-    # generate_dataset("conditional","_test","../Data/",16,64,physfad,input_size=135)
+    # generate_dataset("conditional", "", "../Data/", 32, 128, physfad, input_size=135)
+    # generate_dataset("conditional", "_test", "../Data/", 32, 64, physfad, input_size=135)
     train_ds,test_ds,train_ldr, test_ldr = load_data(batch_size,output_size,output_shape,physfad,device)
     if load_model:
         print("Loading model")
