@@ -5,6 +5,7 @@ from matplotlib import pyplot as plt
 import scipy.io
 import time
 import random
+import sys
 from models import *
 from dataset import *
 from conf import Config
@@ -366,6 +367,7 @@ def diffusion_training(model_forward,model_diffusion,train_ldr,test_ldr, optimiz
         capacity_after = test_configurations_capacity(physfad,improved_X,tx_x,tx_y,device,list_out=False,noise=None)[0]
 
         print("capacity before: {0} and after: {1}".format(capacity_before.item(),capacity_after.item()))
+        sys.stdout.flush()
         # for m in M_list:
         #     for eps in epsilon_list:
         #         grad_dict[(m,eps)] = zo_estimate_gradient(capacity_physfad, improved_X, tx_x, tx_y, eps, m, device)
