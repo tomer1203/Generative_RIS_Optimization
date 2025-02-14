@@ -288,6 +288,31 @@ def train_and_optimize(model,
 
 def annealed_langevin(model,physfad,starting_configuration,tx_x,tx_y, number_of_iterations = 5,tau=torch.tensor(0.01),device=torch.device("cpu")):
     model.eval()
+    sigma_list = torch.linspace(1,0.01,10)
+    epsilon = 5*10**(-5)
+
+    batch_size = starting_configuration.shape[0]
+    ris_configuration = starting_configuration
+    rate_list = []
+    for i,sigma_i in enumerate(sigma_list):
+        alpha_i = epsilon*sigma_i**2/1
+        for k in range(number_of_iterations):
+            sigma_v = sigma_i*torch.ones([batch_size,1])
+
+            normal_noise = torch.randn_like(ris_configuration)
+            denoiser_output = model(torch.hstack([ris_configuration,tx_x,tx_y,sigma_i]))
+            score_function = denoiser_output - ris_configuration
+            ris_configuration = ris_configuration + (alpha_i/2) * score_function+torch.sqrt(alpha_i)*normal_noise
+        if torch.any(~torch.isfinite(physfad(ris_configuration, tx_x, tx_y))):
+            print("recognized non-finite value in physfad")
+        rate = capacity_loss(physfad(ris_configuration, tx_x, tx_y), sigmaN=torch.tensor(1, dtype=torch.float64), device=device).item()
+        rate_list.append((i*number_of_iterations, rate))
+        config_norm = torch.norm(ris_configuration).item()
+        print("alpha",sigma_i.item(),"k",k,"rate",rate,"norm",config_norm)
+    model.train()
+    return rate_list
+def annealed_langevin_v2(model,physfad,starting_configuration,tx_x,tx_y, number_of_iterations = 5,tau=torch.tensor(0.01),device=torch.device("cpu")):
+    model.eval()
     alpha_list = torch.linspace(1,0.01,10)
     batch_size = starting_configuration.shape[0]
     ris_configuration = starting_configuration
@@ -406,7 +431,8 @@ def diffusion_training(model_forward,model_diffusion,train_ldr,test_ldr, optimiz
         # optimizer.step()
         optimizer_diffusion.step()
         # print(rate.item())
-        if i % 16 == 0:
+        if i % 16 == 0 and i != 0:
+            torch.save(model_diffusion.state_dict(), "./Models/Full_Main_model.pt")
             acc_rate = 0
             # print(len(test_ldr))
             ald_capacity_avg = np.zeros(10)
@@ -456,7 +482,7 @@ def diffusion_training(model_forward,model_diffusion,train_ldr,test_ldr, optimiz
             plt.legend(["ald", "zogd"])
             plt.title("capacity at iteration for different algorithms") # average results over a small test set of 8 tx locations
             # plt.show()
-            save_fig("diffusion_capacity_per_iteration.pdf","plots")
+            save_fig("diffusion_capacity_per_iteration_"+str(i)+".pdf","plots")
             plt.show()
 
         # print(rate.item())
