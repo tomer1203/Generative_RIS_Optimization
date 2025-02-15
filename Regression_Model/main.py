@@ -300,7 +300,7 @@ def annealed_langevin(model,physfad,starting_configuration,tx_x,tx_y, number_of_
             sigma_v = sigma_i*torch.ones([batch_size,1])
 
             normal_noise = torch.randn_like(ris_configuration)
-            denoiser_output = model(torch.hstack([ris_configuration,tx_x,tx_y,sigma_i]))
+            denoiser_output = model(torch.hstack([ris_configuration,tx_x,tx_y,sigma_v]))
             score_function = denoiser_output - ris_configuration
             ris_configuration = ris_configuration + (alpha_i/2) * score_function+torch.sqrt(alpha_i)*normal_noise
         if torch.any(~torch.isfinite(physfad(ris_configuration, tx_x, tx_y))):
@@ -630,14 +630,14 @@ def load_data(batch_size,output_size,output_shape,physfad,device):
     train_tx_file = "../Data/"
     train_H_capacity_file = "../Data/full_H_capacity.txt" # full_H_capacity
     train_ris_gradients_file = "../Data/full_ris_gradients.pt"
-    train_ds = RISDataset(train_RIS_file, train_H_file, train_H_capacity_file,train_ris_gradients_file,train_tx_file, calculate_capacity=True,calculate_gradients=True,physfad=physfad,only_fres=False,
+    train_ds = RISDataset(train_RIS_file, train_H_file, train_H_capacity_file,train_ris_gradients_file,train_tx_file, calculate_capacity=False,calculate_gradients=False,physfad=physfad,only_fres=False,
                         batch_size=batch_size,virtual_batch_size=16,output_size=output_size, output_shape=output_shape, device=device)
     test_RIS_file = "../Data/conditional_RISConfiguration_test.mat"
     test_H_file = "../Data/conditional_H_realizations_test.mat"
     test_H_capacity_file = "../Data/Test_full_H_capacity.txt"
     test_ris_gradients_file = "../Data/Test_full_ris_gradients.pt"
 
-    test_ds = RISDataset(test_RIS_file, test_H_file, test_H_capacity_file,test_ris_gradients_file,train_tx_file, calculate_capacity=True,calculate_gradients=True,physfad=physfad,only_fres=False,
+    test_ds = RISDataset(test_RIS_file, test_H_file, test_H_capacity_file,test_ris_gradients_file,train_tx_file, calculate_capacity=False,calculate_gradients=False,physfad=physfad,only_fres=False,
                          batch_size=batch_size,virtual_batch_size=16,output_size=output_size, output_shape=output_shape, device=device)
 
     train_ldr = T.utils.data.DataLoader(train_ds,
@@ -802,8 +802,8 @@ def main():
 
     NMSE_LST_SIZE = 10
     print("Collecting RIS configuration ")
-    generate_dataset("conditional", "", "../Data/", 32, 128, physfad, input_size=135)
-    generate_dataset("conditional", "_test", "../Data/", 32, 64, physfad, input_size=135)
+    # generate_dataset("conditional", "", "../Data/", 32, 128, physfad, input_size=135)
+    # generate_dataset("conditional", "_test", "../Data/", 32, 64, physfad, input_size=135)
     train_ds,test_ds,train_ldr, test_ldr = load_data(batch_size,output_size,output_shape,physfad,device)
     if load_model:
         print("Loading model")
