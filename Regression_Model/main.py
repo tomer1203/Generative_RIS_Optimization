@@ -802,8 +802,8 @@ def main():
 
     NMSE_LST_SIZE = 10
     print("Collecting RIS configuration ")
-    # generate_dataset("conditional", "", "../Data/", 32, 128, physfad, input_size=135)
-    # generate_dataset("conditional", "_test", "../Data/", 32, 64, physfad, input_size=135)
+    generate_dataset("conditional", "", "../Data/", 32, 128, physfad, input_size=135)
+    generate_dataset("conditional", "_test", "../Data/", 32, 64, physfad, input_size=135)
     train_ds,test_ds,train_ldr, test_ldr = load_data(batch_size,output_size,output_shape,physfad,device)
     if load_model:
         print("Loading model")
