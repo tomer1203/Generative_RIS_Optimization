@@ -630,14 +630,14 @@ def load_data(batch_size,output_size,output_shape,physfad,device):
     train_tx_file = "../Data/"
     train_H_capacity_file = "../Data/full_H_capacity.txt" # full_H_capacity
     train_ris_gradients_file = "../Data/full_ris_gradients.pt"
-    train_ds = RISDataset(train_RIS_file, train_H_file, train_H_capacity_file,train_ris_gradients_file,train_tx_file, calculate_capacity=False,calculate_gradients=False,physfad=physfad,only_fres=False,
+    train_ds = RISDataset(train_RIS_file, train_H_file, train_H_capacity_file,train_ris_gradients_file,train_tx_file, calculate_capacity=True,calculate_gradients=True,physfad=physfad,only_fres=False,
                         batch_size=batch_size,virtual_batch_size=16,output_size=output_size, output_shape=output_shape, device=device)
     test_RIS_file = "../Data/conditional_RISConfiguration_test.mat"
     test_H_file = "../Data/conditional_H_realizations_test.mat"
     test_H_capacity_file = "../Data/Test_full_H_capacity.txt"
     test_ris_gradients_file = "../Data/Test_full_ris_gradients.pt"
 
-    test_ds = RISDataset(test_RIS_file, test_H_file, test_H_capacity_file,test_ris_gradients_file,train_tx_file, calculate_capacity=False,calculate_gradients=False,physfad=physfad,only_fres=False,
+    test_ds = RISDataset(test_RIS_file, test_H_file, test_H_capacity_file,test_ris_gradients_file,train_tx_file, calculate_capacity=True,calculate_gradients=True,physfad=physfad,only_fres=False,
                          batch_size=batch_size,virtual_batch_size=16,output_size=output_size, output_shape=output_shape, device=device)
 
     train_ldr = T.utils.data.DataLoader(train_ds,
