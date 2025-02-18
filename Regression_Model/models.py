@@ -140,6 +140,10 @@ class main_Net(nn.Module):
 
 
         return z
+def init_weights(m):
+    if isinstance(m, nn.Linear):
+        torch.nn.init.kaiming_uniform(m.weight)
+        m.bias.data.fill_(0)
 
 # Old network(no use of hypernetwork)
 class Net_diffusion(nn.Module):
@@ -154,42 +158,52 @@ class Net_diffusion(nn.Module):
 
         self.hid1 = nn.Linear(input_size, hidden_size * 6,dtype=torch.float64)  # 8-(10-10)-1
         self.dropout1 = nn.Dropout(0.1)
-        self.bn1 = nn.BatchNorm1d(hidden_size * 6)
+        self.bn1 = nn.BatchNorm1d(hidden_size * 6,dtype=torch.float64)
         self.hid2 = nn.Linear(6 * hidden_size, hidden_size * 4,dtype=torch.float64)
-        self.bn2 = nn.BatchNorm1d(hidden_size * 4)
+        self.bn2 = nn.BatchNorm1d(hidden_size * 4,dtype=torch.float64)
         self.hid3 = nn.Linear(4 * hidden_size, hidden_size * 3,dtype=torch.float64)
-        self.bn3 = nn.BatchNorm1d(hidden_size * 3)
+        self.bn3 = nn.BatchNorm1d(hidden_size * 3,dtype=torch.float64)
         self.hid4 = nn.Linear(3 * hidden_size, 5 * hidden_size,dtype=torch.float64)
         self.dropout2 = nn.Dropout(0.1)
         self.hid5 = nn.Linear(5 * hidden_size, 8 * hidden_size,dtype=torch.float64)
+        self.bn4 = nn.BatchNorm1d(8 * hidden_size,dtype=torch.float64)
         self.oupt = nn.Linear(8*hidden_size, output_size,dtype=torch.float64)
-
-        nn.init.xavier_uniform_(self.hid1.weight)
-        nn.init.zeros_(self.hid1.bias)
-        nn.init.xavier_uniform_(self.hid2.weight)
-        nn.init.zeros_(self.hid2.bias)
-        nn.init.xavier_uniform_(self.hid2.weight)
-        nn.init.zeros_(self.hid2.bias)
-        nn.init.xavier_uniform_(self.hid3.weight)
-        nn.init.zeros_(self.hid3.bias)
+        self.hid1.apply(init_weights)
+        self.hid2.apply(init_weights)
+        self.hid3.apply(init_weights)
+        self.hid4.apply(init_weights)
+        self.hid5.apply(init_weights)
+        # self.oupt.apply(init_weights)
+        # nn.init.xavier_uniform_(self.hid1.weight)
+        # nn.init.zeros_(self.hid1.bias)
+        # nn.init.xavier_uniform_(self.hid2.weight)
+        # nn.init.zeros_(self.hid2.bias)
+        # nn.init.xavier_uniform_(self.hid3.weight)
+        # nn.init.zeros_(self.hid3.bias)
+        # nn.init.xavier_uniform_(self.hid4.weight)
+        # nn.init.zeros_(self.hid4.bias)
+        # nn.init.xavier_uniform_(self.hid5.weight)
+        # nn.init.zeros_(self.hid5.bias)
         nn.init.xavier_uniform_(self.oupt.weight)
         nn.init.zeros_(self.oupt.bias)
 
     def forward(self, x):
 
-        z = T.sigmoid(self.hid1(x**2))
+        z = T.relu(self.hid1(x))
         # if x.shape[0] != 1:  # batch_size==1
-        # z = self.bn1(z)
+        z = self.bn1(z)
         # z = self.dropout1(z)
-        z = T.sigmoid(self.hid2(z))
+        z = T.relu(self.hid2(z))
+        z = self.bn2(z)
         # z = self.bn2(z)
-        # z = self.bn2(z)
-        z = T.sigmoid(self.hid3(z))
-        # z = self.bn3(z)
-        z = T.sigmoid(self.hid4(z))
-        z = T.sigmoid(self.hid5(z))
+        z = T.relu(self.hid3(z))
+        z = self.bn3(z)
+        z = T.relu(self.hid4(z))
+        z = T.relu(self.hid5(z))
+        z = self.bn4(z)
         # z = self.dropout2(z)
         z = self.oupt(z)  # no activation
+
         normalized_output = T.nn.functional.sigmoid(z)
         return normalized_output
 class Net(nn.Module):

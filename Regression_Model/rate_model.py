@@ -1,4 +1,5 @@
 import torch
+# from memory_profiler import profile
 
 # class rate_model_c():
 #     def __init__(self,noise=None,P=None,device=torch.device("cpu")):

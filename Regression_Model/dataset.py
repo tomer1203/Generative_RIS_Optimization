@@ -11,7 +11,7 @@ from utils import get_physfad_grads,copy_with_gradients
 from rate_model import capacity_loss
 class RISDataset(T.utils.data.Dataset):
 
-    def __init__(self, RIS_config_path, H_realizations_file, H_capacity_path, RIS_Gradients_path,tx_location_path,batch_size, virtual_batch_size=256, output_size =120, output_shape =(4, 3), calculate_capacity = False,calculate_gradients=False, physfad=None, only_fres=False, m_rows=None, device=T.device("cpu")):
+    def __init__(self, RIS_config_path, H_realizations_file, H_capacity_path, RIS_Gradients_path,tx_location_file,batch_size, virtual_batch_size=256, output_size =120, output_shape =(4, 3), calculate_capacity = False,calculate_gradients=False, physfad=None, only_fres=False, m_rows=None, device=T.device("cpu")):
         # ris_configs_np = np.loadtxt(RIS_config_file,delimiter=",", dtype=np.float32)
         # H_realiz_np = np.loadtxt(H_realizations_file,delimiter=",", dtype=np.float32)
         enclosure = {}
@@ -21,10 +21,10 @@ class RISDataset(T.utils.data.Dataset):
         scipy.io.loadmat(H_realizations_file,enclosure)
         H_realiz_np = enclosure["sampled_Hs"].reshape(-1,output_size*output_shape[0]*output_shape[1])
 
-        scipy.io.loadmat(tx_location_path+"conditional_transmitter_x_location.mat", enclosure)
+        scipy.io.loadmat(tx_location_file, enclosure)
         tx_x_location = enclosure["x_tx_modified"]
-        scipy.io.loadmat(tx_location_path + "conditional_transmitter_y_location.mat", enclosure)
         tx_y_location = enclosure["y_tx_modified"]
+        # scipy.io.loadmat(tx_location_file + "conditional_transmitter_y_location.mat", enclosure)
         ## DEBUG!!
         # physfad_capacity, physfad_H = test_configurations_capacity(get_configuration_parameters(device),
         #                                                            torch.Tensor(ris_configs_np[0, :]).unsqueeze(0).to(device),

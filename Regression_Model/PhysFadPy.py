@@ -4,12 +4,15 @@ import numpy as np
 import scipy.io
 import math
 import datetime
+# from memory_profiler import profile
+
 from utils import OrderedDict
 class physfad_c():
     def __init__(self,config,device):
         self.config = config
         self.device = device
-        self.W_dict = OrderedDict(size_limit=256)
+        self.W_dict = OrderedDict(size_limit=64)
+
 
     def __call__(self,ris_configuration_normalized,cond_tx_x,cond_tx_y):
         (freq, x_tx, y_tx, fres_tx, chi_tx, gamma_tx,
@@ -239,7 +242,7 @@ class physfad_c():
         W_diag_matrix.diagonal(dim1=-2, dim2=-1).copy_(W_diag_elem)
         if torch.any(~torch.isfinite(W_diag_matrix)):
             print("oh no2")
-        V = torch.linalg.solve(W, W_diag_matrix)
+        V = torch.linalg.solve_ex(W, W_diag_matrix)[0]
         if torch.any(~torch.isfinite(V)):
             print("oh no3")
         H = V[:,:, N_T: (N_T + N_R), 0: N_T]

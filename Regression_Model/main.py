@@ -6,6 +6,8 @@ import scipy.io
 import time
 import random
 import sys
+# from memory_profiler import profile
+from collections import deque
 from models import *
 from dataset import *
 from conf import Config
@@ -285,27 +287,39 @@ def train_and_optimize(model,
             train_ds.save_dataset(RIS_config_file,gradients_file, H_realiz_file, capacity_file)
             train_ldr = T.utils.data.DataLoader(train_ds, batch_size=1, shuffle=True)
         optim_step = optim_step+step_increase
-
-def annealed_langevin(model,physfad,starting_configuration,tx_x,tx_y, number_of_iterations = 5,tau=torch.tensor(0.01),device=torch.device("cpu")):
+def breakdown(ris_configuration, tx_x, tx_y,physfad,device):
+    H = physfad(ris_configuration, tx_x, tx_y)
+    if torch.any(~torch.isfinite(H)):
+        print("recognized non-finite value in physfad")
+    sigma = torch.tensor(1, dtype=torch.float64)
+    rate_list = capacity_loss(H, sigmaN=sigma,
+                         device=device,list_out=True)
+    rate_list = [rate.item() for rate in rate_list]
+    return rate_list
+def annealed_langevin(model,physfad,starting_configuration,tx_x,tx_y, number_of_iterations = 5,epsilon=torch.tensor(0.01),a=1,device=torch.device("cpu")):
     model.eval()
     sigma_list = torch.linspace(1,0.01,10)
-    epsilon = 5*10**(-5)
+    # epsilon = 5*10**(-5)
 
     batch_size = starting_configuration.shape[0]
     ris_configuration = starting_configuration
     rate_list = []
     for i,sigma_i in enumerate(sigma_list):
-        alpha_i = epsilon*sigma_i**2/1
-        for k in range(number_of_iterations):
-            sigma_v = sigma_i*torch.ones([batch_size,1])
+        alpha_i = epsilon*(sigma_i**2)/(sigma_list[-1]**2)
+        # rate = capacity_loss(physfad(ris_configuration, tx_x, tx_y), sigmaN=torch.tensor(1, dtype=torch.float64), device=device).item()
+        rate = breakdown(ris_configuration, tx_x, tx_y,physfad,device)
 
+        for k in range(number_of_iterations):
+            sigma_v = sigma_i*torch.ones([batch_size,1],device=device)
+            tx_x_repeated = tx_x[0].repeat(batch_size,1)
+            tx_y_repeated = tx_y[0].repeat(batch_size,1)
             normal_noise = torch.randn_like(ris_configuration)
-            denoiser_output = model(torch.hstack([ris_configuration,tx_x,tx_y,sigma_v]))
+            denoiser_output = model(torch.hstack([ris_configuration,tx_x_repeated,tx_y_repeated,sigma_v]))
             score_function = denoiser_output - ris_configuration
-            ris_configuration = ris_configuration + (alpha_i/2) * score_function+torch.sqrt(alpha_i)*normal_noise
-        if torch.any(~torch.isfinite(physfad(ris_configuration, tx_x, tx_y))):
-            print("recognized non-finite value in physfad")
-        rate = capacity_loss(physfad(ris_configuration, tx_x, tx_y), sigmaN=torch.tensor(1, dtype=torch.float64), device=device).item()
+            # ris_configuration = ris_configuration + (alpha_i/2) * score_function+torch.sqrt(alpha_i)*normal_noise/a
+            ris_configuration = denoiser_output
+            ris_configuration = torch.clip(ris_configuration,0,1)
+
         rate_list.append((i*number_of_iterations, rate))
         config_norm = torch.norm(ris_configuration).item()
         print("alpha",sigma_i.item(),"k",k,"rate",rate,"norm",config_norm)
@@ -320,9 +334,10 @@ def annealed_langevin_v2(model,physfad,starting_configuration,tx_x,tx_y, number_
     for i,alpha in enumerate(alpha_list):
         for k in range(number_of_iterations):
             alpha_v = torch.ones([batch_size,1])
-
+            tx_x_repeated = tx_x[0].repeat(batch_size, 1)
+            tx_y_repeated = tx_y[0].repeat(batch_size, 1)
             normal_noise = torch.randn_like(ris_configuration)
-            denoiser_output = model(torch.hstack([ris_configuration,tx_x,tx_y,torch.sqrt(alpha_v)]))
+            denoiser_output = model(torch.hstack([ris_configuration,tx_x_repeated,tx_y_repeated,torch.sqrt(alpha_v)]))
             # TODO: check the constant. It might be 1/alpha without the square
             score_function = (1/(alpha)) * (torch.sqrt(1-alpha)*denoiser_output - ris_configuration)
             ris_configuration = ris_configuration+tau*score_function+torch.sqrt(2*tau)*normal_noise
@@ -336,7 +351,7 @@ def annealed_langevin_v2(model,physfad,starting_configuration,tx_x,tx_y, number_
     return rate_list
 
 
-def diffusion_training(model_forward,model_diffusion,train_ldr,test_ldr, optimizer,optimizer_diffusion, physfad,config, max_epochs, ep_log_interval, output_size, output_shape,
+def diffusion_training(model_forward,model_diffusion,train_ldr,test_ldr,optimizer_diffusion, physfad,config, max_epochs, ep_log_interval, output_size, output_shape,
                        model_output_capacity, device="cpu"):
 
     # X=torch.randn([1,264],device=device)
@@ -346,7 +361,8 @@ def diffusion_training(model_forward,model_diffusion,train_ldr,test_ldr, optimiz
     capacity_physfad = lambda x,tx_x,tx_y: -capacity_loss(physfad(x, tx_x, tx_y), sigmaN=torch.tensor(1,dtype=torch.float64),list_out=True, device=device)
     sigma_min=0.01
     sigma_max=1
-    for i in range(1000):
+    q=deque(maxlen=10)
+    for i in range(100000):
         # (X, _, tx_x, tx_y, _, Y_ground_truth) = next(iter(train_ldr))
         # X = X[0, 0, :].unsqueeze(0).clone().detach().requires_grad_(True).to(device)
         X = torch.rand([batch_size, config.input_size], device=device,dtype=torch.float64)
@@ -355,10 +371,10 @@ def diffusion_training(model_forward,model_diffusion,train_ldr,test_ldr, optimiz
         tx_x, tx_y = x_tx_orig + tx_x_diff, y_tx_orig + tx_y_diff
         # tx_x, tx_y = x_tx_orig , y_tx_orig
         sigma = torch.FloatTensor(batch_size,1).uniform_(sigma_min, sigma_max).to(device).type(torch.float64)
-        optimizer.zero_grad()
         optimizer_diffusion.zero_grad()
-        improved_X = model_diffusion(torch.hstack([X,tx_x,tx_y,sigma]))
-        # H_approx = model_forward(tx_x,tx_y,improved_X)
+        improved_X = model_diffusion(torch.hstack([X,tx_x/20,tx_y/20,sigma]))
+        print("input std: ", X.std(dim=0).mean().item())
+        print("output std: ", improved_X.std(dim=0).mean().item())
         epsilon = 0.0001
         x_distance = ((improved_X - X) ** 2).sum(dim=1)/config.input_size
         sigma_distance = ((x_distance - sigma.squeeze(1)) ** 2).mean()
@@ -379,20 +395,18 @@ def diffusion_training(model_forward,model_diffusion,train_ldr,test_ldr, optimiz
         #
         #     acc_gradients_unres[i] = torch.autograd.grad(-Y_opt_capacity_i, estOptInp_i, retain_graph=True)[0]
         # plt.plot(acc_gradients.squeeze(0))
-        M_list = [4,32,64]
-        # epsilon_list = [0.01,0.001,0.0001,0.00001]
-        epsilon_list = [1,0.1,0.01]
-        grad_dict = {}
-        legened_list = ["acc"]
-        # physfad_channel_optimization(device, physfad, starting_inp=copy_with_gradients(torch.special.logit(improved_X[0].unsqueeze(0)),device=device), tx_x=tx_x[0].unsqueeze(0), tx_y=tx_y[0].unsqueeze(0), noise_power=1,
-        #                              learning_rate=0.005, num_of_iterations=30)
-        # zeroth_grad_optimization(device, physfad, starting_inp=copy_without_gradients(improved_X[0].unsqueeze(0), device), tx_x=tx_x[0].unsqueeze(0), tx_y=tx_y[0].unsqueeze(0), noise_power=1,
-        #                          num_of_iterations=20)
+
+
         capacity_before = test_configurations_capacity(physfad,X,tx_x,tx_y,device,list_out=False,noise=None)[0]
         capacity_after = test_configurations_capacity(physfad,improved_X,tx_x,tx_y,device,list_out=False,noise=None)[0]
 
         print("capacity before: {0} and after: {1}".format(capacity_before.item(),capacity_after.item()))
-        sys.stdout.flush()
+        # sys.stdout.flush()
+        M_list = [4, 32, 64]
+        # epsilon_list = [0.01,0.001,0.0001,0.00001]
+        epsilon_list = [1, 0.1, 0.01]
+        grad_dict = {}
+        legened_list = ["acc"]
         # for m in M_list:
         #     for eps in epsilon_list:
         #         grad_dict[(m,eps)] = zo_estimate_gradient(capacity_physfad, improved_X, tx_x, tx_y, eps, m, device)
@@ -414,25 +428,22 @@ def diffusion_training(model_forward,model_diffusion,train_ldr,test_ldr, optimiz
         # grad_inp_8 = estimate_gradient(capacity_physfad, improved_X, tx_x, tx_y, epsilon, 8, device)
 
         grad_inp = grad_inp_16
-        print(abs(grad_inp).sum(), abs(sigma_grad).sum())
-        total_grad = grad_inp#+sigma_grad # TODO: reintroduce the sigma value here
+        # print(abs(grad_inp).sum()/120, abs(sigma_grad).sum())
+        # print(abs(sigma_distance).sum().item())
+        q.append(abs(sigma_distance).sum().item())
+        print(sum(q)/len(q))
+        total_grad = grad_inp+sigma_grad # TODO: reintroduce the sigma value here
+        # total_grad = sigma_grad # TODO: reintroduce the sigma value here
 
-        # rate_approx = capacity_loss(H_approx.reshape(H_approx.shape[0], output_size, output_shape[0], output_shape[1]), list_out=True,
-        #               device=device)
-        # rate,H = test_configurations_capacity(physfad,improved_X,tx_x,tx_y,device,list_out=False,noise=None)
-        # H_mse = ((H.reshape([H_approx.shape[0],-1])-H_approx)**2).mean()
-        # rate_mse = (rate-rate_approx)**2
-        # minus_rate = -rate_approx / (1+rate_mse)
+
+
         # minus_rate = -rate
-        # minus_H_mse = -H_mse
         # minus_rate.backward(retain_graph=True)
         # minus_H_mse.backward()
-        improved_X.backward(grad_inp)
-        # optimizer.step()
+        improved_X.backward(total_grad)
         optimizer_diffusion.step()
-        # print(rate.item())
-        if i % 16 == 0 and i != 0:
-            torch.save(model_diffusion.state_dict(), "./Models/Full_Main_model.pt")
+        if i % 10000 == 0 and i != 0:
+            # torch.save(model_diffusion.state_dict(), "./Models/Full_Main_model.pt")
             acc_rate = 0
             # print(len(test_ldr))
             ald_capacity_avg = np.zeros(10)
@@ -444,7 +455,8 @@ def diffusion_training(model_forward,model_diffusion,train_ldr,test_ldr, optimiz
                 X = X.type(torch.float64)
                 X = X[0].unsqueeze(0)
                 improved_X = model_diffusion(torch.hstack([X,tx_x, tx_y,torch.tensor(1,device=device).unsqueeze(0).unsqueeze(0)]))
-                ald_results = annealed_langevin(model_diffusion, physfad, X, tx_x, tx_y, device=device)
+                ald_results = annealed_langevin(model_diffusion, physfad, X, tx_x, tx_y, epsilon=5 * 10 ** (-6), a=1,
+                                                device=device)
                 # ald_iters = list(ald_iters)
                 # ald_capac = list(ald_capac)
                 for i,(iter,capac) in enumerate(ald_results):
@@ -487,7 +499,95 @@ def diffusion_training(model_forward,model_diffusion,train_ldr,test_ldr, optimiz
 
         # print(rate.item())
 
+def diffusion_inference(model_forward,model_diffusion,train_ldr,test_ldr, optimizer,optimizer_diffusion, physfad,config, max_epochs, ep_log_interval, output_size, output_shape,
+                       model_output_capacity, device="cpu"):
+    acc_rate = 0
+    # print(len(test_ldr))
+    ald_capacity_avg = np.zeros([10,physfad.config.batch_size+1])
+    ald_capacity_avg1 = np.zeros(10)
+    ald_capacity_avg2 = np.zeros(10)
+    ald_capacity_avg3 = np.zeros(10)
+    ald_iter_list = np.zeros(10)
+    ald_iter_list1 = np.zeros(10)
+    ald_iter_list2 = np.zeros(10)
+    ald_iter_list3 = np.zeros(10)
+    zogd_capacity_avg = np.zeros(50)
+    physfad_capacity_avg = np.zeros(50)
+    for batch_idx,batch in enumerate(test_ldr):
+        if batch_idx > 0:
+            break
+        print(batch_idx)
+        (X, X_gradients, tx_x, tx_y, Y_capacity, Y) = open_virtual_batch(batch)
+        X = X.type(torch.float64)
+        # X = X[0].unsqueeze(0)
+        # X = X[0:8]
+        # improved_X = model_diffusion(
+        #     torch.hstack([X, tx_x, tx_y, torch.tensor(1, device=device).unsqueeze(0).unsqueeze(0)]))
+        ald_results = annealed_langevin(model_diffusion, physfad, X, tx_x, tx_y,epsilon=5*10**(-6),a=1, device=device)
+        # ald_results1 = annealed_langevin(model_diffusion, physfad, X, tx_x, tx_y,epsilon=5*10**(-6),a=2, device=device)
+        # ald_results2 = annealed_langevin(model_diffusion, physfad, X, tx_x, tx_y,epsilon=5*10**(-6),a=5, device=device)
+        # ald_results3 = annealed_langevin(model_diffusion, physfad, X, tx_x, tx_y,epsilon=5*10**(-6),a=10, device=device)
+        # ald_results = annealed_langevin_v2(model_diffusion, physfad, X, tx_x, tx_y, device=device)
+        # ald_results1 = annealed_langevin_v2(model_diffusion, physfad, X, tx_x, tx_y, device=device)
+        # ald_results2 = annealed_langevin_v2(model_diffusion, physfad, X, tx_x, tx_y, device=device)
+        # ald_iters = list(ald_iters)
+        # ald_capac = list(ald_capac)
+        for i, (iter, capac) in enumerate(ald_results):
+            for j in range(len(capac)):
+                ald_capacity_avg[i,j+1] += capac[j]
+            ald_iter_list[i] = iter
+        # for i, (iter, capac) in enumerate(ald_results1):
+        #     ald_capacity_avg1[i] += capac
+        #     ald_iter_list1[i] = iter
+        # for i, (iter, capac) in enumerate(ald_results2):
+        #     ald_capacity_avg2[i] += capac
+        #     ald_iter_list2[i] = iter
+        # for i, (iter, capac) in enumerate(ald_results3):
+        #     ald_capacity_avg3[i] += capac
+        #     ald_iter_list3[i] = iter
+        # (zogd_time_lst, zogd_capacity, zogd_gradient_score) = zeroth_grad_optimization(device, physfad,
+        #                                                                                X.clone().detach().requires_grad_(
+        #                                                                                    False).to(
+        #                                                                                    device), tx_x,
+        #                                                                                # change require grad to false
+        #                                                                                tx_y,
+        #                                                                                noise_power=1,
+        #                                                                                num_of_iterations=50)
+        # for i, capac in enumerate(zogd_capacity):
+        #     zogd_capacity_avg[i] += capac
+        # (physfad_time_lst, physfad_capacity, physfad_inputs) = (
+        #     physfad_channel_optimization(device, physfad,copy_with_gradients(X,device),tx_x, tx_y,noise_power=1,
+        #                                  learning_rate=0.1,num_of_iterations=2))  # 50
+        # for i,capac in enumerate(physfad_capacity):
+        #     physfad_capacity_avg[i] += capac
 
+        # H_approx = model_forward(tx_x, tx_y,improved_X)
+        # rate_approx = capacity_loss(H_approx.reshape(H_approx.shape[0], output_size, output_shape[0], output_shape[1]), list_out=True,
+        #               device=device)
+        # rate, H = test_configurations_capacity(physfad, improved_X, tx_x, tx_y, device, list_out=False,
+        #                                        noise=None)
+        # acc_rate = acc_rate + rate
+        # H_test_mse = ((abs(H).reshape([H_approx.shape[0],-1])-H_approx)**2).mean()/abs((H**2).mean())
+    # print("test diffusion mean rate: ",(acc_rate/len(test_ldr)).item(),"test forward model accuracy(NMSE): ", H_test_mse.item())
+    # print("test diffusion mean rate: ", (acc_rate / len(test_ldr)).item())
+    for i in range(len(ald_capacity_avg[:,0])):
+        ald_capacity_avg[i,0] = ald_capacity_avg[i,1:].mean()
+    plt.plot(ald_iter_list, ald_capacity_avg[:,0] / 1,linewidth=4.0,linestyle='dashed')
+    plt.plot(ald_iter_list, ald_capacity_avg[:,1:] / 1,alpha=0.5)
+    # plt.plot(ald_iter_list1, ald_capacity_avg1 / len(test_ldr))
+    # plt.plot(ald_iter_list2, ald_capacity_avg2 / len(test_ldr))
+    # plt.plot(ald_iter_list3, ald_capacity_avg3 / len(test_ldr))
+    # plt.plot(zogd_capacity_avg / len(test_ldr))
+    # plt.plot(physfad_capacity_avg/len(test_ldr))
+    # plt.legend(["ald eps 10^-6","ald eps 10^-5","ald eps 10^-2","ald eps 10^-1"])
+    # plt.legend(["ald noise/1","ald noise/2","ald noise/5","ald noise/10"])
+    plt.legend(["mean of batch","every element of the batch seperatly"])
+    # plt.legend(["ald", "zogd"])
+    plt.title(
+        "capacity at iteration for different algorithms")  # average results over a small test set of 8 tx locations
+    # plt.show()
+    save_fig("diffusion_capacity_per_iteration_" + str(i) + ".pdf", "plots")
+    plt.show()
 
 def train(model, loss_func, optimizer,physfad, train_ldr, test_ldr, max_epochs, ep_log_interval, output_size, output_shape, model_output_capacity, NMSE_LST_SIZE, device):
     NMSE_lst = np.zeros(NMSE_LST_SIZE)
@@ -584,10 +684,10 @@ def train(model, loss_func, optimizer,physfad, train_ldr, test_ldr, max_epochs, 
             # }
             # T.save(info_dict, fn)
     return (NMSE_Train, NMSE_TEST)
-def generate_dataset(dataset_name,dataset_post_name,dataset_path,virt_batch_size,dataset_size,physfad,input_size):
-    device = torch.device("cpu")
+def generate_dataset(dataset_name,dataset_post_name,dataset_path,virt_batch_size,dataset_size,physfad,input_size,device):
+    # device = torch.device("cpu")
     # device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    print("cuda" if torch.cuda.is_available() else "cpu")
+
     x_tx_orig = torch.tensor([0, 0, 0]).repeat(int(dataset_size / virt_batch_size), 1).to(device)
     y_tx_orig = torch.tensor([4, 4.5, 5]).repeat(int(dataset_size / virt_batch_size), 1).to(device)
     capacity_physfad = lambda x, tx_x, tx_y: -capacity_loss(physfad(x, tx_x, tx_y),
@@ -613,32 +713,32 @@ def generate_dataset(dataset_name,dataset_post_name,dataset_path,virt_batch_size
     ris_configuration_file_name = dataset_path+dataset_name+"_RISConfiguration"+dataset_post_name+".mat"
     H_mat_file_name = dataset_path+dataset_name+"_H_realizations"+dataset_post_name+".mat"
     rate_file_name = dataset_path+dataset_name+"_H_capacity"+dataset_post_name+".mat"
-    tx_x_file_name = dataset_path+dataset_name+"_transmitter_x_location"+dataset_post_name+".mat"
-    tx_y_file_name = dataset_path+dataset_name+"_transmitter_y_location"+dataset_post_name+".mat"
+    tx_file_name = dataset_path+dataset_name+"_transmitter_location"+dataset_post_name+".mat"
 
     scipy.io.savemat(ris_configuration_file_name,{"RISConfiguration":X.detach().numpy()})
     scipy.io.savemat(H_mat_file_name,{"sampled_Hs":H_dataset.detach().numpy()})
     scipy.io.savemat(rate_file_name,{"rate":rate_dataset.detach().numpy()})
-    scipy.io.savemat(tx_x_file_name,{"x_tx_modified":tx_x.detach().numpy()})
-    scipy.io.savemat(tx_y_file_name,{"y_tx_modified":tx_y.detach().numpy()})
+    scipy.io.savemat(tx_file_name,{"x_tx_modified":tx_x.detach().numpy(),"y_tx_modified":tx_y.detach().numpy()})
 
 def load_data(batch_size,output_size,output_shape,physfad,device):
+    calc_capacity = False
+    calc_gradients = False
     train_RIS_file = "../Data/conditional_RISConfiguration.mat"#"../Data/full_range_RISConfiguration.mat" # full_range_RISConfiguration
     # train_RIS_file = "../Data/new_full_RISConfiguration.mat"
     train_H_file = "../Data/conditional_H_realizations.mat"#"../Data/full_range_H_realizations.mat" # full_range_H_realizations
     # train_H_file = "../Data/new_full_H_realizations.mat"
-    train_tx_file = "../Data/"
+    train_tx_file = "../Data/conditional_transmitter_location.mat"
     train_H_capacity_file = "../Data/full_H_capacity.txt" # full_H_capacity
     train_ris_gradients_file = "../Data/full_ris_gradients.pt"
-    train_ds = RISDataset(train_RIS_file, train_H_file, train_H_capacity_file,train_ris_gradients_file,train_tx_file, calculate_capacity=False,calculate_gradients=False,physfad=physfad,only_fres=False,
-                        batch_size=batch_size,virtual_batch_size=16,output_size=output_size, output_shape=output_shape, device=device)
+    train_ds = RISDataset(train_RIS_file, train_H_file, train_H_capacity_file,train_ris_gradients_file,train_tx_file, calculate_capacity=calc_capacity,calculate_gradients=calc_gradients,physfad=physfad,only_fres=False,
+                        batch_size=batch_size,virtual_batch_size=32,output_size=output_size, output_shape=output_shape, device=device)
     test_RIS_file = "../Data/conditional_RISConfiguration_test.mat"
     test_H_file = "../Data/conditional_H_realizations_test.mat"
+    test_tx_file = "../Data/conditional_transmitter_location_test.mat"
     test_H_capacity_file = "../Data/Test_full_H_capacity.txt"
     test_ris_gradients_file = "../Data/Test_full_ris_gradients.pt"
-
-    test_ds = RISDataset(test_RIS_file, test_H_file, test_H_capacity_file,test_ris_gradients_file,train_tx_file, calculate_capacity=False,calculate_gradients=False,physfad=physfad,only_fres=False,
-                         batch_size=batch_size,virtual_batch_size=16,output_size=output_size, output_shape=output_shape, device=device)
+    test_ds = RISDataset(test_RIS_file, test_H_file, test_H_capacity_file,test_ris_gradients_file,test_tx_file, calculate_capacity=calc_capacity,calculate_gradients=calc_gradients,physfad=physfad,only_fres=False,
+                         batch_size=batch_size,virtual_batch_size=32,output_size=output_size, output_shape=output_shape, device=device)
 
     train_ldr = T.utils.data.DataLoader(train_ds,
                                         batch_size=1, shuffle=True)
@@ -749,6 +849,7 @@ def optimize(physfad, starting_inp,tx_x,tx_y,net,inp_size,output_size,optim_lr =
     np.savetxt("optimal_parameters.txt", estOptInp[0, :].cpu().detach().numpy())
     return (time_lst,opt_inp_lst,model_capacity_lst,gradient_score_acc_lst)
 
+
 def main():
     # device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     device = torch.device("cpu") # force choosing cpu
@@ -782,8 +883,8 @@ def main():
     diffusion_mode = True
     training_mode = False
     activate_train_and_optimize = False  # can be added to the train mode
-    find_optimal_lr = True
-    optimize_model = True
+    find_optimal_lr = False
+    optimize_model = False
     run_snr_graph = False
     loss_func = My_MSE_Loss
     # optimizer = T.optim.SGD(net.parameters(), lr=lrn_rate)
@@ -802,24 +903,24 @@ def main():
 
     NMSE_LST_SIZE = 10
     print("Collecting RIS configuration ")
-    # generate_dataset("conditional", "", "../Data/", 32, 128, physfad, input_size=135)
-    # generate_dataset("conditional", "_test", "../Data/", 32, 64, physfad, input_size=135)
+    # generate_dataset("conditional", "", "../Data/", 32, 128, physfad, input_size=135,device=device)
+    # generate_dataset("conditional", "_test", "../Data/", 32, 512, physfad, input_size=135,device=device)
     train_ds,test_ds,train_ldr, test_ldr = load_data(batch_size,output_size,output_shape,physfad,device)
     if load_model:
         print("Loading model")
         # net_forward.load_state_dict(torch.load("./Models/large_model_long_tr_op_loop.pt"))
-        net_forward.load_state_dict(torch.load("./Models/Full_Main_model.pt"))
+        net_diffusion.load_state_dict(torch.load("./Models/Full_Main_model.pt"))
+        # net_forward.load_state_dict(torch.load("./Models/Full_Main_model.pt"))
         # net.load_state_dict(torch.load("./Models/rate_model.pt"))
         # optimizer = T.optim.Adam([net_forward.hyp_net.parameters(),net_forward.main_net.linear_layers.parameters()], lr=lrn_rate)
         optimizer = T.optim.Adam(net_forward.parameters(), lr=lrn_rate)
-        optimizer_diffusion = T.optim.Adam(net_diffusion.parameters(), lr=lrn_rate)
+        optimizer_diffusion = T.optim.Adam(net_diffusion.parameters(), lr=lrn_rate/10)
 
     if diffusion_mode:
         diffusion_training(net_forward,
                            net_diffusion,
                            train_ldr,
                            test_ldr,
-                           optimizer,
                            optimizer_diffusion,
                            physfad,
                            config,
