@@ -4,14 +4,14 @@ import numpy as np
 import scipy.io
 import math
 import datetime
-# from memory_profiler import profile
+from memory_profiler import profile
 
-from utils import OrderedDict
+from utils import LimitedSizeDict
 class physfad_c():
     def __init__(self,config,device):
         self.config = config
         self.device = device
-        self.W_dict = OrderedDict(size_limit=64)
+        self.W_dict = LimitedSizeDict(size_limit=128)
 
 
     def __call__(self,ris_configuration_normalized,cond_tx_x,cond_tx_y):

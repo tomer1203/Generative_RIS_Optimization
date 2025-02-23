@@ -173,7 +173,7 @@ def generate_m_random_points_on_Nsphere(batch_size,m,N,device):
     norm_mat = np.expand_dims(np.linalg.norm(random_mat,axis=2),axis=2)
     tensor_output = torch.tensor(random_mat / norm_mat,device=device)
     return tensor_output
-def zo_estimate_gradient(func, x_unristricted, tx_x, tx_y, epsilon, m, device):
+def zo_estimate_gradient(func, x_unristricted, tx_x, tx_y, epsilon, m, device,broadcast_tx):
     N = x_unristricted.shape[-1]
     batch_size = x_unristricted.shape[0]
     batch_of_rand_vecs = generate_m_random_points_on_Nsphere(batch_size,m,N,device)
@@ -183,7 +183,10 @@ def zo_estimate_gradient(func, x_unristricted, tx_x, tx_y, epsilon, m, device):
         # TODO: broadcast this(currently broadcasting only the random_points)..
         #  I need to combine both the batches and the locations into the same dimension
         for i,rand_vectors in enumerate(batch_of_rand_vecs):
-            current_tx_x, current_tx_y = tx_x[i].unsqueeze(0), tx_y[i].unsqueeze(0)
+            if broadcast_tx:
+                current_tx_x, current_tx_y = tx_x, tx_y
+            else:
+                current_tx_x, current_tx_y = tx_x[i].unsqueeze(0), tx_y[i].unsqueeze(0)
             current_x = x_unristricted[i].type(torch.float64)
             # get sample of points
             normalized_x_plus_epsilon = current_x+epsilon*rand_vectors

@@ -152,7 +152,7 @@ def zeroth_grad_optimization(device,physfad,starting_inp=None,tx_x=None,tx_y=Non
     while (current_loss > -300 and iters < num_of_iterations):
         # estOptInp.grad = None
 
-        grad_inp = zo_estimate_gradient(capacity_physfad, estOptInp, tx_x, tx_y, epsilon, m, device)
+        grad_inp = zo_estimate_gradient(capacity_physfad, estOptInp, tx_x, tx_y, epsilon, m, device,broadcast_tx=True)
         # physfad_capacity, physfad_H = test_configurations_capacity(physfad, estOptInp, tx_x, tx_y, device, list_out=False, noise=noise_power)
         # physfad_grad = -torch.autograd.grad(physfad_capacity, estOptInp, retain_graph=True)[0]
         # gradient_score = cosine_score(physfad_grad, grad_inp)
