@@ -36,3 +36,5 @@ lrn_rate : 0.0005                                                             # 
 optim_lr : 0.002                                                              # the learning rate for the optimization step. originally 0.008
 num_of_opt_iter : 3000                                                        # how many iterations in the deep learning optimization
 
+# active training parameters
+new_configuration_chance : 0.66                                               # chance to generate a new configuration and not choose one of the previous ones.

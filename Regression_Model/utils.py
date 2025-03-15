@@ -3,10 +3,23 @@ import cProfile,pstats,io
 from matplotlib import pyplot as plt
 import torch
 import numpy as np
-from ChannelMatrixEvaluation import test_configurations_capacity
+import ChannelMatrixEvaluation
 from rate_model import capacity_loss
 from collections import OrderedDict
 import os
+from functools import wraps
+import time
+def timeit(func):
+    @wraps(func)
+    def timeit_wrapper(*args, **kwargs):
+        start_time = time.perf_counter()
+        result = func(*args, **kwargs)
+        end_time = time.perf_counter()
+        total_time = end_time - start_time
+        # first item in the args, ie `args[0]` is `self`
+        print(f'Function {func.__name__} Took {total_time:.4f} seconds')
+        return result
+    return timeit_wrapper
 class LimitedSizeDict(OrderedDict):
     def __init__(self, *args, **kwds):
         self.size_limit = kwds.pop("size_limit", None)
@@ -53,7 +66,7 @@ def test_dnn_optimization(physfad,opt_inp_lst,tx_x,tx_y,device,noise):
     # while (loss.item() > -10000 and iters < num_of_iterations):
     physfad_model_capacity_lst = []
     for i, opt_inp in enumerate(opt_inp_lst):
-        physfad_capacity, physfad_H = test_configurations_capacity(physfad,opt_inp,tx_x,tx_y,device=device,noise=noise)
+        physfad_capacity, physfad_H = ChannelMatrixEvaluation.test_configurations_capacity(physfad,opt_inp,tx_x,tx_y,device=device,noise=noise)
         # physfad_capacity = torch.sum(torch.abs(physfad_H))
         print("iter {0} physfad_c capacity {1}".format(20 * i, physfad_capacity))
         physfad_model_capacity_lst.append(physfad_capacity)
@@ -153,7 +166,7 @@ def test_model(test_ldr,model,physfad,output_size,output_shape,model_output_capa
         else:
             model_capacity = capacity_loss(test_output[0, :].reshape(1,output_size,output_shape[0],output_shape[1]), torch.ones(output_size,device=device), 1)
             # model_capacity = -np.inf
-        physfad_capacity, _ = test_configurations_capacity(physfad, X_test[0, :], tx_x, tx_y, device)
+        physfad_capacity, _ = ChannelMatrixEvaluation.test_configurations_capacity(physfad, X_test[0, :], tx_x, tx_y, device)
         # physfad_capacity = -np.inf
     else:
         test_NMSE = -np.inf
@@ -220,7 +233,7 @@ def get_physfad_grads(estOptInp,tx_x,tx_y,physfad,device,noise=None,broadcast_tx
             tx_x_i = tx_x[i].unsqueeze(0)
             tx_y_i = tx_y[i].unsqueeze(0)
 
-        Y_opt_capacity_i, Y_opt_gt_i = test_configurations_capacity(physfad, estOptInp_i,tx_x_i,tx_y_i, device=device, list_out=True,noise=noise)
+        Y_opt_capacity_i, Y_opt_gt_i = ChannelMatrixEvaluation.test_configurations_capacity(physfad, estOptInp_i,tx_x_i,tx_y_i, device=device, list_out=True,noise=noise)
         physfad_grad[i] = torch.autograd.grad(-Y_opt_capacity_i, estOptInp_i, retain_graph=True)[0]
     return physfad_grad
 

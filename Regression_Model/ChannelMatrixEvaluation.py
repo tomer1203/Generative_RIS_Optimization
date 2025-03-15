@@ -8,7 +8,7 @@ import cProfile
 import cProfile,pstats,io
 import datetime
 from rate_model import capacity_loss
-
+import utils
 
 
 
@@ -36,8 +36,8 @@ def test_configurations_capacity(physfad,ris_configuration,tx_x,tx_y,device,list
     H = physfad(ris_configuration,tx_x,tx_y)
     return capacity_loss(H,sigmaN=noise,list_out=list_out,device=device),H
 
-
-def physfad_channel_optimization(device,physfad,starting_inp=None,tx_x=None,tx_y=None,noise_power = 1, learning_rate=0.005,num_of_iterations=150):
+@utils.timeit
+def physfad_channel_optimization(device,physfad,starting_inp=None,tx_x=None,tx_y=None,noise_power = 1, learning_rate=0.005,num_of_iterations=150,recalculate_W=False):
     iters = 0
     # num_of_iterations = 150
 
@@ -55,16 +55,18 @@ def physfad_channel_optimization(device,physfad,starting_inp=None,tx_x=None,tx_y
 
     time_lst = []
     physfad_capacity_lst = []
-    Inp_optimizer = torch.optim.SGD([estOptInp], lr=learning_rate) # 0.1
+    Inp_optimizer = torch.optim.Adam([estOptInp], lr=learning_rate) # 0.1
     current_loss = torch.Tensor([1])
+    physfad_configuration_list = []
     # H = torch.zeros([batch_size,physfad.config.output_size,physfad.config.output_shape[0],physfad.config.output_shape[1]],dtype=torch.complex64)
     while (current_loss.item() > -600 and iters < num_of_iterations):
         Inp_optimizer.zero_grad()
         estOptInp_norm = torch.nn.functional.sigmoid(estOptInp)
+        physfad_configuration_list.append(estOptInp_norm)
         # estOptInp_norm = estOptInp
         # for b in range(batch_size):
         #     H[b] = physfad(estOptInp_norm[b].unsqueeze(0),tx_x[b].unsqueeze(0),tx_y[b].unsqueeze(0))
-        H = physfad(estOptInp_norm,tx_x,tx_y)
+        H = physfad(estOptInp_norm,tx_x,tx_y,recalculate_W=recalculate_W)
         # scipy.io.savemat("H_python_mat.mat", {"H_python_mat": H.cpu().detach().numpy()})
         # loss = -torch.sum(torch.abs(H[:,0,1]))
         loss = -capacity_loss(H, sigmaN = noise_power,device=device)
@@ -89,7 +91,7 @@ def physfad_channel_optimization(device,physfad,starting_inp=None,tx_x=None,tx_y
             #     plt.show()
 
         iters = iters + 1
-    return time_lst,physfad_capacity_lst,estOptInp_norm
+    return time_lst,physfad_capacity_lst,estOptInp_norm,physfad_configuration_list
 def random_search_optimization(physfad,iteration_limit=300,device='cpu',time_limit=None,noise_power=1, initial_inp = None,tx_x=None,tx_y=None):
     inp_size = 264
     iters = 0
@@ -126,6 +128,7 @@ def random_search_optimization(physfad,iteration_limit=300,device='cpu',time_lim
 
         iters = iters + 1
     return time_lst, random_search_capacity_lst
+@utils.timeit
 def zeroth_grad_optimization(device,physfad,starting_inp=None,tx_x=None,tx_y=None,noise_power=1,num_of_iterations=200):
     inp_size = 264
     iters = 0
