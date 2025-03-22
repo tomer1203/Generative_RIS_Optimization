@@ -201,9 +201,10 @@ class Net_diffusion(nn.Module):
         # z = self.bn4(z)
         z = self.oupt(z)  # no activation
 
-        # normalized_output = T.nn.functional.sigmoid(z)
-        # return normalized_output
-        return z
+        normalized_output = T.nn.functional.sigmoid(z)
+        # normalized_output = T.clip(z,0,1)
+        return normalized_output
+        # return z
 class Net(nn.Module):
     def __init__(self,input_size,hidden_size,output_length,output_shape,model_output_capacity):
         super(Net, self).__init__()

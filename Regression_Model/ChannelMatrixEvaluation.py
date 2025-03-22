@@ -9,9 +9,9 @@ import cProfile,pstats,io
 import datetime
 from rate_model import capacity_loss
 import utils
+import concurrent.futures
 
-
-
+from copy import deepcopy
 
 
 
@@ -20,20 +20,49 @@ import utils
 #     if len(H.shape)==4:
 #         return capacity_loss(H,torch.ones(H.shape[1],device=device),noise,list_out=list_out),H
 #     return capacity_loss(H,torch.ones(H.shape[0]),noise,list_out=list_out),H
+def batched_physfad(i,ris_configuration,tx_x,tx_y,physfad,batch_size):
+    batch_of_H,W = physfad(ris_configuration[i * batch_size:(i + 1) * batch_size], tx_x,tx_y)
+    if batch_size == 1:
+        batch_of_H = batch_of_H.unsqueeze(0)
+    return batch_of_H.detach(),W
 
+def test_configuration_capacity_serial(physfad,ris_configuration,tx_x,tx_y,device,list_out=False,noise=None):
+    tx_size = tx_x.shape[0]
+    ris_configuration_size = ris_configuration.shape[0]
+    batch_size = ris_configuration_size // tx_size
+    with torch.no_grad():
+        if tx_size != 1:
+            H = torch.zeros([ris_configuration_size, physfad.config.output_size,physfad.config.output_shape[0],physfad.config.output_shape[1]],dtype=torch.complex64)
+            for i in range(len(tx_x)):
+                batch_of_H = physfad(ris_configuration[i * batch_size:(i + 1) * batch_size], tx_x[i].unsqueeze(0), tx_y[i].unsqueeze(0))
+                if batch_size == 1:
+                    batch_of_H = batch_of_H.unsqueeze(0)
+                H[i*batch_size:(i+1)*batch_size] = batch_of_H
+
+            return capacity_loss(H, sigmaN=noise, list_out=list_out, device=device), H
+        H = physfad(ris_configuration,tx_x,tx_y)
+    return capacity_loss(H,sigmaN=noise,list_out=list_out,device=device),H
+@utils.timeit
 def test_configurations_capacity(physfad,ris_configuration,tx_x,tx_y,device,list_out=False,noise=None):
     tx_size = tx_x.shape[0]
     ris_configuration_size = ris_configuration.shape[0]
     batch_size = ris_configuration_size // tx_size
-    if tx_size != 1:
-        H = torch.zeros([ris_configuration_size, physfad.config.output_size,physfad.config.output_shape[0],physfad.config.output_shape[1]],dtype=torch.complex64)
-        for i in range(len(tx_x)):
-            batch_of_H = physfad(ris_configuration[i * batch_size:(i + 1) * batch_size], tx_x[i].unsqueeze(0), tx_y[i].unsqueeze(0))
-            if batch_size == 1:
-                batch_of_H = batch_of_H.unsqueeze(0)
-            H[i*batch_size:(i+1)*batch_size] = batch_of_H
-        return capacity_loss(H, sigmaN=noise, list_out=list_out, device=device), H
-    H = physfad(ris_configuration,tx_x,tx_y)
+    with torch.no_grad():
+        if tx_size != 1:
+            H = torch.zeros([ris_configuration_size, physfad.config.output_size,physfad.config.output_shape[0],physfad.config.output_shape[1]],dtype=torch.complex64)
+            with concurrent.futures.ProcessPoolExecutor() as executer:
+                conf_ls = [confg.detach() for confg in [ris_configuration]*tx_size]
+                txx_ls = tx_x.unsqueeze(1)
+                txy_ls = tx_y.unsqueeze(1)
+                phys_ls = [physfad]*tx_size
+                batch_ls = [batch_size]*tx_size
+                results = executer.map(batched_physfad,range(len(tx_x)),conf_ls,txx_ls,txy_ls,phys_ls,batch_ls)
+            for i,(H_batch,W) in enumerate(results):
+                H[i*batch_size:(i+1)*batch_size] = H_batch
+                physfad.W_dict[(tx_x[i].unsqueeze(0),tx_y[i].unsqueeze(0))] = W
+
+            return capacity_loss(H, sigmaN=noise, list_out=list_out, device=device), H
+        H = physfad(ris_configuration,tx_x,tx_y)[0]
     return capacity_loss(H,sigmaN=noise,list_out=list_out,device=device),H
 
 @utils.timeit
@@ -66,7 +95,7 @@ def physfad_channel_optimization(device,physfad,starting_inp=None,tx_x=None,tx_y
         # estOptInp_norm = estOptInp
         # for b in range(batch_size):
         #     H[b] = physfad(estOptInp_norm[b].unsqueeze(0),tx_x[b].unsqueeze(0),tx_y[b].unsqueeze(0))
-        H = physfad(estOptInp_norm,tx_x,tx_y,recalculate_W=recalculate_W)
+        H = physfad(estOptInp_norm,tx_x,tx_y,recalculate_W=recalculate_W)[0]
         # scipy.io.savemat("H_python_mat.mat", {"H_python_mat": H.cpu().detach().numpy()})
         # loss = -torch.sum(torch.abs(H[:,0,1]))
         loss = -capacity_loss(H, sigmaN = noise_power,device=device)
@@ -151,7 +180,7 @@ def zeroth_grad_optimization(device,physfad,starting_inp=None,tx_x=None,tx_y=Non
     # Inp_optimizer = torch.optim.Adam([estOptInp], lr=0.01)
     current_loss = 1
     from utils import zo_estimate_gradient,cosine_score
-    capacity_physfad = lambda x,tx_x_arg,tx_y_arg : -capacity_loss(physfad(x,tx_x_arg,tx_y_arg), sigmaN=noise_power,device=device)
+    capacity_physfad = lambda x,tx_x_arg,tx_y_arg : -capacity_loss(physfad(x,tx_x_arg,tx_y_arg)[0], sigmaN=noise_power,device=device)
     while (current_loss > -300 and iters < num_of_iterations):
         # estOptInp.grad = None
 

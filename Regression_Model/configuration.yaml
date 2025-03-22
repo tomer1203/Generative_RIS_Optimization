@@ -37,4 +37,4 @@ optim_lr : 0.002                                                              # 
 num_of_opt_iter : 3000                                                        # how many iterations in the deep learning optimization
 
 # active training parameters
-new_configuration_chance : 0.66                                               # chance to generate a new configuration and not choose one of the previous ones.
+new_configuration_chance : 1                                               # chance to generate a new configuration and not choose one of the previous ones.

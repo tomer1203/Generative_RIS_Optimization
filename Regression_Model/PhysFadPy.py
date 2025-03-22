@@ -18,8 +18,8 @@ class physfad_c():
         (freq, x_tx, y_tx, fres_tx, chi_tx, gamma_tx,
          x_rx, y_rx, fres_rx, chi_rx, gamma_rx,
          x_env, y_env, fres_env, chi_env, gamma_env, x_ris_c, y_ris_c) = self.parameters
-        if torch.any(~torch.isfinite(ris_configuration_normalized)):
-            print("in physfad H calculations received configuration with non-finite values")
+        # if torch.any(~torch.isfinite(ris_configuration_normalized)):
+        #     print("in physfad H calculations received configuration with non-finite values")
         if not torch.is_tensor(ris_configuration_normalized):
             ris_configuration_normalized = torch.tensor(ris_configuration_normalized, device=self.device)
 
@@ -46,7 +46,7 @@ class physfad_c():
                  x_rx, y_rx, fres_rx, chi_rx, gamma_rx,
                  x_env, y_env, fres_env, chi_env, gamma_env,
                  x_ris_c, y_ris_c, fres_ris_c, chi_ris_c, gamma_ris_c)
-        return H
+        return H,W
     def set_parameters(self):
         '''
             set the basic ris configuration and pack it into one tuple: parameters
@@ -231,8 +231,8 @@ class physfad_c():
         inv_alpha = (two_pi_fres2.unsqueeze(2) - two_pi_freq2.unsqueeze(1)) / (chi2.unsqueeze(2)) + 1j * ((
                     k2.unsqueeze(1) / 4) + two_pi_freq.unsqueeze(1) * gamma.unsqueeze(2) / chi2.unsqueeze(2))
         inv_alpha = inv_alpha.type(torch.complex64)
-        if torch.any(~torch.isfinite(inv_alpha)):
-            print("oh no1")
+        # if torch.any(~torch.isfinite(inv_alpha)):
+        #     print("oh no1")
         W = W_full.clone().repeat(batch_size,1,1,1)
         # width = W.size(0)
         Mask = torch.eye(W.size(2)).repeat(batch_size,len(freq), 1, 1).bool()
@@ -240,14 +240,14 @@ class physfad_c():
         W_diag_elem = torch.diagonal(W, dim1=-2, dim2=-1)
         W_diag_matrix = torch.zeros(W.shape, dtype=torch.complex64, device=self.device)
         W_diag_matrix.diagonal(dim1=-2, dim2=-1).copy_(W_diag_elem)
-        if torch.any(~torch.isfinite(W_diag_matrix)):
-            print("oh no2")
+        # if torch.any(~torch.isfinite(W_diag_matrix)):
+        #     print("oh no2")
         V = torch.linalg.solve_ex(W, W_diag_matrix)[0]
-        if torch.any(~torch.isfinite(V)):
-            print("oh no3")
+        # if torch.any(~torch.isfinite(V)):
+        #     print("oh no3")
         H = V[:,:, N_T: (N_T + N_R), 0: N_T]
-        if torch.any(~torch.isfinite(H)):
-            print("oh no4")
+        # if torch.any(~torch.isfinite(H)):
+        #     print("oh no4")
         return H
 
     def GetH(self,freq, W_full,
@@ -299,8 +299,8 @@ class physfad_c():
 
         V = torch.linalg.solve(W, W_diag_matrix)
         H = V[:,N_T: (N_T + N_R), 0: N_T]
-        if torch.any(~torch.isfinite(H)):
-            print("physfad(not batched) nan detected")
+        # if torch.any(~torch.isfinite(H)):
+        #     print("physfad(not batched) nan detected")
 
         # for f in range(len(freq)):
             # x_diff = torch.zeros([N,N],dtype=torch.float64,device=device)
