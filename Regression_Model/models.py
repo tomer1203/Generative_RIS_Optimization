@@ -142,7 +142,7 @@ class main_Net(nn.Module):
         return z
 def init_weights(m):
     if isinstance(m, nn.Linear):
-        torch.nn.init.kaiming_uniform(m.weight)
+        torch.nn.init.kaiming_uniform_(m.weight)
         m.bias.data.fill_(0)
 
 # Old network(no use of hypernetwork)

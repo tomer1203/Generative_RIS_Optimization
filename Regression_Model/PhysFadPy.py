@@ -5,7 +5,8 @@ import scipy.io
 import math
 import datetime
 from memory_profiler import profile
-
+import os
+from matplotlib import pyplot as plt
 from utils import LimitedSizeDict
 class physfad_c():
     def __init__(self,config,device):
@@ -34,7 +35,9 @@ class physfad_c():
         gamma_ris_c = ris_configuration[:, self.N_RIS*2:self.N_RIS*3]
         if (cond_tx_x,cond_tx_y) in self.W_dict and not recalculate_W:
             W = self.W_dict[(cond_tx_x,cond_tx_y)]
+            print("from memory")
         else:
+            print("recalculated")
             W = self.get_bessel_w(self.freq,
                              cond_tx_x, cond_tx_y,
                              x_rx, y_rx,
@@ -91,6 +94,16 @@ class physfad_c():
                       x_env, y_env, fres_env, chi_env, gamma_env, x_ris_c, y_ris_c)
         self.parameters = parameters
         return parameters
+
+    def clear_bessel_mem(self):
+        self.W_dict = LimitedSizeDict(size_limit=128)
+    def generate_tx_location(self,size,device):
+        x_tx_orig = torch.tensor([0, 0, 0]).repeat(size, 1).to(device)
+        y_tx_orig = torch.tensor([4, 4.5, 5]).repeat(size, 1).to(device)
+        tx_x_diff = 8 * torch.rand([size, 3], device=device,dtype=torch.float64) - 3.3 # 19.5 *
+        tx_y_diff = 11.5 * torch.rand([size, 3], device=device,dtype=torch.float64) - 2.8
+        tx_x, tx_y = x_tx_orig + tx_x_diff, y_tx_orig + tx_y_diff
+        return tx_x,tx_y
     def set_configuration(self):
         self.freq = torch.tensor(np.linspace(0.9, 1.1, 120));
 
@@ -114,9 +127,30 @@ class physfad_c():
         gamma_rx = torch.tensor([0, 0, 0, 0]).unsqueeze(0).to(self.device).type(torch.float64)
 
         enclosure = {}
-        scipy.io.loadmat("..//PhysFad//ComplexEnclosure2.mat", enclosure)
+        enclosure_clean = {}
+        if os.path.isfile("..//Data//"+self.config.environment_file_name+"Noised.mat"):
+            scipy.io.loadmat("..//Data//"+self.config.environment_file_name+"Noised.mat", enclosure)
+            scipy.io.loadmat("..//Data//"+self.config.environment_file_name+".mat", enclosure_clean)
+        else:
+            print("generating new noisy room")
+            scipy.io.loadmat("..//Data//"+self.config.environment_file_name+".mat", enclosure_clean)
+            x_env_clean = torch.tensor(enclosure_clean['x_env']).to(self.device).type(torch.float64)
+            y_env_clean = torch.tensor(enclosure_clean['y_env']).to(self.device).type(torch.float64)
+            total_env = (x_env_clean+y_env_clean)/2
+            mean_env_power = torch.sqrt((total_env**2).mean())
+            noise_power = mean_env_power*self.config.environment_noise_power
+            x_env = x_env_clean + torch.normal(0,noise_power*torch.ones_like(x_env_clean))
+            y_env = y_env_clean + torch.normal(0,noise_power*torch.ones_like(y_env_clean))
+            plt.scatter(x_env,y_env)
+            plt.show()
+            scipy.io.savemat("..//Data//"+self.config.environment_file_name+"Noised.mat", {"x_env": x_env.cpu().detach().numpy(),
+                                                                                           "y_env": y_env.cpu().detach().numpy()})
+            scipy.io.loadmat("..//Data//"+self.config.environment_file_name+"Noised.mat", enclosure)
+
         x_env = torch.tensor(enclosure['x_env']).to(self.device).type(torch.float64)
         y_env = torch.tensor(enclosure['y_env']).to(self.device).type(torch.float64)
+        self.x_env_clean = torch.tensor(enclosure_clean['x_env']).to(self.device).type(torch.float64)
+        self.y_env_clean = torch.tensor(enclosure_clean['y_env']).to(self.device).type(torch.float64)
         fres_env = 10 * torch.ones(x_env.shape).to(self.device).type(torch.float64)
         chi_env = 50 * torch.ones(x_env.shape).to(self.device).type(torch.float64)
         gamma_env = 0 * torch.ones(x_env.shape).to(self.device).type(torch.float64)

@@ -10,6 +10,11 @@ find_optimal_lr : True                                                        # 
 optimize_model : True                                                         # run a test for all different optimisation methods and compare them
 run_snr_graph : False                                                         # compare all different optimisation methods on different snr values
 
+# Simulation Parameters
+environment_file_name : "ComplexEnclosure2"
+environment_noise_power : 0.01
+
+
 # sizes of input output of the model
 input_size : 135                                                              # number of configuration parameters
 output_size : 120                                                             # number of frequencies in the channel
@@ -37,4 +42,5 @@ optim_lr : 0.002                                                              # 
 num_of_opt_iter : 3000                                                        # how many iterations in the deep learning optimization
 
 # active training parameters
-new_configuration_chance : 1                                               # chance to generate a new configuration and not choose one of the previous ones.
+new_configuration_chance : 0.66                                               # chance to generate a new configuration and not choose one of the previous ones.
+lmbda : 0.25                                                                  # strength of regularizer hyperparameter

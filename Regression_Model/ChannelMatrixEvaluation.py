@@ -9,6 +9,7 @@ import cProfile,pstats,io
 import datetime
 from rate_model import capacity_loss
 import utils
+
 import concurrent.futures
 
 from copy import deepcopy
@@ -26,7 +27,7 @@ def batched_physfad(i,ris_configuration,tx_x,tx_y,physfad,batch_size):
         batch_of_H = batch_of_H.unsqueeze(0)
     return batch_of_H.detach(),W
 
-def test_configuration_capacity_serial(physfad,ris_configuration,tx_x,tx_y,device,list_out=False,noise=None):
+def test_configurations_capacity_serial(physfad,ris_configuration,tx_x,tx_y,device,list_out=False,noise=None):
     tx_size = tx_x.shape[0]
     ris_configuration_size = ris_configuration.shape[0]
     batch_size = ris_configuration_size // tx_size
@@ -34,13 +35,13 @@ def test_configuration_capacity_serial(physfad,ris_configuration,tx_x,tx_y,devic
         if tx_size != 1:
             H = torch.zeros([ris_configuration_size, physfad.config.output_size,physfad.config.output_shape[0],physfad.config.output_shape[1]],dtype=torch.complex64)
             for i in range(len(tx_x)):
-                batch_of_H = physfad(ris_configuration[i * batch_size:(i + 1) * batch_size], tx_x[i].unsqueeze(0), tx_y[i].unsqueeze(0))
+                batch_of_H = physfad(ris_configuration[i * batch_size:(i + 1) * batch_size], tx_x[i].unsqueeze(0), tx_y[i].unsqueeze(0))[0]
                 if batch_size == 1:
                     batch_of_H = batch_of_H.unsqueeze(0)
                 H[i*batch_size:(i+1)*batch_size] = batch_of_H
 
             return capacity_loss(H, sigmaN=noise, list_out=list_out, device=device), H
-        H = physfad(ris_configuration,tx_x,tx_y)
+        H = physfad(ris_configuration,tx_x,tx_y)[0]
     return capacity_loss(H,sigmaN=noise,list_out=list_out,device=device),H
 @utils.timeit
 def test_configurations_capacity(physfad,ris_configuration,tx_x,tx_y,device,list_out=False,noise=None):
@@ -190,9 +191,9 @@ def zeroth_grad_optimization(device,physfad,starting_inp=None,tx_x=None,tx_y=Non
         # gradient_score = cosine_score(physfad_grad, grad_inp)
         # print(gradient_score)
         # gradient_score_lst.append(gradient_score)
+        out = capacity_physfad(torch.clip(estOptInp,0,1), tx_x, tx_y)
         estOptInp = estOptInp - lr * grad_inp
         estOptInp = torch.clip(estOptInp,0,1)
-        out = capacity_physfad(estOptInp, tx_x, tx_y)
         time_lst.append(datetime.datetime.now())
         physfad_capacity_lst.append(-out)
         # def closure():
