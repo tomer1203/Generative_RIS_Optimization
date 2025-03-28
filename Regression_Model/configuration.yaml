@@ -1,5 +1,5 @@
 ---
-batch_size : 32
+batch_size : 8
 seed : 4
 # run configuration(what do you want to do?)
 load_model : False                                                            # take existing trained model
@@ -42,5 +42,5 @@ optim_lr : 0.002                                                              # 
 num_of_opt_iter : 3000                                                        # how many iterations in the deep learning optimization
 
 # active training parameters
-new_configuration_chance : 0.66                                               # chance to generate a new configuration and not choose one of the previous ones.
-lmbda : 0.25                                                                  # strength of regularizer hyperparameter
+new_configuration_chance : 0.75                                               # chance to generate a new configuration and not choose one of the previous ones.
+lmbda : 0.2                                                                   # strength of regularizer hyperparameter

@@ -381,9 +381,10 @@ def annealed_langevin_v3(model,physfad,starting_configuration,tx_x,tx_y, number_
     for i,sigma_i in enumerate(sigma_list):
         # rate = capacity_loss(physfad(ris_configuration, tx_x, tx_y), sigmaN=torch.tensor(1, dtype=torch.float64), device=device).item()
         # rate = breakdown(ris_configuration, tx_x, tx_y,physfad,device)
-        configuration_list.append((i*number_of_iterations, ris_configuration))
+        # configuration_list.append((i*number_of_iterations, ris_configuration))
 
         for k in range(number_of_iterations):
+            configuration_list.append((i * number_of_iterations + k, ris_configuration))
             sigma_v = sigma_i*torch.ones([batch_size,1],device=device)
             tx_x_repeated = tx_x[0].repeat(batch_size,1)
             tx_y_repeated = tx_y[0].repeat(batch_size,1)
@@ -393,6 +394,7 @@ def annealed_langevin_v3(model,physfad,starting_configuration,tx_x,tx_y, number_
             ris_configuration = ris_configuration + (tau_vec[i]/sigma_list[i]**2) * score_function + torch.sqrt(2*tau_vec[i])*normal_noise/a
 
             ris_configuration = torch.clip(ris_configuration,0,1)
+
 
         # config_norm = torch.norm(ris_configuration).item()
         # print("alpha",sigma_i.item(),"k",k,"rate",rate,"norm",config_norm)
@@ -734,8 +736,8 @@ def diffusion_active_training(model_diffusion,test_ldr,optimizer_diffusion, phys
         # sanity checks and live improvement updates
         print("input std: ", X.std(dim=0).mean().item())
         print("output std: ", improved_X.std(dim=0).mean().item())
-        capacity_before = test_configurations_capacity_serial(physfad,X,tx_x,tx_y,device,list_out=False,noise=None)[0]
-        capacity_after = test_configurations_capacity_serial(physfad,improved_X,tx_x,tx_y,device,list_out=False,noise=None)[0]
+        capacity_before = test_configurations_capacity(physfad,X,tx_x,tx_y,device,list_out=False,noise=None)[0]
+        capacity_after = test_configurations_capacity(physfad,improved_X,tx_x,tx_y,device,list_out=False,noise=None)[0]
         print("capacity before: {0} and after: {1}".format(capacity_before.item(),capacity_after.item()))
         sys.stdout.flush()
 
@@ -761,7 +763,7 @@ def diffusion_active_training(model_diffusion,test_ldr,optimizer_diffusion, phys
         optimizer_diffusion.step()
         if i % 60 == 0 and i != 0:
             model_diffusion.eval()
-            torch.save(model_diffusion.state_dict(), "./Models/Full_Main_model3.pt")
+            torch.save(model_diffusion.state_dict(), "./Models/Full_Main_model4.pt")
             acc_rate = 0
             ald_capacity_avg = np.zeros([10,batch_size])
             ald_iter_list = np.zeros(10)
@@ -826,16 +828,17 @@ def diffusion_inference(model_forward,model_diffusion,train_ldr,test_ldr,optimiz
                        model_output_capacity, device="cpu"):
     acc_rate = 0
     # print(len(test_ldr))
-    ald_capacity_avg = np.zeros([10,8])
+
+    ald_capacity_avg = np.zeros([50,8])
     # ald_capacity_avg = np.zeros(10)
-    ald_capacity_avg1 = np.zeros([10,8])
-    ald_capacity_avg2 = np.zeros([10,8])
-    ald_capacity_avg3 = np.zeros([10,8])
-    ald_iter_list = np.zeros(10)
+    ald_capacity_avg1 = np.zeros([50,8])
+    ald_capacity_avg2 = np.zeros([50,8])
+    ald_capacity_avg3 = np.zeros([50,8])
+    ald_iter_list = np.zeros(50)
     ald_iter_list1 = np.zeros(10)
     ald_iter_list2 = np.zeros(10)
     ald_iter_list3 = np.zeros(10)
-    zogd_capacity_avg = np.zeros(50)
+    zogd_capacity_avg = np.zeros(100)
     physfad_capacity_avg = np.zeros(50)
     physfad_capacity_avg_with_noise = np.zeros(50)
     for batch_idx,batch in enumerate(test_ldr):
@@ -844,6 +847,7 @@ def diffusion_inference(model_forward,model_diffusion,train_ldr,test_ldr,optimiz
             break
         print(batch_idx)
         (X, X_gradients, tx_x, tx_y, Y_capacity, Y) = open_virtual_batch(batch)
+        physfad.plot_environment(tx_x,tx_y)
         X = X.type(torch.float64)
         # X = X[0].unsqueeze(0)
         X = X[0:8]
@@ -906,7 +910,7 @@ def diffusion_inference(model_forward,model_diffusion,train_ldr,test_ldr,optimiz
         (physfad_time_lst, physfad_capacity, physfad_last_input,physfad_inputs) = (
             physfad_channel_optimization(device, physfad, copy_with_gradients(torch.special.logit(X), device), tx_x,
                                          tx_y, noise_power=1,
-                                         learning_rate=0.1, num_of_iterations=50))  # 50
+                                         learning_rate=0.1, num_of_iterations=2))  # 50
         for i, capac in enumerate(physfad_capacity):
             physfad_capacity_avg[i] += capac
 
@@ -924,14 +928,13 @@ def diffusion_inference(model_forward,model_diffusion,train_ldr,test_ldr,optimiz
             physfad_capacity_avg_with_noise[i] += capacity.detach().numpy()
 
 
-        (zogd_time_lst, zogd_capacity, zogd_gradient_score) = zeroth_grad_optimization(device, physfad,
-                                                                                       X.clone().detach().requires_grad_(
-                                                                                           False).to(
-                                                                                           device), tx_x,
-                                                                                       # change require grad to false
-                                                                                       tx_y,
-                                                                                       noise_power=1,
-                                                                                       num_of_iterations=50)
+
+        (zogd_time_lst, zogd_capacity, _) = zeroth_grad_optimization(device, physfad,
+                                                                     copy_without_gradients(X,device), tx_x,
+                                                                     # change require grad to false
+                                                                     tx_y,
+                                                                     noise_power=1,
+                                                                     num_of_iterations=100)
         for i, capac in enumerate(zogd_capacity):
             zogd_capacity_avg[i] += capac
 
@@ -951,11 +954,12 @@ def diffusion_inference(model_forward,model_diffusion,train_ldr,test_ldr,optimiz
         ald_capacity_avg1[i,0] = ald_capacity_avg1[i,1:].mean()
     for i in range(len(ald_capacity_avg2[:,0])):
         ald_capacity_avg2[i,0] = ald_capacity_avg2[i,1:].mean()
-    plt.plot(physfad_capacity_avg/(batch_idx+1),linewidth=4.0,linestyle='dashed')
-    plt.plot(physfad_capacity_avg_with_noise/(batch_idx+1),linewidth=4.0,linestyle='dashed')
-    plt.plot(zogd_capacity_avg / (batch_idx+1),linewidth=4.0,linestyle='dashed')
-    plt.plot(ald_iter_list, ald_capacity_avg[:,0] / (batch_idx+1),linewidth=4.0,linestyle='dashed')
-    plt.plot(ald_iter_list, ald_capacity_avg[:,1:] / (batch_idx+1),alpha=0.5)
+    plt.plot(physfad_capacity_avg/(120*(batch_idx+1)),'-*',linewidth=1.5)#,linestyle='dashed')
+    plt.plot(physfad_capacity_avg_with_noise/(120*(batch_idx+1)),'-*',linewidth=1.5)#,linestyle='dashed')
+    plt.plot(zogd_capacity_avg / (120*(batch_idx+1)),'-*',linewidth=1.5)#,linestyle='dashed')
+    plt.plot(ald_iter_list, ald_capacity_avg[:,0] / (120*(batch_idx+1)),'-*',linewidth=2)#,linestyle='dashed')
+    plt.grid(visible=True)
+    # plt.plot(ald_iter_list, ald_capacity_avg[:,1:] / (batch_idx+1),alpha=0.5)
     # plt.plot(ald_iter_list1, ald_capacity_avg1[:,0] / (batch_idx+1),linewidth=4.0,linestyle='dashed')
     # plt.plot(ald_iter_list2, ald_capacity_avg2[:,0] / (batch_idx+1),linewidth=4.0,linestyle='dashed')
     # plt.plot(ald_iter_list, ald_capacity_avg/(batch_idx+1))
@@ -964,11 +968,13 @@ def diffusion_inference(model_forward,model_diffusion,train_ldr,test_ldr,optimiz
     # plt.plot(ald_iter_list3, ald_capacity_avg3/(batch_idx+1))
     # plt.legend(["ald eps 10^-6","ald eps 10^-5","ald eps 10^-2","ald eps 10^-1"])
     # plt.legend(["ald noise/1","ald noise/2","ald noise/4","ald noise/8"])
-    plt.legend(["phsyfad","physfad with 0.1 noise on env","zogd","ALD mean of batch","every element of the batch seperatly"])
+    plt.legend(["Simulation GD","Simulation GD + 0.01 noise on env","ZOGD","ZO-ALD"])
     # plt.legend(["ald", "zogd"])
     plt.title(
         "capacity at iteration for different algorithms")  # average results over a small test set of 8 tx locations
     # plt.show()
+    plt.xlabel("iteration")
+    plt.ylabel("Rate [Bits/Channel use]")
     save_fig("diffusion_capacity_per_iteration_" + str(i) + ".pdf", "plots")
     plt.show()
 
@@ -1082,7 +1088,7 @@ def generate_dataset(dataset_name,dataset_post_name,dataset_path,virt_batch_size
     # tx_x_diff = 19.5 * torch.rand([int(dataset_size / virt_batch_size), 3], device=device, dtype=torch.float64) - 3.3
     # tx_y_diff = 11.5 * torch.rand([int(dataset_size / virt_batch_size), 3], device=device, dtype=torch.float64) - 2.8
     # tx_x, tx_y = x_tx_orig + tx_x_diff, y_tx_orig + tx_y_diff
-    tx_x, tx_y = physfad.generate_tx_location(int(dataset_size / virt_batch_size))
+    tx_x, tx_y = physfad.generate_tx_location(int(dataset_size / virt_batch_size),device)
     rate, H = test_configurations_capacity(physfad, X[0:virt_batch_size], tx_x[0].unsqueeze(0), tx_y[0].unsqueeze(0), device, list_out=False,
                                            noise=None)
     rate_dataset = torch.zeros(dataset_size)
@@ -1264,12 +1270,12 @@ def main():
     optim_lr = 0.002 #0.008
     num_of_opt_iter = 3000
     load_model = True
-    diffusion_mode = True
+    diffusion_mode = False
     training_mode = False
     activate_train_and_optimize = False  # can be added to the train mode
     find_optimal_lr = False
     optimize_model = False
-    run_snr_graph = False
+    run_snr_graph = True
     loss_func = My_MSE_Loss
     # optimizer = T.optim.SGD(net.parameters(), lr=lrn_rate)
     # optimizer = T.optim.Adam(net.hyp_net.parameters(), lr=lrn_rate)  # weight_decay=0.001
@@ -1287,14 +1293,14 @@ def main():
 
     NMSE_LST_SIZE = 10
     print("Collecting RIS configuration ")
-    generate_dataset("conditional", "", "../Data/", 32, 128, physfad, input_size=135,device=device)
+    # generate_dataset("conditional", "", "../Data/", 32, 128, physfad, input_size=135,device=device)
     generate_dataset("conditional", "_test", "../Data/", 32, 512, physfad, input_size=135,device=device)
     train_ds,test_ds,train_ldr, test_ldr = load_data(batch_size,output_size,output_shape,physfad,device)
     if load_model:
         print("Loading model")
         # net_forward.load_state_dict(torch.load("./Models/large_model_long_tr_op_loop.pt"))
         # net_diffusion.load_state_dict(torch.load("./Models/Full_Main_model.pt"))
-        net_diffusion.load_state_dict(torch.load("./Models/Full_Main_model3.pt"))
+        net_diffusion.load_state_dict(torch.load("./Models/Full_Main_model4.pt"))
         # net_forward.load_state_dict(torch.load("./Models/Full_Main_model.pt"))
         # net.load_state_dict(torch.load("./Models/rate_model.pt"))
         # optimizer = T.optim.Adam([net_forward.hyp_net.parameters(),net_forward.main_net.linear_layers.parameters()], lr=lrn_rate)
@@ -1302,25 +1308,25 @@ def main():
         optimizer_diffusion = T.optim.Adam(net_diffusion.parameters(), lr=lrn_rate/10)
 
     if diffusion_mode:
-        # diffusion_inference(net_forward,
-        #                    net_diffusion,
-        #                    train_ldr,
-        #                    test_ldr,
-        #                    optimizer_diffusion,
-        #                    physfad,
-        #                    config,
-        #                    max_epochs,
-        #                    ep_log_interval,
-        #                    output_size,
-        #                    output_shape,
-        #                    model_output_capacity,
-        #                    device=device)
-        diffusion_active_training(net_diffusion,
-                                  test_ldr,
-                                  optimizer_diffusion,
-                                  physfad,
-                                  config,
-                                  device=device)
+        diffusion_inference(net_forward,
+                           net_diffusion,
+                           train_ldr,
+                           test_ldr,
+                           optimizer_diffusion,
+                           physfad,
+                           config,
+                           max_epochs,
+                           ep_log_interval,
+                           output_size,
+                           output_shape,
+                           model_output_capacity,
+                           device=device)
+        # diffusion_active_training(net_diffusion,
+        #                           test_ldr,
+        #                           optimizer_diffusion,
+        #                           physfad,
+        #                           config,
+        #                           device=device)
         exit()
     if training_mode:
         print("\nStarting training with saved checkpoints")
@@ -1345,14 +1351,14 @@ def main():
         plt.show()
         torch.save(net.state_dict(),"./Models/Full_Main_model.pt")
 
-    if device != torch.device('cpu'):
-        print("Moving data to cpu")
-        device = torch.device('cpu')
-        net = net.to(device)
-        physfad = physfad_c(config,device=device)
-        physfad.set_configuration()
-        train_ds, test_ds, train_ldr, test_ldr = load_data(batch_size, output_size, output_shape, physfad, device)
-        optimizer = T.optim.Adam(net.parameters(), lr=lrn_rate)
+    # if device != torch.device('cpu'):
+    #     print("Moving data to cpu")
+    #     device = torch.device('cpu')
+    #     net = net.to(device)
+    #     physfad = physfad_c(config,device=device)
+    #     physfad.set_configuration()
+    #     train_ds, test_ds, train_ldr, test_ldr = load_data(batch_size, output_size, output_shape, physfad, device)
+    #     optimizer = T.optim.Adam(net.parameters(), lr=lrn_rate)
 
 
     if activate_train_and_optimize:
@@ -1512,58 +1518,80 @@ def main():
     if run_snr_graph:
         device_cpu = torch.device('cpu')
         device_cuda = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-        num_snr_points = 15
-        attempts = 6
+        num_snr_points = 10#15
+
+        attempts = 8#6
         snr_values = np.linspace(0.5,60,num_snr_points)
+        # snr_values = np.linspace(0.8,1.2,num_snr_points)
 
         noise_array = 1/snr_values
         SNR_results = np.zeros([num_snr_points,7,attempts])
-        for i,noise in enumerate(noise_array):
-            for attempt in range(attempts):
+        for attempt in range(attempts):
+            (X, _, tx_x, tx_y, _, _) = open_virtual_batch(next(iter(test_ldr)))  # (predictors, targets)
+
+            for i,noise in enumerate(noise_array):
                 print(noise,i,attempt)
-                (X, _, _) = next(iter(train_ldr))  # (predictors, targets)
-                initial_inp = X[0, :].unsqueeze(0).clone().detach().requires_grad_(True).to(device_cpu)
+                # initial_inp = X[0, :].unsqueeze(0).clone().detach().requires_grad_(True).to(device_cpu)
+                initial_inp = X.clone().detach().requires_grad_(True).to(device_cpu)
+                physfad.save_and_change_to_clean_environment()
+                (physfad_time_lst, physfad_capacity,last_configuration, physfad_inputs) = physfad_channel_optimization(device_cpu, physfad,
+                                                                                                    copy_with_gradients(
+                                                                                                        initial_inp,
+                                                                                                        device_cpu),
+                                                                                                    tx_x, tx_y,
+                                                                                                    noise_power=noise,
+                                                                                                    learning_rate= 0.1,
+                                                                                                    num_of_iterations=100)  # 150
+                physfad.reload_original_environment()
+                physfad_capacity_avg_with_noise = torch.zeros(len(physfad_capacity))
+                for j, capac in enumerate(physfad_capacity):
+                    physfad_capacity_avg_with_noise[j], _ = test_configurations_capacity(physfad, physfad_inputs[j], tx_x, tx_y, device,
+                                                               list_out=False,noise=noise)
+                    print("i: ", j, "physfad+noise capacity: ", physfad_capacity_avg_with_noise[j])
 
-                (physfad_time_lst, physfad_capacity, physfad_inputs) = physfad_channel_optimization(device_cpu,
-                                                                                                    initial_inp.clone().detach().requires_grad_(True).to(device_cpu),
-                                                                                                    noise_power=noise,num_of_iterations=150)
-                (zogd_time_lst, zogd_capacity) = zeroth_grad_optimization(device_cpu, initial_inp.clone().detach().to(device_cpu),
-                                                                          noise_power=noise,num_of_iterations=200)
-                (rand_search_time_lst, random_search_capacity) = random_search_optimization(300,device_cpu,noise_power=noise)
-                net = net.to(device_cuda)
-                (time_lst, opt_inp_lst, model_capacity_lst) = optimize(physfad, initial_inp.to(device_cuda).clone().detach().requires_grad_(True), net, inp_size, output_size,optim_lr,
-                    model_output_capacity,num_of_iterations=num_of_opt_iter,noise=noise,#num_of_opt_iter
-                    calaculate_physfad=False, device=device_cuda)
 
-                dnn_physfad_capacity_lst=test_dnn_optimization([x.cpu() for x in opt_inp_lst],device_cpu,noise=noise)
+                (zogd_time_lst, zogd_capacity, _) = zeroth_grad_optimization(device, physfad,
+                                                                             copy_without_gradients(X, device), tx_x,
+                                                                             tx_y,noise_power=noise,num_of_iterations=100) # 200
 
-                max_index = dnn_physfad_capacity_lst.argmax()
+                (rand_search_time_lst, random_search_capacity) = random_search_optimization(physfad,100 ,device_cpu,
+                                                                                            noise_power=noise,tx_x=tx_x,tx_y=tx_y)
+                # net = net.to(device_cuda)
+
+                # (time_lst, opt_inp_lst, model_capacity_lst) = optimize(physfad, initial_inp.to(device_cuda).clone().detach().requires_grad_(True), net, inp_size, output_size,optim_lr,
+                #     model_output_capacity,num_of_iterations=num_of_opt_iter,noise=noise,#num_of_opt_iter
+                #     calaculate_physfad=False, device=device_cuda)
+                ald_configuration_results = annealed_langevin_v3(net_diffusion, physfad,
+                                                                 copy_without_gradients(initial_inp.type(torch.float64),device_cpu), tx_x,
+                                                                 tx_y, epsilon=5 * 10 ** (-1), a=1, device=device)
+
+                dnn_physfad_capacity_lst=test_dnn_optimization(physfad,[x[1].cpu() for x in ald_configuration_results],tx_x,tx_y,device_cpu,noise=noise)
 
 
-                time_lst                = np.array(time_lst)
-                physfad_time_lst        = np.array(physfad_time_lst)
-                zogd_time_lst           = np.array(zogd_time_lst)
-                rand_search_time_lst    = np.array(rand_search_time_lst)
+                # time_lst                = np.array(time_lst)
+                # physfad_time_lst        = np.array(physfad_time_lst)
+                # zogd_time_lst           = np.array(zogd_time_lst)
+                # rand_search_time_lst    = np.array(rand_search_time_lst)
 
                 physfad_capacity = np.array(physfad_capacity)
                 zogd_capacity = np.array([x.detach().numpy() for x in zogd_capacity])
                 random_search_capacity = np.array([x.detach().numpy() for x in random_search_capacity])
                 SNR_results[i, 0, attempt] = physfad_capacity[-1]
-                SNR_results[i, 1, attempt] = zogd_capacity[-1]
-                SNR_results[i, 2, attempt] = max(random_search_capacity)
-                SNR_results[i, 3, attempt] = dnn_physfad_capacity_lst[max_index]
-                SNR_results[i, 4, attempt] = physfad_capacity[physfad_time_lst-physfad_time_lst[0]< time_lst[max_index]-time_lst[0]][-1]
-                SNR_results[i, 5, attempt] = zogd_capacity[zogd_time_lst-zogd_time_lst[0]< time_lst[max_index]-time_lst[0]][-1]
-                SNR_results[i, 6, attempt] = max(random_search_capacity[rand_search_time_lst - rand_search_time_lst[0] < time_lst[max_index] - time_lst[0]])
+                SNR_results[i, 1, attempt] = physfad_capacity_avg_with_noise[-1]
+                SNR_results[i, 2, attempt] = zogd_capacity[-1]
+                SNR_results[i, 3, attempt] = max(random_search_capacity)
+                SNR_results[i, 4, attempt] = dnn_physfad_capacity_lst[-1]
+                # SNR_results[i, 5, attempt] = zogd_capacity[zogd_time_lst-zogd_time_lst[0]< time_lst[max_index]-time_lst[0]][-1]
+                # SNR_results[i, 6, attempt] = max(random_search_capacity[rand_search_time_lst - rand_search_time_lst[0] < time_lst[max_index] - time_lst[0]])
         np.save("./outputs/SNR_results.npy",SNR_results)
-        plt.plot(1/noise_array,np.mean(SNR_results[:,0,:],axis=1))
-        plt.plot(1/noise_array,np.mean(SNR_results[:,1,:],axis=1))
-        plt.plot(1/noise_array,np.mean(SNR_results[:,2,:],axis=1))
-        plt.plot(1/noise_array,np.mean(SNR_results[:,3,:],axis=1))
-        plt.plot(1/noise_array,np.mean(SNR_results[:,4,:],axis=1))
-        plt.plot(1/noise_array,np.mean(SNR_results[:,5,:],axis=1))
-        plt.plot(1/noise_array,np.mean(SNR_results[:,6,:],axis=1))
-        plt.legend(["physfad_c","zero order gradient descent","random search","dnn","physfad_c limited","zogd limited","random search limited"])
+        plt.plot(1/noise_array,np.mean(SNR_results[:,0,:]/120,axis=1))
+        plt.plot(1/noise_array,np.mean(SNR_results[:,1,:]/120,axis=1))
+        plt.plot(1/noise_array,np.mean(SNR_results[:,2,:]/120,axis=1))
+        plt.plot(1/noise_array,np.mean(SNR_results[:,3,:]/120,axis=1))
+        plt.plot(1/noise_array,np.mean(SNR_results[:,4,:]/120,axis=1))
+        # plt.plot(1/noise_array,np.mean(SNR_results[:,5,:],axis=1))
+        # plt.plot(1/noise_array,np.mean(SNR_results[:,6,:],axis=1))
+        plt.legend(["physfad_c","physfad with noise","zero order gradient descent","random search","dnn"])
         # plt.legend(["random search","dnn","random search limited"])
         # plt.legend(["dnn 0.003","dnn 0.005","dnn 0.008","dnn 0.01"])
         plt.show()

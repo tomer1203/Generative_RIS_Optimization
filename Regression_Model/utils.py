@@ -69,7 +69,7 @@ def test_dnn_optimization(physfad,opt_inp_lst,tx_x,tx_y,device,noise):
     for i, opt_inp in enumerate(opt_inp_lst):
         physfad_capacity, physfad_H = ChannelMatrixEvaluation.test_configurations_capacity(physfad,opt_inp,tx_x,tx_y,device=device,noise=noise)
         # physfad_capacity = torch.sum(torch.abs(physfad_H))
-        print("iter {0} physfad_c capacity {1}".format(20 * i, physfad_capacity))
+        print("iter {0} physfad_c capacity {1}".format(5 * i, physfad_capacity))
         physfad_model_capacity_lst.append(physfad_capacity)
     np_dnn_physfad_capacity = np.array([x.detach().numpy() for x in physfad_model_capacity_lst])
     return np_dnn_physfad_capacity

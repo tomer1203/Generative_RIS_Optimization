@@ -13,6 +13,7 @@ class physfad_c():
         self.config = config
         self.device = device
         self.W_dict = LimitedSizeDict(size_limit=128)
+        self.clean_environment = False
 
 
     def __call__(self,ris_configuration_normalized,cond_tx_x,cond_tx_y,recalculate_W=False):
@@ -35,9 +36,7 @@ class physfad_c():
         gamma_ris_c = ris_configuration[:, self.N_RIS*2:self.N_RIS*3]
         if (cond_tx_x,cond_tx_y) in self.W_dict and not recalculate_W:
             W = self.W_dict[(cond_tx_x,cond_tx_y)]
-            print("from memory")
         else:
-            print("recalculated")
             W = self.get_bessel_w(self.freq,
                              cond_tx_x, cond_tx_y,
                              x_rx, y_rx,
@@ -100,10 +99,45 @@ class physfad_c():
     def generate_tx_location(self,size,device):
         x_tx_orig = torch.tensor([0, 0, 0]).repeat(size, 1).to(device)
         y_tx_orig = torch.tensor([4, 4.5, 5]).repeat(size, 1).to(device)
-        tx_x_diff = 8 * torch.rand([size, 3], device=device,dtype=torch.float64) - 3.3 # 19.5 *
+        tx_x_diff = 19.5 * torch.rand([size, 3], device=device,dtype=torch.float64) - 3.3 # 19.5 *
         tx_y_diff = 11.5 * torch.rand([size, 3], device=device,dtype=torch.float64) - 2.8
         tx_x, tx_y = x_tx_orig + tx_x_diff, y_tx_orig + tx_y_diff
         return tx_x,tx_y
+    def plot_environment(self,tx_x=None,tx_y=None):
+        (freq, x_tx, y_tx, fres_tx, chi_tx, gamma_tx,
+         x_rx, y_rx, fres_rx, chi_rx, gamma_rx,
+         x_env, y_env, fres_env, chi_env, gamma_env, x_ris_c, y_ris_c) = self.parameters
+        plt.scatter(x_env,y_env)
+        if tx_x is not None:
+            plt.scatter(tx_x,tx_y)
+        plt.show()
+    def save_and_change_to_clean_environment(self):
+        if not self.clean_environment:
+            self.clear_bessel_mem()
+            (freq, x_tx, y_tx, fres_tx, chi_tx, gamma_tx,
+             x_rx, y_rx, fres_rx, chi_rx, gamma_rx,
+             x_env, y_env, fres_env, chi_env, gamma_env, x_ris_c, y_ris_c) = self.parameters
+            self.stored_x_env = x_env
+            self.stored_y_env = y_env
+            # plt.scatter(x_env, y_env)
+            # plt.show()
+
+            self.parameters = (freq, x_tx, y_tx, fres_tx, chi_tx, gamma_tx,
+                                  x_rx, y_rx, fres_rx, chi_rx, gamma_rx,
+                                  self.x_env_clean, self.y_env_clean, fres_env, chi_env, gamma_env, x_ris_c, y_ris_c)
+            self.clean_environment = True
+
+    def reload_original_environment(self):
+        if self.clean_environment:
+            self.clear_bessel_mem()
+            (freq, x_tx, y_tx, fres_tx, chi_tx, gamma_tx,
+             x_rx, y_rx, fres_rx, chi_rx, gamma_rx,
+             x_env, y_env, fres_env, chi_env, gamma_env, x_ris_c, y_ris_c) = self.parameters
+            self.parameters = (freq, x_tx, y_tx, fres_tx, chi_tx, gamma_tx,
+                               x_rx, y_rx, fres_rx, chi_rx, gamma_rx,
+                               self.stored_x_env, self.stored_y_env, fres_env, chi_env, gamma_env, x_ris_c, y_ris_c)
+            self.clean_environment = False
+
     def set_configuration(self):
         self.freq = torch.tensor(np.linspace(0.9, 1.1, 120));
 

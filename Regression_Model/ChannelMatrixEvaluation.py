@@ -134,12 +134,12 @@ def random_search_optimization(physfad,iteration_limit=300,device='cpu',time_lim
     # Inp_optimizer = torch.optim.Adam([estOptInp], lr=0.01)
     current_loss = 1
     from utils import zo_estimate_gradient
-    capacity_physfad = lambda x : -capacity_loss(physfad(x,tx_x,tx_y), sigmaN=noise_power)
+    capacity_physfad = lambda x : -capacity_loss(physfad(x,tx_x,tx_y)[0], sigmaN=noise_power)
     while ((time_limit is None or time_lst[-1]-time_lst[0]<time_limit) and iters < iteration_limit):
         if iters == 0 and initial_inp != None:
             estOptInp = initial_inp
         else:
-            estOptInp = torch.randn([1, inp_size], device=device).cpu().detach().numpy()
+            estOptInp = torch.rand([1, inp_size], device=device,dtype=torch.float64).cpu().detach().numpy()
         out = capacity_physfad(estOptInp)
         time_lst.append(datetime.datetime.now())
         random_search_capacity_lst.append(-out)
