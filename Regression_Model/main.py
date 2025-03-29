@@ -11,6 +11,8 @@ from collections import deque
 from models import *
 from dataset import *
 from conf import Config
+import concurrent.futures
+from tqdm import tqdm
 from ChannelMatrixEvaluation import (test_configurations_capacity,test_configurations_capacity_serial,
                                        physfad_channel_optimization,
                                      zeroth_grad_optimization,random_search_optimization)
@@ -18,7 +20,8 @@ from PhysFadPy import physfad_c
 from rate_model import capacity_loss
 import datetime
 from functools import reduce
-
+from mpl_toolkits.axes_grid1.inset_locator import inset_axes
+from mpl_toolkits.axes_grid1.inset_locator import mark_inset
 import cProfile,pstats,io
 from utils import (print_train_iteration, plot_train_epoch, plot_model_optimization, plus_1_cyclic, test_model,
                    NMSE, test_dnn_optimization, cosine_similarity, cosine_score, get_gradient_score, get_physfad_grads,
@@ -288,14 +291,24 @@ def train_and_optimize(model,
             train_ds.save_dataset(RIS_config_file,gradients_file, H_realiz_file, capacity_file)
             train_ldr = T.utils.data.DataLoader(train_ds, batch_size=1, shuffle=True)
         optim_step = optim_step+step_increase
+def breakdown_no_batch(ris_configuration, tx_x, tx_y,physfad,device,W=None):
+    H = physfad(ris_configuration, tx_x, tx_y,precalced_W=W)[0]
+
+    # if torch.any(~torch.isfinite(H)):
+    #     print("recognized non-finite value in physfad")
+    sigma = torch.tensor(1, dtype=torch.float64)
+    rate = capacity_loss(H, sigmaN=sigma,
+                         device=device,list_out=False).item()
+
+    return rate
 def breakdown(ris_configuration, tx_x, tx_y,physfad,device):
     H = physfad(ris_configuration, tx_x, tx_y)[0]
     # if torch.any(~torch.isfinite(H)):
     #     print("recognized non-finite value in physfad")
     sigma = torch.tensor(1, dtype=torch.float64)
     rate_list = capacity_loss(H, sigmaN=sigma,
-                         device=device,list_out=True)
-    rate_list = [rate.item() for rate in rate_list]
+                         device=device,list_out=False).item()
+    # rate_list = [rate.item() for rate in rate_list]
     return rate_list
 def annealed_langevin(model,physfad,starting_configuration,tx_x,tx_y, number_of_iterations = 5,epsilon=torch.tensor(0.01),a=1,device=torch.device("cpu")):
     state_before_ald = model.training
@@ -828,12 +841,12 @@ def diffusion_inference(model_forward,model_diffusion,train_ldr,test_ldr,optimiz
                        model_output_capacity, device="cpu"):
     acc_rate = 0
     # print(len(test_ldr))
-
-    ald_capacity_avg = np.zeros([50,8])
+    output_graph = np.zeros([4,50])
+    ald_capacity_avg = np.zeros(50)
     # ald_capacity_avg = np.zeros(10)
-    ald_capacity_avg1 = np.zeros([50,8])
-    ald_capacity_avg2 = np.zeros([50,8])
-    ald_capacity_avg3 = np.zeros([50,8])
+    ald_capacity_avg1 = np.zeros(50)
+    ald_capacity_avg2 = np.zeros(50)
+    ald_capacity_avg3 = np.zeros(50)
     ald_iter_list = np.zeros(50)
     ald_iter_list1 = np.zeros(10)
     ald_iter_list2 = np.zeros(10)
@@ -842,7 +855,7 @@ def diffusion_inference(model_forward,model_diffusion,train_ldr,test_ldr,optimiz
     physfad_capacity_avg = np.zeros(50)
     physfad_capacity_avg_with_noise = np.zeros(50)
     for batch_idx,batch in enumerate(test_ldr):
-        if batch_idx > 0:
+        if batch_idx > 4:
             batch_idx = batch_idx-1
             break
         print(batch_idx)
@@ -850,7 +863,7 @@ def diffusion_inference(model_forward,model_diffusion,train_ldr,test_ldr,optimiz
         physfad.plot_environment(tx_x,tx_y)
         X = X.type(torch.float64)
         # X = X[0].unsqueeze(0)
-        X = X[0:8]
+        X = X[0:8] # Speeds up the run
         # improved_X = model_diffusion(
         #     torch.hstack([X, tx_x, tx_y, torch.tensor(1, device=device).unsqueeze(0).unsqueeze(0)]))
 
@@ -871,6 +884,7 @@ def diffusion_inference(model_forward,model_diffusion,train_ldr,test_ldr,optimiz
             print(i,capac)
             # for j in range(len(capac)):
             ald_capacity_avg[i] += capac
+            output_graph[0,i] += capac
             ald_iter_list[i] = iter
         # for i, (iter, ris_configuration) in enumerate(ald_configuration_results1):
         #     capac = breakdown(ris_configuration,tx_x,tx_y,physfad,device)
@@ -910,9 +924,10 @@ def diffusion_inference(model_forward,model_diffusion,train_ldr,test_ldr,optimiz
         (physfad_time_lst, physfad_capacity, physfad_last_input,physfad_inputs) = (
             physfad_channel_optimization(device, physfad, copy_with_gradients(torch.special.logit(X), device), tx_x,
                                          tx_y, noise_power=1,
-                                         learning_rate=0.1, num_of_iterations=2))  # 50
+                                         learning_rate=0.1, num_of_iterations=50))  # 50
         for i, capac in enumerate(physfad_capacity):
             physfad_capacity_avg[i] += capac
+            output_graph[1,i] += capac
 
 
 
@@ -926,6 +941,7 @@ def diffusion_inference(model_forward,model_diffusion,train_ldr,test_ldr,optimiz
             capacity,_ = test_configurations_capacity(physfad,physfad_inputs[i],tx_x,tx_y,device,list_out=False)
             print("i: ", i,"physfad+noise capacity: ", capacity)
             physfad_capacity_avg_with_noise[i] += capacity.detach().numpy()
+            output_graph[2,i] += capacity.detach().numpy()
 
 
 
@@ -934,10 +950,10 @@ def diffusion_inference(model_forward,model_diffusion,train_ldr,test_ldr,optimiz
                                                                      # change require grad to false
                                                                      tx_y,
                                                                      noise_power=1,
-                                                                     num_of_iterations=100)
+                                                                     num_of_iterations=50)
         for i, capac in enumerate(zogd_capacity):
             zogd_capacity_avg[i] += capac
-
+            output_graph[3, i] += capac
 
         # H_approx = model_forward(tx_x, tx_y,improved_X)
         # rate_approx = capacity_loss(H_approx.reshape(H_approx.shape[0], output_size, output_shape[0], output_shape[1]), list_out=True,
@@ -948,16 +964,18 @@ def diffusion_inference(model_forward,model_diffusion,train_ldr,test_ldr,optimiz
         # H_test_mse = ((abs(H).reshape([H_approx.shape[0],-1])-H_approx)**2).mean()/abs((H**2).mean())
     # print("test diffusion mean rate: ",(acc_rate/len(test_ldr)).item(),"test forward model accuracy(NMSE): ", H_test_mse.item())
     # print("test diffusion mean rate: ", (acc_rate / len(test_ldr)).item())
-    for i in range(len(ald_capacity_avg[:,0])):
-        ald_capacity_avg[i,0] = ald_capacity_avg[i,1:].mean()
-    for i in range(len(ald_capacity_avg1[:,0])):
-        ald_capacity_avg1[i,0] = ald_capacity_avg1[i,1:].mean()
-    for i in range(len(ald_capacity_avg2[:,0])):
-        ald_capacity_avg2[i,0] = ald_capacity_avg2[i,1:].mean()
+    # for i in range(len(ald_capacity_avg[:,0])):
+    #     ald_capacity_avg[i,0] = ald_capacity_avg[i,1:].mean()
+    # for i in range(len(ald_capacity_avg1[:,0])):
+    #     ald_capacity_avg1[i,0] = ald_capacity_avg1[i,1:].mean()
+    # for i in range(len(ald_capacity_avg2[:,0])):
+    #     ald_capacity_avg2[i,0] = ald_capacity_avg2[i,1:].mean()
+    np.save("./outputs/iteration_graph_results.npy", output_graph)
+
     plt.plot(physfad_capacity_avg/(120*(batch_idx+1)),'-*',linewidth=1.5)#,linestyle='dashed')
     plt.plot(physfad_capacity_avg_with_noise/(120*(batch_idx+1)),'-*',linewidth=1.5)#,linestyle='dashed')
     plt.plot(zogd_capacity_avg / (120*(batch_idx+1)),'-*',linewidth=1.5)#,linestyle='dashed')
-    plt.plot(ald_iter_list, ald_capacity_avg[:,0] / (120*(batch_idx+1)),'-*',linewidth=2)#,linestyle='dashed')
+    plt.plot(ald_iter_list, ald_capacity_avg / (120*(batch_idx+1)),'-*',linewidth=2)#,linestyle='dashed')
     plt.grid(visible=True)
     # plt.plot(ald_iter_list, ald_capacity_avg[:,1:] / (batch_idx+1),alpha=0.5)
     # plt.plot(ald_iter_list1, ald_capacity_avg1[:,0] / (batch_idx+1),linewidth=4.0,linestyle='dashed')
@@ -1239,7 +1257,102 @@ def optimize(physfad, starting_inp,tx_x,tx_y,net,inp_size,output_size,optim_lr =
     np.savetxt("optimal_parameters.txt", estOptInp[0, :].cpu().detach().numpy())
     return (time_lst,opt_inp_lst,model_capacity_lst,gradient_score_acc_lst)
 
+def room_visualization(net_diffusion, test_ldr, physfad, device, optimized=True):
+    x_sample_density = 26 * 5;
+    y_sample_density = 22 * 5;
+    # locations
+    x_rx_orig = torch.tensor([15, 15, 15, 15]).to(device)
+    y_rx_orig = torch.tensor([11, 11.5, 12, 12.5]).to(device)
+    x_diff = torch.linspace(-20, 5, x_sample_density).unsqueeze(1).repeat(1, y_sample_density)
+    y_diff = torch.linspace(-14.5, 6.5, y_sample_density).repeat(x_sample_density, 1)
+    (X, _, _, _, _, _) = open_virtual_batch(next(iter(test_ldr)))  # (predictors, targets)
+    X = X[0].unsqueeze(0)
+    tx_x = torch.tensor([0, 0, 0]).unsqueeze(0).to(device)
+    tx_y = torch.tensor([4, 4.5, 5]).unsqueeze(0).to(device)
+    if optimized:
+        ald_configuration_results = annealed_langevin_v3(net_diffusion, physfad,
+                                                         copy_without_gradients(X.type(torch.float64), device),
+                                                         tx_x, tx_y, epsilon=5 * 10 ** (-1), a=1, device=device)
+        ris_configuration = ald_configuration_results[-1][1]
+    else:
+        ris_configuration = X
+    room_image = torch.zeros([x_sample_density, y_sample_density])
 
+    (freq, x_tx, y_tx, fres_tx, chi_tx, gamma_tx,
+     x_rx, y_rx, fres_rx, chi_rx, gamma_rx,
+     x_env, y_env, fres_env, chi_env, gamma_env, x_ris_c, y_ris_c) = physfad.parameters
+    physfad.set_bessel_loop(freq, tx_x, tx_y, x_env, y_env, x_ris_c, y_ris_c, device)
+
+    for i in range(x_sample_density):
+        list_of_locations = []
+        for j in range(y_sample_density):
+            rx_x, rx_y = (x_rx_orig + x_diff[i, j]).unsqueeze(0), (y_rx_orig + y_diff[i, j]).unsqueeze(0)
+            list_of_locations.append((rx_x, rx_y))
+
+        with concurrent.futures.ProcessPoolExecutor() as executer:
+            results = list(tqdm(executer.map(physfad.get_bessel_w_rx_change, list_of_locations),
+                                total=len(list_of_locations)))
+        idx = 0
+        W_list = []
+        for W in results:
+            W_list.append(W)
+        for j in range(y_sample_density):
+            print(i, j)
+            rx_x, rx_y = (x_rx_orig + x_diff[i, j]).unsqueeze(0), (y_rx_orig + y_diff[i, j]).unsqueeze(0)
+            physfad.change_rx_location(rx_x, rx_y)
+
+            room_image[i, j] = breakdown_no_batch(ris_configuration, tx_x, tx_y, physfad, device, W_list[idx])
+            idx = idx + 1
+
+    print("done")
+    print(room_image)
+
+    plt.imshow(room_image)
+    if optimized:
+        torch.save(room_image,"plots\\optimized_room.pt")
+        save_fig("optimized_room.pdf", "plots")
+    else:
+        torch.save(room_image, "plots\\unoptimized_room.pt")
+        save_fig("unoptimized_room.pdf", "plots")
+    plt.show()
+def room_graph_print(physfad):
+    unoptimized = torch.load("plots\\unoptimized_room.pt")
+    optimized = torch.load("plots\\optimized_room.pt")
+    (freq, x_tx, y_tx, fres_tx, chi_tx, gamma_tx,
+     x_rx, y_rx, fres_rx, chi_rx, gamma_rx,
+     x_env, y_env, fres_env, chi_env, gamma_env, x_ris_c, y_ris_c) = physfad.parameters
+
+    plt.imshow((unoptimized).T, cmap='cividis')
+    plt.plot((x_ris_c[0] + 5) * 5.2, (y_ris_c[0] + 2.5) * 5.238, 'o', fillstyle="none", color="yellow")
+    plt.plot((x_tx[0] + 5) * 5.2, (y_tx[0] + 2.5) * 5.238, 'o', fillstyle="none", color="orange")
+    plt.plot((x_rx[0] + 5) * 5.2, (y_rx[0] + 2.5) * 5.238, 'o', fillstyle="none", color="red")
+    physfad.plot_environment(x_scaler=5.2, y_scaler=5.238, x_shift=5, y_shift=2.5)
+    plt.imshow((optimized).T, cmap='cividis')
+    plt.plot((x_ris_c[0] + 5) * 5.2, (y_ris_c[0] + 2.5) * 5.238, 'o', fillstyle="none", color="yellow")
+    plt.plot((x_tx[0] + 5) * 5.2, (y_tx[0] + 2.5) * 5.238, 'o', fillstyle="none", color="orange")
+    plt.plot((x_rx[0] + 5) * 5.2, (y_rx[0] + 2.5) * 5.238, 'o', fillstyle="none", color="red")
+    physfad.plot_environment(x_scaler=5.2, y_scaler=5.238, x_shift=5, y_shift=2.5)
+
+    fig1, ax1 = plt.subplots()
+
+    ax1.imshow((unoptimized - optimized).T, cmap='cividis')
+    ax1.plot((x_ris_c[0] + 5) * 5.2, (y_ris_c[0] + 2.5) * 5.238, 'o', fillstyle="none", color="yellow")
+    ax1.plot((x_tx[0] + 5) * 5.2, (y_tx[0] + 2.5) * 5.238, 'o', fillstyle="none", color="orange")
+    ax1.plot((x_rx[0] + 5) * 5.2, (y_rx[0] + 2.5) * 5.238, 'o', fillstyle="none", color="red")
+    physfad.plot_environment(x_scaler=5.2, y_scaler=5.238, x_shift=5, y_shift=2.5,show=False)
+    x1, x2, y1, y2 = 95, 110, 55, 85  # subregion of the original image
+    axins = ax1.inset_axes(
+        [0.1, 0.03, 0.4, 0.4],
+        xlim=(x1, x2), ylim=(y1, y2), xticklabels=[], yticklabels=[])
+    axins.imshow((unoptimized - optimized).T, cmap='cividis')
+    axins.plot((x_rx[0] + 5) * 5.2, (y_rx[0] + 2.5) * 5.238, 'o', fillstyle="none", color="red")
+    axins.set_xlim(x1, x2)  # apply the x-limits
+    axins.set_ylim(y2, y1)  # apply the y-limits
+    # ax1.indicate_inset_zoom(axins, edgecolor="black")
+    _patch, pp1, pp2 = mark_inset(ax1, axins, loc1=1, loc2=3, fc="none", ec="red")
+    pp1.loc1, pp1.loc2 = 1, 4  # inset corner 1 to origin corner 4 (would expect 1)
+    pp2.loc1, pp2.loc2 = 4, 1  # inset corner 3 to origin corner 2 (would expect 3)
+    plt.show()
 def main():
     # device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     device = torch.device("cpu") # force choosing cpu
@@ -1275,7 +1388,9 @@ def main():
     activate_train_and_optimize = False  # can be added to the train mode
     find_optimal_lr = False
     optimize_model = False
-    run_snr_graph = True
+    run_snr_graph = False
+    run_room_visualization = False
+    room_graph = True
     loss_func = My_MSE_Loss
     # optimizer = T.optim.SGD(net.parameters(), lr=lrn_rate)
     # optimizer = T.optim.Adam(net.hyp_net.parameters(), lr=lrn_rate)  # weight_decay=0.001
@@ -1292,9 +1407,10 @@ def main():
 
 
     NMSE_LST_SIZE = 10
+
     print("Collecting RIS configuration ")
     # generate_dataset("conditional", "", "../Data/", 32, 128, physfad, input_size=135,device=device)
-    generate_dataset("conditional", "_test", "../Data/", 32, 512, physfad, input_size=135,device=device)
+    # generate_dataset("conditional", "_test", "../Data/", 32, 512, physfad, input_size=135,device=device)
     train_ds,test_ds,train_ldr, test_ldr = load_data(batch_size,output_size,output_shape,physfad,device)
     if load_model:
         print("Loading model")
@@ -1518,9 +1634,9 @@ def main():
     if run_snr_graph:
         device_cpu = torch.device('cpu')
         device_cuda = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-        num_snr_points = 10#15
+        num_snr_points = 3#15
 
-        attempts = 8#6
+        attempts = 1#6
         snr_values = np.linspace(0.5,60,num_snr_points)
         # snr_values = np.linspace(0.8,1.2,num_snr_points)
 
@@ -1533,6 +1649,7 @@ def main():
                 print(noise,i,attempt)
                 # initial_inp = X[0, :].unsqueeze(0).clone().detach().requires_grad_(True).to(device_cpu)
                 initial_inp = X.clone().detach().requires_grad_(True).to(device_cpu)
+                physfad.plot_environment(tx_x,tx_y)
                 physfad.save_and_change_to_clean_environment()
                 (physfad_time_lst, physfad_capacity,last_configuration, physfad_inputs) = physfad_channel_optimization(device_cpu, physfad,
                                                                                                     copy_with_gradients(
@@ -1595,6 +1712,11 @@ def main():
         # plt.legend(["random search","dnn","random search limited"])
         # plt.legend(["dnn 0.003","dnn 0.005","dnn 0.008","dnn 0.01"])
         plt.show()
+    if run_room_visualization:
+        room_visualization(net_diffusion,test_ldr,physfad,device,optimized=False)
+        room_visualization(net_diffusion,test_ldr,physfad,device,optimized=True)
+    if room_graph:
+        room_graph_print(physfad)
 
     print("\nEnd Simulation")
 if __name__ == "__main__":

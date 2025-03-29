@@ -1,5 +1,5 @@
 ---
-batch_size : 8
+batch_size : 32
 seed : 4
 # run configuration(what do you want to do?)
 load_model : False                                                            # take existing trained model

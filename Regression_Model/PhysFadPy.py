@@ -16,7 +16,7 @@ class physfad_c():
         self.clean_environment = False
 
 
-    def __call__(self,ris_configuration_normalized,cond_tx_x,cond_tx_y,recalculate_W=False):
+    def __call__(self,ris_configuration_normalized,cond_tx_x,cond_tx_y,recalculate_W=False,precalced_W=None):
         (freq, x_tx, y_tx, fres_tx, chi_tx, gamma_tx,
          x_rx, y_rx, fres_rx, chi_rx, gamma_rx,
          x_env, y_env, fres_env, chi_env, gamma_env, x_ris_c, y_ris_c) = self.parameters
@@ -34,7 +34,9 @@ class physfad_c():
         fres_ris_c  = ris_configuration[:, self.N_RIS*0:self.N_RIS*1]
         chi_ris_c   = ris_configuration[:, self.N_RIS*1:self.N_RIS*2]
         gamma_ris_c = ris_configuration[:, self.N_RIS*2:self.N_RIS*3]
-        if (cond_tx_x,cond_tx_y) in self.W_dict and not recalculate_W:
+        if precalced_W is not None:
+            W = precalced_W
+        elif (cond_tx_x,cond_tx_y) in self.W_dict and not recalculate_W:
             W = self.W_dict[(cond_tx_x,cond_tx_y)]
         else:
             W = self.get_bessel_w(self.freq,
@@ -42,6 +44,7 @@ class physfad_c():
                              x_rx, y_rx,
                              x_env, y_env,
                              x_ris_c, y_ris_c, self.device)
+            print(W[0][0][1])
             self.W_dict[(cond_tx_x,cond_tx_y)] = W
         H = self.GetH(freq, W,
                  cond_tx_x, cond_tx_y, fres_tx, chi_tx, gamma_tx,
@@ -103,14 +106,24 @@ class physfad_c():
         tx_y_diff = 11.5 * torch.rand([size, 3], device=device,dtype=torch.float64) - 2.8
         tx_x, tx_y = x_tx_orig + tx_x_diff, y_tx_orig + tx_y_diff
         return tx_x,tx_y
-    def plot_environment(self,tx_x=None,tx_y=None):
+    def change_rx_location(self,x_rx_new,y_rx_new):
         (freq, x_tx, y_tx, fres_tx, chi_tx, gamma_tx,
          x_rx, y_rx, fres_rx, chi_rx, gamma_rx,
          x_env, y_env, fres_env, chi_env, gamma_env, x_ris_c, y_ris_c) = self.parameters
-        plt.scatter(x_env,y_env)
+        self.parameters = (freq, x_tx, y_tx, fres_tx, chi_tx, gamma_tx,
+                           x_rx_new, y_rx_new, fres_rx, chi_rx, gamma_rx,
+                           self.x_env_clean, self.y_env_clean, fres_env, chi_env, gamma_env, x_ris_c, y_ris_c)
+        self.clear_bessel_mem()
+
+    def plot_environment(self,tx_x=None,tx_y=None,y_scaler = 1,x_scaler=1,y_shift=0,x_shift=0,show=True):
+        (freq, x_tx, y_tx, fres_tx, chi_tx, gamma_tx,
+         x_rx, y_rx, fres_rx, chi_rx, gamma_rx,
+         x_env, y_env, fres_env, chi_env, gamma_env, x_ris_c, y_ris_c) = self.parameters
+        plt.scatter(x_scaler*(x_env+x_shift),y_scaler*(y_env+y_shift))
         if tx_x is not None:
             plt.scatter(tx_x,tx_y)
-        plt.show()
+        if show:
+            plt.show()
     def save_and_change_to_clean_environment(self):
         if not self.clean_environment:
             self.clear_bessel_mem()
@@ -237,6 +250,28 @@ class physfad_c():
     def besselh(self,order,kind=2,z=0,scale=0):
         # return besselj(0,z)-torch.tensor([1j])*bessely(0,z);
         return scp.hankel2(order, z)
+    def set_bessel_loop(self,freq,
+             x_tx,y_tx,
+             x_env,y_env,
+             x_ris,y_ris,device):
+        self.saved = (freq,
+             x_tx,y_tx,
+             x_env,y_env,
+             x_ris,y_ris,device)
+    def get_bessel_w_rx_change(self,rx_location):
+        (freq,
+         x_tx, y_tx,
+         x_env, y_env,
+         x_ris, y_ris, device) = self.saved
+        x_rx, y_rx = rx_location
+        self.clear_bessel_mem()
+        W = self.get_bessel_w(freq,
+             x_tx,y_tx,
+             x_rx,y_rx,
+             x_env,y_env,
+             x_ris,y_ris,device)
+        return W
+
     def get_bessel_w(self,freq,
              x_tx,y_tx,
              x_rx,y_rx,
