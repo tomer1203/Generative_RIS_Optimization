@@ -1388,9 +1388,9 @@ def main():
     activate_train_and_optimize = False  # can be added to the train mode
     find_optimal_lr = False
     optimize_model = False
-    run_snr_graph = False
+    run_snr_graph = True
     run_room_visualization = False
-    room_graph = True
+    room_graph = False
     loss_func = My_MSE_Loss
     # optimizer = T.optim.SGD(net.parameters(), lr=lrn_rate)
     # optimizer = T.optim.Adam(net.hyp_net.parameters(), lr=lrn_rate)  # weight_decay=0.001
@@ -1634,9 +1634,9 @@ def main():
     if run_snr_graph:
         device_cpu = torch.device('cpu')
         device_cuda = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-        num_snr_points = 3#15
+        num_snr_points = 11#15
 
-        attempts = 1#6
+        attempts = 6#6
         snr_values = np.linspace(0.5,60,num_snr_points)
         # snr_values = np.linspace(0.8,1.2,num_snr_points)
 
@@ -1644,7 +1644,9 @@ def main():
         SNR_results = np.zeros([num_snr_points,7,attempts])
         for attempt in range(attempts):
             (X, _, tx_x, tx_y, _, _) = open_virtual_batch(next(iter(test_ldr)))  # (predictors, targets)
-
+            X = X.type(torch.float64)
+            # X = X[0].unsqueeze(0)
+            X = X[0:8] # Speed up the results
             for i,noise in enumerate(noise_array):
                 print(noise,i,attempt)
                 # initial_inp = X[0, :].unsqueeze(0).clone().detach().requires_grad_(True).to(device_cpu)

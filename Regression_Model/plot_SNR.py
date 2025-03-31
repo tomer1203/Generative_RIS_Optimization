@@ -1,9 +1,8 @@
 import numpy as np
 from matplotlib import pyplot as plt
 # SNR_results = np.load(".\\outputs\\SNR_results_very_long_run.npy")
-SNR_results = np.load(".\\outputs\\SNR_results.npy")
-# num_snr_points = 5
-num_snr_points = 3
+SNR_results = np.load(".\\outputs\\SNR_results_SPAWC2025_run.npy")
+num_snr_points = 11
 from UliEngineering.Math.Decibel import *
 import matplotlib.ticker as mtick
 import matplotlib
@@ -25,16 +24,16 @@ def decibel_formatter(v0=1.0, unit='dB'):
         return f'{dB:.1f}'
     return format_value
 def plotting(axes,SNR):
-    p0, = axes.plot(snr_values_db, np.mean(SNR[:, 0, :], axis=1) / 120, '--',
-                   color=plt.rcParams['axes.prop_cycle'].by_key()['color'][0], linewidth=1.65)
-    p1, = axes.plot(snr_values_db, np.mean(SNR[:, 1, :], axis=1) / 120, '-.',
-                   color=plt.rcParams['axes.prop_cycle'].by_key()['color'][1], linewidth=1.65)
-    p2, = axes.plot(snr_values_db, np.mean(SNR[:, 2, :], axis=1) / 120, '-.v',
-                   color=plt.rcParams['axes.prop_cycle'].by_key()['color'][2], linewidth=1.65)
-    p3, = axes.plot(snr_values_db, np.mean(SNR[:, 3, :], axis=1) / 120, '-',
-                   color=plt.rcParams['axes.prop_cycle'].by_key()['color'][3], linewidth=1.65)
-    p4, = axes.plot(snr_values_db, np.mean(SNR[:, 4, :], axis=1) / 120, '--v',
-                   color=plt.rcParams['axes.prop_cycle'].by_key()['color'][4], linewidth=1.65)
+    p0, = axes.plot(snr_values_db, np.mean(SNR[:, 0, :], axis=1) / 120, '--v',
+                   color=plt.rcParams['axes.prop_cycle'].by_key()['color'][0], linewidth=1.8,markersize=6)
+    p1, = axes.plot(snr_values_db, np.mean(SNR[:, 1, :], axis=1) / 120, '-.^',
+                   color=plt.rcParams['axes.prop_cycle'].by_key()['color'][1], linewidth=1.8,markersize=6)
+    p2, = axes.plot(snr_values_db, np.mean(SNR[:, 2, :], axis=1) / 120, ':o',
+                   color=plt.rcParams['axes.prop_cycle'].by_key()['color'][2], linewidth=1.8,markersize=6)
+    p3, = axes.plot(snr_values_db, np.mean(SNR[:, 3, :], axis=1) / 120, '--.',
+                   color=plt.rcParams['axes.prop_cycle'].by_key()['color'][3], linewidth=1.8,markersize=6)
+    p4, = axes.plot(snr_values_db, np.mean(SNR[:, 4, :], axis=1) / 120, '-s',
+                   color=plt.rcParams['axes.prop_cycle'].by_key()['color'][4], linewidth=1.8,markersize=6)
     return p0,p1,p2,p3,p4
 
 
@@ -46,8 +45,8 @@ fig1, ax1 = plt.subplots()
 # fig1.set_figheight(6.5)
 # fig1.set_figwidth(9.5)
 # fig1.set_figheight(7.25)
-fig1.set_figwidth(8)
-fig1.set_figheight(5.7)
+fig1.set_figwidth(8*1.2)
+fig1.set_figheight(5.7*1.2)
 p0,p1,p2,p3,p4=plotting(ax1,SNR_results)
 # p0, = ax1.plot(1/noise_array,np.mean(SNR_results[:,0,:],axis=1)/120,'--',color=plt.rcParams['axes.prop_cycle'].by_key()['color'][0],linewidth=1.65)
 # p1, = ax1.plot(1/noise_array,np.mean(SNR_results[:,1,:],axis=1)/120,'-.',color=plt.rcParams['axes.prop_cycle'].by_key()['color'][1],linewidth=1.65)
@@ -59,7 +58,7 @@ p0,p1,p2,p3,p4=plotting(ax1,SNR_results)
 
 legend_properties = {'weight':'bold'}
 # ax1.legend([p1,p2,p3,p4,p5,p6],["SimTwin","ZO","DNNTwin","SimTwin limited","ZO limited","Random limited"],prop=legend_properties,labelspacing=0.04,borderpad=0.2)
-ax1.legend([p0,p1,p2,p3,p4],["Simulation GD","Simulation GD + 0.01 Noise","ZOGD","Random","ZO aided ALD"],prop=legend_properties,labelspacing=0.04,borderpad=0.2)
+ax1.legend([p0,p1,p2,p3,p4],["Simulation GD","Simulation GD + 0.01 Noise","ZOGD","Random","Algorithm 1"],prop=legend_properties,labelspacing=0.04,borderpad=0.2)
 ax1.grid('True')
 # plt.xticks([20*math.log(1,10),
 #             20*math.log(5,10),
@@ -81,7 +80,7 @@ ax1.grid('True')
 ax1.get_xaxis().set_major_formatter(matplotlib.ticker.ScalarFormatter())
 # ax1.get_xaxis().set_minor_formatter(matplotlib.ticker.NullFormatter())
 ax1.grid(which = "major",linewidth=1)
-ax1.grid(which = "minor",linewidth=0.2)
+ax1.grid(which = "minor",linewidth=0.15)
 # ax1.xaxis.set_major_locator(matplotlib.ticker.FixedLocator([0.5,10,20,30,40,50,60]))
 # plt.gca().xaxis.set_major_formatter(mtick.FuncFormatter(decibel_formatter()))
 # ax1.set_xscale("log")
@@ -91,16 +90,27 @@ ax1.minorticks_on()
 plt.xlabel("SNR[dB]")
 plt.ylabel("Rate [Bits/Channel use]")
 plt.tight_layout()
-x1, x2, y1, y2 = 0, 3, 0.5, 1.5  # subregion of the original image
+x1, x2, y1, y2 = -3.15, -2.7, 0.31, 0.57  # subregion of the original image
+# x1, x2, y1, y2 = 0, 3, 0.5, 1.5  # subregion of the original image
 axins = ax1.inset_axes(
-    [0.35, 0.03, 0.3, 0.3],
+    # [0.35, 0.03, 0.3, 0.3],
+    [0.05, 0.25, 0.23, 0.23],
     xlim=(x1, x2), ylim=(y1, y2), xticklabels=[], yticklabels=[])
 plotting(axins,SNR_results)
 ax1.indicate_inset_zoom(axins, edgecolor="black")
 
-x1, x2, y1, y2 = 12, 16, 2.6, 4  # subregion of the original image
+x1, x2, y1, y2 = 7.7, 8.5, 2.1, 2.9  # subregion of the original image
+# x1, x2, y1, y2 = 0, 3, 0.5, 1.5  # subregion of the original image
+axins1 = ax1.inset_axes(
+    # [0.35, 0.03, 0.3, 0.3],
+    [0.3, 0.4, 0.23, 0.23],
+    xlim=(x1, x2), ylim=(y1, y2), xticklabels=[], yticklabels=[])
+plotting(axins1,SNR_results)
+ax1.indicate_inset_zoom(axins1, edgecolor="black")
+
+x1, x2, y1, y2 = 12, 16, 4.1, 5.7  # subregion of the original image
 axins2 = ax1.inset_axes(
-    [0.67, 0.1, 0.3, 0.3],
+    [0.64, 0.03, 0.33, 0.33],
     xlim=(x1, x2), ylim=(y1, y2), xticklabels=[], yticklabels=[])
 plotting(axins2,SNR_results)
 ax1.indicate_inset_zoom(axins2, edgecolor="black")
