@@ -1,0 +1,1402 @@
+cpu
+printing layer sizes
+Layer: linear_layers.0.weight | Size: torch.Size([240, 135]) 
+
+Layer: linear_layers.0.bias | Size: torch.Size([240]) 
+
+Layer: linear_layers.1.weight | Size: torch.Size([160, 240]) 
+
+Layer: linear_layers.1.bias | Size: torch.Size([160]) 
+
+Layer: linear_layers.2.weight | Size: torch.Size([120, 160]) 
+
+Layer: linear_layers.2.bias | Size: torch.Size([120]) 
+
+Layer: linear_layers.3.weight | Size: torch.Size([320, 120]) 
+
+Layer: linear_layers.3.bias | Size: torch.Size([320]) 
+
+Layer: linear_layers.4.weight | Size: torch.Size([640, 320]) 
+
+Layer: linear_layers.4.bias | Size: torch.Size([640]) 
+
+Layer: linear_layers.5.weight | Size: torch.Size([1440, 640]) 
+
+Layer: linear_layers.5.bias | Size: torch.Size([1440]) 
+
+Layer: batchnorm_layers.0.weight | Size: torch.Size([240]) 
+
+Layer: batchnorm_layers.0.bias | Size: torch.Size([240]) 
+
+Layer: batchnorm_layers.1.weight | Size: torch.Size([160]) 
+
+Layer: batchnorm_layers.1.bias | Size: torch.Size([160]) 
+
+Layer: batchnorm_layers.2.weight | Size: torch.Size([120]) 
+
+Layer: batchnorm_layers.2.bias | Size: torch.Size([120]) 
+
+Layer: batchnorm_layers.3.weight | Size: torch.Size([320]) 
+
+Layer: batchnorm_layers.3.bias | Size: torch.Size([320]) 
+
+Layer: batchnorm_layers.4.weight | Size: torch.Size([640]) 
+
+Layer: batchnorm_layers.4.bias | Size: torch.Size([640]) 
+
+Layer: batchnorm_layers.5.weight | Size: torch.Size([1440]) 
+
+Layer: batchnorm_layers.5.bias | Size: torch.Size([1440]) 
+
+
+batch_size =  32 
+loss = <function My_MSE_Loss at 0x000002074910B740>
+optimizer = Adam
+max_epochs = 150 
+train learning rate = 0.0005 
+optimization learning rate = 0.002000 
+Collecting RIS configuration 
+Function test_configurations_capacity Took 7.6153 seconds
+generating batches  :  0.0 %
+Function test_configurations_capacity Took 7.4180 seconds
+generating batches  :  25.0 %
+Function test_configurations_capacity Took 7.4861 seconds
+generating batches  :  50.0 %
+Function test_configurations_capacity Took 7.5350 seconds
+generating batches  :  75.0 %
+Function test_configurations_capacity Took 7.6165 seconds
+Function test_configurations_capacity Took 7.2553 seconds
+generating batches _test :  0.0 %
+Function test_configurations_capacity Took 8.5374 seconds
+generating batches _test :  6.25 %
+Function test_configurations_capacity Took 7.5128 seconds
+generating batches _test :  12.5 %
+Function test_configurations_capacity Took 7.4231 seconds
+generating batches _test :  18.75 %
+Function test_configurations_capacity Took 7.2002 seconds
+generating batches _test :  25.0 %
+Function test_configurations_capacity Took 7.3173 seconds
+generating batches _test :  31.25 %
+Function test_configurations_capacity Took 7.3695 seconds
+generating batches _test :  37.5 %
+Function test_configurations_capacity Took 7.4270 seconds
+generating batches _test :  43.75 %
+Function test_configurations_capacity Took 7.1918 seconds
+generating batches _test :  50.0 %
+Function test_configurations_capacity Took 7.4021 seconds
+generating batches _test :  56.25 %
+Function test_configurations_capacity Took 7.2870 seconds
+generating batches _test :  62.5 %
+Function test_configurations_capacity Took 7.6124 seconds
+generating batches _test :  68.75 %
+Function test_configurations_capacity Took 7.2643 seconds
+generating batches _test :  75.0 %
+Function test_configurations_capacity Took 7.4079 seconds
+generating batches _test :  81.25 %
+Function test_configurations_capacity Took 7.2752 seconds
+generating batches _test :  87.5 %
+Function test_configurations_capacity Took 7.5023 seconds
+generating batches _test :  93.75 %
+Function test_configurations_capacity Took 7.8519 seconds
+input std:  0.2862957502035156
+output std:  0.1533854928161589
+Function test_configurations_capacity Took 13.3882 seconds
+Function test_configurations_capacity Took 13.4020 seconds
+capacity before: 36.04387268037912 and after: 35.41962921711371
+input std:  0.2895515830248556
+output std:  0.14914191528372914
+Function test_configurations_capacity Took 16.6619 seconds
+Function test_configurations_capacity Took 14.1542 seconds
+capacity before: 37.62698525813591 and after: 37.24668733339248
+input std:  0.2825108168473294
+output std:  0.1513880488671302
+Function test_configurations_capacity Took 13.9805 seconds
+Function test_configurations_capacity Took 14.2354 seconds
+capacity before: 34.9157971154906 and after: 34.6863876949567
+input std:  0.28513695275937395
+output std:  0.14613360803761835
+Function test_configurations_capacity Took 16.3278 seconds
+Function test_configurations_capacity Took 14.1121 seconds
+capacity before: 37.616666158288766 and after: 37.17766400706286
+learning from previous iteration:  1  repeat count:  1 sigma values:  tensor([[0.3016],
+        [0.4097],
+        [0.6014],
+        [0.8435],
+        [0.7112],
+        [0.1105],
+        [0.2712],
+        [0.4079],
+        [0.5793],
+        [0.3619],
+        [0.5658],
+        [0.7538],
+        [0.2359],
+        [0.0487],
+        [0.5353],
+        [0.0609]], dtype=torch.float64)
+input std:  0.14914191528372914
+output std:  0.14511463439007247
+Function test_configurations_capacity Took 13.9908 seconds
+Function test_configurations_capacity Took 14.2038 seconds
+capacity before: 37.24668733339248 and after: 38.19731428450518
+learning from previous iteration:  1  repeat count:  1 sigma values:  tensor([[0.3016],
+        [0.4097],
+        [0.6014],
+        [0.8435],
+        [0.7112],
+        [0.1105],
+        [0.2712],
+        [0.4079],
+        [0.5793],
+        [0.3619],
+        [0.5658],
+        [0.7538],
+        [0.2359],
+        [0.0487],
+        [0.5353],
+        [0.0609]], dtype=torch.float64)
+input std:  0.14914191528372914
+output std:  0.14488972243828385
+Function test_configurations_capacity Took 16.0935 seconds
+Function test_configurations_capacity Took 14.2431 seconds
+capacity before: 37.24668733339248 and after: 38.85726758109412
+input std:  0.28814526508982347
+output std:  0.14775257889098606
+Function test_configurations_capacity Took 15.8528 seconds
+Function test_configurations_capacity Took 14.1306 seconds
+capacity before: 36.58562451122748 and after: 36.65368667537783
+input std:  0.28746268185646096
+output std:  0.15003129170069965
+Function test_configurations_capacity Took 15.7820 seconds
+Function test_configurations_capacity Took 14.1586 seconds
+capacity before: 36.390092616553325 and after: 39.603513904800316
+input std:  0.2867768843700384
+output std:  0.14936035102014966
+Function test_configurations_capacity Took 15.0178 seconds
+Function test_configurations_capacity Took 14.3412 seconds
+capacity before: 35.84870128141763 and after: 38.903712757832004
+learning from previous iteration:  8  repeat count:  1 sigma values:  tensor([[0.2779],
+        [0.2173],
+        [0.7818],
+        [0.7835],
+        [0.1075],
+        [0.5203],
+        [0.8241],
+        [0.6256],
+        [0.3682],
+        [0.8924],
+        [0.3104],
+        [0.7472],
+        [0.5324],
+        [0.1323],
+        [0.0163],
+        [0.7019]], dtype=torch.float64)
+input std:  0.14936035102014966
+output std:  0.14675191614934047
+Function test_configurations_capacity Took 15.9747 seconds
+Function test_configurations_capacity Took 14.2353 seconds
+capacity before: 38.903712757832004 and after: 39.0583936808042
+learning from previous iteration:  1  repeat count:  1 sigma values:  tensor([[0.3016],
+        [0.4097],
+        [0.6014],
+        [0.8435],
+        [0.7112],
+        [0.1105],
+        [0.2712],
+        [0.4079],
+        [0.5793],
+        [0.3619],
+        [0.5658],
+        [0.7538],
+        [0.2359],
+        [0.0487],
+        [0.5353],
+        [0.0609]], dtype=torch.float64)
+input std:  0.14914191528372914
+output std:  0.1484942511722143
+Function test_configurations_capacity Took 16.0111 seconds
+Function test_configurations_capacity Took 14.1033 seconds
+capacity before: 37.24668733339248 and after: 40.84062703794935
+input std:  0.2870398970234981
+output std:  0.14841431528266022
+Function test_configurations_capacity Took 15.7272 seconds
+Function test_configurations_capacity Took 14.0059 seconds
+capacity before: 37.27540061379812 and after: 39.15296704879195
+input std:  0.2894334871079465
+output std:  0.14624955417719834
+Function test_configurations_capacity Took 16.0645 seconds
+Function test_configurations_capacity Took 14.1512 seconds
+capacity before: 37.74626850605084 and after: 39.33697801830077
+input std:  0.2853564937017351
+output std:  0.1464800718226464
+Function test_configurations_capacity Took 15.8618 seconds
+Function test_configurations_capacity Took 13.9745 seconds
+capacity before: 36.35116158493352 and after: 40.178086987891916
+learning from previous iteration:  0  repeat count:  1 sigma values:  tensor([[0.4343],
+        [0.6005],
+        [0.3483],
+        [0.3196],
+        [0.0871],
+        [0.5093],
+        [0.1896],
+        [0.5047],
+        [0.7527],
+        [0.5966],
+        [0.2753],
+        [0.6792],
+        [0.6970],
+        [0.3696],
+        [0.1785],
+        [0.8016]], dtype=torch.float64)
+input std:  0.1533854928161589
+output std:  0.14856400517757948
+Function test_configurations_capacity Took 16.3533 seconds
+Function test_configurations_capacity Took 15.2231 seconds
+capacity before: 35.41962921711371 and after: 38.507673876750914
+learning from previous iteration:  4  repeat count:  2 sigma values:  tensor([[0.2714],
+        [0.3687],
+        [0.5412],
+        [0.7591],
+        [0.6401],
+        [0.0994],
+        [0.2440],
+        [0.3671],
+        [0.5214],
+        [0.3257],
+        [0.5092],
+        [0.6784],
+        [0.2123],
+        [0.0438],
+        [0.4818],
+        [0.0548]], dtype=torch.float64)
+input std:  0.14511463439007247
+output std:  0.1496407954685084
+Function test_configurations_capacity Took 15.8971 seconds
+Function test_configurations_capacity Took 14.0063 seconds
+capacity before: 38.19731428450518 and after: 42.26578151800759
+input std:  0.28640367844666687
+output std:  0.14760185237735002
+Function test_configurations_capacity Took 15.9499 seconds
+Function test_configurations_capacity Took 13.9613 seconds
+capacity before: 37.571197713000686 and after: 40.19353069833617
+input std:  0.2924897816733386
+output std:  0.14659161941386598
+Function test_configurations_capacity Took 13.8461 seconds
+Function test_configurations_capacity Took 14.1103 seconds
+capacity before: 36.73615699963912 and after: 39.444832436005264
+input std:  0.2835518232036692
+output std:  0.1486060598111255
+Function test_configurations_capacity Took 15.2081 seconds
+Function test_configurations_capacity Took 14.2414 seconds
+capacity before: 38.402785265494494 and after: 42.54919538752017
+learning from previous iteration:  11  repeat count:  1 sigma values:  tensor([[0.3674],
+        [0.6963],
+        [0.4917],
+        [0.2863],
+        [0.3961],
+        [0.5777],
+        [0.5028],
+        [0.4255],
+        [0.7660],
+        [0.6053],
+        [0.4128],
+        [0.1326],
+        [0.1661],
+        [0.2591],
+        [0.3081],
+        [0.8136]], dtype=torch.float64)
+input std:  0.14841431528266022
+output std:  0.1472747456478827
+Function test_configurations_capacity Took 15.7315 seconds
+Function test_configurations_capacity Took 14.0800 seconds
+capacity before: 39.15296704879195 and after: 40.93236965363385
+learning from previous iteration:  10  repeat count:  2 sigma values:  tensor([[0.2714],
+        [0.3687],
+        [0.5412],
+        [0.7591],
+        [0.6401],
+        [0.0994],
+        [0.2440],
+        [0.3671],
+        [0.5214],
+        [0.3257],
+        [0.5092],
+        [0.6784],
+        [0.2123],
+        [0.0438],
+        [0.4818],
+        [0.0548]], dtype=torch.float64)
+input std:  0.1484942511722143
+output std:  0.14980608883550797
+Function test_configurations_capacity Took 15.9307 seconds
+Function test_configurations_capacity Took 14.0885 seconds
+capacity before: 40.84062703794935 and after: 43.71002835738988
+input std:  0.28974054827889517
+output std:  0.14488517363195008
+Function test_configurations_capacity Took 13.9434 seconds
+Function test_configurations_capacity Took 14.1683 seconds
+capacity before: 36.49652295086505 and after: 40.40513395793488
+input std:  0.28655004052704997
+output std:  0.14809022871292193
+Function test_configurations_capacity Took 21.0250 seconds
+Function test_configurations_capacity Took 14.1400 seconds
+capacity before: 37.23227774296438 and after: 41.9785635664453
+learning from previous iteration:  22  repeat count:  1 sigma values:  tensor([[0.3317],
+        [0.0127],
+        [0.1325],
+        [0.5311],
+        [0.3745],
+        [0.6299],
+        [0.4457],
+        [0.1214],
+        [0.8753],
+        [0.1130],
+        [0.4948],
+        [0.6664],
+        [0.8305],
+        [0.8427],
+        [0.8739],
+        [0.5137]], dtype=torch.float64)
+input std:  0.14809022871292193
+output std:  0.14638726251505185
+Function test_configurations_capacity Took 16.0753 seconds
+Function test_configurations_capacity Took 14.1128 seconds
+capacity before: 41.9785635664453 and after: 42.10514892376863
+input std:  0.2898089734438294
+output std:  0.14183423098020725
+Function test_configurations_capacity Took 16.0292 seconds
+Function test_configurations_capacity Took 14.0674 seconds
+capacity before: 37.11745398906259 and after: 42.276784513078276
+learning from previous iteration:  15  repeat count:  3 sigma values:  tensor([[0.2443],
+        [0.3318],
+        [0.4871],
+        [0.6832],
+        [0.5761],
+        [0.0895],
+        [0.2196],
+        [0.3304],
+        [0.4692],
+        [0.2932],
+        [0.4583],
+        [0.6106],
+        [0.1911],
+        [0.0394],
+        [0.4336],
+        [0.0493]], dtype=torch.float64)
+input std:  0.1496407954685084
+output std:  0.14830439904317366
+Function test_configurations_capacity Took 16.0157 seconds
+Function test_configurations_capacity Took 14.0490 seconds
+capacity before: 42.26578151800759 and after: 44.63363767365249
+learning from previous iteration:  12  repeat count:  1 sigma values:  tensor([[0.7948],
+        [0.6054],
+        [0.1990],
+        [0.7964],
+        [0.3449],
+        [0.1526],
+        [0.4600],
+        [0.3608],
+        [0.3624],
+        [0.7197],
+        [0.0754],
+        [0.3012],
+        [0.5558],
+        [0.3439],
+        [0.7102],
+        [0.0663]], dtype=torch.float64)
+input std:  0.14624955417719834
+output std:  0.14202391482658222
+Function test_configurations_capacity Took 15.8806 seconds
+Function test_configurations_capacity Took 14.3027 seconds
+capacity before: 39.33697801830077 and after: 43.50781195442677
+learning from previous iteration:  8  repeat count:  1 sigma values:  tensor([[0.2779],
+        [0.2173],
+        [0.7818],
+        [0.7835],
+        [0.1075],
+        [0.5203],
+        [0.8241],
+        [0.6256],
+        [0.3682],
+        [0.8924],
+        [0.3104],
+        [0.7472],
+        [0.5324],
+        [0.1323],
+        [0.0163],
+        [0.7019]], dtype=torch.float64)
+input std:  0.14936035102014966
+output std:  0.14153441010759416
+Function test_configurations_capacity Took 16.0375 seconds
+Function test_configurations_capacity Took 14.5557 seconds
+capacity before: 38.903712757832004 and after: 43.173800919011896
+input std:  0.28802790699177405
+output std:  0.14558061493011737
+Function test_configurations_capacity Took 15.9656 seconds
+Function test_configurations_capacity Took 14.2714 seconds
+capacity before: 36.258495451905546 and after: 41.484920575642604
+input std:  0.2829368196758471
+output std:  0.1443347231092103
+Function test_configurations_capacity Took 15.8877 seconds
+Function test_configurations_capacity Took 14.2796 seconds
+capacity before: 37.57788155889004 and after: 43.05136452316734
+input std:  0.28920940067426926
+output std:  0.14334160095651255
+Function test_configurations_capacity Took 16.2286 seconds
+Function test_configurations_capacity Took 14.0622 seconds
+capacity before: 37.30462416662634 and after: 43.50743934008093
+input std:  0.28935467825880873
+output std:  0.1430517984285071
+Function test_configurations_capacity Took 15.9573 seconds
+Function test_configurations_capacity Took 14.1185 seconds
+capacity before: 36.288917063427576 and after: 40.82458572978669
+input std:  0.28521582382054517
+output std:  0.1433169464412675
+Function test_configurations_capacity Took 16.0467 seconds
+Function test_configurations_capacity Took 14.1032 seconds
+capacity before: 36.8616292496734 and after: 43.27904082461775
+input std:  0.2865155543251136
+output std:  0.14157083752820826
+Function test_configurations_capacity Took 15.9273 seconds
+Function test_configurations_capacity Took 14.2103 seconds
+capacity before: 39.285010443788536 and after: 46.159341573621006
+learning from previous iteration:  4  repeat count:  2 sigma values:  tensor([[0.2714],
+        [0.3687],
+        [0.5412],
+        [0.7591],
+        [0.6401],
+        [0.0994],
+        [0.2440],
+        [0.3671],
+        [0.5214],
+        [0.3257],
+        [0.5092],
+        [0.6784],
+        [0.2123],
+        [0.0438],
+        [0.4818],
+        [0.0548]], dtype=torch.float64)
+input std:  0.14511463439007247
+output std:  0.14162298078888455
+Function test_configurations_capacity Took 15.9571 seconds
+Function test_configurations_capacity Took 14.0996 seconds
+capacity before: 38.19731428450518 and after: 45.329260554939246
+learning from previous iteration:  7  repeat count:  1 sigma values:  tensor([[0.3740],
+        [0.8829],
+        [0.0649],
+        [0.2326],
+        [0.8515],
+        [0.2847],
+        [0.5711],
+        [0.8034],
+        [0.5854],
+        [0.6751],
+        [0.8369],
+        [0.7978],
+        [0.0767],
+        [0.1463],
+        [0.8251],
+        [0.1854]], dtype=torch.float64)
+input std:  0.15003129170069965
+output std:  0.14261547944858072
+Function test_configurations_capacity Took 15.9699 seconds
+Function test_configurations_capacity Took 14.1500 seconds
+capacity before: 39.603513904800316 and after: 43.8433986583067
+learning from previous iteration:  28  repeat count:  1 sigma values:  tensor([[0.6944],
+        [0.7858],
+        [0.0293],
+        [0.8827],
+        [0.8359],
+        [0.0531],
+        [0.5259],
+        [0.1903],
+        [0.2852],
+        [0.3503],
+        [0.6180],
+        [0.7212],
+        [0.4539],
+        [0.8884],
+        [0.6448],
+        [0.3419]], dtype=torch.float64)
+input std:  0.14558061493011737
+output std:  0.13945404098035277
+Function test_configurations_capacity Took 16.0843 seconds
+Function test_configurations_capacity Took 14.2043 seconds
+capacity before: 41.484920575642604 and after: 42.30472032140747
+learning from previous iteration:  8  repeat count:  1 sigma values:  tensor([[0.2779],
+        [0.2173],
+        [0.7818],
+        [0.7835],
+        [0.1075],
+        [0.5203],
+        [0.8241],
+        [0.6256],
+        [0.3682],
+        [0.8924],
+        [0.3104],
+        [0.7472],
+        [0.5324],
+        [0.1323],
+        [0.0163],
+        [0.7019]], dtype=torch.float64)
+input std:  0.14936035102014966
+output std:  0.136077879599055
+Function test_configurations_capacity Took 15.9561 seconds
+Function test_configurations_capacity Took 14.3277 seconds
+capacity before: 38.903712757832004 and after: 44.35018420422337
+input std:  0.28766718105531985
+output std:  0.13616538755204755
+Function test_configurations_capacity Took 15.0675 seconds
+Function test_configurations_capacity Took 14.3013 seconds
+capacity before: 35.51558997447964 and after: 41.95372755443723
+input std:  0.2881471681618289
+output std:  0.1379856652689402
+Function test_configurations_capacity Took 15.2480 seconds
+Function test_configurations_capacity Took 14.3137 seconds
+capacity before: 36.096279156803185 and after: 44.05859592549358
+input std:  0.2874483171886881
+output std:  0.13944384868355353
+Function test_configurations_capacity Took 14.0050 seconds
+Function test_configurations_capacity Took 14.2986 seconds
+capacity before: 36.42618608323701 and after: 43.425219012500676
+input std:  0.2893585383771547
+output std:  0.1382557747093362
+Function test_configurations_capacity Took 15.8126 seconds
+Function test_configurations_capacity Took 14.2848 seconds
+capacity before: 37.88974655150231 and after: 43.99948734133442
+learning from previous iteration:  1  repeat count:  1 sigma values:  tensor([[0.3016],
+        [0.4097],
+        [0.6014],
+        [0.8435],
+        [0.7112],
+        [0.1105],
+        [0.2712],
+        [0.4079],
+        [0.5793],
+        [0.3619],
+        [0.5658],
+        [0.7538],
+        [0.2359],
+        [0.0487],
+        [0.5353],
+        [0.0609]], dtype=torch.float64)
+input std:  0.14914191528372914
+output std:  0.13586995227191184
+Function test_configurations_capacity Took 15.5469 seconds
+Function test_configurations_capacity Took 14.2169 seconds
+capacity before: 37.24668733339248 and after: 45.65090809027732
+learning from previous iteration:  15  repeat count:  3 sigma values:  tensor([[0.2443],
+        [0.3318],
+        [0.4871],
+        [0.6832],
+        [0.5761],
+        [0.0895],
+        [0.2196],
+        [0.3304],
+        [0.4692],
+        [0.2932],
+        [0.4583],
+        [0.6106],
+        [0.1911],
+        [0.0394],
+        [0.4336],
+        [0.0493]], dtype=torch.float64)
+input std:  0.1496407954685084
+output std:  0.13672484693383863
+Function test_configurations_capacity Took 14.1171 seconds
+Function test_configurations_capacity Took 14.3739 seconds
+capacity before: 42.26578151800759 and after: 46.00532645448075
+learning from previous iteration:  13  repeat count:  1 sigma values:  tensor([[0.2576],
+        [0.0997],
+        [0.1540],
+        [0.2409],
+        [0.4090],
+        [0.5719],
+        [0.7783],
+        [0.4579],
+        [0.7730],
+        [0.5718],
+        [0.1519],
+        [0.5960],
+        [0.8485],
+        [0.8566],
+        [0.0756],
+        [0.8527]], dtype=torch.float64)
+input std:  0.1464800718226464
+output std:  0.1337090148635018
+Function test_configurations_capacity Took 14.8219 seconds
+Function test_configurations_capacity Took 14.3289 seconds
+capacity before: 40.178086987891916 and after: 43.927947525170296
+input std:  0.2882699290554272
+output std:  0.1328455786719623
+Function test_configurations_capacity Took 14.8197 seconds
+Function test_configurations_capacity Took 14.3924 seconds
+capacity before: 37.01870809405223 and after: 45.02735175323826
+input std:  0.2881064114518228
+output std:  0.13860680761028768
+Function test_configurations_capacity Took 15.4406 seconds
+Function test_configurations_capacity Took 14.4286 seconds
+capacity before: 37.61406831406215 and after: 44.5453891808255
+learning from previous iteration:  20  repeat count:  3 sigma values:  tensor([[0.2443],
+        [0.3318],
+        [0.4871],
+        [0.6832],
+        [0.5761],
+        [0.0895],
+        [0.2196],
+        [0.3304],
+        [0.4692],
+        [0.2932],
+        [0.4583],
+        [0.6106],
+        [0.1911],
+        [0.0394],
+        [0.4336],
+        [0.0493]], dtype=torch.float64)
+input std:  0.14980608883550797
+output std:  0.13399657758218647
+Function test_configurations_capacity Took 14.7630 seconds
+Function test_configurations_capacity Took 14.2050 seconds
+capacity before: 43.71002835738988 and after: 46.5253511362543
+input std:  0.2860890325799056
+output std:  0.1327482178052912
+Function test_configurations_capacity Took 15.6663 seconds
+Function test_configurations_capacity Took 14.2044 seconds
+capacity before: 37.7372466161662 and after: 46.00618173619144
+input std:  0.2829521330262594
+output std:  0.13385740670577492
+Function test_configurations_capacity Took 14.1564 seconds
+Function test_configurations_capacity Took 14.2550 seconds
+capacity before: 34.98839461347629 and after: 41.6718291577217
+input std:  0.2804300406562439
+output std:  0.13390816687020776
+Function test_configurations_capacity Took 14.0122 seconds
+Function test_configurations_capacity Took 14.1951 seconds
+capacity before: 37.38186701169002 and after: 43.99487429307304
+input std:  0.29584784705004735
+output std:  0.12793759056811266
+Function test_configurations_capacity Took 13.8915 seconds
+Function test_configurations_capacity Took 14.2510 seconds
+capacity before: 34.92284011365527 and after: 44.00560171930144
+input std:  0.28775594665220294
+output std:  0.13233682631242774
+Function test_configurations_capacity Took 15.5157 seconds
+Function test_configurations_capacity Took 14.2216 seconds
+capacity before: 38.481417560501676 and after: 46.12536605206485
+input std:  0.2877946998856135
+output std:  0.13107469158980672
+Function test_configurations_capacity Took 15.5005 seconds
+Function test_configurations_capacity Took 14.3226 seconds
+capacity before: 38.18974585455295 and after: 44.13815411190154
+learning from previous iteration:  50  repeat count:  1 sigma values:  tensor([[0.6715],
+        [0.6496],
+        [0.0533],
+        [0.4800],
+        [0.8171],
+        [0.8804],
+        [0.6191],
+        [0.7642],
+        [0.6733],
+        [0.3208],
+        [0.1291],
+        [0.5762],
+        [0.6585],
+        [0.0468],
+        [0.0764],
+        [0.2718]], dtype=torch.float64)
+input std:  0.13390816687020776
+output std:  0.12919815700311177
+Function test_configurations_capacity Took 15.5313 seconds
+Function test_configurations_capacity Took 14.5527 seconds
+capacity before: 43.99487429307304 and after: 44.218020669073425
+input std:  0.28770654339048995
+output std:  0.12953020337725063
+Function test_configurations_capacity Took 13.7718 seconds
+Function test_configurations_capacity Took 14.2461 seconds
+capacity before: 38.24446320042706 and after: 46.439886726693054
+input std:  0.28616624123624257
+output std:  0.12691840214759878
+Function test_configurations_capacity Took 14.0500 seconds
+Function test_configurations_capacity Took 14.3521 seconds
+capacity before: 37.24936974650535 and after: 43.059413501948754
+learning from previous iteration:  5  repeat count:  2 sigma values:  tensor([[0.2714],
+        [0.3687],
+        [0.5412],
+        [0.7591],
+        [0.6401],
+        [0.0994],
+        [0.2440],
+        [0.3671],
+        [0.5214],
+        [0.3257],
+        [0.5092],
+        [0.6784],
+        [0.2123],
+        [0.0438],
+        [0.4818],
+        [0.0548]], dtype=torch.float64)
+input std:  0.14488972243828385
+output std:  0.12740205007526775
+Function test_configurations_capacity Took 15.4481 seconds
+Function test_configurations_capacity Took 14.2794 seconds
+capacity before: 38.85726758109412 and after: 46.458339283675166
+learning from previous iteration:  57  repeat count:  3 sigma values:  tensor([[0.2443],
+        [0.3318],
+        [0.4871],
+        [0.6832],
+        [0.5761],
+        [0.0895],
+        [0.2196],
+        [0.3304],
+        [0.4692],
+        [0.2932],
+        [0.4583],
+        [0.6106],
+        [0.1911],
+        [0.0394],
+        [0.4336],
+        [0.0493]], dtype=torch.float64)
+input std:  0.12740205007526775
+output std:  0.12597177915433425
+Function test_configurations_capacity Took 15.5093 seconds
+Function test_configurations_capacity Took 14.3920 seconds
+capacity before: 46.458339283675166 and after: 46.429809831783174
+input std:  0.28787739823358993
+output std:  0.12542500097126938
+Function test_configurations_capacity Took 15.5154 seconds
+Function test_configurations_capacity Took 14.2928 seconds
+capacity before: 35.84097832222237 and after: 45.21974276404711
+learning from previous iteration:  51  repeat count:  1 sigma values:  tensor([[0.8236],
+        [0.8290],
+        [0.6840],
+        [0.6410],
+        [0.6441],
+        [0.7828],
+        [0.1574],
+        [0.0103],
+        [0.1038],
+        [0.5115],
+        [0.5153],
+        [0.0381],
+        [0.3501],
+        [0.8112],
+        [0.6912],
+        [0.0969]], dtype=torch.float64)
+input std:  0.12793759056811266
+output std:  0.12125581075249164
+Function test_configurations_capacity Took 15.5336 seconds
+Function test_configurations_capacity Took 14.2577 seconds
+capacity before: 44.00560171930144 and after: 43.60368123847439
+tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+score parameter tensor([5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06,
+        5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06])
+noise parameter tensor([3.1623e-03, 1.8957e-03, 1.1365e-03, 6.8129e-04, 4.0842e-04, 2.4484e-04,
+        1.4678e-04, 8.7992e-05, 5.2750e-05, 3.1623e-05])
+Function annealed_langevin_v3 Took 0.0871 seconds
+zogd iteration #0 input distance from zero: 1040.035595855687 loss: 33.450603031602455
+zogd iteration #1 input distance from zero: 1039.9719330385497 loss: 33.57707016815346
+Function zeroth_grad_optimization Took 33.5612 seconds
+Function test_configurations_capacity Took 1.7895 seconds
+tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+score parameter tensor([5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06,
+        5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06])
+noise parameter tensor([3.1623e-03, 1.8957e-03, 1.1365e-03, 6.8129e-04, 4.0842e-04, 2.4484e-04,
+        1.4678e-04, 8.7992e-05, 5.2750e-05, 3.1623e-05])
+Function annealed_langevin_v3 Took 0.0550 seconds
+zogd iteration #0 input distance from zero: 1081.39924460369 loss: 46.02364874092612
+zogd iteration #1 input distance from zero: 1081.3673129546019 loss: 46.20002208912543
+Function zeroth_grad_optimization Took 33.5088 seconds
+Function test_configurations_capacity Took 1.7744 seconds
+tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+score parameter tensor([5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06,
+        5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06])
+noise parameter tensor([3.1623e-03, 1.8957e-03, 1.1365e-03, 6.8129e-04, 4.0842e-04, 2.4484e-04,
+        1.4678e-04, 8.7992e-05, 5.2750e-05, 3.1623e-05])
+Function annealed_langevin_v3 Took 0.0469 seconds
+zogd iteration #0 input distance from zero: 1087.0403952829602 loss: 39.3763478866899
+zogd iteration #1 input distance from zero: 1087.1255961439265 loss: 39.507676643310944
+Function zeroth_grad_optimization Took 33.7332 seconds
+Function test_configurations_capacity Took 1.8115 seconds
+tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+score parameter tensor([5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06,
+        5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06])
+noise parameter tensor([3.1623e-03, 1.8957e-03, 1.1365e-03, 6.8129e-04, 4.0842e-04, 2.4484e-04,
+        1.4678e-04, 8.7992e-05, 5.2750e-05, 3.1623e-05])
+Function annealed_langevin_v3 Took 0.0491 seconds
+zogd iteration #0 input distance from zero: 1092.626815057795 loss: 41.85725796774463
+zogd iteration #1 input distance from zero: 1092.5762847177193 loss: 42.007280260967505
+Function zeroth_grad_optimization Took 33.5546 seconds
+Function test_configurations_capacity Took 1.7910 seconds
+tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+score parameter tensor([5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06,
+        5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06])
+noise parameter tensor([3.1623e-03, 1.8957e-03, 1.1365e-03, 6.8129e-04, 4.0842e-04, 2.4484e-04,
+        1.4678e-04, 8.7992e-05, 5.2750e-05, 3.1623e-05])
+Function annealed_langevin_v3 Took 0.0460 seconds
+zogd iteration #0 input distance from zero: 1091.6924250287661 loss: 33.56466432952789
+zogd iteration #1 input distance from zero: 1091.5036994720476 loss: 33.670340287997234
+Function zeroth_grad_optimization Took 33.5060 seconds
+Function test_configurations_capacity Took 1.7927 seconds
+tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+score parameter tensor([5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06,
+        5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06])
+noise parameter tensor([3.1623e-03, 1.8957e-03, 1.1365e-03, 6.8129e-04, 4.0842e-04, 2.4484e-04,
+        1.4678e-04, 8.7992e-05, 5.2750e-05, 3.1623e-05])
+Function annealed_langevin_v3 Took 0.0465 seconds
+zogd iteration #0 input distance from zero: 1088.8888917841377 loss: 38.540021572798615
+zogd iteration #1 input distance from zero: 1088.5187837128137 loss: 38.62190728866297
+Function zeroth_grad_optimization Took 33.6396 seconds
+Function test_configurations_capacity Took 1.8183 seconds
+tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+score parameter tensor([5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06,
+        5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06])
+noise parameter tensor([3.1623e-03, 1.8957e-03, 1.1365e-03, 6.8129e-04, 4.0842e-04, 2.4484e-04,
+        1.4678e-04, 8.7992e-05, 5.2750e-05, 3.1623e-05])
+Function annealed_langevin_v3 Took 0.0444 seconds
+zogd iteration #0 input distance from zero: 1063.7817329229676 loss: 36.75684764590011
+zogd iteration #1 input distance from zero: 1063.6173404130348 loss: 36.913261142682195
+Function zeroth_grad_optimization Took 33.6512 seconds
+Function test_configurations_capacity Took 1.7867 seconds
+tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+score parameter tensor([5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06,
+        5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06])
+noise parameter tensor([3.1623e-03, 1.8957e-03, 1.1365e-03, 6.8129e-04, 4.0842e-04, 2.4484e-04,
+        1.4678e-04, 8.7992e-05, 5.2750e-05, 3.1623e-05])
+Function annealed_langevin_v3 Took 0.0430 seconds
+zogd iteration #0 input distance from zero: 1073.3516273272214 loss: 30.76598380497096
+zogd iteration #1 input distance from zero: 1073.4882868874824 loss: 30.816665019897567
+Function zeroth_grad_optimization Took 33.7356 seconds
+Function test_configurations_capacity Took 1.7821 seconds
+tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+score parameter tensor([5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06,
+        5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06])
+noise parameter tensor([3.1623e-03, 1.8957e-03, 1.1365e-03, 6.8129e-04, 4.0842e-04, 2.4484e-04,
+        1.4678e-04, 8.7992e-05, 5.2750e-05, 3.1623e-05])
+Function annealed_langevin_v3 Took 0.0452 seconds
+zogd iteration #0 input distance from zero: 1053.8898098749487 loss: 35.70386459704622
+zogd iteration #1 input distance from zero: 1053.8550474063327 loss: 35.72833276195509
+Function zeroth_grad_optimization Took 33.6746 seconds
+Function test_configurations_capacity Took 1.7830 seconds
+tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+score parameter tensor([5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06,
+        5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06])
+noise parameter tensor([3.1623e-03, 1.8957e-03, 1.1365e-03, 6.8129e-04, 4.0842e-04, 2.4484e-04,
+        1.4678e-04, 8.7992e-05, 5.2750e-05, 3.1623e-05])
+Function annealed_langevin_v3 Took 0.0511 seconds
+zogd iteration #0 input distance from zero: 1077.5431733150658 loss: 36.82468646959877
+zogd iteration #1 input distance from zero: 1077.4802514509872 loss: 36.901170679737135
+Function zeroth_grad_optimization Took 33.6415 seconds
+Function test_configurations_capacity Took 1.7641 seconds
+tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+score parameter tensor([5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06,
+        5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06])
+noise parameter tensor([3.1623e-03, 1.8957e-03, 1.1365e-03, 6.8129e-04, 4.0842e-04, 2.4484e-04,
+        1.4678e-04, 8.7992e-05, 5.2750e-05, 3.1623e-05])
+Function annealed_langevin_v3 Took 0.0434 seconds
+zogd iteration #0 input distance from zero: 1088.6353579483346 loss: 35.29220800120021
+zogd iteration #1 input distance from zero: 1088.4735400513894 loss: 35.38996801473223
+Function zeroth_grad_optimization Took 33.5580 seconds
+Function test_configurations_capacity Took 1.7999 seconds
+tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+score parameter tensor([5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06,
+        5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06])
+noise parameter tensor([3.1623e-03, 1.8957e-03, 1.1365e-03, 6.8129e-04, 4.0842e-04, 2.4484e-04,
+        1.4678e-04, 8.7992e-05, 5.2750e-05, 3.1623e-05])
+Function annealed_langevin_v3 Took 0.0467 seconds
+zogd iteration #0 input distance from zero: 1083.4216193883344 loss: 35.74991699061714
+zogd iteration #1 input distance from zero: 1083.6422225849624 loss: 35.818964323353725
+Function zeroth_grad_optimization Took 33.6490 seconds
+Function test_configurations_capacity Took 1.8055 seconds
+tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+score parameter tensor([5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06,
+        5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06])
+noise parameter tensor([3.1623e-03, 1.8957e-03, 1.1365e-03, 6.8129e-04, 4.0842e-04, 2.4484e-04,
+        1.4678e-04, 8.7992e-05, 5.2750e-05, 3.1623e-05])
+Function annealed_langevin_v3 Took 0.0470 seconds
+zogd iteration #0 input distance from zero: 1085.5152522296237 loss: 45.74190328981339
+zogd iteration #1 input distance from zero: 1085.7140565111401 loss: 45.86890245710597
+Function zeroth_grad_optimization Took 33.5101 seconds
+Function test_configurations_capacity Took 1.7644 seconds
+tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+score parameter tensor([5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06,
+        5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06])
+noise parameter tensor([3.1623e-03, 1.8957e-03, 1.1365e-03, 6.8129e-04, 4.0842e-04, 2.4484e-04,
+        1.4678e-04, 8.7992e-05, 5.2750e-05, 3.1623e-05])
+Function annealed_langevin_v3 Took 0.0447 seconds
+zogd iteration #0 input distance from zero: 1083.4121306169704 loss: 32.3591142201685
+zogd iteration #1 input distance from zero: 1082.703020540664 loss: 32.44148251602256
+Function zeroth_grad_optimization Took 33.5813 seconds
+Function test_configurations_capacity Took 1.7998 seconds
+tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+score parameter tensor([5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06,
+        5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06])
+noise parameter tensor([3.1623e-03, 1.8957e-03, 1.1365e-03, 6.8129e-04, 4.0842e-04, 2.4484e-04,
+        1.4678e-04, 8.7992e-05, 5.2750e-05, 3.1623e-05])
+Function annealed_langevin_v3 Took 0.0469 seconds
+zogd iteration #0 input distance from zero: 1063.4021477951103 loss: 41.08966353273313
+zogd iteration #1 input distance from zero: 1063.354511720528 loss: 41.21468113316234
+Function zeroth_grad_optimization Took 33.6133 seconds
+Function test_configurations_capacity Took 1.8020 seconds
+tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+score parameter tensor([5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06,
+        5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06])
+noise parameter tensor([3.1623e-03, 1.8957e-03, 1.1365e-03, 6.8129e-04, 4.0842e-04, 2.4484e-04,
+        1.4678e-04, 8.7992e-05, 5.2750e-05, 3.1623e-05])
+Function annealed_langevin_v3 Took 0.0485 seconds
+zogd iteration #0 input distance from zero: 1106.3601911653464 loss: 33.02216037888221
+zogd iteration #1 input distance from zero: 1106.5857874412238 loss: 33.08659744192175
+Function zeroth_grad_optimization Took 33.9415 seconds
+Function test_configurations_capacity Took 1.8052 seconds
+test diffusion mean rate:  44.742686636338334
+input std:  0.28717256229285726
+output std:  0.12322265198105745
+Function test_configurations_capacity Took 15.4700 seconds
+Function test_configurations_capacity Took 14.2722 seconds
+capacity before: 37.09073499922229 and after: 43.44651037858103
+input std:  0.28293000270238733
+output std:  0.12581399123625964
+Function test_configurations_capacity Took 16.3851 seconds
+Function test_configurations_capacity Took 14.2776 seconds
+capacity before: 37.191210856671674 and after: 43.74989514425891
+input std:  0.2827572596471451
+output std:  0.12314620510871002
+Function test_configurations_capacity Took 13.9491 seconds
+Function test_configurations_capacity Took 14.1969 seconds
+capacity before: 37.96902880239142 and after: 44.617765363994394
+learning from previous iteration:  38  repeat count:  1 sigma values:  tensor([[0.0580],
+        [0.7606],
+        [0.8629],
+        [0.5325],
+        [0.8661],
+        [0.0155],
+        [0.3379],
+        [0.3728],
+        [0.6183],
+        [0.0456],
+        [0.7172],
+        [0.6068],
+        [0.8300],
+        [0.6680],
+        [0.2604],
+        [0.3070]], dtype=torch.float64)
+input std:  0.13616538755204755
+output std:  0.12093936573386144
+Function test_configurations_capacity Took 13.9208 seconds
+Function test_configurations_capacity Took 14.2595 seconds
+capacity before: 41.95372755443723 and after: 42.59084738538419
+learning from previous iteration:  58  repeat count:  4 sigma values:  tensor([[0.2199],
+        [0.2987],
+        [0.4384],
+        [0.6149],
+        [0.5185],
+        [0.0805],
+        [0.1977],
+        [0.2973],
+        [0.4223],
+        [0.2638],
+        [0.4125],
+        [0.5495],
+        [0.1719],
+        [0.0355],
+        [0.3903],
+        [0.0444]], dtype=torch.float64)
+input std:  0.12597177915433425
+output std:  0.12342368339622752
+Function test_configurations_capacity Took 13.9496 seconds
+Function test_configurations_capacity Took 14.1979 seconds
+capacity before: 46.429809831783174 and after: 46.75824413464609
+input std:  0.29038754047519066
+output std:  0.12598728782030358
+Function test_configurations_capacity Took 14.0420 seconds
+Function test_configurations_capacity Took 14.1556 seconds
+capacity before: 38.2829388592566 and after: 43.421776522587336
+input std:  0.28348113128960456
+output std:  0.12494161599031038
+Function test_configurations_capacity Took 14.1198 seconds
+Function test_configurations_capacity Took 14.5320 seconds
+capacity before: 35.57299984874062 and after: 42.10034735278471
+input std:  0.2843668672120844
+output std:  0.12438254724841476
+Function test_configurations_capacity Took 14.1383 seconds
+Function test_configurations_capacity Took 14.4072 seconds
+capacity before: 39.87289259265275 and after: 46.10937724956948
+input std:  0.2869185299332738
+output std:  0.12686939773336428
+Function test_configurations_capacity Took 14.0546 seconds
+Function test_configurations_capacity Took 14.3238 seconds
+capacity before: 37.46578032954177 and after: 45.358973170162585
+input std:  0.2858298133886489
+output std:  0.1178599946863192
+Function test_configurations_capacity Took 14.1677 seconds
+Function test_configurations_capacity Took 14.1307 seconds
+capacity before: 36.36580954647407 and after: 43.581531908514236
+input std:  0.2883963978787029
+output std:  0.12107556669029709
+Function test_configurations_capacity Took 13.9041 seconds
+Function test_configurations_capacity Took 14.3250 seconds
+capacity before: 36.370380465298354 and after: 42.55814582707922
+input std:  0.2836367470834173
+output std:  0.12051518807180986
+Function test_configurations_capacity Took 14.1561 seconds
+Function test_configurations_capacity Took 14.3253 seconds
+capacity before: 36.14633364387751 and after: 43.72826845968793
+learning from previous iteration:  1  repeat count:  1 sigma values:  tensor([[0.3016],
+        [0.4097],
+        [0.6014],
+        [0.8435],
+        [0.7112],
+        [0.1105],
+        [0.2712],
+        [0.4079],
+        [0.5793],
+        [0.3619],
+        [0.5658],
+        [0.7538],
+        [0.2359],
+        [0.0487],
+        [0.5353],
+        [0.0609]], dtype=torch.float64)
+input std:  0.14914191528372914
+output std:  0.11785006877678295
+Function test_configurations_capacity Took 13.9247 seconds
+Function test_configurations_capacity Took 14.2717 seconds
+capacity before: 37.24668733339248 and after: 46.73253988313276
+input std:  0.28354097105989284
+output std:  0.12254925514208774
+Function test_configurations_capacity Took 14.0139 seconds
+Function test_configurations_capacity Took 14.1814 seconds
+capacity before: 35.72372046983136 and after: 41.59024494466891
+input std:  0.28944115321244357
+output std:  0.12081062937460743
+Function test_configurations_capacity Took 13.9251 seconds
+Function test_configurations_capacity Took 14.2879 seconds
+capacity before: 36.01542573524827 and after: 42.776361291084925
+input std:  0.28741813927344145
+output std:  0.12042234436764684
+Function test_configurations_capacity Took 14.1305 seconds
+Function test_configurations_capacity Took 14.3373 seconds
+capacity before: 34.92573031364487 and after: 41.7529590681627
+input std:  0.2844427027724742
+output std:  0.12048072540293862
+Function test_configurations_capacity Took 14.0092 seconds
+Function test_configurations_capacity Took 14.1954 seconds
+capacity before: 34.39430528361022 and after: 43.13738089834595
+input std:  0.28954650603065857
+output std:  0.11867785433365631
+Function test_configurations_capacity Took 14.3452 seconds
+Function test_configurations_capacity Took 14.1809 seconds
+capacity before: 37.933641060940666 and after: 43.13385209703061
+input std:  0.2836684549757404
+output std:  0.11513549857197423
+Function test_configurations_capacity Took 13.9289 seconds
+Function test_configurations_capacity Took 14.2763 seconds
+capacity before: 38.101105299501384 and after: 46.96329973216241
+input std:  0.28227709925950006
+output std:  0.11610436524668648
+Function test_configurations_capacity Took 13.9917 seconds
+Function test_configurations_capacity Took 14.2562 seconds
+capacity before: 36.05312467828102 and after: 44.684366992988636
+input std:  0.28944717044847845
+output std:  0.11495375070141163
+Function test_configurations_capacity Took 15.6126 seconds
+Function test_configurations_capacity Took 14.3131 seconds
+capacity before: 37.00982760522449 and after: 45.19763028383788
+input std:  0.28648706451656514
+output std:  0.11542115982975429
+Function test_configurations_capacity Took 15.4932 seconds
+Function test_configurations_capacity Took 14.2723 seconds
+capacity before: 35.45085844160036 and after: 42.889723102861964
+input std:  0.28309698534410177
+output std:  0.11383247847034841
+Function test_configurations_capacity Took 14.0078 seconds
+Function test_configurations_capacity Took 14.3097 seconds
+capacity before: 37.21236821472931 and after: 44.37123654094238
+input std:  0.28502368972504655
+output std:  0.11499398125594183
+Function test_configurations_capacity Took 14.0990 seconds
+Function test_configurations_capacity Took 14.2887 seconds
+capacity before: 35.8646141008578 and after: 44.15821123100812
+learning from previous iteration:  73  repeat count:  2 sigma values:  tensor([[0.2714],
+        [0.3687],
+        [0.5412],
+        [0.7591],
+        [0.6401],
+        [0.0994],
+        [0.2440],
+        [0.3671],
+        [0.5214],
+        [0.3257],
+        [0.5092],
+        [0.6784],
+        [0.2123],
+        [0.0438],
+        [0.4818],
+        [0.0548]], dtype=torch.float64)
+input std:  0.11785006877678295
+output std:  0.11508763776260053
+Function test_configurations_capacity Took 13.9857 seconds
+Function test_configurations_capacity Took 14.4463 seconds
+capacity before: 46.73253988313276 and after: 47.14559686505979
+learning from previous iteration:  83  repeat count:  1 sigma values:  tensor([[0.8614],
+        [0.8776],
+        [0.4095],
+        [0.2345],
+        [0.1988],
+        [0.5635],
+        [0.5534],
+        [0.4255],
+        [0.4479],
+        [0.7162],
+        [0.3710],
+        [0.3228],
+        [0.2762],
+        [0.2405],
+        [0.8551],
+        [0.8970]], dtype=torch.float64)
+input std:  0.11383247847034841
+output std:  0.11134582373027539
+Function test_configurations_capacity Took 13.9785 seconds
+Function test_configurations_capacity Took 14.2258 seconds
+capacity before: 44.37123654094238 and after: 44.70531997980217
+learning from previous iteration:  86  repeat count:  2 sigma values:  tensor([[0.7752],
+        [0.7898],
+        [0.3685],
+        [0.2111],
+        [0.1789],
+        [0.5072],
+        [0.4981],
+        [0.3830],
+        [0.4031],
+        [0.6446],
+        [0.3339],
+        [0.2905],
+        [0.2486],
+        [0.2165],
+        [0.7696],
+        [0.8073]], dtype=torch.float64)
+input std:  0.11134582373027539
+output std:  0.11108574579334594
+Function test_configurations_capacity Took 13.8956 seconds
+Function test_configurations_capacity Took 14.2643 seconds
+capacity before: 44.70531997980217 and after: 44.8891408027269
+learning from previous iteration:  87  repeat count:  3 sigma values:  tensor([[0.6977],
+        [0.7108],
+        [0.3317],
+        [0.1900],
+        [0.1610],
+        [0.4564],
+        [0.4482],
+        [0.3447],
+        [0.3628],
+        [0.5801],
+        [0.3005],
+        [0.2614],
+        [0.2237],
+        [0.1948],
+        [0.6926],
+        [0.7265]], dtype=torch.float64)
+input std:  0.11108574579334594
+output std:  0.11059944950398104
+Function test_configurations_capacity Took 13.9314 seconds
+Function test_configurations_capacity Took 14.5122 seconds
+capacity before: 44.8891408027269 and after: 45.11614170769501
+input std:  0.2888199940757645
+output std:  0.11340394968425353
+Function test_configurations_capacity Took 14.1088 seconds
+Function test_configurations_capacity Took 14.2016 seconds
+capacity before: 38.53239902330165 and after: 47.52152507469437
+learning from previous iteration:  49  repeat count:  1 sigma values:  tensor([[0.8565],
+        [0.8061],
+        [0.3902],
+        [0.6247],
+        [0.5279],
+        [0.7980],
+        [0.0317],
+        [0.5337],
+        [0.8035],
+        [0.7066],
+        [0.3400],
+        [0.8203],
+        [0.2013],
+        [0.1292],
+        [0.6225],
+        [0.2644]], dtype=torch.float64)
+input std:  0.13385740670577492
+output std:  0.10821660082580577
+Function test_configurations_capacity Took 14.0312 seconds
+Function test_configurations_capacity Took 14.2438 seconds
+capacity before: 41.6718291577217 and after: 42.9927055865742
+learning from previous iteration:  67  repeat count:  1 sigma values:  tensor([[0.1683],
+        [0.6243],
+        [0.4013],
+        [0.7064],
+        [0.3202],
+        [0.4416],
+        [0.0372],
+        [0.0427],
+        [0.5467],
+        [0.7553],
+        [0.0962],
+        [0.1205],
+        [0.4940],
+        [0.1700],
+        [0.5869],
+        [0.2812]], dtype=torch.float64)
+input std:  0.12494161599031038
+output std:  0.1102639100927534
+Function test_configurations_capacity Took 14.0675 seconds
+Function test_configurations_capacity Took 14.3879 seconds
+capacity before: 42.10034735278471 and after: 43.65036398781325
+learning from previous iteration:  31  repeat count:  1 sigma values:  tensor([[0.4757],
+        [0.7399],
+        [0.5868],
+        [0.0396],
+        [0.6898],
+        [0.0687],
+        [0.1813],
+        [0.6711],
+        [0.8763],
+        [0.4964],
+        [0.8713],
+        [0.1151],
+        [0.7523],
+        [0.4915],
+        [0.7960],
+        [0.1119]], dtype=torch.float64)
+input std:  0.1430517984285071
+output std:  0.11743421073831875
+Function test_configurations_capacity Took 14.2687 seconds
+Function test_configurations_capacity Took 14.2711 seconds
+capacity before: 40.82458572978669 and after: 43.56614053461857
+input std:  0.2910839719265701
+output std:  0.10958310665169844
+Function test_configurations_capacity Took 14.1084 seconds
+Function test_configurations_capacity Took 14.2770 seconds
+capacity before: 35.12521153531951 and after: 44.66164644835928
+input std:  0.28685006749325137
+output std:  0.11333627301295945
+Function test_configurations_capacity Took 14.3952 seconds
+Function test_configurations_capacity Took 14.2625 seconds
+capacity before: 35.955606793094795 and after: 45.3825213094434
+input std:  0.2864206595460854
+output std:  0.11862600547636941
+Function test_configurations_capacity Took 14.2214 seconds
+Function test_configurations_capacity Took 14.3094 seconds
+capacity before: 35.62011506062222 and after: 44.11410042344192
+input std:  0.28393915622829097
+output std:  0.11045310322686427
+Function test_configurations_capacity Took 14.0635 seconds
+Function test_configurations_capacity Took 14.1754 seconds
+capacity before: 36.66800696464483 and after: 45.06746703573302
+input std:  0.2849504010098068
+output std:  0.11667609060566811
+Function test_configurations_capacity Took 14.0202 seconds
+Function test_configurations_capacity Took 14.2664 seconds
+capacity before: 37.76192542639053 and after: 47.01854064855084
+input std:  0.28692436618132117
+output std:  0.11448702982439539
+Function test_configurations_capacity Took 14.0109 seconds
+Function test_configurations_capacity Took 14.5418 seconds
+capacity before: 37.72019476058165 and after: 46.314209887267154
+input std:  0.28858084338604845
+output std:  0.11517388291566436
+Function test_configurations_capacity Took 13.9972 seconds
+Function test_configurations_capacity Took 14.2038 seconds
+capacity before: 36.10894650398685 and after: 45.73324013604445
+input std:  0.2838599192195833
+output std:  0.11562449565497761
+Function test_configurations_capacity Took 14.0024 seconds
+Function test_configurations_capacity Took 14.2054 seconds
+capacity before: 36.572159799506316 and after: 43.733885685008175
+learning from previous iteration:  61  repeat count:  1 sigma values:  tensor([[0.7928],
+        [0.2428],
+        [0.6690],
+        [0.4536],
+        [0.8510],
+        [0.0377],
+        [0.0276],
+        [0.4941],
+        [0.0919],
+        [0.7898],
+        [0.7247],
+        [0.7951],
+        [0.6890],
+        [0.6397],
+        [0.5631],
+        [0.6289]], dtype=torch.float64)
+input std:  0.12322265198105745
+output std:  0.11277482261915125
+Function test_configurations_capacity Took 13.9277 seconds
+Function test_configurations_capacity Took 14.3125 seconds
+capacity before: 43.44651037858103 and after: 45.84646984129664
+input std:  0.2864626166271889
+output std:  0.11036316759540704
+Function test_configurations_capacity Took 14.3294 seconds
+Function test_configurations_capacity Took 14.1383 seconds
+capacity before: 36.01587220925445 and after: 46.51390369002108
+learning from previous iteration:  15  repeat count:  3 sigma values:  tensor([[0.2443],
+        [0.3318],
+        [0.4871],
+        [0.6832],
+        [0.5761],
+        [0.0895],
+        [0.2196],
+        [0.3304],
+        [0.4692],
+        [0.2932],
+        [0.4583],
+        [0.6106],
+        [0.1911],
+        [0.0394],
+        [0.4336],
+        [0.0493]], dtype=torch.float64)
+input std:  0.1496407954685084
+output std:  0.11542524628937172
+Function test_configurations_capacity Took 21.1302 seconds
+Function test_configurations_capacity Took 14.3591 seconds
+capacity before: 42.26578151800759 and after: 47.730152236442535
+input std:  0.2830139312738094
+output std:  0.11047946862962887
+Function test_configurations_capacity Took 15.3682 seconds
+Function test_configurations_capacity Took 14.1760 seconds
+capacity before: 35.70169641306914 and after: 44.64769225845025
+Traceback (most recent call last):
+  File "C:\Users\tomer\Documents\Projects\Generative_RIS_Optimization\Regression_Model\main.py", line 1575, in <module>
+    main()
+  File "C:\Users\tomer\Documents\Projects\Generative_RIS_Optimization\Regression_Model\main.py", line 1318, in main
+    diffusion_active_training(net_diffusion,
+  File "C:\Users\tomer\Documents\Projects\Generative_RIS_Optimization\Regression_Model\main.py", line 753, in diffusion_active_training
+    grad_inp_64 = zo_estimate_gradient(capacity_physfad, improved_X , tx_x, tx_y, epsilon, 64, device,broadcast_tx=False)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\tomer\Documents\Projects\Generative_RIS_Optimization\Regression_Model\utils.py", line 210, in zo_estimate_gradient
+    f_x_minus_eps[i] = func(normalized_x_minus_epsilon,current_tx_x,current_tx_y)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\tomer\Documents\Projects\Generative_RIS_Optimization\Regression_Model\main.py", line 708, in <lambda>
+    capacity_physfad = lambda x,tx_x,tx_y: -capacity_loss(physfad(x, tx_x, tx_y)[0], sigmaN=torch.tensor(1,dtype=torch.float64),list_out=True, device=device)
+                                                          ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\tomer\Documents\Projects\Generative_RIS_Optimization\Regression_Model\PhysFadPy.py", line 45, in __call__
+    H = self.GetH(freq, W,
+        ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\tomer\Documents\Projects\Generative_RIS_Optimization\Regression_Model\PhysFadPy.py", line 292, in GetH
+    return self.GetH_batched(freq, W_full,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\tomer\Documents\Projects\Generative_RIS_Optimization\Regression_Model\PhysFadPy.py", line 277, in GetH_batched
+    V = torch.linalg.solve_ex(W, W_diag_matrix)[0]
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt

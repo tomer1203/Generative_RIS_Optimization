@@ -1,0 +1,1924 @@
+cpu
+printing layer sizes
+Layer: linear_layers.0.weight | Size: torch.Size([240, 135]) 
+
+Layer: linear_layers.0.bias | Size: torch.Size([240]) 
+
+Layer: linear_layers.1.weight | Size: torch.Size([160, 240]) 
+
+Layer: linear_layers.1.bias | Size: torch.Size([160]) 
+
+Layer: linear_layers.2.weight | Size: torch.Size([120, 160]) 
+
+Layer: linear_layers.2.bias | Size: torch.Size([120]) 
+
+Layer: linear_layers.3.weight | Size: torch.Size([320, 120]) 
+
+Layer: linear_layers.3.bias | Size: torch.Size([320]) 
+
+Layer: linear_layers.4.weight | Size: torch.Size([640, 320]) 
+
+Layer: linear_layers.4.bias | Size: torch.Size([640]) 
+
+Layer: linear_layers.5.weight | Size: torch.Size([1440, 640]) 
+
+Layer: linear_layers.5.bias | Size: torch.Size([1440]) 
+
+Layer: batchnorm_layers.0.weight | Size: torch.Size([240]) 
+
+Layer: batchnorm_layers.0.bias | Size: torch.Size([240]) 
+
+Layer: batchnorm_layers.1.weight | Size: torch.Size([160]) 
+
+Layer: batchnorm_layers.1.bias | Size: torch.Size([160]) 
+
+Layer: batchnorm_layers.2.weight | Size: torch.Size([120]) 
+
+Layer: batchnorm_layers.2.bias | Size: torch.Size([120]) 
+
+Layer: batchnorm_layers.3.weight | Size: torch.Size([320]) 
+
+Layer: batchnorm_layers.3.bias | Size: torch.Size([320]) 
+
+Layer: batchnorm_layers.4.weight | Size: torch.Size([640]) 
+
+Layer: batchnorm_layers.4.bias | Size: torch.Size([640]) 
+
+Layer: batchnorm_layers.5.weight | Size: torch.Size([1440]) 
+
+Layer: batchnorm_layers.5.bias | Size: torch.Size([1440]) 
+
+
+batch_size =   8 
+loss = <function My_MSE_Loss at 0x00000243FC92B740>
+optimizer = Adam
+max_epochs = 150 
+train learning rate = 0.0005 
+optimization learning rate = 0.002000 
+Collecting RIS configuration 
+Function test_configurations_capacity Took 11.2830 seconds
+generating batches _test :  0.0 %
+Function test_configurations_capacity Took 12.8596 seconds
+generating batches _test :  6.25 %
+Function test_configurations_capacity Took 10.5644 seconds
+generating batches _test :  12.5 %
+Function test_configurations_capacity Took 10.1456 seconds
+generating batches _test :  18.75 %
+Function test_configurations_capacity Took 9.9334 seconds
+generating batches _test :  25.0 %
+Function test_configurations_capacity Took 9.6587 seconds
+generating batches _test :  31.25 %
+Function test_configurations_capacity Took 9.7035 seconds
+generating batches _test :  37.5 %
+Function test_configurations_capacity Took 9.7348 seconds
+generating batches _test :  43.75 %
+Function test_configurations_capacity Took 9.7625 seconds
+generating batches _test :  50.0 %
+Function test_configurations_capacity Took 9.9365 seconds
+generating batches _test :  56.25 %
+Function test_configurations_capacity Took 9.7307 seconds
+generating batches _test :  62.5 %
+Function test_configurations_capacity Took 10.0167 seconds
+generating batches _test :  68.75 %
+Function test_configurations_capacity Took 9.9402 seconds
+generating batches _test :  75.0 %
+Function test_configurations_capacity Took 9.6481 seconds
+generating batches _test :  81.25 %
+Function test_configurations_capacity Took 10.3076 seconds
+generating batches _test :  87.5 %
+Function test_configurations_capacity Took 9.8514 seconds
+generating batches _test :  93.75 %
+Function test_configurations_capacity Took 9.9736 seconds
+Loading model
+2.0 0 0
+physfad iteration #0 input distance from zero: 664.9278564453125 loss: 37.45558038682276
+physfad iteration #1 input distance from zero: 656.5947265625 loss: 39.916544331274594
+physfad iteration #2 input distance from zero: 648.1049194335938 loss: 42.20114147631141
+physfad iteration #3 input distance from zero: 639.2975463867188 loss: 44.248769581858426
+physfad iteration #4 input distance from zero: 630.2969360351562 loss: 46.08584821696457
+physfad iteration #5 input distance from zero: 621.1185302734375 loss: 47.72198177986148
+physfad iteration #6 input distance from zero: 611.8265380859375 loss: 49.147562681904304
+physfad iteration #7 input distance from zero: 602.5335693359375 loss: 50.43299125048476
+physfad iteration #8 input distance from zero: 593.3327026367188 loss: 51.593671973178886
+physfad iteration #9 input distance from zero: 584.286865234375 loss: 52.62460811545306
+physfad iteration #10 input distance from zero: 575.4320068359375 loss: 53.53729148292737
+physfad iteration #11 input distance from zero: 566.8153076171875 loss: 54.33392549119134
+physfad iteration #12 input distance from zero: 558.473388671875 loss: 55.04234253542752
+physfad iteration #13 input distance from zero: 550.4386596679688 loss: 55.66802351403359
+physfad iteration #14 input distance from zero: 542.742431640625 loss: 56.20442251974545
+physfad iteration #15 input distance from zero: 535.4105224609375 loss: 56.66324066733696
+physfad iteration #16 input distance from zero: 528.4580078125 loss: 57.068821833285696
+physfad iteration #17 input distance from zero: 521.8919677734375 loss: 57.44173893249349
+physfad iteration #18 input distance from zero: 515.713623046875 loss: 57.78491850375252
+physfad iteration #19 input distance from zero: 509.9188537597656 loss: 58.08834399558475
+physfad iteration #20 input distance from zero: 504.50421142578125 loss: 58.34625118554921
+physfad iteration #21 input distance from zero: 499.47125244140625 loss: 58.569999916498915
+physfad iteration #22 input distance from zero: 494.8138427734375 loss: 58.778963990854535
+physfad iteration #23 input distance from zero: 490.5211181640625 loss: 58.97840042743962
+physfad iteration #24 input distance from zero: 486.58221435546875 loss: 59.16406213944455
+physfad iteration #25 input distance from zero: 482.9850769042969 loss: 59.33101414706982
+physfad iteration #26 input distance from zero: 479.7145690917969 loss: 59.47845453303856
+physfad iteration #27 input distance from zero: 476.75244140625 loss: 59.60898045035982
+physfad iteration #28 input distance from zero: 474.07666015625 loss: 59.725849180917486
+physfad iteration #29 input distance from zero: 471.66259765625 loss: 59.83260720756305
+physfad iteration #30 input distance from zero: 469.4859619140625 loss: 59.92904210688264
+physfad iteration #31 input distance from zero: 467.5264587402344 loss: 60.015214193746026
+physfad iteration #32 input distance from zero: 465.7681884765625 loss: 60.09348368158588
+physfad iteration #33 input distance from zero: 464.1930847167969 loss: 60.16678960753208
+physfad iteration #34 input distance from zero: 462.7833557128906 loss: 60.237088615198054
+physfad iteration #35 input distance from zero: 461.52252197265625 loss: 60.30553622130627
+physfad iteration #36 input distance from zero: 460.39617919921875 loss: 60.37254073085061
+physfad iteration #37 input distance from zero: 459.3912048339844 loss: 60.437837255274886
+physfad iteration #38 input distance from zero: 458.49578857421875 loss: 60.50133181169117
+physfad iteration #39 input distance from zero: 457.6968688964844 loss: 60.56398736246224
+physfad iteration #40 input distance from zero: 456.9822692871094 loss: 60.62645774711258
+physfad iteration #41 input distance from zero: 456.33795166015625 loss: 60.68981293192806
+physfad iteration #42 input distance from zero: 455.75091552734375 loss: 60.753864696664486
+physfad iteration #43 input distance from zero: 455.2103271484375 loss: 60.81745381777307
+physfad iteration #44 input distance from zero: 454.7068786621094 loss: 60.878601334258974
+physfad iteration #45 input distance from zero: 454.2326354980469 loss: 60.933614708078615
+physfad iteration #46 input distance from zero: 453.78125 loss: 60.979907678697145
+physfad iteration #47 input distance from zero: 453.34967041015625 loss: 61.019843224289694
+physfad iteration #48 input distance from zero: 452.9362487792969 loss: 61.05580373621107
+physfad iteration #49 input distance from zero: 452.5394592285156 loss: 61.08841766153494
+physfad iteration #50 input distance from zero: 452.1580505371094 loss: 61.120533290992086
+physfad iteration #51 input distance from zero: 451.79071044921875 loss: 61.155926382770865
+physfad iteration #52 input distance from zero: 451.4351806640625 loss: 61.19538087834452
+physfad iteration #53 input distance from zero: 451.08966064453125 loss: 61.237151238551675
+physfad iteration #54 input distance from zero: 450.75347900390625 loss: 61.27829585290641
+physfad iteration #55 input distance from zero: 450.427490234375 loss: 61.31581822444661
+physfad iteration #56 input distance from zero: 450.114013671875 loss: 61.348086657236394
+physfad iteration #57 input distance from zero: 449.8164978027344 loss: 61.37411117387809
+physfad iteration #58 input distance from zero: 449.5457458496094 loss: 61.39541111777433
+physfad iteration #59 input distance from zero: 449.310791015625 loss: 61.41769217002975
+physfad iteration #60 input distance from zero: 449.10711669921875 loss: 61.44046974538494
+physfad iteration #61 input distance from zero: 448.9305114746094 loss: 61.46197590594064
+physfad iteration #62 input distance from zero: 448.77716064453125 loss: 61.483049033135266
+physfad iteration #63 input distance from zero: 448.64117431640625 loss: 61.505142169403996
+physfad iteration #64 input distance from zero: 448.5159606933594 loss: 61.52875933564535
+physfad iteration #65 input distance from zero: 448.39703369140625 loss: 61.552364022136175
+physfad iteration #66 input distance from zero: 448.28155517578125 loss: 61.573896436383976
+physfad iteration #67 input distance from zero: 448.16827392578125 loss: 61.594033597579546
+physfad iteration #68 input distance from zero: 448.0560607910156 loss: 61.61520742650637
+physfad iteration #69 input distance from zero: 447.94329833984375 loss: 61.637529587745306
+physfad iteration #70 input distance from zero: 447.82763671875 loss: 61.65908715745721
+physfad iteration #71 input distance from zero: 447.7068176269531 loss: 61.680180981656854
+physfad iteration #72 input distance from zero: 447.579833984375 loss: 61.70319980466249
+physfad iteration #73 input distance from zero: 447.447509765625 loss: 61.72939537630214
+physfad iteration #74 input distance from zero: 447.3125 loss: 61.75779983723952
+physfad iteration #75 input distance from zero: 447.17864990234375 loss: 61.786192637568284
+physfad iteration #76 input distance from zero: 447.0505065917969 loss: 61.814233300037436
+physfad iteration #77 input distance from zero: 446.93072509765625 loss: 61.844042322221796
+physfad iteration #78 input distance from zero: 446.819580078125 loss: 61.87744204571463
+physfad iteration #79 input distance from zero: 446.71539306640625 loss: 61.915814874975965
+physfad iteration #80 input distance from zero: 446.6146545410156 loss: 61.957354049464996
+physfad iteration #81 input distance from zero: 446.51470947265625 loss: 61.99705199548851
+physfad iteration #82 input distance from zero: 446.4147644042969 loss: 62.031063328244386
+physfad iteration #83 input distance from zero: 446.3138732910156 loss: 62.058811711505115
+physfad iteration #84 input distance from zero: 446.21295166015625 loss: 62.077212769497365
+physfad iteration #85 input distance from zero: 446.12060546875 loss: 62.09528374906883
+physfad iteration #86 input distance from zero: 446.02886962890625 loss: 62.11883188135583
+physfad iteration #87 input distance from zero: 445.93365478515625 loss: 62.14356514830932
+physfad iteration #88 input distance from zero: 445.83465576171875 loss: 62.163460064970735
+physfad iteration #89 input distance from zero: 445.733154296875 loss: 62.17834356843204
+physfad iteration #90 input distance from zero: 445.624755859375 loss: 62.19144560562038
+physfad iteration #91 input distance from zero: 445.5042724609375 loss: 62.20241031124779
+physfad iteration #92 input distance from zero: 445.3692321777344 loss: 62.21168807767597
+physfad iteration #93 input distance from zero: 445.22003173828125 loss: 62.22213345816449
+physfad iteration #94 input distance from zero: 445.05816650390625 loss: 62.234849613109
+physfad iteration #95 input distance from zero: 444.88470458984375 loss: 62.24804049328696
+physfad iteration #96 input distance from zero: 444.7020263671875 loss: 62.26032201094865
+physfad iteration #97 input distance from zero: 444.515869140625 loss: 62.271122694882195
+physfad iteration #98 input distance from zero: 444.3356628417969 loss: 62.27977878824102
+physfad iteration #99 input distance from zero: 444.1693115234375 loss: 62.28650031053719
+Function physfad_channel_optimization Took 282.6963 seconds
+Function test_configurations_capacity Took 6.4333 seconds
+i:  0 physfad+noise capacity:  tensor(48.7377)
+Function test_configurations_capacity Took 1.1355 seconds
+i:  1 physfad+noise capacity:  tensor(49.0096)
+Function test_configurations_capacity Took 1.1378 seconds
+i:  2 physfad+noise capacity:  tensor(49.5877)
+Function test_configurations_capacity Took 1.1038 seconds
+i:  3 physfad+noise capacity:  tensor(50.2599)
+Function test_configurations_capacity Took 1.1240 seconds
+i:  4 physfad+noise capacity:  tensor(50.9863)
+Function test_configurations_capacity Took 1.1084 seconds
+i:  5 physfad+noise capacity:  tensor(51.6850)
+Function test_configurations_capacity Took 1.1476 seconds
+i:  6 physfad+noise capacity:  tensor(52.3190)
+Function test_configurations_capacity Took 1.1501 seconds
+i:  7 physfad+noise capacity:  tensor(52.8694)
+Function test_configurations_capacity Took 1.1218 seconds
+i:  8 physfad+noise capacity:  tensor(53.3318)
+Function test_configurations_capacity Took 1.1128 seconds
+i:  9 physfad+noise capacity:  tensor(53.7146)
+Function test_configurations_capacity Took 1.0769 seconds
+i:  10 physfad+noise capacity:  tensor(54.0468)
+Function test_configurations_capacity Took 1.1503 seconds
+i:  11 physfad+noise capacity:  tensor(54.3467)
+Function test_configurations_capacity Took 1.1326 seconds
+i:  12 physfad+noise capacity:  tensor(54.6129)
+Function test_configurations_capacity Took 1.1301 seconds
+i:  13 physfad+noise capacity:  tensor(54.8397)
+Function test_configurations_capacity Took 1.1525 seconds
+i:  14 physfad+noise capacity:  tensor(55.0280)
+Function test_configurations_capacity Took 1.0983 seconds
+i:  15 physfad+noise capacity:  tensor(55.1831)
+Function test_configurations_capacity Took 1.1294 seconds
+i:  16 physfad+noise capacity:  tensor(55.3034)
+Function test_configurations_capacity Took 1.0973 seconds
+i:  17 physfad+noise capacity:  tensor(55.3924)
+Function test_configurations_capacity Took 1.1352 seconds
+i:  18 physfad+noise capacity:  tensor(55.4568)
+Function test_configurations_capacity Took 1.1549 seconds
+i:  19 physfad+noise capacity:  tensor(55.5043)
+Function test_configurations_capacity Took 1.1332 seconds
+i:  20 physfad+noise capacity:  tensor(55.5470)
+Function test_configurations_capacity Took 1.1201 seconds
+i:  21 physfad+noise capacity:  tensor(55.5963)
+Function test_configurations_capacity Took 1.1319 seconds
+i:  22 physfad+noise capacity:  tensor(55.6570)
+Function test_configurations_capacity Took 1.1129 seconds
+i:  23 physfad+noise capacity:  tensor(55.7260)
+Function test_configurations_capacity Took 1.1818 seconds
+i:  24 physfad+noise capacity:  tensor(55.7975)
+Function test_configurations_capacity Took 1.0953 seconds
+i:  25 physfad+noise capacity:  tensor(55.8715)
+Function test_configurations_capacity Took 1.1207 seconds
+i:  26 physfad+noise capacity:  tensor(55.9488)
+Function test_configurations_capacity Took 1.1582 seconds
+i:  27 physfad+noise capacity:  tensor(56.0280)
+Function test_configurations_capacity Took 1.1269 seconds
+i:  28 physfad+noise capacity:  tensor(56.1072)
+Function test_configurations_capacity Took 1.0806 seconds
+i:  29 physfad+noise capacity:  tensor(56.1835)
+Function test_configurations_capacity Took 1.1600 seconds
+i:  30 physfad+noise capacity:  tensor(56.2537)
+Function test_configurations_capacity Took 1.1198 seconds
+i:  31 physfad+noise capacity:  tensor(56.3151)
+Function test_configurations_capacity Took 1.1172 seconds
+i:  32 physfad+noise capacity:  tensor(56.3664)
+Function test_configurations_capacity Took 1.1195 seconds
+i:  33 physfad+noise capacity:  tensor(56.4064)
+Function test_configurations_capacity Took 1.1625 seconds
+i:  34 physfad+noise capacity:  tensor(56.4349)
+Function test_configurations_capacity Took 1.1181 seconds
+i:  35 physfad+noise capacity:  tensor(56.4531)
+Function test_configurations_capacity Took 1.1177 seconds
+i:  36 physfad+noise capacity:  tensor(56.4632)
+Function test_configurations_capacity Took 1.1138 seconds
+i:  37 physfad+noise capacity:  tensor(56.4685)
+Function test_configurations_capacity Took 1.1193 seconds
+i:  38 physfad+noise capacity:  tensor(56.4725)
+Function test_configurations_capacity Took 1.1214 seconds
+i:  39 physfad+noise capacity:  tensor(56.4785)
+Function test_configurations_capacity Took 1.1204 seconds
+i:  40 physfad+noise capacity:  tensor(56.4879)
+Function test_configurations_capacity Took 1.1239 seconds
+i:  41 physfad+noise capacity:  tensor(56.5007)
+Function test_configurations_capacity Took 1.1321 seconds
+i:  42 physfad+noise capacity:  tensor(56.5155)
+Function test_configurations_capacity Took 1.1226 seconds
+i:  43 physfad+noise capacity:  tensor(56.5295)
+Function test_configurations_capacity Took 1.1236 seconds
+i:  44 physfad+noise capacity:  tensor(56.5403)
+Function test_configurations_capacity Took 1.1113 seconds
+i:  45 physfad+noise capacity:  tensor(56.5458)
+Function test_configurations_capacity Took 1.1566 seconds
+i:  46 physfad+noise capacity:  tensor(56.5450)
+Function test_configurations_capacity Took 1.1946 seconds
+i:  47 physfad+noise capacity:  tensor(56.5368)
+Function test_configurations_capacity Took 1.1070 seconds
+i:  48 physfad+noise capacity:  tensor(56.5215)
+Function test_configurations_capacity Took 1.1106 seconds
+i:  49 physfad+noise capacity:  tensor(56.5028)
+Function test_configurations_capacity Took 1.1507 seconds
+i:  50 physfad+noise capacity:  tensor(56.4877)
+Function test_configurations_capacity Took 1.1435 seconds
+i:  51 physfad+noise capacity:  tensor(56.4803)
+Function test_configurations_capacity Took 1.1502 seconds
+i:  52 physfad+noise capacity:  tensor(56.4804)
+Function test_configurations_capacity Took 1.1380 seconds
+i:  53 physfad+noise capacity:  tensor(56.4865)
+Function test_configurations_capacity Took 1.1633 seconds
+i:  54 physfad+noise capacity:  tensor(56.4972)
+Function test_configurations_capacity Took 1.1267 seconds
+i:  55 physfad+noise capacity:  tensor(56.5107)
+Function test_configurations_capacity Took 1.1531 seconds
+i:  56 physfad+noise capacity:  tensor(56.5254)
+Function test_configurations_capacity Took 1.1531 seconds
+i:  57 physfad+noise capacity:  tensor(56.5420)
+Function test_configurations_capacity Took 1.1537 seconds
+i:  58 physfad+noise capacity:  tensor(56.5642)
+Function test_configurations_capacity Took 1.1624 seconds
+i:  59 physfad+noise capacity:  tensor(56.5941)
+Function test_configurations_capacity Took 1.1177 seconds
+i:  60 physfad+noise capacity:  tensor(56.6266)
+Function test_configurations_capacity Took 1.1329 seconds
+i:  61 physfad+noise capacity:  tensor(56.6559)
+Function test_configurations_capacity Took 1.1747 seconds
+i:  62 physfad+noise capacity:  tensor(56.6787)
+Function test_configurations_capacity Took 1.1362 seconds
+i:  63 physfad+noise capacity:  tensor(56.6938)
+Function test_configurations_capacity Took 1.1285 seconds
+i:  64 physfad+noise capacity:  tensor(56.7011)
+Function test_configurations_capacity Took 1.1446 seconds
+i:  65 physfad+noise capacity:  tensor(56.7011)
+Function test_configurations_capacity Took 1.1631 seconds
+i:  66 physfad+noise capacity:  tensor(56.6964)
+Function test_configurations_capacity Took 1.1458 seconds
+i:  67 physfad+noise capacity:  tensor(56.6910)
+Function test_configurations_capacity Took 1.1400 seconds
+i:  68 physfad+noise capacity:  tensor(56.6891)
+Function test_configurations_capacity Took 1.1243 seconds
+i:  69 physfad+noise capacity:  tensor(56.6925)
+Function test_configurations_capacity Took 1.1770 seconds
+i:  70 physfad+noise capacity:  tensor(56.7018)
+Function test_configurations_capacity Took 1.1582 seconds
+i:  71 physfad+noise capacity:  tensor(56.7186)
+Function test_configurations_capacity Took 1.1511 seconds
+i:  72 physfad+noise capacity:  tensor(56.7446)
+Function test_configurations_capacity Took 1.1551 seconds
+i:  73 physfad+noise capacity:  tensor(56.7800)
+Function test_configurations_capacity Took 1.1223 seconds
+i:  74 physfad+noise capacity:  tensor(56.8221)
+Function test_configurations_capacity Took 1.1235 seconds
+i:  75 physfad+noise capacity:  tensor(56.8671)
+Function test_configurations_capacity Took 1.1375 seconds
+i:  76 physfad+noise capacity:  tensor(56.9105)
+Function test_configurations_capacity Took 1.1728 seconds
+i:  77 physfad+noise capacity:  tensor(56.9497)
+Function test_configurations_capacity Took 1.1520 seconds
+i:  78 physfad+noise capacity:  tensor(56.9828)
+Function test_configurations_capacity Took 1.1680 seconds
+i:  79 physfad+noise capacity:  tensor(57.0088)
+Function test_configurations_capacity Took 1.1681 seconds
+i:  80 physfad+noise capacity:  tensor(57.0272)
+Function test_configurations_capacity Took 1.1546 seconds
+i:  81 physfad+noise capacity:  tensor(57.0383)
+Function test_configurations_capacity Took 1.1378 seconds
+i:  82 physfad+noise capacity:  tensor(57.0459)
+Function test_configurations_capacity Took 1.0988 seconds
+i:  83 physfad+noise capacity:  tensor(57.0567)
+Function test_configurations_capacity Took 1.1659 seconds
+i:  84 physfad+noise capacity:  tensor(57.0713)
+Function test_configurations_capacity Took 1.1047 seconds
+i:  85 physfad+noise capacity:  tensor(57.0831)
+Function test_configurations_capacity Took 1.1125 seconds
+i:  86 physfad+noise capacity:  tensor(57.0876)
+Function test_configurations_capacity Took 1.1277 seconds
+i:  87 physfad+noise capacity:  tensor(57.0844)
+Function test_configurations_capacity Took 1.1287 seconds
+i:  88 physfad+noise capacity:  tensor(57.0758)
+Function test_configurations_capacity Took 1.1652 seconds
+i:  89 physfad+noise capacity:  tensor(57.0645)
+Function test_configurations_capacity Took 1.0974 seconds
+i:  90 physfad+noise capacity:  tensor(57.0514)
+Function test_configurations_capacity Took 1.1150 seconds
+i:  91 physfad+noise capacity:  tensor(57.0371)
+Function test_configurations_capacity Took 1.1484 seconds
+i:  92 physfad+noise capacity:  tensor(57.0231)
+Function test_configurations_capacity Took 1.1226 seconds
+i:  93 physfad+noise capacity:  tensor(57.0110)
+Function test_configurations_capacity Took 1.1376 seconds
+i:  94 physfad+noise capacity:  tensor(57.0026)
+Function test_configurations_capacity Took 1.1343 seconds
+i:  95 physfad+noise capacity:  tensor(56.9991)
+Function test_configurations_capacity Took 1.1429 seconds
+i:  96 physfad+noise capacity:  tensor(57.0009)
+Function test_configurations_capacity Took 1.0844 seconds
+i:  97 physfad+noise capacity:  tensor(57.0066)
+Function test_configurations_capacity Took 1.1651 seconds
+i:  98 physfad+noise capacity:  tensor(57.0135)
+Function test_configurations_capacity Took 1.1394 seconds
+i:  99 physfad+noise capacity:  tensor(57.0187)
+zogd iteration #0 input distance from zero: 519.4812132641987 loss: 48.640834982547084
+zogd iteration #1 input distance from zero: 519.5298822909645 loss: 48.80974660105397
+zogd iteration #2 input distance from zero: 519.4933789973445 loss: 48.85822693822492
+zogd iteration #3 input distance from zero: 519.6643021532797 loss: 48.91799900496626
+zogd iteration #4 input distance from zero: 519.5946433791312 loss: 49.0154073239828
+zogd iteration #5 input distance from zero: 519.6515654170704 loss: 49.103486121124604
+zogd iteration #6 input distance from zero: 519.6377245223101 loss: 49.14704467557095
+zogd iteration #7 input distance from zero: 519.6626582763117 loss: 49.217748909836814
+zogd iteration #8 input distance from zero: 519.6841787816886 loss: 49.30339957488056
+zogd iteration #9 input distance from zero: 519.6565363434363 loss: 49.326383030197896
+zogd iteration #10 input distance from zero: 519.8360982848583 loss: 49.35730559064393
+zogd iteration #11 input distance from zero: 520.0870827807256 loss: 49.443786078719754
+zogd iteration #12 input distance from zero: 520.0318171820188 loss: 49.51545957216139
+zogd iteration #13 input distance from zero: 519.9663243373739 loss: 49.60987942820529
+zogd iteration #14 input distance from zero: 520.1725162071934 loss: 49.63090769947463
+zogd iteration #15 input distance from zero: 520.0772827258565 loss: 49.673802836471914
+zogd iteration #16 input distance from zero: 519.9195402113126 loss: 49.74098033265332
+zogd iteration #17 input distance from zero: 520.157677523124 loss: 49.803004699820676
+zogd iteration #18 input distance from zero: 520.2559649201589 loss: 49.900860983561444
+zogd iteration #19 input distance from zero: 520.2572128996453 loss: 49.951357954482766
+zogd iteration #20 input distance from zero: 520.178216751624 loss: 50.02964385060345
+zogd iteration #21 input distance from zero: 520.0200629333008 loss: 50.08992393558677
+zogd iteration #22 input distance from zero: 519.9122903849913 loss: 50.26091182855491
+zogd iteration #23 input distance from zero: 519.8886748338983 loss: 50.320611803528124
+zogd iteration #24 input distance from zero: 519.8416544814058 loss: 50.364938745584766
+zogd iteration #25 input distance from zero: 519.8414239324566 loss: 50.40027599001423
+zogd iteration #26 input distance from zero: 519.8650626144847 loss: 50.44924316709418
+zogd iteration #27 input distance from zero: 519.9946968135846 loss: 50.47460329061196
+zogd iteration #28 input distance from zero: 520.1020425874306 loss: 50.50781130818468
+zogd iteration #29 input distance from zero: 519.9649349888991 loss: 50.56471777044824
+zogd iteration #30 input distance from zero: 519.7524405447475 loss: 50.614735229164765
+zogd iteration #31 input distance from zero: 519.8044488857622 loss: 50.70931516110305
+zogd iteration #32 input distance from zero: 519.7653927840815 loss: 50.78404339638101
+zogd iteration #33 input distance from zero: 519.9356826385599 loss: 50.81147344573203
+zogd iteration #34 input distance from zero: 519.8270269494628 loss: 50.87762019486498
+zogd iteration #35 input distance from zero: 519.8856988287611 loss: 50.91954092046764
+zogd iteration #36 input distance from zero: 519.7966896799388 loss: 51.00323909703146
+zogd iteration #37 input distance from zero: 519.8070819830175 loss: 51.05608473496853
+zogd iteration #38 input distance from zero: 519.7220670887451 loss: 51.133181411307625
+zogd iteration #39 input distance from zero: 519.7162690004454 loss: 51.2171326772301
+zogd iteration #40 input distance from zero: 519.7374906363918 loss: 51.25866024107975
+zogd iteration #41 input distance from zero: 519.6572747397515 loss: 51.32102885164042
+zogd iteration #42 input distance from zero: 519.5783981626614 loss: 51.38629182849646
+zogd iteration #43 input distance from zero: 519.4916700228508 loss: 51.425544464076616
+zogd iteration #44 input distance from zero: 519.4994644763417 loss: 51.493643891235244
+zogd iteration #45 input distance from zero: 519.4468197204685 loss: 51.51187127765678
+zogd iteration #46 input distance from zero: 519.5314405128079 loss: 51.56540051533834
+zogd iteration #47 input distance from zero: 519.4537419275714 loss: 51.63846465791613
+zogd iteration #48 input distance from zero: 519.4432501436947 loss: 51.7154144974273
+zogd iteration #49 input distance from zero: 519.3720774955566 loss: 51.762825271507054
+zogd iteration #50 input distance from zero: 519.187355644717 loss: 51.80826400415073
+zogd iteration #51 input distance from zero: 519.2084911646334 loss: 51.83757930754581
+zogd iteration #52 input distance from zero: 519.1867941364042 loss: 51.85428836734659
+zogd iteration #53 input distance from zero: 519.3396205863828 loss: 51.87452103411088
+zogd iteration #54 input distance from zero: 519.1083142192394 loss: 51.92463545888245
+zogd iteration #55 input distance from zero: 519.1326185567841 loss: 52.00724681715398
+zogd iteration #56 input distance from zero: 519.3859330799264 loss: 52.0522146574946
+zogd iteration #57 input distance from zero: 519.3586031174005 loss: 52.12794580046311
+zogd iteration #58 input distance from zero: 519.3217811711422 loss: 52.14280444487158
+zogd iteration #59 input distance from zero: 519.1131168233514 loss: 52.17699343998571
+zogd iteration #60 input distance from zero: 519.0904079130385 loss: 52.2378830887406
+zogd iteration #61 input distance from zero: 519.1523973853109 loss: 52.267694187043006
+zogd iteration #62 input distance from zero: 519.2320653147681 loss: 52.279638211824924
+zogd iteration #63 input distance from zero: 519.1718841742642 loss: 52.33796106085039
+zogd iteration #64 input distance from zero: 519.1793250550272 loss: 52.36958314399299
+zogd iteration #65 input distance from zero: 519.207228358896 loss: 52.402978747982964
+zogd iteration #66 input distance from zero: 519.1983527227396 loss: 52.40799683133768
+zogd iteration #67 input distance from zero: 519.2625854690232 loss: 52.42707339675951
+zogd iteration #68 input distance from zero: 519.3658925312656 loss: 52.45032704046085
+zogd iteration #69 input distance from zero: 519.2378307634892 loss: 52.47838311126654
+zogd iteration #70 input distance from zero: 519.2861270832301 loss: 52.5200339631952
+zogd iteration #71 input distance from zero: 519.1373694598124 loss: 52.54710533082301
+zogd iteration #72 input distance from zero: 519.1351100967402 loss: 52.56014699764231
+zogd iteration #73 input distance from zero: 519.0556691151176 loss: 52.58037665314081
+zogd iteration #74 input distance from zero: 518.9893991949396 loss: 52.59798915467731
+zogd iteration #75 input distance from zero: 518.9695275173361 loss: 52.64040517902059
+zogd iteration #76 input distance from zero: 518.8789041270448 loss: 52.6533496618772
+zogd iteration #77 input distance from zero: 518.8777854001728 loss: 52.67998215531658
+zogd iteration #78 input distance from zero: 518.8748125129518 loss: 52.68679073660599
+zogd iteration #79 input distance from zero: 518.8516249254424 loss: 52.72827806782911
+zogd iteration #80 input distance from zero: 518.9940166348613 loss: 52.748140506145276
+zogd iteration #81 input distance from zero: 519.0276669297843 loss: 52.78887807424207
+zogd iteration #82 input distance from zero: 518.8928821491459 loss: 52.80226548816518
+zogd iteration #83 input distance from zero: 518.9469881196185 loss: 52.83632088168558
+zogd iteration #84 input distance from zero: 519.0648141916251 loss: 52.85209825323937
+zogd iteration #85 input distance from zero: 518.9701413574169 loss: 52.885133476790465
+zogd iteration #86 input distance from zero: 518.9560736397855 loss: 52.92248523859583
+zogd iteration #87 input distance from zero: 518.8532038921619 loss: 52.92630247716372
+zogd iteration #88 input distance from zero: 519.2087465778882 loss: 52.95745527369316
+zogd iteration #89 input distance from zero: 519.1778743083291 loss: 52.937549048389265
+zogd iteration #90 input distance from zero: 519.1754895716995 loss: 52.958016375387565
+zogd iteration #91 input distance from zero: 519.2207478546895 loss: 52.99249288330348
+zogd iteration #92 input distance from zero: 519.1368846043682 loss: 53.06512282065823
+zogd iteration #93 input distance from zero: 519.2413827565767 loss: 53.07335916011391
+zogd iteration #94 input distance from zero: 519.1934777709321 loss: 53.08296994304705
+zogd iteration #95 input distance from zero: 519.2020580024358 loss: 53.12107426271984
+zogd iteration #96 input distance from zero: 519.3226072111503 loss: 53.15682301524976
+zogd iteration #97 input distance from zero: 519.2188150345003 loss: 53.181624878298415
+zogd iteration #98 input distance from zero: 519.1509800911222 loss: 53.21391995810846
+zogd iteration #99 input distance from zero: 519.1142482760915 loss: 53.23067419802178
+Function zeroth_grad_optimization Took 1079.3444 seconds
+rand iteration #0 input distance from zero: 121.7043714770783 loss: 51.26472635717722
+rand iteration #1 input distance from zero: 128.99178458812224 loss: 43.940246537378414
+rand iteration #2 input distance from zero: 133.77157343373784 loss: 50.624755071465984
+rand iteration #3 input distance from zero: 137.73827540804606 loss: 46.22561583944394
+rand iteration #4 input distance from zero: 130.39233500225828 loss: 45.878669536436256
+rand iteration #5 input distance from zero: 136.41658777132525 loss: 47.375575753579696
+rand iteration #6 input distance from zero: 137.81070059629525 loss: 49.54909641056268
+rand iteration #7 input distance from zero: 138.12403916996794 loss: 47.6150993150338
+rand iteration #8 input distance from zero: 134.774682444544 loss: 49.694854318029876
+rand iteration #9 input distance from zero: 138.0304699159766 loss: 46.90297012316155
+rand iteration #10 input distance from zero: 131.28077132054423 loss: 51.25320134448911
+rand iteration #11 input distance from zero: 138.69171851107768 loss: 48.05051915618853
+rand iteration #12 input distance from zero: 128.65595760208174 loss: 44.40793244941829
+rand iteration #13 input distance from zero: 130.09277754434987 loss: 47.93525937915347
+rand iteration #14 input distance from zero: 129.19795057625555 loss: 47.57430536081567
+rand iteration #15 input distance from zero: 130.12848505444632 loss: 44.73001285451686
+rand iteration #16 input distance from zero: 131.94527999205167 loss: 48.578834919891285
+rand iteration #17 input distance from zero: 133.5542793333021 loss: 52.60952560443141
+rand iteration #18 input distance from zero: 132.254798904161 loss: 47.10419291403261
+rand iteration #19 input distance from zero: 133.06446976678836 loss: 46.1746119504634
+rand iteration #20 input distance from zero: 132.12642707974464 loss: 45.16423050729391
+rand iteration #21 input distance from zero: 134.0366054853841 loss: 50.99498612386519
+rand iteration #22 input distance from zero: 138.88702984362573 loss: 49.120379539481966
+rand iteration #23 input distance from zero: 129.59008543032965 loss: 45.428449348444374
+rand iteration #24 input distance from zero: 121.77752991658897 loss: 51.78291274838532
+rand iteration #25 input distance from zero: 135.58519176032797 loss: 48.31579576869706
+rand iteration #26 input distance from zero: 125.25445011770663 loss: 46.95182139015799
+rand iteration #27 input distance from zero: 126.0789613810197 loss: 47.9988692385344
+rand iteration #28 input distance from zero: 132.49963068543275 loss: 53.777727412428106
+rand iteration #29 input distance from zero: 131.78448766909753 loss: 46.71296157093812
+rand iteration #30 input distance from zero: 124.87017339356699 loss: 47.989608966624814
+rand iteration #31 input distance from zero: 130.8874977901028 loss: 45.26479839316894
+rand iteration #32 input distance from zero: 132.49095213548773 loss: 48.90761163589668
+rand iteration #33 input distance from zero: 125.69335068027908 loss: 46.154111643020656
+rand iteration #34 input distance from zero: 130.96496930581608 loss: 49.37047407534306
+rand iteration #35 input distance from zero: 131.89988073459358 loss: 46.38685977205619
+rand iteration #36 input distance from zero: 132.17901627155072 loss: 48.01187587290613
+rand iteration #37 input distance from zero: 136.449588046776 loss: 45.53512049100258
+rand iteration #38 input distance from zero: 131.30794722353107 loss: 50.11689767754761
+rand iteration #39 input distance from zero: 135.74784664926122 loss: 47.26071970304668
+rand iteration #40 input distance from zero: 135.51917725342275 loss: 45.53055335109897
+rand iteration #41 input distance from zero: 136.5278029417463 loss: 48.91443644820548
+rand iteration #42 input distance from zero: 133.94308292422394 loss: 50.287752467656844
+rand iteration #43 input distance from zero: 135.34337014060918 loss: 50.609763097955096
+rand iteration #44 input distance from zero: 137.6424089228318 loss: 47.4951302067976
+rand iteration #45 input distance from zero: 140.2598992895517 loss: 48.60987995697111
+rand iteration #46 input distance from zero: 137.71809575984918 loss: 50.220237524100085
+rand iteration #47 input distance from zero: 133.94105253829446 loss: 47.811489563646234
+rand iteration #48 input distance from zero: 126.85996444679168 loss: 50.27326657927972
+rand iteration #49 input distance from zero: 130.00247694842676 loss: 49.85969543538195
+rand iteration #50 input distance from zero: 141.94553873269336 loss: 50.69742303105224
+rand iteration #51 input distance from zero: 134.15394664308084 loss: 52.02654882443265
+rand iteration #52 input distance from zero: 131.3157739934188 loss: 46.12615799341218
+rand iteration #53 input distance from zero: 120.35127940529334 loss: 51.30883102528271
+rand iteration #54 input distance from zero: 140.9767040525391 loss: 50.473911930427946
+rand iteration #55 input distance from zero: 129.8701013943877 loss: 50.39080318519952
+rand iteration #56 input distance from zero: 129.83513243669995 loss: 51.22345883000462
+rand iteration #57 input distance from zero: 144.3102669544994 loss: 44.75064624543918
+rand iteration #58 input distance from zero: 130.66103166100703 loss: 48.85988608463376
+rand iteration #59 input distance from zero: 136.78038519303766 loss: 46.82481285717964
+rand iteration #60 input distance from zero: 132.45532439150716 loss: 46.01775849919485
+rand iteration #61 input distance from zero: 126.54856618293722 loss: 50.193114062747966
+rand iteration #62 input distance from zero: 134.4958726636328 loss: 48.4521565517323
+rand iteration #63 input distance from zero: 135.2111863337899 loss: 50.84475002457259
+rand iteration #64 input distance from zero: 137.26443509610195 loss: 51.47579789250661
+rand iteration #65 input distance from zero: 137.87657056079922 loss: 46.69767931070698
+rand iteration #66 input distance from zero: 126.0102034512547 loss: 50.4571862219626
+rand iteration #67 input distance from zero: 139.14848958342824 loss: 47.6841431841125
+rand iteration #68 input distance from zero: 137.6661344035251 loss: 49.639639171092334
+rand iteration #69 input distance from zero: 131.2430046669133 loss: 46.87306722272485
+rand iteration #70 input distance from zero: 136.39506383821444 loss: 49.91705747047299
+rand iteration #71 input distance from zero: 139.1828605997913 loss: 44.153992898503965
+rand iteration #72 input distance from zero: 130.31016403367914 loss: 46.22762825227405
+rand iteration #73 input distance from zero: 130.45586589690518 loss: 47.5456064384042
+rand iteration #74 input distance from zero: 127.33374847887666 loss: 48.954772044964145
+rand iteration #75 input distance from zero: 134.2327883413697 loss: 49.36704856667731
+rand iteration #76 input distance from zero: 135.78805607440356 loss: 50.328531364995094
+rand iteration #77 input distance from zero: 136.3604453664717 loss: 49.11320704444918
+rand iteration #78 input distance from zero: 134.37228454064373 loss: 46.58648684490011
+rand iteration #79 input distance from zero: 131.1427089397237 loss: 50.66378901992755
+rand iteration #80 input distance from zero: 133.01869884181366 loss: 46.49495747615834
+rand iteration #81 input distance from zero: 134.40702454921632 loss: 48.808451421266476
+rand iteration #82 input distance from zero: 122.01545663392552 loss: 52.31941520712061
+rand iteration #83 input distance from zero: 140.31318610036746 loss: 51.47346970443682
+rand iteration #84 input distance from zero: 128.93550268748538 loss: 47.73094441721152
+rand iteration #85 input distance from zero: 133.42652778390175 loss: 49.61439602078157
+rand iteration #86 input distance from zero: 133.72036058707434 loss: 48.2531525079561
+rand iteration #87 input distance from zero: 134.92325804839535 loss: 52.7128597440289
+rand iteration #88 input distance from zero: 131.4191871157086 loss: 43.45568201474326
+rand iteration #89 input distance from zero: 141.83289700184645 loss: 47.49046019995114
+rand iteration #90 input distance from zero: 124.18443937491571 loss: 46.47583870829243
+rand iteration #91 input distance from zero: 129.4818013464 loss: 45.40887020450125
+rand iteration #92 input distance from zero: 132.67595277421447 loss: 50.5116636525815
+rand iteration #93 input distance from zero: 133.7654109974918 loss: 48.53655785951005
+rand iteration #94 input distance from zero: 130.09049426557058 loss: 46.44153066115942
+rand iteration #95 input distance from zero: 131.65095987235105 loss: 46.0317200682025
+rand iteration #96 input distance from zero: 136.57094062458623 loss: 46.72446990179195
+rand iteration #97 input distance from zero: 135.5801093631203 loss: 46.984760115807475
+rand iteration #98 input distance from zero: 134.58462863187958 loss: 49.053777191667834
+rand iteration #99 input distance from zero: 131.27508517001075 loss: 48.558222702210244
+tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+score parameter tensor([0.5000, 0.5000, 0.5000, 0.5000, 0.5000, 0.5000, 0.5000, 0.5000, 0.5000,
+        0.5000])
+noise parameter tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+Function annealed_langevin_v3 Took 0.1182 seconds
+Function test_configurations_capacity Took 1.1772 seconds
+iter 0 physfad_c capacity 48.64083568094331
+Function test_configurations_capacity Took 1.1238 seconds
+iter 5 physfad_c capacity 51.141797701708136
+Function test_configurations_capacity Took 1.1970 seconds
+iter 10 physfad_c capacity 51.5228051466341
+Function test_configurations_capacity Took 1.1537 seconds
+iter 15 physfad_c capacity 49.694387775562916
+Function test_configurations_capacity Took 1.1691 seconds
+iter 20 physfad_c capacity 52.13668622849089
+Function test_configurations_capacity Took 1.1376 seconds
+iter 25 physfad_c capacity 51.306261906120945
+Function test_configurations_capacity Took 1.1871 seconds
+iter 30 physfad_c capacity 48.60663286158339
+Function test_configurations_capacity Took 1.1933 seconds
+iter 35 physfad_c capacity 49.43188882935702
+Function test_configurations_capacity Took 1.1617 seconds
+iter 40 physfad_c capacity 50.86216868744827
+Function test_configurations_capacity Took 1.2254 seconds
+iter 45 physfad_c capacity 49.27280792929116
+Function test_configurations_capacity Took 1.1480 seconds
+iter 50 physfad_c capacity 48.838326626560274
+Function test_configurations_capacity Took 1.1876 seconds
+iter 55 physfad_c capacity 49.80455199356689
+Function test_configurations_capacity Took 1.1755 seconds
+iter 60 physfad_c capacity 52.54382514198331
+Function test_configurations_capacity Took 1.1661 seconds
+iter 65 physfad_c capacity 51.4063290954053
+Function test_configurations_capacity Took 1.1915 seconds
+iter 70 physfad_c capacity 53.56102359094153
+Function test_configurations_capacity Took 1.1870 seconds
+iter 75 physfad_c capacity 52.138433946770974
+Function test_configurations_capacity Took 1.1690 seconds
+iter 80 physfad_c capacity 54.69098926485482
+Function test_configurations_capacity Took 1.1557 seconds
+iter 85 physfad_c capacity 55.44847907414099
+Function test_configurations_capacity Took 1.1133 seconds
+iter 90 physfad_c capacity 55.830260427169776
+Function test_configurations_capacity Took 1.1762 seconds
+iter 95 physfad_c capacity 55.69690628885715
+Function test_configurations_capacity Took 1.1571 seconds
+iter 100 physfad_c capacity 57.87051528644609
+Function test_configurations_capacity Took 1.1728 seconds
+iter 105 physfad_c capacity 58.127348965992525
+Function test_configurations_capacity Took 1.1516 seconds
+iter 110 physfad_c capacity 58.62344661516906
+Function test_configurations_capacity Took 1.1373 seconds
+iter 115 physfad_c capacity 57.49993093813924
+Function test_configurations_capacity Took 1.1716 seconds
+iter 120 physfad_c capacity 57.42804057687395
+Function test_configurations_capacity Took 1.1683 seconds
+iter 125 physfad_c capacity 58.838599249306725
+Function test_configurations_capacity Took 1.1612 seconds
+iter 130 physfad_c capacity 58.94490914387761
+Function test_configurations_capacity Took 1.1742 seconds
+iter 135 physfad_c capacity 58.97844562743403
+Function test_configurations_capacity Took 1.1699 seconds
+iter 140 physfad_c capacity 59.19375515369556
+Function test_configurations_capacity Took 1.1355 seconds
+iter 145 physfad_c capacity 59.55917795194805
+Function test_configurations_capacity Took 1.1366 seconds
+iter 150 physfad_c capacity 59.69905050882306
+Function test_configurations_capacity Took 1.1259 seconds
+iter 155 physfad_c capacity 59.7374885734436
+Function test_configurations_capacity Took 1.1493 seconds
+iter 160 physfad_c capacity 59.349117504156496
+Function test_configurations_capacity Took 1.1735 seconds
+iter 165 physfad_c capacity 59.54070782634422
+Function test_configurations_capacity Took 1.1366 seconds
+iter 170 physfad_c capacity 59.44386987659557
+Function test_configurations_capacity Took 1.1490 seconds
+iter 175 physfad_c capacity 59.32962252572441
+Function test_configurations_capacity Took 1.1333 seconds
+iter 180 physfad_c capacity 59.30077789349598
+Function test_configurations_capacity Took 1.1166 seconds
+iter 185 physfad_c capacity 59.25328120699412
+Function test_configurations_capacity Took 1.1633 seconds
+iter 190 physfad_c capacity 59.32069908183272
+Function test_configurations_capacity Took 1.1467 seconds
+iter 195 physfad_c capacity 59.31041221327479
+Function test_configurations_capacity Took 1.1348 seconds
+iter 200 physfad_c capacity 59.4173537857427
+Function test_configurations_capacity Took 1.1461 seconds
+iter 205 physfad_c capacity 59.47977094133171
+Function test_configurations_capacity Took 1.1413 seconds
+iter 210 physfad_c capacity 59.51837771440677
+Function test_configurations_capacity Took 1.1634 seconds
+iter 215 physfad_c capacity 59.45953781409535
+Function test_configurations_capacity Took 1.1257 seconds
+iter 220 physfad_c capacity 59.521973721806575
+Function test_configurations_capacity Took 1.0948 seconds
+iter 225 physfad_c capacity 59.52007746581474
+Function test_configurations_capacity Took 1.1400 seconds
+iter 230 physfad_c capacity 59.53267666840253
+Function test_configurations_capacity Took 1.1746 seconds
+iter 235 physfad_c capacity 59.51244124586664
+Function test_configurations_capacity Took 1.1493 seconds
+iter 240 physfad_c capacity 59.53049822922907
+Function test_configurations_capacity Took 1.1387 seconds
+iter 245 physfad_c capacity 59.513253461172354
+0.03305785123966942 1 0
+physfad iteration #0 input distance from zero: 664.9278564453125 loss: 508.8565412604764
+physfad iteration #1 input distance from zero: 657.1672973632812 loss: 527.1608288592406
+physfad iteration #2 input distance from zero: 648.887939453125 loss: 542.1464190113077
+physfad iteration #3 input distance from zero: 640.4219360351562 loss: 554.4203201536686
+physfad iteration #4 input distance from zero: 631.8084716796875 loss: 565.3044443183076
+physfad iteration #5 input distance from zero: 623.0797119140625 loss: 575.0899562934205
+physfad iteration #6 input distance from zero: 614.3014526367188 loss: 584.0261986148583
+physfad iteration #7 input distance from zero: 605.5281982421875 loss: 591.5585161716772
+physfad iteration #8 input distance from zero: 596.8253173828125 loss: 598.0736979711268
+physfad iteration #9 input distance from zero: 588.233642578125 loss: 604.359589024939
+physfad iteration #10 input distance from zero: 579.80859375 loss: 610.1776576751918
+physfad iteration #11 input distance from zero: 571.5936279296875 loss: 615.5575572423904
+physfad iteration #12 input distance from zero: 563.6268920898438 loss: 620.3237308930559
+physfad iteration #13 input distance from zero: 555.9468383789062 loss: 624.2148069905581
+physfad iteration #14 input distance from zero: 548.5955200195312 loss: 627.4953790575682
+physfad iteration #15 input distance from zero: 541.5968017578125 loss: 630.5129066532644
+physfad iteration #16 input distance from zero: 534.9605102539062 loss: 633.4024286510175
+physfad iteration #17 input distance from zero: 528.691162109375 loss: 636.1549107579407
+physfad iteration #18 input distance from zero: 522.793212890625 loss: 638.7083258794341
+physfad iteration #19 input distance from zero: 517.2638549804688 loss: 640.9835380036202
+physfad iteration #20 input distance from zero: 512.100830078125 loss: 642.9031978437674
+physfad iteration #21 input distance from zero: 507.3156433105469 loss: 644.5700098842574
+physfad iteration #22 input distance from zero: 502.9066162109375 loss: 646.0781926605536
+physfad iteration #23 input distance from zero: 498.85284423828125 loss: 647.5432867295101
+physfad iteration #24 input distance from zero: 495.1282958984375 loss: 649.0060432703249
+physfad iteration #25 input distance from zero: 491.70465087890625 loss: 650.4000614705221
+physfad iteration #26 input distance from zero: 488.55712890625 loss: 651.6538970945646
+physfad iteration #27 input distance from zero: 485.660888671875 loss: 652.7431071782524
+physfad iteration #28 input distance from zero: 483.0027160644531 loss: 653.667486782587
+physfad iteration #29 input distance from zero: 480.5616760253906 loss: 654.5030451431951
+physfad iteration #30 input distance from zero: 478.3204040527344 loss: 655.2948538645029
+physfad iteration #31 input distance from zero: 476.2664794921875 loss: 656.0860493756077
+physfad iteration #32 input distance from zero: 474.38543701171875 loss: 656.8888972262844
+physfad iteration #33 input distance from zero: 472.65997314453125 loss: 657.63975845829
+physfad iteration #34 input distance from zero: 471.0731201171875 loss: 658.2976091521393
+physfad iteration #35 input distance from zero: 469.60784912109375 loss: 658.8589606414641
+physfad iteration #36 input distance from zero: 468.24981689453125 loss: 659.3830514158334
+physfad iteration #37 input distance from zero: 466.991943359375 loss: 659.8874688309406
+physfad iteration #38 input distance from zero: 465.835693359375 loss: 660.361989371947
+physfad iteration #39 input distance from zero: 464.78411865234375 loss: 660.8241350236798
+physfad iteration #40 input distance from zero: 463.8362121582031 loss: 661.3209045348842
+physfad iteration #41 input distance from zero: 462.9844970703125 loss: 661.839156198777
+physfad iteration #42 input distance from zero: 462.2156982421875 loss: 662.3843500385335
+physfad iteration #43 input distance from zero: 461.5124816894531 loss: 662.9479334122711
+physfad iteration #44 input distance from zero: 460.8611755371094 loss: 663.5171351965098
+physfad iteration #45 input distance from zero: 460.2467041015625 loss: 664.053647324419
+physfad iteration #46 input distance from zero: 459.6572265625 loss: 664.5305076137744
+physfad iteration #47 input distance from zero: 459.0878601074219 loss: 664.945067711492
+physfad iteration #48 input distance from zero: 458.5378723144531 loss: 665.3258103764047
+physfad iteration #49 input distance from zero: 458.0066833496094 loss: 665.6842493796072
+physfad iteration #50 input distance from zero: 457.4944763183594 loss: 666.0255874673647
+physfad iteration #51 input distance from zero: 456.99951171875 loss: 666.3738756141346
+physfad iteration #52 input distance from zero: 456.52099609375 loss: 666.7062200929693
+physfad iteration #53 input distance from zero: 456.0589294433594 loss: 666.9937230465168
+physfad iteration #54 input distance from zero: 455.6138916015625 loss: 667.2165739553604
+physfad iteration #55 input distance from zero: 455.1863098144531 loss: 667.4159937443944
+physfad iteration #56 input distance from zero: 454.7787780761719 loss: 667.613092062804
+physfad iteration #57 input distance from zero: 454.3941345214844 loss: 667.8116404178675
+physfad iteration #58 input distance from zero: 454.032958984375 loss: 668.0108131180889
+physfad iteration #59 input distance from zero: 453.6933898925781 loss: 668.2085444385955
+physfad iteration #60 input distance from zero: 453.37591552734375 loss: 668.4059135730618
+physfad iteration #61 input distance from zero: 453.0771179199219 loss: 668.5986678301965
+physfad iteration #62 input distance from zero: 452.79058837890625 loss: 668.7843832082282
+physfad iteration #63 input distance from zero: 452.5090026855469 loss: 668.9723541225352
+physfad iteration #64 input distance from zero: 452.22747802734375 loss: 669.1704279489052
+physfad iteration #65 input distance from zero: 451.9435729980469 loss: 669.3867350748335
+physfad iteration #66 input distance from zero: 451.6618957519531 loss: 669.6168642973205
+physfad iteration #67 input distance from zero: 451.3866882324219 loss: 669.8389910424819
+physfad iteration #68 input distance from zero: 451.12164306640625 loss: 670.0314194382802
+physfad iteration #69 input distance from zero: 450.86883544921875 loss: 670.2063015240863
+physfad iteration #70 input distance from zero: 450.6228332519531 loss: 670.36892095179
+physfad iteration #71 input distance from zero: 450.3807373046875 loss: 670.5249955241427
+physfad iteration #72 input distance from zero: 450.1443786621094 loss: 670.6682979842669
+physfad iteration #73 input distance from zero: 449.9176940917969 loss: 670.7978609177284
+physfad iteration #74 input distance from zero: 449.701171875 loss: 670.9287966394643
+physfad iteration #75 input distance from zero: 449.4947509765625 loss: 671.061154960377
+physfad iteration #76 input distance from zero: 449.294677734375 loss: 671.1916611968338
+physfad iteration #77 input distance from zero: 449.0992431640625 loss: 671.3125203855852
+physfad iteration #78 input distance from zero: 448.91131591796875 loss: 671.4291970073463
+physfad iteration #79 input distance from zero: 448.7322692871094 loss: 671.5479545521216
+physfad iteration #80 input distance from zero: 448.5637512207031 loss: 671.6635283773758
+physfad iteration #81 input distance from zero: 448.4052429199219 loss: 671.7704400336979
+physfad iteration #82 input distance from zero: 448.253662109375 loss: 671.8725780760531
+physfad iteration #83 input distance from zero: 448.1058654785156 loss: 671.9708115746945
+physfad iteration #84 input distance from zero: 447.961181640625 loss: 672.0634742001236
+physfad iteration #85 input distance from zero: 447.81890869140625 loss: 672.1536206162945
+physfad iteration #86 input distance from zero: 447.6773681640625 loss: 672.2474370616723
+physfad iteration #87 input distance from zero: 447.5366516113281 loss: 672.3462366078686
+physfad iteration #88 input distance from zero: 447.39508056640625 loss: 672.4518022785574
+physfad iteration #89 input distance from zero: 447.25225830078125 loss: 672.5639460486573
+physfad iteration #90 input distance from zero: 447.1104736328125 loss: 672.6797037519652
+physfad iteration #91 input distance from zero: 446.9745788574219 loss: 672.7936700224111
+physfad iteration #92 input distance from zero: 446.8491516113281 loss: 672.8952144245429
+physfad iteration #93 input distance from zero: 446.7355041503906 loss: 672.9756162167242
+physfad iteration #94 input distance from zero: 446.6374206542969 loss: 673.03991384633
+physfad iteration #95 input distance from zero: 446.55291748046875 loss: 673.096354525201
+physfad iteration #96 input distance from zero: 446.4778747558594 loss: 673.1474183262783
+physfad iteration #97 input distance from zero: 446.4050598144531 loss: 673.2002475718637
+physfad iteration #98 input distance from zero: 446.32830810546875 loss: 673.2530778376633
+physfad iteration #99 input distance from zero: 446.24755859375 loss: 673.3022468111346
+Function physfad_channel_optimization Took 272.0832 seconds
+Function test_configurations_capacity Took 4.4228 seconds
+i:  0 physfad+noise capacity:  tensor(612.4396)
+Function test_configurations_capacity Took 0.8923 seconds
+i:  1 physfad+noise capacity:  tensor(615.6122)
+Function test_configurations_capacity Took 0.8882 seconds
+i:  2 physfad+noise capacity:  tensor(618.7798)
+Function test_configurations_capacity Took 0.8921 seconds
+i:  3 physfad+noise capacity:  tensor(622.2238)
+Function test_configurations_capacity Took 0.8946 seconds
+i:  4 physfad+noise capacity:  tensor(625.7545)
+Function test_configurations_capacity Took 0.8992 seconds
+i:  5 physfad+noise capacity:  tensor(628.9396)
+Function test_configurations_capacity Took 0.9097 seconds
+i:  6 physfad+noise capacity:  tensor(631.1806)
+Function test_configurations_capacity Took 0.9281 seconds
+i:  7 physfad+noise capacity:  tensor(632.9208)
+Function test_configurations_capacity Took 0.9208 seconds
+i:  8 physfad+noise capacity:  tensor(634.1157)
+Function test_configurations_capacity Took 0.9007 seconds
+i:  9 physfad+noise capacity:  tensor(635.1541)
+Function test_configurations_capacity Took 0.9247 seconds
+i:  10 physfad+noise capacity:  tensor(636.2205)
+Function test_configurations_capacity Took 0.9264 seconds
+i:  11 physfad+noise capacity:  tensor(637.3837)
+Function test_configurations_capacity Took 0.9476 seconds
+i:  12 physfad+noise capacity:  tensor(638.4735)
+Function test_configurations_capacity Took 0.9202 seconds
+i:  13 physfad+noise capacity:  tensor(639.3533)
+Function test_configurations_capacity Took 0.9286 seconds
+i:  14 physfad+noise capacity:  tensor(639.9642)
+Function test_configurations_capacity Took 0.9347 seconds
+i:  15 physfad+noise capacity:  tensor(640.4028)
+Function test_configurations_capacity Took 0.9348 seconds
+i:  16 physfad+noise capacity:  tensor(640.7576)
+Function test_configurations_capacity Took 0.9490 seconds
+i:  17 physfad+noise capacity:  tensor(641.0685)
+Function test_configurations_capacity Took 0.9287 seconds
+i:  18 physfad+noise capacity:  tensor(641.3405)
+Function test_configurations_capacity Took 0.9463 seconds
+i:  19 physfad+noise capacity:  tensor(641.5850)
+Function test_configurations_capacity Took 0.9715 seconds
+i:  20 physfad+noise capacity:  tensor(641.8038)
+Function test_configurations_capacity Took 0.9308 seconds
+i:  21 physfad+noise capacity:  tensor(642.0392)
+Function test_configurations_capacity Took 0.9480 seconds
+i:  22 physfad+noise capacity:  tensor(642.3928)
+Function test_configurations_capacity Took 0.9192 seconds
+i:  23 physfad+noise capacity:  tensor(642.8992)
+Function test_configurations_capacity Took 0.9185 seconds
+i:  24 physfad+noise capacity:  tensor(643.4300)
+Function test_configurations_capacity Took 0.9208 seconds
+i:  25 physfad+noise capacity:  tensor(643.9681)
+Function test_configurations_capacity Took 0.9059 seconds
+i:  26 physfad+noise capacity:  tensor(644.4734)
+Function test_configurations_capacity Took 0.9996 seconds
+i:  27 physfad+noise capacity:  tensor(644.9280)
+Function test_configurations_capacity Took 0.9426 seconds
+i:  28 physfad+noise capacity:  tensor(645.3651)
+Function test_configurations_capacity Took 0.9316 seconds
+i:  29 physfad+noise capacity:  tensor(645.7370)
+Function test_configurations_capacity Took 0.9142 seconds
+i:  30 physfad+noise capacity:  tensor(645.9918)
+Function test_configurations_capacity Took 0.9432 seconds
+i:  31 physfad+noise capacity:  tensor(646.1310)
+Function test_configurations_capacity Took 0.9302 seconds
+i:  32 physfad+noise capacity:  tensor(646.1876)
+Function test_configurations_capacity Took 0.9270 seconds
+i:  33 physfad+noise capacity:  tensor(646.1827)
+Function test_configurations_capacity Took 0.9273 seconds
+i:  34 physfad+noise capacity:  tensor(646.1185)
+Function test_configurations_capacity Took 0.9230 seconds
+i:  35 physfad+noise capacity:  tensor(646.0111)
+Function test_configurations_capacity Took 0.9384 seconds
+i:  36 physfad+noise capacity:  tensor(645.8796)
+Function test_configurations_capacity Took 0.9306 seconds
+i:  37 physfad+noise capacity:  tensor(645.7287)
+Function test_configurations_capacity Took 0.9487 seconds
+i:  38 physfad+noise capacity:  tensor(645.5350)
+Function test_configurations_capacity Took 0.9328 seconds
+i:  39 physfad+noise capacity:  tensor(645.3108)
+Function test_configurations_capacity Took 0.9320 seconds
+i:  40 physfad+noise capacity:  tensor(645.1282)
+Function test_configurations_capacity Took 0.9420 seconds
+i:  41 physfad+noise capacity:  tensor(645.0289)
+Function test_configurations_capacity Took 0.9223 seconds
+i:  42 physfad+noise capacity:  tensor(645.0125)
+Function test_configurations_capacity Took 0.9291 seconds
+i:  43 physfad+noise capacity:  tensor(645.0806)
+Function test_configurations_capacity Took 0.9342 seconds
+i:  44 physfad+noise capacity:  tensor(645.2318)
+Function test_configurations_capacity Took 0.9138 seconds
+i:  45 physfad+noise capacity:  tensor(645.4139)
+Function test_configurations_capacity Took 0.9211 seconds
+i:  46 physfad+noise capacity:  tensor(645.5652)
+Function test_configurations_capacity Took 0.9090 seconds
+i:  47 physfad+noise capacity:  tensor(645.6409)
+Function test_configurations_capacity Took 0.9517 seconds
+i:  48 physfad+noise capacity:  tensor(645.5752)
+Function test_configurations_capacity Took 0.9131 seconds
+i:  49 physfad+noise capacity:  tensor(645.3751)
+Function test_configurations_capacity Took 0.9366 seconds
+i:  50 physfad+noise capacity:  tensor(645.0846)
+Function test_configurations_capacity Took 0.9737 seconds
+i:  51 physfad+noise capacity:  tensor(644.7477)
+Function test_configurations_capacity Took 0.9092 seconds
+i:  52 physfad+noise capacity:  tensor(644.4405)
+Function test_configurations_capacity Took 0.9336 seconds
+i:  53 physfad+noise capacity:  tensor(644.2241)
+Function test_configurations_capacity Took 0.9235 seconds
+i:  54 physfad+noise capacity:  tensor(644.0855)
+Function test_configurations_capacity Took 0.9383 seconds
+i:  55 physfad+noise capacity:  tensor(643.9976)
+Function test_configurations_capacity Took 0.9367 seconds
+i:  56 physfad+noise capacity:  tensor(643.9545)
+Function test_configurations_capacity Took 0.9253 seconds
+i:  57 physfad+noise capacity:  tensor(643.9482)
+Function test_configurations_capacity Took 0.9142 seconds
+i:  58 physfad+noise capacity:  tensor(643.9761)
+Function test_configurations_capacity Took 0.9632 seconds
+i:  59 physfad+noise capacity:  tensor(644.0214)
+Function test_configurations_capacity Took 0.9137 seconds
+i:  60 physfad+noise capacity:  tensor(644.0516)
+Function test_configurations_capacity Took 0.9088 seconds
+i:  61 physfad+noise capacity:  tensor(644.0414)
+Function test_configurations_capacity Took 0.9319 seconds
+i:  62 physfad+noise capacity:  tensor(644.0010)
+Function test_configurations_capacity Took 0.9130 seconds
+i:  63 physfad+noise capacity:  tensor(643.9485)
+Function test_configurations_capacity Took 0.9422 seconds
+i:  64 physfad+noise capacity:  tensor(643.8690)
+Function test_configurations_capacity Took 0.9329 seconds
+i:  65 physfad+noise capacity:  tensor(643.7452)
+Function test_configurations_capacity Took 0.9316 seconds
+i:  66 physfad+noise capacity:  tensor(643.5660)
+Function test_configurations_capacity Took 0.9385 seconds
+i:  67 physfad+noise capacity:  tensor(643.3516)
+Function test_configurations_capacity Took 0.9142 seconds
+i:  68 physfad+noise capacity:  tensor(643.1453)
+Function test_configurations_capacity Took 0.9327 seconds
+i:  69 physfad+noise capacity:  tensor(642.9755)
+Function test_configurations_capacity Took 0.9075 seconds
+i:  70 physfad+noise capacity:  tensor(642.8493)
+Function test_configurations_capacity Took 0.9449 seconds
+i:  71 physfad+noise capacity:  tensor(642.7764)
+Function test_configurations_capacity Took 0.9249 seconds
+i:  72 physfad+noise capacity:  tensor(642.7173)
+Function test_configurations_capacity Took 0.9273 seconds
+i:  73 physfad+noise capacity:  tensor(642.6373)
+Function test_configurations_capacity Took 0.9612 seconds
+i:  74 physfad+noise capacity:  tensor(642.5312)
+Function test_configurations_capacity Took 0.9229 seconds
+i:  75 physfad+noise capacity:  tensor(642.3978)
+Function test_configurations_capacity Took 0.9272 seconds
+i:  76 physfad+noise capacity:  tensor(642.2393)
+Function test_configurations_capacity Took 0.9282 seconds
+i:  77 physfad+noise capacity:  tensor(642.0541)
+Function test_configurations_capacity Took 0.9303 seconds
+i:  78 physfad+noise capacity:  tensor(641.8541)
+Function test_configurations_capacity Took 0.9496 seconds
+i:  79 physfad+noise capacity:  tensor(641.6599)
+Function test_configurations_capacity Took 0.9326 seconds
+i:  80 physfad+noise capacity:  tensor(641.4786)
+Function test_configurations_capacity Took 0.9505 seconds
+i:  81 physfad+noise capacity:  tensor(641.3395)
+Function test_configurations_capacity Took 0.9512 seconds
+i:  82 physfad+noise capacity:  tensor(641.2526)
+Function test_configurations_capacity Took 0.9733 seconds
+i:  83 physfad+noise capacity:  tensor(641.2026)
+Function test_configurations_capacity Took 0.9581 seconds
+i:  84 physfad+noise capacity:  tensor(641.1599)
+Function test_configurations_capacity Took 0.9265 seconds
+i:  85 physfad+noise capacity:  tensor(641.1032)
+Function test_configurations_capacity Took 0.9427 seconds
+i:  86 physfad+noise capacity:  tensor(641.0270)
+Function test_configurations_capacity Took 0.9235 seconds
+i:  87 physfad+noise capacity:  tensor(640.9460)
+Function test_configurations_capacity Took 0.9335 seconds
+i:  88 physfad+noise capacity:  tensor(640.8686)
+Function test_configurations_capacity Took 0.9152 seconds
+i:  89 physfad+noise capacity:  tensor(640.7968)
+Function test_configurations_capacity Took 0.9344 seconds
+i:  90 physfad+noise capacity:  tensor(640.7267)
+Function test_configurations_capacity Took 0.9212 seconds
+i:  91 physfad+noise capacity:  tensor(640.6746)
+Function test_configurations_capacity Took 0.9121 seconds
+i:  92 physfad+noise capacity:  tensor(640.6447)
+Function test_configurations_capacity Took 0.9488 seconds
+i:  93 physfad+noise capacity:  tensor(640.6183)
+Function test_configurations_capacity Took 0.9058 seconds
+i:  94 physfad+noise capacity:  tensor(640.6002)
+Function test_configurations_capacity Took 0.9350 seconds
+i:  95 physfad+noise capacity:  tensor(640.5764)
+Function test_configurations_capacity Took 0.9153 seconds
+i:  96 physfad+noise capacity:  tensor(640.5782)
+Function test_configurations_capacity Took 0.9225 seconds
+i:  97 physfad+noise capacity:  tensor(640.5995)
+Function test_configurations_capacity Took 0.9431 seconds
+i:  98 physfad+noise capacity:  tensor(640.6312)
+Function test_configurations_capacity Took 0.9092 seconds
+i:  99 physfad+noise capacity:  tensor(640.6849)
+zogd iteration #0 input distance from zero: 520.082272854781 loss: 601.189777811996
+zogd iteration #1 input distance from zero: 520.1922444545528 loss: 603.4558588396574
+zogd iteration #2 input distance from zero: 520.3873241370408 loss: 604.2331334215394
+zogd iteration #3 input distance from zero: 520.2272137735761 loss: 606.424655474531
+zogd iteration #4 input distance from zero: 519.9178611604805 loss: 609.6595603953589
+zogd iteration #5 input distance from zero: 519.0136684093948 loss: 611.1186924397366
+zogd iteration #6 input distance from zero: 519.0601583388238 loss: 614.1998282141084
+zogd iteration #7 input distance from zero: 519.3907358009026 loss: 617.5703720008116
+zogd iteration #8 input distance from zero: 519.5593447022545 loss: 618.6027983403017
+zogd iteration #9 input distance from zero: 520.0368326989051 loss: 620.4076977689836
+zogd iteration #10 input distance from zero: 520.1393526449356 loss: 622.6898457362726
+zogd iteration #11 input distance from zero: 518.770380693516 loss: 624.1634061137759
+zogd iteration #12 input distance from zero: 519.8860449934202 loss: 626.5285868497363
+zogd iteration #13 input distance from zero: 519.8618012890813 loss: 628.6812258147975
+zogd iteration #14 input distance from zero: 520.3353427696504 loss: 629.177611472252
+zogd iteration #15 input distance from zero: 520.4899460370692 loss: 630.0053690493673
+zogd iteration #16 input distance from zero: 520.5742423810228 loss: 630.9565157142586
+zogd iteration #17 input distance from zero: 520.6122564641964 loss: 631.5810734439149
+zogd iteration #18 input distance from zero: 520.7977983167038 loss: 632.8615175276294
+zogd iteration #19 input distance from zero: 521.0212073810505 loss: 634.6181597650877
+zogd iteration #20 input distance from zero: 520.7365473680029 loss: 635.656101864016
+zogd iteration #21 input distance from zero: 521.7678081115795 loss: 636.1582140880039
+zogd iteration #22 input distance from zero: 522.1846014070777 loss: 637.5152669277147
+zogd iteration #23 input distance from zero: 520.8958808393157 loss: 638.0365246776319
+zogd iteration #24 input distance from zero: 520.3688156291402 loss: 638.6942493614654
+zogd iteration #25 input distance from zero: 520.936583190771 loss: 639.1065172483368
+zogd iteration #26 input distance from zero: 521.1962865566022 loss: 639.6997265708794
+zogd iteration #27 input distance from zero: 520.643134301582 loss: 639.8846151860215
+zogd iteration #28 input distance from zero: 520.5727899175249 loss: 640.5725956089362
+zogd iteration #29 input distance from zero: 520.8435494187888 loss: 641.3936795821484
+zogd iteration #30 input distance from zero: 521.144927911989 loss: 642.0669673083643
+zogd iteration #31 input distance from zero: 520.7572619182566 loss: 640.8297093598867
+zogd iteration #32 input distance from zero: 519.8496449047846 loss: 641.1867000143505
+zogd iteration #33 input distance from zero: 520.0156966723221 loss: 641.3356515190924
+zogd iteration #34 input distance from zero: 519.3377310843254 loss: 641.6791827419922
+zogd iteration #35 input distance from zero: 519.2804771520624 loss: 642.2053386131267
+zogd iteration #36 input distance from zero: 519.4454274444721 loss: 642.6841069973073
+zogd iteration #37 input distance from zero: 518.7172261767053 loss: 643.4280763754739
+zogd iteration #38 input distance from zero: 518.8580194669653 loss: 643.9382371406044
+zogd iteration #39 input distance from zero: 518.7136243248053 loss: 643.8403186505518
+zogd iteration #40 input distance from zero: 518.6825874144206 loss: 644.4804072555153
+zogd iteration #41 input distance from zero: 518.989028831129 loss: 644.8913365422645
+zogd iteration #42 input distance from zero: 518.1042198111041 loss: 645.4569410419779
+zogd iteration #43 input distance from zero: 518.0810398360516 loss: 644.7673865571871
+zogd iteration #44 input distance from zero: 517.7931060362596 loss: 645.0555939271767
+zogd iteration #45 input distance from zero: 517.683978743643 loss: 646.1861875009897
+zogd iteration #46 input distance from zero: 517.3295175821052 loss: 646.9016480823159
+zogd iteration #47 input distance from zero: 517.7433196301836 loss: 647.6229385547247
+zogd iteration #48 input distance from zero: 517.6268455508962 loss: 647.7381054375845
+zogd iteration #49 input distance from zero: 518.0451868500138 loss: 648.6922310026214
+zogd iteration #50 input distance from zero: 518.2497347181816 loss: 648.4110373304316
+zogd iteration #51 input distance from zero: 517.9106812834228 loss: 648.6333625151788
+zogd iteration #52 input distance from zero: 517.2112538530173 loss: 648.5916997049503
+zogd iteration #53 input distance from zero: 516.9841607576318 loss: 648.7320163307538
+zogd iteration #54 input distance from zero: 516.9325770444364 loss: 649.5110689947021
+zogd iteration #55 input distance from zero: 517.3301695415611 loss: 649.6461461216543
+zogd iteration #56 input distance from zero: 517.536603602135 loss: 650.0414885779417
+zogd iteration #57 input distance from zero: 517.6165043034312 loss: 650.5046657790947
+zogd iteration #58 input distance from zero: 518.4689778025239 loss: 650.6778382560037
+zogd iteration #59 input distance from zero: 517.4886403823697 loss: 651.5937115761847
+zogd iteration #60 input distance from zero: 517.5293570322444 loss: 653.0795324185754
+zogd iteration #61 input distance from zero: 516.5023030348341 loss: 653.3940797203643
+zogd iteration #62 input distance from zero: 517.2176424053039 loss: 654.5955733913202
+zogd iteration #63 input distance from zero: 515.8743523283497 loss: 654.6835172483774
+zogd iteration #64 input distance from zero: 516.0267189926022 loss: 655.0436911254075
+zogd iteration #65 input distance from zero: 515.5102507055144 loss: 655.4650578228667
+zogd iteration #66 input distance from zero: 515.5121167851353 loss: 655.7329408163046
+zogd iteration #67 input distance from zero: 515.6375021417134 loss: 656.0875307148763
+zogd iteration #68 input distance from zero: 515.6452825062989 loss: 656.3050945113224
+zogd iteration #69 input distance from zero: 516.4971669987824 loss: 657.0049153771054
+zogd iteration #70 input distance from zero: 515.8796194801978 loss: 657.486341339126
+zogd iteration #71 input distance from zero: 516.7090365600046 loss: 657.5329665256911
+zogd iteration #72 input distance from zero: 517.3609181690289 loss: 657.862363393181
+zogd iteration #73 input distance from zero: 516.7412161548884 loss: 658.5683883572373
+zogd iteration #74 input distance from zero: 516.9931643768622 loss: 658.8918329831308
+zogd iteration #75 input distance from zero: 516.1887245847088 loss: 659.4127162510086
+zogd iteration #76 input distance from zero: 516.6737573349706 loss: 660.1002888977873
+zogd iteration #77 input distance from zero: 516.6927191081321 loss: 660.0886421057323
+zogd iteration #78 input distance from zero: 515.9435341856149 loss: 661.4342768729324
+zogd iteration #79 input distance from zero: 516.0722454057101 loss: 661.6521508534977
+zogd iteration #80 input distance from zero: 516.0758015767435 loss: 662.1116259229052
+zogd iteration #81 input distance from zero: 515.9609887220385 loss: 662.2222637449088
+zogd iteration #82 input distance from zero: 515.9440058442983 loss: 662.4181247728648
+zogd iteration #83 input distance from zero: 516.6836838750564 loss: 662.6377667829145
+zogd iteration #84 input distance from zero: 516.888984883932 loss: 663.049250915432
+zogd iteration #85 input distance from zero: 516.7552672671293 loss: 663.1924516897782
+zogd iteration #86 input distance from zero: 516.8489158562344 loss: 663.3976347862061
+zogd iteration #87 input distance from zero: 518.2639412599506 loss: 662.0212792813064
+zogd iteration #88 input distance from zero: 518.8218124126631 loss: 662.9799529356983
+zogd iteration #89 input distance from zero: 518.8993505752868 loss: 663.2968202691775
+zogd iteration #90 input distance from zero: 519.0557181357241 loss: 664.0365908241738
+zogd iteration #91 input distance from zero: 519.4608946049322 loss: 664.167645783131
+zogd iteration #92 input distance from zero: 519.1552245463656 loss: 664.8295192047265
+zogd iteration #93 input distance from zero: 519.1703351734959 loss: 665.1450238216589
+zogd iteration #94 input distance from zero: 519.10245863669 loss: 665.2391916208815
+zogd iteration #95 input distance from zero: 518.6903522340888 loss: 665.3378728779146
+zogd iteration #96 input distance from zero: 519.46380688072 loss: 665.3624329960089
+zogd iteration #97 input distance from zero: 519.6301960732227 loss: 665.9772324789386
+zogd iteration #98 input distance from zero: 519.7580031861253 loss: 666.0019221235293
+zogd iteration #99 input distance from zero: 519.847484862305 loss: 666.1391340233109
+Function zeroth_grad_optimization Took 897.2934 seconds
+rand iteration #0 input distance from zero: 135.0101071124031 loss: 598.2397400632289
+rand iteration #1 input distance from zero: 132.0816771989266 loss: 569.2071518792161
+rand iteration #2 input distance from zero: 140.53661017159254 loss: 613.7393057117463
+rand iteration #3 input distance from zero: 137.6448397277914 loss: 612.77270069602
+rand iteration #4 input distance from zero: 131.46192671896273 loss: 596.8416400536582
+rand iteration #5 input distance from zero: 129.5484434887527 loss: 609.8928547794659
+rand iteration #6 input distance from zero: 134.97850862602877 loss: 605.7476883007479
+rand iteration #7 input distance from zero: 136.18830116669017 loss: 637.2338233911953
+rand iteration #8 input distance from zero: 126.68681901164484 loss: 588.5892550260955
+rand iteration #9 input distance from zero: 133.80338332734283 loss: 607.4337108536552
+rand iteration #10 input distance from zero: 140.54118643456377 loss: 623.8212321618638
+rand iteration #11 input distance from zero: 136.27674244590276 loss: 614.1981510188983
+rand iteration #12 input distance from zero: 127.18733427607735 loss: 631.1340793998098
+rand iteration #13 input distance from zero: 128.4076827425096 loss: 628.0758275644932
+rand iteration #14 input distance from zero: 136.59193390848236 loss: 606.6988827649127
+rand iteration #15 input distance from zero: 135.97745913610476 loss: 585.3050755113936
+rand iteration #16 input distance from zero: 134.07651716922467 loss: 607.4329034899822
+rand iteration #17 input distance from zero: 131.17068621780135 loss: 592.8840686889041
+rand iteration #18 input distance from zero: 127.48413315199237 loss: 594.9772566506285
+rand iteration #19 input distance from zero: 121.16402852058908 loss: 643.050989541788
+rand iteration #20 input distance from zero: 125.40113040178146 loss: 599.6130248525321
+rand iteration #21 input distance from zero: 129.67881527099365 loss: 629.5524146876626
+rand iteration #22 input distance from zero: 128.44202754764552 loss: 613.716981945919
+rand iteration #23 input distance from zero: 138.29418269958057 loss: 586.2383022704616
+rand iteration #24 input distance from zero: 132.16473011251065 loss: 598.1394139357046
+rand iteration #25 input distance from zero: 139.70134561697506 loss: 623.0300578096902
+rand iteration #26 input distance from zero: 141.4140559889127 loss: 604.3755259156973
+rand iteration #27 input distance from zero: 137.92969087235753 loss: 622.555072640424
+rand iteration #28 input distance from zero: 131.70342958733028 loss: 605.2437740523126
+rand iteration #29 input distance from zero: 133.89646941076063 loss: 625.5824553261575
+rand iteration #30 input distance from zero: 136.4227700221809 loss: 591.3859410553534
+rand iteration #31 input distance from zero: 133.44012523509943 loss: 613.4501552922221
+rand iteration #32 input distance from zero: 127.83268170436175 loss: 574.3241093191889
+rand iteration #33 input distance from zero: 127.33527395877229 loss: 574.0930663592962
+rand iteration #34 input distance from zero: 142.04124938059516 loss: 618.7314335158765
+rand iteration #35 input distance from zero: 127.00804023209248 loss: 557.8071512593338
+rand iteration #36 input distance from zero: 139.0172525705843 loss: 599.4671611670767
+rand iteration #37 input distance from zero: 138.24277682522268 loss: 588.828190948552
+rand iteration #38 input distance from zero: 131.83419428669282 loss: 618.6703878042855
+rand iteration #39 input distance from zero: 129.64987942473226 loss: 603.3562314365649
+rand iteration #40 input distance from zero: 134.0189816575387 loss: 618.896666176648
+rand iteration #41 input distance from zero: 131.91090178937017 loss: 582.4754136116359
+rand iteration #42 input distance from zero: 128.65629018441754 loss: 605.7808052881338
+rand iteration #43 input distance from zero: 129.9585804313938 loss: 602.0537402108805
+rand iteration #44 input distance from zero: 135.63367735322208 loss: 578.8521340322599
+rand iteration #45 input distance from zero: 129.71144306370294 loss: 595.8091669616969
+rand iteration #46 input distance from zero: 139.23932891448206 loss: 577.5863213291004
+rand iteration #47 input distance from zero: 139.77801380317845 loss: 620.8852043818546
+rand iteration #48 input distance from zero: 134.18029076913535 loss: 590.8812393684756
+rand iteration #49 input distance from zero: 131.6626012413606 loss: 582.904874438295
+rand iteration #50 input distance from zero: 129.83097793761 loss: 605.5173408922176
+rand iteration #51 input distance from zero: 131.95566974492468 loss: 639.313712152884
+rand iteration #52 input distance from zero: 128.69733321967254 loss: 575.1828765959611
+rand iteration #53 input distance from zero: 134.35788208206452 loss: 566.30666533475
+rand iteration #54 input distance from zero: 139.91961158908745 loss: 594.2026118023427
+rand iteration #55 input distance from zero: 132.84418540178066 loss: 603.8091393403676
+rand iteration #56 input distance from zero: 129.7039221559408 loss: 611.499178116676
+rand iteration #57 input distance from zero: 124.54820233695341 loss: 607.7061838889858
+rand iteration #58 input distance from zero: 132.21858153701766 loss: 651.6088300999837
+rand iteration #59 input distance from zero: 131.99527319611562 loss: 612.5081739356242
+rand iteration #60 input distance from zero: 126.32289846222886 loss: 573.5282693265692
+rand iteration #61 input distance from zero: 134.6678017584088 loss: 590.9714392841629
+rand iteration #62 input distance from zero: 123.55696628200349 loss: 578.3440430540527
+rand iteration #63 input distance from zero: 130.18962072590512 loss: 602.394172817168
+rand iteration #64 input distance from zero: 132.93699488514798 loss: 596.0005394825696
+rand iteration #65 input distance from zero: 131.2794037715558 loss: 593.5791499792604
+rand iteration #66 input distance from zero: 132.85116929902546 loss: 568.4112448805228
+rand iteration #67 input distance from zero: 125.34718441458607 loss: 596.3024556434982
+rand iteration #68 input distance from zero: 133.8574939745149 loss: 607.1888594326421
+rand iteration #69 input distance from zero: 141.42407972237348 loss: 591.8023107036549
+rand iteration #70 input distance from zero: 128.30003813618185 loss: 597.9471771635928
+rand iteration #71 input distance from zero: 128.8313745525025 loss: 614.5491095620243
+rand iteration #72 input distance from zero: 135.6237662671735 loss: 625.946422720559
+rand iteration #73 input distance from zero: 134.26540317050507 loss: 597.8669727840553
+rand iteration #74 input distance from zero: 125.64827976897732 loss: 606.2171277732194
+rand iteration #75 input distance from zero: 139.16222008691153 loss: 590.034710120453
+rand iteration #76 input distance from zero: 137.1859339387044 loss: 607.6615458282972
+rand iteration #77 input distance from zero: 135.1574614904583 loss: 614.6791765941382
+rand iteration #78 input distance from zero: 134.18352454249447 loss: 612.9233808830749
+rand iteration #79 input distance from zero: 127.73278163672762 loss: 609.8182640612866
+rand iteration #80 input distance from zero: 130.49193579367818 loss: 571.5898325146549
+rand iteration #81 input distance from zero: 133.67015435560404 loss: 615.6518557433808
+rand iteration #82 input distance from zero: 133.86342634151376 loss: 613.2979661732574
+rand iteration #83 input distance from zero: 129.18231207211588 loss: 600.1267086411669
+rand iteration #84 input distance from zero: 131.21554306280854 loss: 600.9081321850673
+rand iteration #85 input distance from zero: 131.34837858263836 loss: 606.2444539585181
+rand iteration #86 input distance from zero: 129.33894254146276 loss: 644.6619373016295
+rand iteration #87 input distance from zero: 129.24489563303644 loss: 596.6896235420329
+rand iteration #88 input distance from zero: 131.27458423070635 loss: 605.2879140421826
+rand iteration #89 input distance from zero: 135.26987938926453 loss: 570.290310674497
+rand iteration #90 input distance from zero: 141.3561704349619 loss: 580.2742164576132
+rand iteration #91 input distance from zero: 131.82061673342764 loss: 626.0950630418064
+rand iteration #92 input distance from zero: 135.23159346394687 loss: 595.1648798181161
+rand iteration #93 input distance from zero: 128.32177576944494 loss: 576.9899285227102
+rand iteration #94 input distance from zero: 129.2268244047182 loss: 598.087212572663
+rand iteration #95 input distance from zero: 130.03882530914143 loss: 644.3012525154636
+rand iteration #96 input distance from zero: 126.74585372082882 loss: 599.740927352851
+rand iteration #97 input distance from zero: 135.437001823557 loss: 601.711582679807
+rand iteration #98 input distance from zero: 133.03841524249623 loss: 555.1352556505781
+rand iteration #99 input distance from zero: 135.52915372255882 loss: 613.9496748003886
+tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+score parameter tensor([0.5000, 0.5000, 0.5000, 0.5000, 0.5000, 0.5000, 0.5000, 0.5000, 0.5000,
+        0.5000])
+noise parameter tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+Function annealed_langevin_v3 Took 0.1196 seconds
+Function test_configurations_capacity Took 1.1048 seconds
+iter 0 physfad_c capacity 601.189782881448
+Function test_configurations_capacity Took 1.1099 seconds
+iter 5 physfad_c capacity 618.863575366739
+Function test_configurations_capacity Took 1.1678 seconds
+iter 10 physfad_c capacity 608.3501398278968
+Function test_configurations_capacity Took 1.1349 seconds
+iter 15 physfad_c capacity 622.7119382134402
+Function test_configurations_capacity Took 1.1626 seconds
+iter 20 physfad_c capacity 621.2843956402244
+Function test_configurations_capacity Took 1.1245 seconds
+iter 25 physfad_c capacity 602.3270691717887
+Function test_configurations_capacity Took 1.1472 seconds
+iter 30 physfad_c capacity 617.6103871454037
+Function test_configurations_capacity Took 1.1352 seconds
+iter 35 physfad_c capacity 607.1285902355739
+Function test_configurations_capacity Took 1.1385 seconds
+iter 40 physfad_c capacity 609.7192620206988
+Function test_configurations_capacity Took 1.1200 seconds
+iter 45 physfad_c capacity 621.6633415893778
+Function test_configurations_capacity Took 1.1388 seconds
+iter 50 physfad_c capacity 626.370828288661
+Function test_configurations_capacity Took 1.1285 seconds
+iter 55 physfad_c capacity 623.237758661451
+Function test_configurations_capacity Took 1.1189 seconds
+iter 60 physfad_c capacity 633.9566902140776
+Function test_configurations_capacity Took 1.1304 seconds
+iter 65 physfad_c capacity 626.0731192932745
+Function test_configurations_capacity Took 1.1704 seconds
+iter 70 physfad_c capacity 624.6752088092641
+Function test_configurations_capacity Took 1.1101 seconds
+iter 75 physfad_c capacity 630.6620314622974
+Function test_configurations_capacity Took 1.1350 seconds
+iter 80 physfad_c capacity 629.9951669035725
+Function test_configurations_capacity Took 1.1097 seconds
+iter 85 physfad_c capacity 641.2930588534806
+Function test_configurations_capacity Took 1.1017 seconds
+iter 90 physfad_c capacity 636.9128723818266
+Function test_configurations_capacity Took 1.1479 seconds
+iter 95 physfad_c capacity 639.1428694513893
+Function test_configurations_capacity Took 1.1508 seconds
+iter 100 physfad_c capacity 640.3262807877336
+Function test_configurations_capacity Took 1.1735 seconds
+iter 105 physfad_c capacity 642.8931528437133
+Function test_configurations_capacity Took 1.1395 seconds
+iter 110 physfad_c capacity 638.2827970784084
+Function test_configurations_capacity Took 1.1265 seconds
+iter 115 physfad_c capacity 641.7896332652849
+Function test_configurations_capacity Took 1.1697 seconds
+iter 120 physfad_c capacity 642.5535614613401
+Function test_configurations_capacity Took 1.1307 seconds
+iter 125 physfad_c capacity 645.3710944711777
+Function test_configurations_capacity Took 1.1229 seconds
+iter 130 physfad_c capacity 647.4052510569554
+Function test_configurations_capacity Took 1.1280 seconds
+iter 135 physfad_c capacity 643.3763096047307
+Function test_configurations_capacity Took 1.1315 seconds
+iter 140 physfad_c capacity 647.5554261970622
+Function test_configurations_capacity Took 1.1105 seconds
+iter 145 physfad_c capacity 643.2723288432575
+Function test_configurations_capacity Took 1.1419 seconds
+iter 150 physfad_c capacity 641.9107754035508
+Function test_configurations_capacity Took 1.1285 seconds
+iter 155 physfad_c capacity 642.3096102996535
+Function test_configurations_capacity Took 1.1283 seconds
+iter 160 physfad_c capacity 644.0500901906437
+Function test_configurations_capacity Took 1.1356 seconds
+iter 165 physfad_c capacity 643.46860256523
+Function test_configurations_capacity Took 1.0963 seconds
+iter 170 physfad_c capacity 644.7872754968625
+Function test_configurations_capacity Took 1.1721 seconds
+iter 175 physfad_c capacity 645.7443483677649
+Function test_configurations_capacity Took 1.1085 seconds
+iter 180 physfad_c capacity 644.168213298543
+Function test_configurations_capacity Took 1.1122 seconds
+iter 185 physfad_c capacity 643.0919940614793
+Function test_configurations_capacity Took 1.1077 seconds
+iter 190 physfad_c capacity 642.2375813517431
+Function test_configurations_capacity Took 1.1687 seconds
+iter 195 physfad_c capacity 642.5238472502924
+Function test_configurations_capacity Took 1.1638 seconds
+iter 200 physfad_c capacity 642.8090551459416
+Function test_configurations_capacity Took 1.1013 seconds
+iter 205 physfad_c capacity 642.2806612414023
+Function test_configurations_capacity Took 1.1624 seconds
+iter 210 physfad_c capacity 642.6010734366323
+Function test_configurations_capacity Took 1.1441 seconds
+iter 215 physfad_c capacity 642.1327215805816
+Function test_configurations_capacity Took 1.1791 seconds
+iter 220 physfad_c capacity 642.0965287430893
+Function test_configurations_capacity Took 1.1049 seconds
+iter 225 physfad_c capacity 642.472858443303
+Function test_configurations_capacity Took 1.1531 seconds
+iter 230 physfad_c capacity 642.8253087157595
+Function test_configurations_capacity Took 1.1223 seconds
+iter 235 physfad_c capacity 642.3953269582073
+Function test_configurations_capacity Took 1.1334 seconds
+iter 240 physfad_c capacity 642.2500504857821
+Function test_configurations_capacity Took 1.1231 seconds
+iter 245 physfad_c capacity 642.3785194977534
+0.016666666666666666 2 0
+physfad iteration #0 input distance from zero: 664.9278564453125 loss: 679.2481964178558
+physfad iteration #1 input distance from zero: 657.4490966796875 loss: 703.3305611429096
+physfad iteration #2 input distance from zero: 649.3711547851562 loss: 722.1769578933558
+physfad iteration #3 input distance from zero: 641.0801391601562 loss: 737.1465315316648
+physfad iteration #4 input distance from zero: 632.6588134765625 loss: 750.2415737257049
+physfad iteration #5 input distance from zero: 624.1503295898438 loss: 762.2616311816719
+physfad iteration #6 input distance from zero: 615.5833740234375 loss: 773.1546574295917
+physfad iteration #7 input distance from zero: 607.013916015625 loss: 782.1099287270185
+physfad iteration #8 input distance from zero: 598.5149536132812 loss: 789.5317342814475
+physfad iteration #9 input distance from zero: 590.1469116210938 loss: 796.7203639263664
+physfad iteration #10 input distance from zero: 581.94970703125 loss: 803.588812562975
+physfad iteration #11 input distance from zero: 573.9805297851562 loss: 809.2659492466443
+physfad iteration #12 input distance from zero: 566.2777099609375 loss: 813.8412118513995
+physfad iteration #13 input distance from zero: 558.8701171875 loss: 818.1648977398968
+physfad iteration #14 input distance from zero: 551.7825927734375 loss: 822.4843106078164
+physfad iteration #15 input distance from zero: 545.0330810546875 loss: 826.7231324872891
+physfad iteration #16 input distance from zero: 538.6344604492188 loss: 830.7434666005593
+physfad iteration #17 input distance from zero: 532.5965576171875 loss: 834.6666149381327
+physfad iteration #18 input distance from zero: 526.9029541015625 loss: 838.4464397222193
+physfad iteration #19 input distance from zero: 521.5375366210938 loss: 842.0179953953048
+physfad iteration #20 input distance from zero: 516.489990234375 loss: 845.1838270100939
+physfad iteration #21 input distance from zero: 511.7553405761719 loss: 847.8327204455669
+physfad iteration #22 input distance from zero: 507.3324279785156 loss: 850.2697567605262
+physfad iteration #23 input distance from zero: 503.213623046875 loss: 852.5888594669077
+physfad iteration #24 input distance from zero: 499.3855895996094 loss: 854.8435581265873
+physfad iteration #25 input distance from zero: 495.8287353515625 loss: 856.9408833884569
+physfad iteration #26 input distance from zero: 492.5276184082031 loss: 858.7113125199596
+physfad iteration #27 input distance from zero: 489.47186279296875 loss: 860.1336301968963
+physfad iteration #28 input distance from zero: 486.6607971191406 loss: 861.2597762774325
+physfad iteration #29 input distance from zero: 484.08502197265625 loss: 862.2464295891833
+physfad iteration #30 input distance from zero: 481.73583984375 loss: 863.1674840451465
+physfad iteration #31 input distance from zero: 479.6006774902344 loss: 864.0836994442038
+physfad iteration #32 input distance from zero: 477.6622619628906 loss: 864.9892653513452
+physfad iteration #33 input distance from zero: 475.90228271484375 loss: 865.9564447151745
+physfad iteration #34 input distance from zero: 474.30078125 loss: 867.0406489468426
+physfad iteration #35 input distance from zero: 472.8421936035156 loss: 868.1131545094049
+physfad iteration #36 input distance from zero: 471.51220703125 loss: 869.0375928520548
+physfad iteration #37 input distance from zero: 470.29998779296875 loss: 869.808050983164
+physfad iteration #38 input distance from zero: 469.20343017578125 loss: 870.4874806352035
+physfad iteration #39 input distance from zero: 468.22174072265625 loss: 871.0928787874155
+physfad iteration #40 input distance from zero: 467.34967041015625 loss: 871.6924889709171
+physfad iteration #41 input distance from zero: 466.57244873046875 loss: 872.3068844889158
+physfad iteration #42 input distance from zero: 465.8783264160156 loss: 872.8882080072852
+physfad iteration #43 input distance from zero: 465.254150390625 loss: 873.4450729983189
+physfad iteration #44 input distance from zero: 464.6851501464844 loss: 873.9662042938296
+physfad iteration #45 input distance from zero: 464.15899658203125 loss: 874.4172317545376
+physfad iteration #46 input distance from zero: 463.6677551269531 loss: 874.8042171719568
+physfad iteration #47 input distance from zero: 463.2026672363281 loss: 875.1716337639905
+physfad iteration #48 input distance from zero: 462.7554016113281 loss: 875.5452831565694
+physfad iteration #49 input distance from zero: 462.3252868652344 loss: 875.9122240350955
+physfad iteration #50 input distance from zero: 461.91015625 loss: 876.2465535972269
+physfad iteration #51 input distance from zero: 461.5111083984375 loss: 876.5618941151719
+physfad iteration #52 input distance from zero: 461.1301574707031 loss: 876.8594023536222
+physfad iteration #53 input distance from zero: 460.7707214355469 loss: 877.1398588003863
+physfad iteration #54 input distance from zero: 460.4336853027344 loss: 877.4057019102429
+physfad iteration #55 input distance from zero: 460.1145324707031 loss: 877.6382091221664
+physfad iteration #56 input distance from zero: 459.80780029296875 loss: 877.8695782168207
+physfad iteration #57 input distance from zero: 459.5104064941406 loss: 878.1109011866833
+physfad iteration #58 input distance from zero: 459.2191162109375 loss: 878.3660509303572
+physfad iteration #59 input distance from zero: 458.93328857421875 loss: 878.6439821947047
+physfad iteration #60 input distance from zero: 458.65093994140625 loss: 878.9536246895764
+physfad iteration #61 input distance from zero: 458.370849609375 loss: 879.2764760163221
+physfad iteration #62 input distance from zero: 458.09197998046875 loss: 879.5774687510814
+physfad iteration #63 input distance from zero: 457.8157653808594 loss: 879.8424676244503
+physfad iteration #64 input distance from zero: 457.54510498046875 loss: 880.0877898130242
+physfad iteration #65 input distance from zero: 457.277587890625 loss: 880.309926020286
+physfad iteration #66 input distance from zero: 457.009765625 loss: 880.538224384638
+physfad iteration #67 input distance from zero: 456.7397766113281 loss: 880.7953288635383
+physfad iteration #68 input distance from zero: 456.4697265625 loss: 881.0797393997051
+physfad iteration #69 input distance from zero: 456.2027893066406 loss: 881.3668023770729
+physfad iteration #70 input distance from zero: 455.94000244140625 loss: 881.6239056789693
+physfad iteration #71 input distance from zero: 455.6826477050781 loss: 881.8447332092583
+physfad iteration #72 input distance from zero: 455.4272155761719 loss: 882.0371722203827
+physfad iteration #73 input distance from zero: 455.17010498046875 loss: 882.2466850376466
+physfad iteration #74 input distance from zero: 454.9120788574219 loss: 882.4616170414654
+physfad iteration #75 input distance from zero: 454.6573181152344 loss: 882.639299275395
+physfad iteration #76 input distance from zero: 454.4093017578125 loss: 882.7917525230764
+physfad iteration #77 input distance from zero: 454.1720275878906 loss: 882.9444385169728
+physfad iteration #78 input distance from zero: 453.94427490234375 loss: 883.0870923911573
+physfad iteration #79 input distance from zero: 453.7253112792969 loss: 883.20861757576
+physfad iteration #80 input distance from zero: 453.51507568359375 loss: 883.3365880301309
+physfad iteration #81 input distance from zero: 453.314208984375 loss: 883.4576666325551
+physfad iteration #82 input distance from zero: 453.123291015625 loss: 883.5598406948835
+physfad iteration #83 input distance from zero: 452.9452209472656 loss: 883.6739678739103
+physfad iteration #84 input distance from zero: 452.78155517578125 loss: 883.8115541044994
+physfad iteration #85 input distance from zero: 452.63140869140625 loss: 883.9570819175217
+physfad iteration #86 input distance from zero: 452.4908447265625 loss: 884.1083443374566
+physfad iteration #87 input distance from zero: 452.35504150390625 loss: 884.26154511557
+physfad iteration #88 input distance from zero: 452.2200622558594 loss: 884.4235814365658
+physfad iteration #89 input distance from zero: 452.08453369140625 loss: 884.609582158205
+physfad iteration #90 input distance from zero: 451.9466857910156 loss: 884.8202722448024
+physfad iteration #91 input distance from zero: 451.8065185546875 loss: 885.0371438155951
+physfad iteration #92 input distance from zero: 451.664794921875 loss: 885.2333283567262
+physfad iteration #93 input distance from zero: 451.52490234375 loss: 885.4090260938704
+physfad iteration #94 input distance from zero: 451.38714599609375 loss: 885.5313461198583
+physfad iteration #95 input distance from zero: 451.2567443847656 loss: 885.6540322255369
+physfad iteration #96 input distance from zero: 451.13055419921875 loss: 885.7474191973762
+physfad iteration #97 input distance from zero: 451.0055236816406 loss: 885.8100433505472
+physfad iteration #98 input distance from zero: 450.8803405761719 loss: 885.8661891983784
+physfad iteration #99 input distance from zero: 450.75335693359375 loss: 885.9246356624711
+Function physfad_channel_optimization Took 278.5764 seconds
+Function test_configurations_capacity Took 6.0933 seconds
+i:  0 physfad+noise capacity:  tensor(807.4185)
+Function test_configurations_capacity Took 1.1182 seconds
+i:  1 physfad+noise capacity:  tensor(810.2484)
+Function test_configurations_capacity Took 1.1342 seconds
+i:  2 physfad+noise capacity:  tensor(813.2050)
+Function test_configurations_capacity Took 1.1339 seconds
+i:  3 physfad+noise capacity:  tensor(815.8547)
+Function test_configurations_capacity Took 1.1185 seconds
+i:  4 physfad+noise capacity:  tensor(819.0714)
+Function test_configurations_capacity Took 1.1624 seconds
+i:  5 physfad+noise capacity:  tensor(822.4561)
+Function test_configurations_capacity Took 1.1138 seconds
+i:  6 physfad+noise capacity:  tensor(825.2089)
+Function test_configurations_capacity Took 1.1211 seconds
+i:  7 physfad+noise capacity:  tensor(827.2054)
+Function test_configurations_capacity Took 1.1431 seconds
+i:  8 physfad+noise capacity:  tensor(828.6761)
+Function test_configurations_capacity Took 1.1446 seconds
+i:  9 physfad+noise capacity:  tensor(829.5556)
+Function test_configurations_capacity Took 1.1287 seconds
+i:  10 physfad+noise capacity:  tensor(830.1367)
+Function test_configurations_capacity Took 1.1088 seconds
+i:  11 physfad+noise capacity:  tensor(830.9395)
+Function test_configurations_capacity Took 1.1233 seconds
+i:  12 physfad+noise capacity:  tensor(832.4130)
+Function test_configurations_capacity Took 1.1602 seconds
+i:  13 physfad+noise capacity:  tensor(834.3149)
+Function test_configurations_capacity Took 1.1072 seconds
+i:  14 physfad+noise capacity:  tensor(836.4547)
+Function test_configurations_capacity Took 1.1231 seconds
+i:  15 physfad+noise capacity:  tensor(838.6700)
+Function test_configurations_capacity Took 1.1462 seconds
+i:  16 physfad+noise capacity:  tensor(840.6012)
+Function test_configurations_capacity Took 1.1655 seconds
+i:  17 physfad+noise capacity:  tensor(842.1124)
+Function test_configurations_capacity Took 1.1260 seconds
+i:  18 physfad+noise capacity:  tensor(843.2332)
+Function test_configurations_capacity Took 1.1394 seconds
+i:  19 physfad+noise capacity:  tensor(844.1364)
+Function test_configurations_capacity Took 1.1272 seconds
+i:  20 physfad+noise capacity:  tensor(844.7139)
+Function test_configurations_capacity Took 1.1168 seconds
+i:  21 physfad+noise capacity:  tensor(844.9057)
+Function test_configurations_capacity Took 1.1309 seconds
+i:  22 physfad+noise capacity:  tensor(844.7726)
+Function test_configurations_capacity Took 1.1305 seconds
+i:  23 physfad+noise capacity:  tensor(844.3795)
+Function test_configurations_capacity Took 1.1154 seconds
+i:  24 physfad+noise capacity:  tensor(843.7738)
+Function test_configurations_capacity Took 1.1228 seconds
+i:  25 physfad+noise capacity:  tensor(842.9924)
+Function test_configurations_capacity Took 1.1171 seconds
+i:  26 physfad+noise capacity:  tensor(841.9957)
+Function test_configurations_capacity Took 1.1279 seconds
+i:  27 physfad+noise capacity:  tensor(840.8899)
+Function test_configurations_capacity Took 1.1424 seconds
+i:  28 physfad+noise capacity:  tensor(839.7646)
+Function test_configurations_capacity Took 1.1431 seconds
+i:  29 physfad+noise capacity:  tensor(838.7236)
+Function test_configurations_capacity Took 1.1609 seconds
+i:  30 physfad+noise capacity:  tensor(837.8671)
+Function test_configurations_capacity Took 1.1302 seconds
+i:  31 physfad+noise capacity:  tensor(837.2084)
+Function test_configurations_capacity Took 1.1181 seconds
+i:  32 physfad+noise capacity:  tensor(836.7537)
+Function test_configurations_capacity Took 1.1201 seconds
+i:  33 physfad+noise capacity:  tensor(836.5235)
+Function test_configurations_capacity Took 1.1183 seconds
+i:  34 physfad+noise capacity:  tensor(836.4308)
+Function test_configurations_capacity Took 1.1196 seconds
+i:  35 physfad+noise capacity:  tensor(836.3355)
+Function test_configurations_capacity Took 1.1510 seconds
+i:  36 physfad+noise capacity:  tensor(836.2592)
+Function test_configurations_capacity Took 1.1261 seconds
+i:  37 physfad+noise capacity:  tensor(836.4327)
+Function test_configurations_capacity Took 1.1384 seconds
+i:  38 physfad+noise capacity:  tensor(836.8876)
+Function test_configurations_capacity Took 1.1553 seconds
+i:  39 physfad+noise capacity:  tensor(837.4024)
+Function test_configurations_capacity Took 1.1056 seconds
+i:  40 physfad+noise capacity:  tensor(837.8043)
+Function test_configurations_capacity Took 1.1770 seconds
+i:  41 physfad+noise capacity:  tensor(838.0515)
+Function test_configurations_capacity Took 1.1007 seconds
+i:  42 physfad+noise capacity:  tensor(838.1618)
+Function test_configurations_capacity Took 1.1312 seconds
+i:  43 physfad+noise capacity:  tensor(838.2078)
+Function test_configurations_capacity Took 1.1331 seconds
+i:  44 physfad+noise capacity:  tensor(838.2236)
+Function test_configurations_capacity Took 1.1322 seconds
+i:  45 physfad+noise capacity:  tensor(838.2211)
+Function test_configurations_capacity Took 1.1566 seconds
+i:  46 physfad+noise capacity:  tensor(838.1510)
+Function test_configurations_capacity Took 1.1185 seconds
+i:  47 physfad+noise capacity:  tensor(837.9807)
+Function test_configurations_capacity Took 1.1188 seconds
+i:  48 physfad+noise capacity:  tensor(837.7008)
+Function test_configurations_capacity Took 1.1145 seconds
+i:  49 physfad+noise capacity:  tensor(837.3759)
+Function test_configurations_capacity Took 1.1528 seconds
+i:  50 physfad+noise capacity:  tensor(837.0706)
+Function test_configurations_capacity Took 1.1436 seconds
+i:  51 physfad+noise capacity:  tensor(836.8184)
+Function test_configurations_capacity Took 1.1162 seconds
+i:  52 physfad+noise capacity:  tensor(836.6057)
+Function test_configurations_capacity Took 1.1223 seconds
+i:  53 physfad+noise capacity:  tensor(836.4017)
+Function test_configurations_capacity Took 1.1130 seconds
+i:  54 physfad+noise capacity:  tensor(836.1636)
+Function test_configurations_capacity Took 1.1398 seconds
+i:  55 physfad+noise capacity:  tensor(835.8843)
+Function test_configurations_capacity Took 1.1250 seconds
+i:  56 physfad+noise capacity:  tensor(835.5939)
+Function test_configurations_capacity Took 1.0932 seconds
+i:  57 physfad+noise capacity:  tensor(835.3250)
+Function test_configurations_capacity Took 1.1334 seconds
+i:  58 physfad+noise capacity:  tensor(835.1254)
+Function test_configurations_capacity Took 1.1124 seconds
+i:  59 physfad+noise capacity:  tensor(834.9916)
+Function test_configurations_capacity Took 1.1303 seconds
+i:  60 physfad+noise capacity:  tensor(834.9207)
+Function test_configurations_capacity Took 1.1423 seconds
+i:  61 physfad+noise capacity:  tensor(834.9070)
+Function test_configurations_capacity Took 1.1051 seconds
+i:  62 physfad+noise capacity:  tensor(834.9615)
+Function test_configurations_capacity Took 1.1339 seconds
+i:  63 physfad+noise capacity:  tensor(835.0587)
+Function test_configurations_capacity Took 1.1543 seconds
+i:  64 physfad+noise capacity:  tensor(835.1326)
+Function test_configurations_capacity Took 1.1461 seconds
+i:  65 physfad+noise capacity:  tensor(835.1304)
+Function test_configurations_capacity Took 1.1233 seconds
+i:  66 physfad+noise capacity:  tensor(835.0809)
+Function test_configurations_capacity Took 1.1139 seconds
+i:  67 physfad+noise capacity:  tensor(835.0475)
+Function test_configurations_capacity Took 1.1256 seconds
+i:  68 physfad+noise capacity:  tensor(835.0632)
+Function test_configurations_capacity Took 1.1612 seconds
+i:  69 physfad+noise capacity:  tensor(835.1325)
+Function test_configurations_capacity Took 1.1391 seconds
+i:  70 physfad+noise capacity:  tensor(835.2674)
+Function test_configurations_capacity Took 1.1182 seconds
+i:  71 physfad+noise capacity:  tensor(835.4578)
+Function test_configurations_capacity Took 1.1146 seconds
+i:  72 physfad+noise capacity:  tensor(835.6861)
+Function test_configurations_capacity Took 1.1407 seconds
+i:  73 physfad+noise capacity:  tensor(835.9255)
+Function test_configurations_capacity Took 1.1271 seconds
+i:  74 physfad+noise capacity:  tensor(836.1493)
+Function test_configurations_capacity Took 1.1230 seconds
+i:  75 physfad+noise capacity:  tensor(836.3796)
+Function test_configurations_capacity Took 1.1385 seconds
+i:  76 physfad+noise capacity:  tensor(836.6039)
+Function test_configurations_capacity Took 1.1060 seconds
+i:  77 physfad+noise capacity:  tensor(836.8401)
+Function test_configurations_capacity Took 1.1356 seconds
+i:  78 physfad+noise capacity:  tensor(837.0718)
+Function test_configurations_capacity Took 1.1278 seconds
+i:  79 physfad+noise capacity:  tensor(837.2393)
+Function test_configurations_capacity Took 1.1174 seconds
+i:  80 physfad+noise capacity:  tensor(837.2823)
+Function test_configurations_capacity Took 1.1511 seconds
+i:  81 physfad+noise capacity:  tensor(837.2396)
+Function test_configurations_capacity Took 1.1329 seconds
+i:  82 physfad+noise capacity:  tensor(837.1857)
+Function test_configurations_capacity Took 1.1423 seconds
+i:  83 physfad+noise capacity:  tensor(837.1812)
+Function test_configurations_capacity Took 1.1562 seconds
+i:  84 physfad+noise capacity:  tensor(837.2458)
+Function test_configurations_capacity Took 1.1137 seconds
+i:  85 physfad+noise capacity:  tensor(837.3669)
+Function test_configurations_capacity Took 1.1345 seconds
+i:  86 physfad+noise capacity:  tensor(837.5114)
+Function test_configurations_capacity Took 1.1138 seconds
+i:  87 physfad+noise capacity:  tensor(837.6266)
+Function test_configurations_capacity Took 1.1346 seconds
+i:  88 physfad+noise capacity:  tensor(837.6741)
+Function test_configurations_capacity Took 1.1521 seconds
+i:  89 physfad+noise capacity:  tensor(837.6276)
+Function test_configurations_capacity Took 1.1265 seconds
+i:  90 physfad+noise capacity:  tensor(837.4911)
+Function test_configurations_capacity Took 1.1275 seconds
+i:  91 physfad+noise capacity:  tensor(837.2980)
+Function test_configurations_capacity Took 1.1676 seconds
+i:  92 physfad+noise capacity:  tensor(837.1062)
+Function test_configurations_capacity Took 1.1018 seconds
+i:  93 physfad+noise capacity:  tensor(837.0023)
+Function test_configurations_capacity Took 1.1118 seconds
+i:  94 physfad+noise capacity:  tensor(836.9996)
+Function test_configurations_capacity Took 1.1582 seconds
+i:  95 physfad+noise capacity:  tensor(837.0546)
+Function test_configurations_capacity Took 1.1531 seconds
+i:  96 physfad+noise capacity:  tensor(837.1753)
+Function test_configurations_capacity Took 1.1246 seconds
+i:  97 physfad+noise capacity:  tensor(837.3688)
+Function test_configurations_capacity Took 1.1648 seconds
+i:  98 physfad+noise capacity:  tensor(837.5698)
+Function test_configurations_capacity Took 1.1095 seconds
+i:  99 physfad+noise capacity:  tensor(837.7425)
+zogd iteration #0 input distance from zero: 520.6913648232795 loss: 791.5477647831456
+zogd iteration #1 input distance from zero: 519.8134920035212 loss: 800.5342196601666
+zogd iteration #2 input distance from zero: 520.1061338344833 loss: 803.4507684491255
+zogd iteration #3 input distance from zero: 520.3331749031761 loss: 805.8724317033914
+zogd iteration #4 input distance from zero: 520.3397298706662 loss: 806.895280303469
+zogd iteration #5 input distance from zero: 521.7969929776234 loss: 807.129828193221
+zogd iteration #6 input distance from zero: 520.136354981429 loss: 810.2594409775406
+zogd iteration #7 input distance from zero: 520.4688125542776 loss: 812.0394114369625
+zogd iteration #8 input distance from zero: 520.8827844472384 loss: 813.9834074504735
+zogd iteration #9 input distance from zero: 522.337097252534 loss: 816.3044755400298
+zogd iteration #10 input distance from zero: 522.9157673327305 loss: 817.4297091929946
+zogd iteration #11 input distance from zero: 522.1994234134827 loss: 820.9548319266312
+zogd iteration #12 input distance from zero: 523.4197552953899 loss: 822.3613203515911
+zogd iteration #13 input distance from zero: 524.1817712635478 loss: 826.170536299432
+zogd iteration #14 input distance from zero: 524.6667316248354 loss: 826.2678860407411
+zogd iteration #15 input distance from zero: 525.4754435621553 loss: 827.3613884821281
+zogd iteration #16 input distance from zero: 524.6791217539541 loss: 829.0837038952845
+zogd iteration #17 input distance from zero: 525.9940131848534 loss: 826.8121401170267
+zogd iteration #18 input distance from zero: 526.1698638098728 loss: 828.2696753647841
+zogd iteration #19 input distance from zero: 527.1665561983192 loss: 829.1868163339302
+zogd iteration #20 input distance from zero: 527.6575598710931 loss: 830.8472454996345
+zogd iteration #21 input distance from zero: 526.8215891743599 loss: 830.8528049934775
+zogd iteration #22 input distance from zero: 527.0252402635125 loss: 832.1742658713181
+zogd iteration #23 input distance from zero: 527.2407020340568 loss: 835.4958169569323
+zogd iteration #24 input distance from zero: 526.7812880022559 loss: 836.199726610987
+zogd iteration #25 input distance from zero: 526.7044815758733 loss: 838.1746754056841
+zogd iteration #26 input distance from zero: 527.709852642171 loss: 838.437484685058
+zogd iteration #27 input distance from zero: 527.6579962860453 loss: 839.1251873883441
+zogd iteration #28 input distance from zero: 527.0987358455171 loss: 839.7534435050203
+zogd iteration #29 input distance from zero: 526.3365562602985 loss: 839.2378227046181
+zogd iteration #30 input distance from zero: 525.8382660414592 loss: 841.1874763757069
+zogd iteration #31 input distance from zero: 526.1111298555558 loss: 842.6788649424105
+zogd iteration #32 input distance from zero: 526.3249540475147 loss: 843.1180437786819
+zogd iteration #33 input distance from zero: 525.720392662726 loss: 845.021262291421
+zogd iteration #34 input distance from zero: 526.8562915659959 loss: 845.8231837100922
+zogd iteration #35 input distance from zero: 526.6889525935719 loss: 848.5247875439036
+zogd iteration #36 input distance from zero: 527.1883137186483 loss: 849.4470892687496
+zogd iteration #37 input distance from zero: 526.755889662996 loss: 850.2213684015632
+zogd iteration #38 input distance from zero: 526.3702725590534 loss: 850.8222118178334
+zogd iteration #39 input distance from zero: 526.1878311914251 loss: 851.0087077932405
+zogd iteration #40 input distance from zero: 526.2067820380516 loss: 851.7300869020116
+zogd iteration #41 input distance from zero: 527.249618872167 loss: 852.2284059853957
+zogd iteration #42 input distance from zero: 526.4759652003173 loss: 853.0268865425755
+zogd iteration #43 input distance from zero: 525.1105090488975 loss: 853.2230342090427
+zogd iteration #44 input distance from zero: 526.3819457780572 loss: 853.9530259038941
+zogd iteration #45 input distance from zero: 527.0099334742703 loss: 854.1996625649539
+zogd iteration #46 input distance from zero: 527.7298836871187 loss: 854.7249117738165
+zogd iteration #47 input distance from zero: 528.2779207230919 loss: 856.4504497220855
+zogd iteration #48 input distance from zero: 529.3003112765645 loss: 857.8361795003759
+zogd iteration #49 input distance from zero: 529.448103342635 loss: 858.7299826720755
+zogd iteration #50 input distance from zero: 529.2072436101481 loss: 858.9419008649558
+zogd iteration #51 input distance from zero: 529.2041937524527 loss: 859.4560238254248
+zogd iteration #52 input distance from zero: 528.9029091471377 loss: 859.6864907705406
+zogd iteration #53 input distance from zero: 529.0615824726528 loss: 859.8479394787828
+zogd iteration #54 input distance from zero: 530.0154956179683 loss: 860.3305412176976
+zogd iteration #55 input distance from zero: 529.3109287282098 loss: 861.4182716248616
+zogd iteration #56 input distance from zero: 529.4036546318295 loss: 861.9282347555306
+zogd iteration #57 input distance from zero: 528.8918570136782 loss: 861.9698986831795
+zogd iteration #58 input distance from zero: 528.8507869375651 loss: 862.6669902702919
+zogd iteration #59 input distance from zero: 529.1355906707014 loss: 863.3501225196941
+zogd iteration #60 input distance from zero: 528.2771757787198 loss: 863.5621496801418
+zogd iteration #61 input distance from zero: 528.5298365274709 loss: 864.8023355768353
+zogd iteration #62 input distance from zero: 528.7875204590209 loss: 865.2334857544422
+zogd iteration #63 input distance from zero: 528.7123883020424 loss: 865.5629619193116
+zogd iteration #64 input distance from zero: 528.6531189679663 loss: 866.6424895652249
+zogd iteration #65 input distance from zero: 528.7875371382611 loss: 867.1975849842013
+zogd iteration #66 input distance from zero: 528.4030564000869 loss: 867.6454255892877
+zogd iteration #67 input distance from zero: 530.934898204426 loss: 868.4119682900745
+zogd iteration #68 input distance from zero: 530.789378077271 loss: 870.2446307033922
+zogd iteration #69 input distance from zero: 531.284111316397 loss: 871.0732294665152
+zogd iteration #70 input distance from zero: 531.6644982675186 loss: 871.6438495764321
+zogd iteration #71 input distance from zero: 530.0514547475553 loss: 871.8521988279225
+zogd iteration #72 input distance from zero: 529.8484401633265 loss: 870.2109585298336
+zogd iteration #73 input distance from zero: 530.5149172200378 loss: 871.425153044728
+zogd iteration #74 input distance from zero: 531.3929015058864 loss: 872.2671309675115
+zogd iteration #75 input distance from zero: 531.4829165972368 loss: 873.6907195096337
+zogd iteration #76 input distance from zero: 531.2857841600878 loss: 874.0380215488516
+zogd iteration #77 input distance from zero: 530.9220000329226 loss: 874.4904939457025
+zogd iteration #78 input distance from zero: 531.2214127678416 loss: 875.1792458342103
+zogd iteration #79 input distance from zero: 531.1845051130125 loss: 875.4038357358637
+zogd iteration #80 input distance from zero: 530.6784670146062 loss: 877.7044188256357
+zogd iteration #81 input distance from zero: 530.5223164887016 loss: 877.571077998454
+zogd iteration #82 input distance from zero: 531.0116418519505 loss: 875.7315154790402
+zogd iteration #83 input distance from zero: 530.2213077064932 loss: 877.3958080599882
+zogd iteration #84 input distance from zero: 530.2762065285831 loss: 877.7688474759223
+zogd iteration #85 input distance from zero: 530.6403128829155 loss: 878.1682927202423
+zogd iteration #86 input distance from zero: 529.9660448910413 loss: 878.4098685383176
+zogd iteration #87 input distance from zero: 529.748347375294 loss: 878.9281901722666
+zogd iteration #88 input distance from zero: 529.4970404337332 loss: 879.7219763578025
+zogd iteration #89 input distance from zero: 529.7228592651662 loss: 880.012741823422
+zogd iteration #90 input distance from zero: 531.444306630309 loss: 880.4776200859143
+zogd iteration #91 input distance from zero: 530.8120031149414 loss: 882.3284037380947
+zogd iteration #92 input distance from zero: 530.6256685342569 loss: 884.2516853653791
+zogd iteration #93 input distance from zero: 530.2277997792572 loss: 885.0163755576411
+zogd iteration #94 input distance from zero: 530.1382841078579 loss: 885.343902227019
+zogd iteration #95 input distance from zero: 530.4551756686604 loss: 886.0167000035394
+zogd iteration #96 input distance from zero: 530.9362675182126 loss: 886.7332065908381
+zogd iteration #97 input distance from zero: 530.0969701361817 loss: 887.0670296286991
+zogd iteration #98 input distance from zero: 530.3432081421215 loss: 887.5004078240613
+zogd iteration #99 input distance from zero: 529.9874513980682 loss: 887.2695092086451
+Function zeroth_grad_optimization Took 1010.2465 seconds
+rand iteration #0 input distance from zero: 130.87007331813342 loss: 817.5509728859022
+rand iteration #1 input distance from zero: 132.1061389223761 loss: 762.2309720909223
+rand iteration #2 input distance from zero: 136.3322492051089 loss: 791.9123793396677
+rand iteration #3 input distance from zero: 130.11266578592432 loss: 760.4261084614423
+rand iteration #4 input distance from zero: 135.44833520132937 loss: 811.6180361715852
+rand iteration #5 input distance from zero: 130.3522695078788 loss: 802.85967190459
+rand iteration #6 input distance from zero: 130.08545428167676 loss: 842.4893273837498
+rand iteration #7 input distance from zero: 134.54037798736908 loss: 790.294303736915
+rand iteration #8 input distance from zero: 130.14229580274622 loss: 783.0378935560177
+rand iteration #9 input distance from zero: 127.34677048058467 loss: 775.1507598959587
+rand iteration #10 input distance from zero: 131.41469422664028 loss: 787.0880780272715
+rand iteration #11 input distance from zero: 128.2831672888289 loss: 780.2756343257464
+rand iteration #12 input distance from zero: 132.6828500225974 loss: 777.5520761711696
+rand iteration #13 input distance from zero: 129.39270789885927 loss: 780.0489935382468
+rand iteration #14 input distance from zero: 135.28682842234969 loss: 775.1999205447911
+rand iteration #15 input distance from zero: 136.15262199181828 loss: 775.045348860833
+rand iteration #16 input distance from zero: 127.32836233546857 loss: 807.3589527206257
+rand iteration #17 input distance from zero: 135.3914359088201 loss: 801.2868249761154
+rand iteration #18 input distance from zero: 131.33385235688323 loss: 806.3686241558211
+rand iteration #19 input distance from zero: 133.44571889136458 loss: 784.6913949937523
+rand iteration #20 input distance from zero: 131.34322244325568 loss: 805.7784058849626
+rand iteration #21 input distance from zero: 121.3075552484712 loss: 808.7775956727645
+rand iteration #22 input distance from zero: 128.744362247359 loss: 772.8130281629103
+rand iteration #23 input distance from zero: 134.98525061737197 loss: 782.1874589015634
+rand iteration #24 input distance from zero: 140.96351553274673 loss: 804.8470597571164
+rand iteration #25 input distance from zero: 136.54069635606282 loss: 794.4070300128695
+rand iteration #26 input distance from zero: 138.67409424125105 loss: 803.3680088556275
+rand iteration #27 input distance from zero: 129.55473261749933 loss: 771.0801488986182
+rand iteration #28 input distance from zero: 135.693411322513 loss: 766.0284738083974
+rand iteration #29 input distance from zero: 132.19095895274955 loss: 814.66568667959
+rand iteration #30 input distance from zero: 125.54057966339714 loss: 769.9879440960439
+rand iteration #31 input distance from zero: 127.50491426752906 loss: 799.5689495511577
+rand iteration #32 input distance from zero: 131.8373877661613 loss: 798.6627393094924
+rand iteration #33 input distance from zero: 133.2546230910748 loss: 776.8462700611842
+rand iteration #34 input distance from zero: 124.85236990823996 loss: 758.5634388909252
+rand iteration #35 input distance from zero: 136.26756310451273 loss: 796.6481308471425
+rand iteration #36 input distance from zero: 132.30095960144715 loss: 798.3461794811271
+rand iteration #37 input distance from zero: 128.46342132423416 loss: 780.3601465796979
+rand iteration #38 input distance from zero: 136.0171983081479 loss: 795.827754512128
+rand iteration #39 input distance from zero: 132.87007034431932 loss: 780.3139901885174
+rand iteration #40 input distance from zero: 126.13629771925085 loss: 803.6508697699417
+rand iteration #41 input distance from zero: 134.1660381416333 loss: 799.3116240491677
+rand iteration #42 input distance from zero: 137.86014631607014 loss: 815.4007490329449
+rand iteration #43 input distance from zero: 136.58864592668516 loss: 833.9974460191113
+rand iteration #44 input distance from zero: 138.18052846199748 loss: 789.4026118404254
+rand iteration #45 input distance from zero: 135.55716388837692 loss: 824.1747570455101
+rand iteration #46 input distance from zero: 136.16261650526252 loss: 784.4002612581053
+rand iteration #47 input distance from zero: 130.08978022233293 loss: 796.6165216378625
+rand iteration #48 input distance from zero: 122.68925334281255 loss: 749.4130130191425
+rand iteration #49 input distance from zero: 128.94332490676157 loss: 827.5152695060588
+rand iteration #50 input distance from zero: 144.50563542554727 loss: 811.2122939187159
+rand iteration #51 input distance from zero: 129.55993400605183 loss: 791.3112996288086
+rand iteration #52 input distance from zero: 138.65990668418257 loss: 794.8073031521914
+rand iteration #53 input distance from zero: 137.91232574379598 loss: 801.1851572792721
+rand iteration #54 input distance from zero: 134.9365956109748 loss: 777.6473833344603
+rand iteration #55 input distance from zero: 137.09509994030208 loss: 829.5160018066045
+rand iteration #56 input distance from zero: 126.86172145335232 loss: 811.1211413230026
+rand iteration #57 input distance from zero: 137.75421453030782 loss: 772.2015857176349
+rand iteration #58 input distance from zero: 139.1478519651967 loss: 780.4749207875318
+rand iteration #59 input distance from zero: 136.50037953834737 loss: 798.6528528421493
+rand iteration #60 input distance from zero: 127.97932775431634 loss: 805.1597840425408
+rand iteration #61 input distance from zero: 135.03569063469547 loss: 788.498352958282
+rand iteration #62 input distance from zero: 134.80623684976553 loss: 792.4703582073296
+rand iteration #63 input distance from zero: 132.8457113733133 loss: 822.006388110373
+rand iteration #64 input distance from zero: 134.94545488127324 loss: 788.7280181357776
+rand iteration #65 input distance from zero: 132.58103506848875 loss: 822.3280324365942
+rand iteration #66 input distance from zero: 137.27647460083801 loss: 777.5909630851904
+rand iteration #67 input distance from zero: 139.584933215508 loss: 809.6532077268923
+rand iteration #68 input distance from zero: 120.52409165807225 loss: 785.3728787070936
+rand iteration #69 input distance from zero: 132.45139673675519 loss: 794.0799076063989
+rand iteration #70 input distance from zero: 130.8983184723848 loss: 820.8358857300315
+rand iteration #71 input distance from zero: 130.13427507788242 loss: 764.7637299914189
+rand iteration #72 input distance from zero: 130.98390744271578 loss: 830.3320548863795
+rand iteration #73 input distance from zero: 133.78149928884892 loss: 843.8442221352868
+rand iteration #74 input distance from zero: 129.5240212011007 loss: 794.3227065588334
+rand iteration #75 input distance from zero: 128.27821123110414 loss: 796.1461939340084
+rand iteration #76 input distance from zero: 132.29638216243532 loss: 785.7146184801636
+rand iteration #77 input distance from zero: 141.3432884932468 loss: 765.9460055552668
+rand iteration #78 input distance from zero: 129.14828824988936 loss: 797.8977376034004
+rand iteration #79 input distance from zero: 131.50769432564397 loss: 800.4946793045204
+rand iteration #80 input distance from zero: 127.90181182910274 loss: 797.56097644654
+rand iteration #81 input distance from zero: 128.92087742023747 loss: 837.7949463321754
+rand iteration #82 input distance from zero: 132.53777314691055 loss: 781.6498246562187
+rand iteration #83 input distance from zero: 133.34639208054972 loss: 756.6333102848791
+rand iteration #84 input distance from zero: 127.13175840059287 loss: 767.9320472472218
+rand iteration #85 input distance from zero: 123.31568300995477 loss: 812.1059080129237
+rand iteration #86 input distance from zero: 133.38775475548562 loss: 796.2594224127643
+rand iteration #87 input distance from zero: 128.0095503330418 loss: 752.8487730892742
+rand iteration #88 input distance from zero: 130.96172851939866 loss: 763.3069555266259
+rand iteration #89 input distance from zero: 129.19742857845335 loss: 812.4956566362372
+rand iteration #90 input distance from zero: 140.0563041961506 loss: 774.1299105212457
+rand iteration #91 input distance from zero: 130.86535667586668 loss: 795.3270780115338
+rand iteration #92 input distance from zero: 131.20799038460245 loss: 779.2420562330865
+rand iteration #93 input distance from zero: 134.850272519445 loss: 809.5019700595124
+rand iteration #94 input distance from zero: 125.3065645612269 loss: 753.1531215867406
+rand iteration #95 input distance from zero: 126.9035010001391 loss: 783.6306615525525
+rand iteration #96 input distance from zero: 130.36838310914845 loss: 822.1238936753424
+rand iteration #97 input distance from zero: 138.8000511592788 loss: 787.1327313310693
+rand iteration #98 input distance from zero: 128.40757545605686 loss: 804.2261786997008
+rand iteration #99 input distance from zero: 134.23461779817256 loss: 805.4500652968618
+tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+score parameter tensor([0.5000, 0.5000, 0.5000, 0.5000, 0.5000, 0.5000, 0.5000, 0.5000, 0.5000,
+        0.5000])
+noise parameter tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+Function annealed_langevin_v3 Took 0.4288 seconds
+Function test_configurations_capacity Took 0.9158 seconds
+iter 0 physfad_c capacity 791.5477703064544
+Function test_configurations_capacity Took 0.8940 seconds
+iter 5 physfad_c capacity 809.6118760904742
+Function test_configurations_capacity Took 0.9163 seconds
+iter 10 physfad_c capacity 794.3330173669177
+Function test_configurations_capacity Took 0.9473 seconds
+iter 15 physfad_c capacity 815.620320629607
+Function test_configurations_capacity Took 0.9187 seconds
+iter 20 physfad_c capacity 798.2139928107732
+Function test_configurations_capacity Took 0.9351 seconds
+iter 25 physfad_c capacity 805.0152501757125
+Function test_configurations_capacity Took 0.9775 seconds
+iter 30 physfad_c capacity 805.2031222545081
+Function test_configurations_capacity Took 0.9585 seconds
+iter 35 physfad_c capacity 824.2860392577097
+Function test_configurations_capacity Took 0.9326 seconds
+iter 40 physfad_c capacity 800.2591599738273
+Function test_configurations_capacity Took 0.9167 seconds
+iter 45 physfad_c capacity 809.8709582798621
+Function test_configurations_capacity Took 0.9622 seconds
+iter 50 physfad_c capacity 802.6974497574389
+Function test_configurations_capacity Took 0.9250 seconds
+iter 55 physfad_c capacity 817.7613514325151
+Function test_configurations_capacity Took 0.9520 seconds
+iter 60 physfad_c capacity 804.1313190206859
+Function test_configurations_capacity Took 0.9281 seconds
+iter 65 physfad_c capacity 816.5591383411979
+Function test_configurations_capacity Took 0.9204 seconds
+iter 70 physfad_c capacity 809.566710125109
+Function test_configurations_capacity Took 0.9458 seconds
+iter 75 physfad_c capacity 825.0576135645467
+Function test_configurations_capacity Took 0.9323 seconds
+iter 80 physfad_c capacity 834.1587412578419
+Function test_configurations_capacity Took 0.9570 seconds
+iter 85 physfad_c capacity 820.3653515245837
+Function test_configurations_capacity Took 0.9275 seconds
+iter 90 physfad_c capacity 831.4635375936159
+Function test_configurations_capacity Took 0.9075 seconds
+iter 95 physfad_c capacity 828.782550733865
+Function test_configurations_capacity Took 0.9207 seconds
+iter 100 physfad_c capacity 828.0491173968761
+Function test_configurations_capacity Took 0.9270 seconds
+iter 105 physfad_c capacity 837.8522070459185
+Function test_configurations_capacity Took 0.9208 seconds
+iter 110 physfad_c capacity 839.3556944450003
+Function test_configurations_capacity Took 0.9324 seconds
+iter 115 physfad_c capacity 833.6387059358549
+Function test_configurations_capacity Took 0.9327 seconds
+iter 120 physfad_c capacity 836.8984623420514
+Function test_configurations_capacity Took 0.9385 seconds
+iter 125 physfad_c capacity 839.7735890283925
+Function test_configurations_capacity Took 0.9309 seconds
+iter 130 physfad_c capacity 838.3726589355858
+Function test_configurations_capacity Took 0.9317 seconds
+iter 135 physfad_c capacity 837.0926191794451
+Function test_configurations_capacity Took 0.9348 seconds
+iter 140 physfad_c capacity 835.9334274851559
+Function test_configurations_capacity Took 0.9348 seconds
+iter 145 physfad_c capacity 837.7918692934555
+Function test_configurations_capacity Took 0.9314 seconds
+iter 150 physfad_c capacity 841.6590392756161
+Function test_configurations_capacity Took 0.9470 seconds
+iter 155 physfad_c capacity 835.2213831372471
+Function test_configurations_capacity Took 0.9604 seconds
+iter 160 physfad_c capacity 834.917296067381
+Function test_configurations_capacity Took 0.9272 seconds
+iter 165 physfad_c capacity 834.3911284850655
+Function test_configurations_capacity Took 0.9421 seconds
+iter 170 physfad_c capacity 833.9430203601197
+Function test_configurations_capacity Took 0.9310 seconds
+iter 175 physfad_c capacity 832.8253098326923
+Function test_configurations_capacity Took 0.9541 seconds
+iter 180 physfad_c capacity 833.7711496182535
+Function test_configurations_capacity Took 0.9062 seconds
+iter 185 physfad_c capacity 833.7247338346745
+Function test_configurations_capacity Took 0.9321 seconds
+iter 190 physfad_c capacity 834.1067359137883
+Function test_configurations_capacity Took 0.9459 seconds
+iter 195 physfad_c capacity 834.6405402323023
+Function test_configurations_capacity Took 0.9334 seconds
+iter 200 physfad_c capacity 835.4928062946262
+Function test_configurations_capacity Took 0.9406 seconds
+iter 205 physfad_c capacity 835.78483163887
+Function test_configurations_capacity Took 0.9208 seconds
+iter 210 physfad_c capacity 835.7827980575921
+Function test_configurations_capacity Took 0.9246 seconds
+iter 215 physfad_c capacity 834.4454572034747
+Function test_configurations_capacity Took 0.9299 seconds
+iter 220 physfad_c capacity 834.5425717049382
+Function test_configurations_capacity Took 0.9238 seconds
+iter 225 physfad_c capacity 835.2327499603273
+Function test_configurations_capacity Took 0.9463 seconds
+iter 230 physfad_c capacity 834.7307667245158
+Function test_configurations_capacity Took 0.9443 seconds
+iter 235 physfad_c capacity 834.8351572622503
+Function test_configurations_capacity Took 0.9557 seconds
+iter 240 physfad_c capacity 834.4222309122329
+Function test_configurations_capacity Took 0.9299 seconds
+iter 245 physfad_c capacity 834.6947451699724
+
+End Simulation

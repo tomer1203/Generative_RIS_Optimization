@@ -1,0 +1,3552 @@
+cpu
+C:\Users\tomer\Documents\Projects\Generative_RIS_Optimization\Regression_Model\models.py:145: UserWarning: nn.init.kaiming_uniform is now deprecated in favor of nn.init.kaiming_uniform_.
+  torch.nn.init.kaiming_uniform(m.weight)
+printing layer sizes
+Layer: linear_layers.0.weight | Size: torch.Size([240, 135]) 
+
+Layer: linear_layers.0.bias | Size: torch.Size([240]) 
+
+Layer: linear_layers.1.weight | Size: torch.Size([160, 240]) 
+
+Layer: linear_layers.1.bias | Size: torch.Size([160]) 
+
+Layer: linear_layers.2.weight | Size: torch.Size([120, 160]) 
+
+Layer: linear_layers.2.bias | Size: torch.Size([120]) 
+
+Layer: linear_layers.3.weight | Size: torch.Size([320, 120]) 
+
+Layer: linear_layers.3.bias | Size: torch.Size([320]) 
+
+Layer: linear_layers.4.weight | Size: torch.Size([640, 320]) 
+
+Layer: linear_layers.4.bias | Size: torch.Size([640]) 
+
+Layer: linear_layers.5.weight | Size: torch.Size([1440, 640]) 
+
+Layer: linear_layers.5.bias | Size: torch.Size([1440]) 
+
+Layer: batchnorm_layers.0.weight | Size: torch.Size([240]) 
+
+Layer: batchnorm_layers.0.bias | Size: torch.Size([240]) 
+
+Layer: batchnorm_layers.1.weight | Size: torch.Size([160]) 
+
+Layer: batchnorm_layers.1.bias | Size: torch.Size([160]) 
+
+Layer: batchnorm_layers.2.weight | Size: torch.Size([120]) 
+
+Layer: batchnorm_layers.2.bias | Size: torch.Size([120]) 
+
+Layer: batchnorm_layers.3.weight | Size: torch.Size([320]) 
+
+Layer: batchnorm_layers.3.bias | Size: torch.Size([320]) 
+
+Layer: batchnorm_layers.4.weight | Size: torch.Size([640]) 
+
+Layer: batchnorm_layers.4.bias | Size: torch.Size([640]) 
+
+Layer: batchnorm_layers.5.weight | Size: torch.Size([1440]) 
+
+Layer: batchnorm_layers.5.bias | Size: torch.Size([1440]) 
+
+
+batch_size =  32 
+loss = <function My_MSE_Loss at 0x000001DE694F3420>
+optimizer = Adam
+max_epochs = 150 
+train learning rate = 0.0005 
+optimization learning rate = 0.002000 
+Collecting RIS configuration 
+input std:  0.2857338469915663
+output std:  0.1495699269700718
+Function test_configurations_capacity Took 12.9896 seconds
+Function test_configurations_capacity Took 13.5468 seconds
+capacity before: 46.32579998732507 and after: 43.36411185650938
+0.1002486777225606
+input std:  0.28970297998395733
+output std:  0.14950173622492924
+Function test_configurations_capacity Took 15.0299 seconds
+Function test_configurations_capacity Took 14.0697 seconds
+capacity before: 44.49060847324116 and after: 44.23174667503575
+0.13522742360173653
+input std:  0.2874090456222599
+output std:  0.15148469436307177
+Function test_configurations_capacity Took 16.1915 seconds
+Function test_configurations_capacity Took 14.2016 seconds
+capacity before: 42.72921163121826 and after: 41.806883577116274
+0.16374564516719395
+input std:  0.2865113450145724
+output std:  0.15308032392563242
+Function test_configurations_capacity Took 15.9237 seconds
+Function test_configurations_capacity Took 14.2015 seconds
+capacity before: 49.06980439671965 and after: 46.80368812767952
+0.18042519867062745
+input std:  0.2903874152938472
+output std:  0.15057814121116955
+Function test_configurations_capacity Took 15.9425 seconds
+Function test_configurations_capacity Took 14.2328 seconds
+capacity before: 46.770869386493686 and after: 46.29686013741082
+0.1851235456673425
+input std:  0.28612384266142854
+output std:  0.1506531928850239
+Function test_configurations_capacity Took 13.9958 seconds
+Function test_configurations_capacity Took 14.2770 seconds
+capacity before: 50.77892433190991 and after: 49.8118329239237
+0.18660479420485532
+input std:  0.28985493744979307
+output std:  0.1539301616030344
+Function test_configurations_capacity Took 15.9679 seconds
+Function test_configurations_capacity Took 14.3118 seconds
+capacity before: 47.58618087080133 and after: 46.95083271605819
+0.18372374898189653
+input std:  0.2833438439275826
+output std:  0.14952035072975728
+Function test_configurations_capacity Took 15.9185 seconds
+Function test_configurations_capacity Took 14.2971 seconds
+capacity before: 47.337306197411785 and after: 47.716650308364365
+0.18909448564199433
+input std:  0.2831117526034439
+output std:  0.1516629257081345
+Function test_configurations_capacity Took 15.8449 seconds
+Function test_configurations_capacity Took 14.2385 seconds
+capacity before: 46.32005843348763 and after: 48.55748897615369
+0.19227046932514003
+input std:  0.287491715415977
+output std:  0.15291593418084423
+Function test_configurations_capacity Took 15.8606 seconds
+Function test_configurations_capacity Took 14.2786 seconds
+capacity before: 46.38977905383887 and after: 47.27086474242439
+0.19842554183974692
+input std:  0.2871563646044188
+output std:  0.1540001930704137
+Function test_configurations_capacity Took 15.8288 seconds
+Function test_configurations_capacity Took 14.3070 seconds
+capacity before: 47.62109715435044 and after: 47.11562813064669
+0.2026583515647241
+input std:  0.28418600428016894
+output std:  0.15093774595246437
+Function test_configurations_capacity Took 16.0021 seconds
+Function test_configurations_capacity Took 13.9661 seconds
+capacity before: 43.579309677344376 and after: 43.99753057685707
+0.21707943278657615
+input std:  0.28901028221660496
+output std:  0.1543418555578874
+Function test_configurations_capacity Took 15.8466 seconds
+Function test_configurations_capacity Took 14.0228 seconds
+capacity before: 50.23573670574211 and after: 50.33376573797335
+0.22172803116093392
+input std:  0.2813453039734131
+output std:  0.1551319107581051
+Function test_configurations_capacity Took 15.7486 seconds
+Function test_configurations_capacity Took 14.0990 seconds
+capacity before: 47.07539322475765 and after: 50.74117549974623
+0.22829428431985027
+input std:  0.28605070110744557
+output std:  0.15491933197861882
+Function test_configurations_capacity Took 15.5417 seconds
+Function test_configurations_capacity Took 14.1187 seconds
+capacity before: 57.180068839034845 and after: 57.7886388962158
+0.2276362801272978
+input std:  0.28382008392187236
+output std:  0.15660565343981875
+Function test_configurations_capacity Took 15.6979 seconds
+Function test_configurations_capacity Took 14.0684 seconds
+capacity before: 44.86851450420395 and after: 48.01579738768169
+0.22413992297869734
+input std:  0.2813021255445035
+output std:  0.15242446222661488
+Function test_configurations_capacity Took 15.8227 seconds
+Function test_configurations_capacity Took 13.9726 seconds
+capacity before: 46.3834142224465 and after: 48.41094844672093
+0.23350784997052756
+input std:  0.284643873413786
+output std:  0.15551704215780784
+Function test_configurations_capacity Took 15.5691 seconds
+Function test_configurations_capacity Took 13.9561 seconds
+capacity before: 50.17195769150259 and after: 51.587131133895355
+0.24308709161665282
+input std:  0.2893605918708388
+output std:  0.15733819724787076
+Function test_configurations_capacity Took 15.7395 seconds
+Function test_configurations_capacity Took 14.1535 seconds
+capacity before: 46.18437218995913 and after: 48.842764028415
+0.24132352275325336
+input std:  0.28709092601004416
+output std:  0.15928367772358387
+Function test_configurations_capacity Took 15.6995 seconds
+Function test_configurations_capacity Took 14.1619 seconds
+capacity before: 53.32166670907944 and after: 55.97320305543329
+0.23963957893285764
+input std:  0.2875303664135111
+output std:  0.1538751809896959
+Function test_configurations_capacity Took 16.0410 seconds
+Function test_configurations_capacity Took 14.2327 seconds
+capacity before: 47.84368132219876 and after: 51.556519956461365
+0.24542528762116095
+input std:  0.28676648893203965
+output std:  0.15426574716453353
+Function test_configurations_capacity Took 15.5676 seconds
+Function test_configurations_capacity Took 14.0209 seconds
+capacity before: 44.22526637195915 and after: 46.59792203963796
+0.23608514938636774
+input std:  0.28597775692220534
+output std:  0.15774618682813152
+Function test_configurations_capacity Took 15.6542 seconds
+Function test_configurations_capacity Took 14.0853 seconds
+capacity before: 48.651868118457735 and after: 52.98641032173835
+0.23830375884341182
+input std:  0.28062153037231435
+output std:  0.15417646010823297
+Function test_configurations_capacity Took 15.7331 seconds
+Function test_configurations_capacity Took 14.1360 seconds
+capacity before: 44.371428922343 and after: 47.68836929018913
+0.23443366049657716
+input std:  0.2848122634632913
+output std:  0.15502550694033582
+Function test_configurations_capacity Took 15.4784 seconds
+Function test_configurations_capacity Took 13.9994 seconds
+capacity before: 47.678090567927065 and after: 53.04322292418
+0.24429091963249144
+input std:  0.2866319048668539
+output std:  0.15265853852681366
+Function test_configurations_capacity Took 15.6997 seconds
+Function test_configurations_capacity Took 14.1890 seconds
+capacity before: 47.985774982357526 and after: 53.6868908098628
+0.25732637303395095
+input std:  0.2818851379200678
+output std:  0.156576278475627
+Function test_configurations_capacity Took 15.6253 seconds
+Function test_configurations_capacity Took 14.1076 seconds
+capacity before: 46.07378071543857 and after: 54.24985536943634
+0.25406325725091716
+input std:  0.2871052901015766
+output std:  0.1580533647712215
+Function test_configurations_capacity Took 15.6269 seconds
+Function test_configurations_capacity Took 14.0024 seconds
+capacity before: 44.57151895662016 and after: 48.79300270578283
+0.24362009916255353
+input std:  0.2874986413905342
+output std:  0.15787775557970773
+Function test_configurations_capacity Took 15.7265 seconds
+Function test_configurations_capacity Took 14.0985 seconds
+capacity before: 47.33093661880015 and after: 53.416281142260296
+0.25083100098123445
+input std:  0.275402165237112
+output std:  0.16151297216570396
+Function test_configurations_capacity Took 15.7471 seconds
+Function test_configurations_capacity Took 14.3720 seconds
+capacity before: 45.970850973562705 and after: 50.00293750263391
+0.24710993772816675
+input std:  0.2909196518455654
+output std:  0.1561018248413795
+Function test_configurations_capacity Took 15.2850 seconds
+Function test_configurations_capacity Took 13.9912 seconds
+capacity before: 48.55866473831334 and after: 53.11009517425225
+0.24876991451699065
+input std:  0.2902418395914762
+output std:  0.16246931023547084
+Function test_configurations_capacity Took 15.5470 seconds
+Function test_configurations_capacity Took 14.1856 seconds
+capacity before: 46.90384063321661 and after: 52.07927094782062
+0.2563348808976839
+input std:  0.2837703376219017
+output std:  0.157803506537581
+Function test_configurations_capacity Took 15.2712 seconds
+Function test_configurations_capacity Took 13.9887 seconds
+capacity before: 52.78841138060129 and after: 57.66292107028163
+0.24546602272389517
+input std:  0.2904471476409007
+output std:  0.15553717043412355
+Function test_configurations_capacity Took 15.2567 seconds
+Function test_configurations_capacity Took 14.0918 seconds
+capacity before: 44.817913974352024 and after: 50.91354543049374
+0.24418587715881981
+input std:  0.28628096880741244
+output std:  0.15750561717460193
+Function test_configurations_capacity Took 15.2448 seconds
+Function test_configurations_capacity Took 14.0980 seconds
+capacity before: 52.79111266184178 and after: 55.522245854828995
+0.23177898438556213
+input std:  0.28644336954891314
+output std:  0.157605867443246
+Function test_configurations_capacity Took 15.3136 seconds
+Function test_configurations_capacity Took 14.2051 seconds
+capacity before: 48.41182841775316 and after: 53.7681929176213
+0.22528596654840646
+input std:  0.28680472668381235
+output std:  0.16271954692789264
+Function test_configurations_capacity Took 15.2359 seconds
+Function test_configurations_capacity Took 13.9705 seconds
+capacity before: 50.40890556528801 and after: 54.99047059947006
+0.22905664725211566
+input std:  0.28617325152960776
+output std:  0.15664745652088283
+Function test_configurations_capacity Took 15.3639 seconds
+Function test_configurations_capacity Took 14.1648 seconds
+capacity before: 50.70437496283311 and after: 58.71088186666198
+0.22315471011611004
+input std:  0.28775650185666773
+output std:  0.1578401001217053
+Function test_configurations_capacity Took 15.2562 seconds
+Function test_configurations_capacity Took 14.1315 seconds
+capacity before: 52.35692110827823 and after: 59.25638404630466
+0.21720840956844617
+input std:  0.2893430980110277
+output std:  0.15849581820396993
+Function test_configurations_capacity Took 15.2585 seconds
+Function test_configurations_capacity Took 13.9955 seconds
+capacity before: 43.4249484045587 and after: 49.680554724034025
+0.21552207707301027
+input std:  0.2844172509129182
+output std:  0.15842836492359094
+Function test_configurations_capacity Took 15.3254 seconds
+Function test_configurations_capacity Took 14.0223 seconds
+capacity before: 47.07886605582311 and after: 53.25503238245298
+0.2134010891030575
+input std:  0.2835419491145478
+output std:  0.15742880464463466
+Function test_configurations_capacity Took 15.2928 seconds
+Function test_configurations_capacity Took 14.0868 seconds
+capacity before: 46.55890283584247 and after: 52.311762690109475
+0.21125397506206395
+input std:  0.28670654209814983
+output std:  0.158481166586184
+Function test_configurations_capacity Took 15.3862 seconds
+Function test_configurations_capacity Took 14.0580 seconds
+capacity before: 48.415941800043136 and after: 57.545928429133795
+0.2242116706025557
+input std:  0.28496970989714265
+output std:  0.15597233254472798
+Function test_configurations_capacity Took 15.2237 seconds
+Function test_configurations_capacity Took 13.9262 seconds
+capacity before: 51.7486966089222 and after: 58.53752024891834
+0.2163713177697228
+input std:  0.28646348301309177
+output std:  0.16297716596827583
+Function test_configurations_capacity Took 15.1155 seconds
+Function test_configurations_capacity Took 14.0602 seconds
+capacity before: 46.85248867898607 and after: 53.21598947691611
+0.2248636992196676
+input std:  0.28854561583914473
+output std:  0.15911537747958623
+Function test_configurations_capacity Took 15.3761 seconds
+Function test_configurations_capacity Took 14.1408 seconds
+capacity before: 50.51984960261312 and after: 55.484023712913334
+0.21705428045533853
+input std:  0.2867829958185111
+output std:  0.15808960183049942
+Function test_configurations_capacity Took 15.2069 seconds
+Function test_configurations_capacity Took 14.1818 seconds
+capacity before: 47.40840449481854 and after: 53.07694959284258
+0.20252442633771134
+input std:  0.28517303046304887
+output std:  0.15425289625051786
+Function test_configurations_capacity Took 15.2046 seconds
+Function test_configurations_capacity Took 13.9701 seconds
+capacity before: 50.299314511970536 and after: 58.57687240667686
+0.20383106377979
+input std:  0.2867281601480814
+output std:  0.1590108083318782
+Function test_configurations_capacity Took 15.4237 seconds
+Function test_configurations_capacity Took 13.9546 seconds
+capacity before: 47.25677172586191 and after: 53.52623311974278
+0.2013282462482629
+input std:  0.2921546607827487
+output std:  0.1609219059961569
+Function test_configurations_capacity Took 15.2981 seconds
+Function test_configurations_capacity Took 13.8427 seconds
+capacity before: 48.436910754180296 and after: 56.352657041497935
+0.21146903417550353
+input std:  0.28853932719840925
+output std:  0.15976051367696856
+Function test_configurations_capacity Took 15.2297 seconds
+Function test_configurations_capacity Took 13.9634 seconds
+capacity before: 46.36794004204124 and after: 54.248066583015195
+0.22093369996556378
+input std:  0.290527623319828
+output std:  0.15514283296272277
+Function test_configurations_capacity Took 15.1932 seconds
+Function test_configurations_capacity Took 13.9837 seconds
+capacity before: 46.58131530392114 and after: 54.98719283676889
+0.22242347793780376
+input std:  0.2854643840406029
+output std:  0.16236205913556548
+Function test_configurations_capacity Took 15.2779 seconds
+Function test_configurations_capacity Took 14.0252 seconds
+capacity before: 45.64453322311367 and after: 53.90251643031091
+0.2127873332308528
+input std:  0.28966389354659683
+output std:  0.1606487406186783
+Function test_configurations_capacity Took 15.2843 seconds
+Function test_configurations_capacity Took 14.0162 seconds
+capacity before: 44.95560276320382 and after: 53.15015315191032
+0.21940728442141108
+input std:  0.28921508782199284
+output std:  0.1536962340664707
+Function test_configurations_capacity Took 15.2133 seconds
+Function test_configurations_capacity Took 14.0272 seconds
+capacity before: 48.97759397040049 and after: 54.54820748759044
+0.21225663032053652
+input std:  0.2868123887850203
+output std:  0.16202143973978145
+Function test_configurations_capacity Took 15.2789 seconds
+Function test_configurations_capacity Took 14.1467 seconds
+capacity before: 48.319696142510416 and after: 57.79707084157634
+0.22364389585333008
+input std:  0.28799068255546556
+output std:  0.16190985098075925
+Function test_configurations_capacity Took 15.2805 seconds
+Function test_configurations_capacity Took 14.3814 seconds
+capacity before: 46.94050388872956 and after: 56.922715448769694
+0.22824295595010816
+input std:  0.2929169881134425
+output std:  0.1602622074214324
+Function test_configurations_capacity Took 15.1536 seconds
+Function test_configurations_capacity Took 14.0236 seconds
+capacity before: 49.24233835380149 and after: 59.78356949770813
+0.2292094580684096
+input std:  0.2838817688755796
+output std:  0.15824304382896948
+Function test_configurations_capacity Took 15.1397 seconds
+Function test_configurations_capacity Took 13.9803 seconds
+capacity before: 55.766560788927976 and after: 62.10801828371482
+0.22745367422706747
+input std:  0.28519579201537715
+output std:  0.15811843471158596
+Function test_configurations_capacity Took 15.3579 seconds
+Function test_configurations_capacity Took 14.0074 seconds
+capacity before: 42.75341186974627 and after: 52.378956567239115
+0.22236822354388033
+input std:  0.2864331989466649
+output std:  0.15594211099410493
+Function test_configurations_capacity Took 15.2734 seconds
+Function test_configurations_capacity Took 14.0207 seconds
+capacity before: 49.78372137308793 and after: 59.05595614376869
+0.21653617171563125
+tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+score parameter tensor([5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06,
+        5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06])
+noise parameter tensor([3.1623e-03, 1.8957e-03, 1.1365e-03, 6.8129e-04, 4.0842e-04, 2.4484e-04,
+        1.4678e-04, 8.7992e-05, 5.2750e-05, 3.1623e-05])
+Function annealed_langevin_v3 Took 0.0930 seconds
+zogd iteration #0 input distance from zero: 1065.344192423173 loss: 43.127519913734446
+zogd iteration #1 input distance from zero: 1065.2752874369057 loss: 43.22880608289795
+Function zeroth_grad_optimization Took 32.1417 seconds
+Function test_configurations_capacity Took 1.7039 seconds
+tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+score parameter tensor([5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06,
+        5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06])
+noise parameter tensor([3.1623e-03, 1.8957e-03, 1.1365e-03, 6.8129e-04, 4.0842e-04, 2.4484e-04,
+        1.4678e-04, 8.7992e-05, 5.2750e-05, 3.1623e-05])
+Function annealed_langevin_v3 Took 0.0501 seconds
+zogd iteration #0 input distance from zero: 1073.044589407151 loss: 38.647128271077705
+zogd iteration #1 input distance from zero: 1073.1837675731758 loss: 38.75660134211141
+Function zeroth_grad_optimization Took 32.1728 seconds
+Function test_configurations_capacity Took 1.6844 seconds
+tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+score parameter tensor([5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06,
+        5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06])
+noise parameter tensor([3.1623e-03, 1.8957e-03, 1.1365e-03, 6.8129e-04, 4.0842e-04, 2.4484e-04,
+        1.4678e-04, 8.7992e-05, 5.2750e-05, 3.1623e-05])
+Function annealed_langevin_v3 Took 0.0390 seconds
+zogd iteration #0 input distance from zero: 1089.8295409539928 loss: 52.04374140543886
+zogd iteration #1 input distance from zero: 1090.063620193264 loss: 52.169184207442775
+Function zeroth_grad_optimization Took 32.2263 seconds
+Function test_configurations_capacity Took 1.7206 seconds
+tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+score parameter tensor([5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06,
+        5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06])
+noise parameter tensor([3.1623e-03, 1.8957e-03, 1.1365e-03, 6.8129e-04, 4.0842e-04, 2.4484e-04,
+        1.4678e-04, 8.7992e-05, 5.2750e-05, 3.1623e-05])
+Function annealed_langevin_v3 Took 0.0418 seconds
+zogd iteration #0 input distance from zero: 1081.0021638509213 loss: 36.03877085624485
+zogd iteration #1 input distance from zero: 1081.1351569772492 loss: 36.101874346819116
+Function zeroth_grad_optimization Took 32.4121 seconds
+Function test_configurations_capacity Took 1.7249 seconds
+tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+score parameter tensor([5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06,
+        5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06])
+noise parameter tensor([3.1623e-03, 1.8957e-03, 1.1365e-03, 6.8129e-04, 4.0842e-04, 2.4484e-04,
+        1.4678e-04, 8.7992e-05, 5.2750e-05, 3.1623e-05])
+Function annealed_langevin_v3 Took 0.0493 seconds
+zogd iteration #0 input distance from zero: 1074.9963029554137 loss: 54.86465934957507
+zogd iteration #1 input distance from zero: 1074.3944467174256 loss: 55.05151792900806
+Function zeroth_grad_optimization Took 32.1130 seconds
+Function test_configurations_capacity Took 1.7544 seconds
+tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+score parameter tensor([5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06,
+        5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06])
+noise parameter tensor([3.1623e-03, 1.8957e-03, 1.1365e-03, 6.8129e-04, 4.0842e-04, 2.4484e-04,
+        1.4678e-04, 8.7992e-05, 5.2750e-05, 3.1623e-05])
+Function annealed_langevin_v3 Took 0.0382 seconds
+zogd iteration #0 input distance from zero: 1063.815222090687 loss: 46.676443564421305
+zogd iteration #1 input distance from zero: 1063.9468274493677 loss: 46.829105768309105
+Function zeroth_grad_optimization Took 32.0979 seconds
+Function test_configurations_capacity Took 1.6836 seconds
+tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+score parameter tensor([5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06,
+        5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06])
+noise parameter tensor([3.1623e-03, 1.8957e-03, 1.1365e-03, 6.8129e-04, 4.0842e-04, 2.4484e-04,
+        1.4678e-04, 8.7992e-05, 5.2750e-05, 3.1623e-05])
+Function annealed_langevin_v3 Took 0.0417 seconds
+zogd iteration #0 input distance from zero: 1088.0181904671365 loss: 53.17580713391104
+zogd iteration #1 input distance from zero: 1088.4404485226798 loss: 53.39904571369635
+Function zeroth_grad_optimization Took 32.4190 seconds
+Function test_configurations_capacity Took 1.7267 seconds
+tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+score parameter tensor([5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06,
+        5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06])
+noise parameter tensor([3.1623e-03, 1.8957e-03, 1.1365e-03, 6.8129e-04, 4.0842e-04, 2.4484e-04,
+        1.4678e-04, 8.7992e-05, 5.2750e-05, 3.1623e-05])
+Function annealed_langevin_v3 Took 0.0438 seconds
+zogd iteration #0 input distance from zero: 1087.2866059146554 loss: 41.77570923709126
+zogd iteration #1 input distance from zero: 1086.9959884209252 loss: 41.85666777974795
+Function zeroth_grad_optimization Took 32.0180 seconds
+Function test_configurations_capacity Took 1.7052 seconds
+tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+score parameter tensor([5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06,
+        5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06])
+noise parameter tensor([3.1623e-03, 1.8957e-03, 1.1365e-03, 6.8129e-04, 4.0842e-04, 2.4484e-04,
+        1.4678e-04, 8.7992e-05, 5.2750e-05, 3.1623e-05])
+Function annealed_langevin_v3 Took 0.0408 seconds
+zogd iteration #0 input distance from zero: 1078.9592621062068 loss: 49.64791516449515
+zogd iteration #1 input distance from zero: 1078.8575355096712 loss: 49.841005360157595
+Function zeroth_grad_optimization Took 32.2485 seconds
+Function test_configurations_capacity Took 1.7173 seconds
+tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+score parameter tensor([5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06,
+        5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06])
+noise parameter tensor([3.1623e-03, 1.8957e-03, 1.1365e-03, 6.8129e-04, 4.0842e-04, 2.4484e-04,
+        1.4678e-04, 8.7992e-05, 5.2750e-05, 3.1623e-05])
+Function annealed_langevin_v3 Took 0.0383 seconds
+zogd iteration #0 input distance from zero: 1082.175595990006 loss: 57.05867732193217
+zogd iteration #1 input distance from zero: 1082.1042296436874 loss: 57.14222382987871
+Function zeroth_grad_optimization Took 32.3302 seconds
+Function test_configurations_capacity Took 1.7029 seconds
+tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+score parameter tensor([5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06,
+        5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06])
+noise parameter tensor([3.1623e-03, 1.8957e-03, 1.1365e-03, 6.8129e-04, 4.0842e-04, 2.4484e-04,
+        1.4678e-04, 8.7992e-05, 5.2750e-05, 3.1623e-05])
+Function annealed_langevin_v3 Took 0.0427 seconds
+zogd iteration #0 input distance from zero: 1072.4005814260931 loss: 34.150885001580455
+zogd iteration #1 input distance from zero: 1072.1458479124205 loss: 34.348933345330856
+Function zeroth_grad_optimization Took 32.1648 seconds
+Function test_configurations_capacity Took 1.7244 seconds
+tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+score parameter tensor([5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06,
+        5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06])
+noise parameter tensor([3.1623e-03, 1.8957e-03, 1.1365e-03, 6.8129e-04, 4.0842e-04, 2.4484e-04,
+        1.4678e-04, 8.7992e-05, 5.2750e-05, 3.1623e-05])
+Function annealed_langevin_v3 Took 0.0439 seconds
+zogd iteration #0 input distance from zero: 1072.3931060349669 loss: 58.38059097679185
+zogd iteration #1 input distance from zero: 1072.2918839311055 loss: 58.4873590221366
+Function zeroth_grad_optimization Took 32.2711 seconds
+Function test_configurations_capacity Took 1.7116 seconds
+tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+score parameter tensor([5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06,
+        5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06])
+noise parameter tensor([3.1623e-03, 1.8957e-03, 1.1365e-03, 6.8129e-04, 4.0842e-04, 2.4484e-04,
+        1.4678e-04, 8.7992e-05, 5.2750e-05, 3.1623e-05])
+Function annealed_langevin_v3 Took 0.0429 seconds
+zogd iteration #0 input distance from zero: 1075.3842216317405 loss: 40.98558064414044
+zogd iteration #1 input distance from zero: 1075.5134764385916 loss: 41.337435146641674
+Function zeroth_grad_optimization Took 32.2001 seconds
+Function test_configurations_capacity Took 1.7838 seconds
+tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+score parameter tensor([5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06,
+        5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06])
+noise parameter tensor([3.1623e-03, 1.8957e-03, 1.1365e-03, 6.8129e-04, 4.0842e-04, 2.4484e-04,
+        1.4678e-04, 8.7992e-05, 5.2750e-05, 3.1623e-05])
+Function annealed_langevin_v3 Took 0.0380 seconds
+zogd iteration #0 input distance from zero: 1073.464193643655 loss: 39.48508404458367
+zogd iteration #1 input distance from zero: 1073.5258775205866 loss: 39.656673166465694
+Function zeroth_grad_optimization Took 32.2820 seconds
+Function test_configurations_capacity Took 1.7314 seconds
+tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+score parameter tensor([5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06,
+        5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06])
+noise parameter tensor([3.1623e-03, 1.8957e-03, 1.1365e-03, 6.8129e-04, 4.0842e-04, 2.4484e-04,
+        1.4678e-04, 8.7992e-05, 5.2750e-05, 3.1623e-05])
+Function annealed_langevin_v3 Took 0.0399 seconds
+zogd iteration #0 input distance from zero: 1095.5728819499523 loss: 60.21338854804134
+zogd iteration #1 input distance from zero: 1095.4069992988473 loss: 60.37687076934033
+Function zeroth_grad_optimization Took 32.2834 seconds
+Function test_configurations_capacity Took 1.7088 seconds
+tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+score parameter tensor([5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06,
+        5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06])
+noise parameter tensor([3.1623e-03, 1.8957e-03, 1.1365e-03, 6.8129e-04, 4.0842e-04, 2.4484e-04,
+        1.4678e-04, 8.7992e-05, 5.2750e-05, 3.1623e-05])
+Function annealed_langevin_v3 Took 0.0394 seconds
+zogd iteration #0 input distance from zero: 1072.786597023096 loss: 26.667844228123982
+zogd iteration #1 input distance from zero: 1072.8282751148424 loss: 26.72935201412791
+Function zeroth_grad_optimization Took 32.8587 seconds
+Function test_configurations_capacity Took 1.7645 seconds
+test diffusion mean rate:  53.92371060679432
+input std:  0.2828712621503091
+output std:  0.15883961184543527
+Function test_configurations_capacity Took 15.4322 seconds
+Function test_configurations_capacity Took 13.9906 seconds
+capacity before: 43.45420242671756 and after: 52.71288551653601
+0.20589648930319898
+input std:  0.28611918171010525
+output std:  0.15724361552668673
+Function test_configurations_capacity Took 15.4359 seconds
+Function test_configurations_capacity Took 14.0540 seconds
+capacity before: 44.06850902413348 and after: 53.64075415288427
+0.1985791112441904
+input std:  0.28587433142033397
+output std:  0.16119120993243258
+Function test_configurations_capacity Took 13.8731 seconds
+Function test_configurations_capacity Took 13.9902 seconds
+capacity before: 46.6162365646525 and after: 56.79330866263578
+0.193064822558618
+input std:  0.2939326620271533
+output std:  0.16046792047510874
+Function test_configurations_capacity Took 15.1024 seconds
+Function test_configurations_capacity Took 14.1255 seconds
+capacity before: 46.65583705063422 and after: 55.19518896298075
+0.19288103279959834
+input std:  0.2826013349207208
+output std:  0.15547848451103913
+Function test_configurations_capacity Took 16.2683 seconds
+Function test_configurations_capacity Took 14.2585 seconds
+capacity before: 50.50780591329459 and after: 58.748994804880056
+0.1885439329552952
+input std:  0.2856019042957754
+output std:  0.1609174807314291
+Function test_configurations_capacity Took 15.4757 seconds
+Function test_configurations_capacity Took 14.2704 seconds
+capacity before: 45.51551714284503 and after: 54.17829389046969
+0.1875546144433729
+input std:  0.2897048666710383
+output std:  0.15732885864528434
+Function test_configurations_capacity Took 15.3094 seconds
+Function test_configurations_capacity Took 13.9743 seconds
+capacity before: 42.60894215779362 and after: 53.26172809347928
+0.18603298818862807
+input std:  0.2855707906210976
+output std:  0.15782717505722885
+Function test_configurations_capacity Took 15.4085 seconds
+Function test_configurations_capacity Took 14.1519 seconds
+capacity before: 47.90720968719662 and after: 59.903305166356084
+0.19028508685208148
+input std:  0.28494297409751285
+output std:  0.1581419858347354
+Function test_configurations_capacity Took 15.1893 seconds
+Function test_configurations_capacity Took 14.5463 seconds
+capacity before: 48.21660630073063 and after: 57.76326821596605
+0.1908324273268425
+input std:  0.2855406608143258
+output std:  0.15450325460584285
+Function test_configurations_capacity Took 19.6497 seconds
+Function test_configurations_capacity Took 14.0149 seconds
+capacity before: 50.285652189288086 and after: 60.296988694780815
+0.17957035609034352
+input std:  0.28097567713362936
+output std:  0.1570541525040859
+Function test_configurations_capacity Took 15.2429 seconds
+Function test_configurations_capacity Took 14.0387 seconds
+capacity before: 51.873347142202554 and after: 62.58639828809693
+0.1798076877297142
+input std:  0.28363890150162724
+output std:  0.15536514609304336
+Function test_configurations_capacity Took 15.2419 seconds
+Function test_configurations_capacity Took 13.9892 seconds
+capacity before: 48.114186051864124 and after: 59.85341086178343
+0.19432098956003002
+input std:  0.28318963264275615
+output std:  0.15537071824967702
+Function test_configurations_capacity Took 15.1524 seconds
+Function test_configurations_capacity Took 13.9193 seconds
+capacity before: 48.32310683819718 and after: 59.02749992576253
+0.1924376117604644
+input std:  0.2861250125035462
+output std:  0.1565700796292782
+Function test_configurations_capacity Took 15.2575 seconds
+Function test_configurations_capacity Took 13.9501 seconds
+capacity before: 46.674766016712795 and after: 57.38313333290646
+0.18826699166493727
+input std:  0.2868592765568593
+output std:  0.15329888064620442
+Function test_configurations_capacity Took 15.3963 seconds
+Function test_configurations_capacity Took 14.0261 seconds
+capacity before: 43.9551968134032 and after: 54.28711209175553
+0.18339799572488044
+input std:  0.282968066981778
+output std:  0.15593820608222608
+Function test_configurations_capacity Took 15.3229 seconds
+Function test_configurations_capacity Took 13.9805 seconds
+capacity before: 50.91260771661334 and after: 61.83285837231459
+0.18424210060305268
+input std:  0.2832133296867049
+output std:  0.15376446609729247
+Function test_configurations_capacity Took 15.2443 seconds
+Function test_configurations_capacity Took 14.0034 seconds
+capacity before: 46.29182292603069 and after: 57.122136664316706
+0.1770193848951575
+input std:  0.28844321286635854
+output std:  0.15678782309058992
+Function test_configurations_capacity Took 15.3200 seconds
+Function test_configurations_capacity Took 13.9925 seconds
+capacity before: 43.73727322554259 and after: 54.63357958392339
+0.17029621691596422
+input std:  0.285825005047417
+output std:  0.1535598608025841
+Function test_configurations_capacity Took 15.1706 seconds
+Function test_configurations_capacity Took 14.3064 seconds
+capacity before: 52.08268718099291 and after: 63.899553643762374
+0.16617447023269
+input std:  0.2861581395050589
+output std:  0.15577275021620648
+Function test_configurations_capacity Took 15.2430 seconds
+Function test_configurations_capacity Took 14.0575 seconds
+capacity before: 44.570397312031034 and after: 54.08847798695045
+0.1761649516111563
+input std:  0.2890320378445747
+output std:  0.15519405799271116
+Function test_configurations_capacity Took 15.1266 seconds
+Function test_configurations_capacity Took 14.1023 seconds
+capacity before: 45.977424213546925 and after: 56.91886081296758
+0.1804251838133148
+input std:  0.2851891079214715
+output std:  0.15375168573331488
+Function test_configurations_capacity Took 15.0965 seconds
+Function test_configurations_capacity Took 14.0170 seconds
+capacity before: 49.76715640049795 and after: 62.21433971634528
+0.17561179696085058
+input std:  0.2858810055753984
+output std:  0.15495797124015057
+Function test_configurations_capacity Took 15.1564 seconds
+Function test_configurations_capacity Took 13.8505 seconds
+capacity before: 50.87801793410085 and after: 60.012870393538705
+0.18510017451046382
+input std:  0.2846309884304884
+output std:  0.1560709568950994
+Function test_configurations_capacity Took 15.5645 seconds
+Function test_configurations_capacity Took 14.0903 seconds
+capacity before: 45.427987527333805 and after: 53.5442530732955
+0.1894137731181577
+input std:  0.287057307106123
+output std:  0.15663104401578715
+Function test_configurations_capacity Took 14.6071 seconds
+Function test_configurations_capacity Took 13.8907 seconds
+capacity before: 44.316250782400004 and after: 56.08760598628797
+0.1889182852706335
+input std:  0.2882842861584175
+output std:  0.15560728427962123
+Function test_configurations_capacity Took 15.2180 seconds
+Function test_configurations_capacity Took 13.8797 seconds
+capacity before: 44.99217254311052 and after: 54.17348206560935
+0.19233070708369496
+input std:  0.2893592308330469
+output std:  0.15327112003840598
+Function test_configurations_capacity Took 15.4658 seconds
+Function test_configurations_capacity Took 14.0357 seconds
+capacity before: 45.57567482304015 and after: 58.375383946485464
+0.2028416185565661
+input std:  0.28324407597532497
+output std:  0.1511195531883618
+Function test_configurations_capacity Took 15.1212 seconds
+Function test_configurations_capacity Took 14.0613 seconds
+capacity before: 44.18520268776046 and after: 52.79728210231574
+0.20889639752354502
+input std:  0.2886221066669924
+output std:  0.15520173990310365
+Function test_configurations_capacity Took 15.2271 seconds
+Function test_configurations_capacity Took 14.0392 seconds
+capacity before: 47.86353167965515 and after: 58.303752654850165
+0.20816416267423615
+input std:  0.2841898304602566
+output std:  0.15045385881264814
+Function test_configurations_capacity Took 15.5115 seconds
+Function test_configurations_capacity Took 13.9690 seconds
+capacity before: 48.67942320707464 and after: 60.98795085073873
+0.20533100167121213
+input std:  0.2824406304125423
+output std:  0.15393052427894782
+Function test_configurations_capacity Took 15.1096 seconds
+Function test_configurations_capacity Took 13.8629 seconds
+capacity before: 52.893741072999994 and after: 66.19762071604775
+0.2026561644185984
+input std:  0.29007579140886214
+output std:  0.15350036033506928
+Function test_configurations_capacity Took 15.0047 seconds
+Function test_configurations_capacity Took 13.8163 seconds
+capacity before: 47.32817274540469 and after: 57.76338856532425
+0.19877479706333437
+input std:  0.2887307481121349
+output std:  0.15065580344730511
+Function test_configurations_capacity Took 15.0866 seconds
+Function test_configurations_capacity Took 14.0204 seconds
+capacity before: 44.91069297344575 and after: 55.36671981905933
+0.19508699694791712
+input std:  0.28518785912500905
+output std:  0.1521928547461348
+Function test_configurations_capacity Took 15.1526 seconds
+Function test_configurations_capacity Took 13.9260 seconds
+capacity before: 43.28736317447971 and after: 57.475621752629614
+0.19552583733694104
+input std:  0.2814154006697329
+output std:  0.15086529392704737
+Function test_configurations_capacity Took 15.2452 seconds
+Function test_configurations_capacity Took 14.0125 seconds
+capacity before: 45.39534941669832 and after: 57.228049469475906
+0.19067208513622286
+input std:  0.2873452857727595
+output std:  0.1476113484116816
+Function test_configurations_capacity Took 15.1750 seconds
+Function test_configurations_capacity Took 14.0399 seconds
+capacity before: 49.60399043638823 and after: 60.942971781880914
+0.1961646234432954
+input std:  0.2873346576120758
+output std:  0.1500883759426464
+Function test_configurations_capacity Took 15.1714 seconds
+Function test_configurations_capacity Took 14.0389 seconds
+capacity before: 50.70573156926836 and after: 62.99290330186214
+0.19298454725842004
+input std:  0.2858063388768029
+output std:  0.14781914751871417
+Function test_configurations_capacity Took 15.1551 seconds
+Function test_configurations_capacity Took 14.0870 seconds
+capacity before: 46.62057338650155 and after: 55.28283544939144
+0.18982662099821765
+input std:  0.2886385600707821
+output std:  0.14978818484565729
+Function test_configurations_capacity Took 15.1665 seconds
+Function test_configurations_capacity Took 14.3483 seconds
+capacity before: 42.84500905417413 and after: 54.97558076145173
+0.18851718681883217
+input std:  0.2847837413837921
+output std:  0.14968860232930833
+Function test_configurations_capacity Took 15.9619 seconds
+Function test_configurations_capacity Took 13.5521 seconds
+capacity before: 48.14418578931791 and after: 61.45130562612217
+0.18636591378835882
+input std:  0.2847937034357371
+output std:  0.14917611599161892
+Function test_configurations_capacity Took 20.9932 seconds
+Function test_configurations_capacity Took 13.8070 seconds
+capacity before: 48.384551330533455 and after: 59.51627754737146
+0.17992827897788657
+input std:  0.2822554254887988
+output std:  0.15140246556280354
+Function test_configurations_capacity Took 15.0193 seconds
+Function test_configurations_capacity Took 13.9159 seconds
+capacity before: 48.15703141664855 and after: 58.48709589997332
+0.17437126078521398
+input std:  0.2888113861699031
+output std:  0.14761147583244846
+Function test_configurations_capacity Took 14.9400 seconds
+Function test_configurations_capacity Took 13.9050 seconds
+capacity before: 47.36383346238809 and after: 61.42984761398776
+0.172854580167842
+input std:  0.28738200443929274
+output std:  0.15520750242055106
+Function test_configurations_capacity Took 15.8161 seconds
+Function test_configurations_capacity Took 14.1898 seconds
+capacity before: 49.00369299000696 and after: 60.84125672681808
+0.17563354103058276
+input std:  0.28375133227185434
+output std:  0.14648083795657624
+Function test_configurations_capacity Took 15.4140 seconds
+Function test_configurations_capacity Took 14.0745 seconds
+capacity before: 48.43048378901272 and after: 60.19654199218747
+0.17913753964094437
+input std:  0.2869087018710524
+output std:  0.14857936147943193
+Function test_configurations_capacity Took 15.3697 seconds
+Function test_configurations_capacity Took 13.9519 seconds
+capacity before: 46.89424128421659 and after: 59.94748255424311
+0.16958181792377228
+input std:  0.28130817896340166
+output std:  0.14793094050616865
+Function test_configurations_capacity Took 15.5390 seconds
+Function test_configurations_capacity Took 14.3231 seconds
+capacity before: 49.793773133230864 and after: 62.42443151389526
+0.1687830535297968
+input std:  0.2880300015146083
+output std:  0.14817668254211436
+Function test_configurations_capacity Took 15.4178 seconds
+Function test_configurations_capacity Took 14.1062 seconds
+capacity before: 48.20937170813224 and after: 61.23425972943576
+0.1809731319598781
+input std:  0.28613562257331754
+output std:  0.14514714507958634
+Function test_configurations_capacity Took 15.2901 seconds
+Function test_configurations_capacity Took 14.1236 seconds
+capacity before: 45.87965019907536 and after: 58.714590311007015
+0.18809866946852075
+input std:  0.2859087303412084
+output std:  0.1437675158165449
+Function test_configurations_capacity Took 15.2702 seconds
+Function test_configurations_capacity Took 14.5564 seconds
+capacity before: 45.646508284888355 and after: 56.661006145244684
+0.18939405148466765
+input std:  0.2897667109349124
+output std:  0.14801044129501278
+Function test_configurations_capacity Took 15.5929 seconds
+Function test_configurations_capacity Took 14.1565 seconds
+capacity before: 45.91199877414936 and after: 58.89893004888868
+0.1873611060242849
+input std:  0.28984790762539314
+output std:  0.14717364637576247
+Function test_configurations_capacity Took 15.2256 seconds
+Function test_configurations_capacity Took 14.1153 seconds
+capacity before: 50.20095718556883 and after: 59.46926029394575
+0.19341931320938724
+input std:  0.2802051941139527
+output std:  0.1500709045479383
+Function test_configurations_capacity Took 15.2962 seconds
+Function test_configurations_capacity Took 14.0486 seconds
+capacity before: 42.379377168398754 and after: 56.22799428868658
+0.189873926985624
+input std:  0.28651817132570445
+output std:  0.14675493850628726
+Function test_configurations_capacity Took 15.1335 seconds
+Function test_configurations_capacity Took 14.2415 seconds
+capacity before: 45.67231959797221 and after: 58.56651335630699
+0.19503868118979878
+input std:  0.28748125761846993
+output std:  0.14360256868187507
+Function test_configurations_capacity Took 15.2092 seconds
+Function test_configurations_capacity Took 14.0825 seconds
+capacity before: 49.45783140816335 and after: 60.83987273378079
+0.20020575562670442
+input std:  0.2844984465541854
+output std:  0.14525441892995133
+Function test_configurations_capacity Took 15.2000 seconds
+Function test_configurations_capacity Took 13.7993 seconds
+capacity before: 50.24596794748821 and after: 64.31112483341764
+0.20016313202642375
+input std:  0.28534776808455325
+output std:  0.14733815329835817
+Function test_configurations_capacity Took 15.2283 seconds
+Function test_configurations_capacity Took 14.2013 seconds
+capacity before: 44.06428070364514 and after: 55.3321897403713
+0.19892326432468116
+input std:  0.28728587985497006
+output std:  0.15007564086743816
+Function test_configurations_capacity Took 15.4312 seconds
+Function test_configurations_capacity Took 14.1040 seconds
+capacity before: 46.749774539348856 and after: 59.420300284108556
+0.1881327701232482
+input std:  0.2857720013106959
+output std:  0.14667378580456428
+Function test_configurations_capacity Took 15.1737 seconds
+Function test_configurations_capacity Took 14.2153 seconds
+capacity before: 47.8380658519297 and after: 63.649847894933544
+0.18434352925147252
+input std:  0.2890811124688016
+output std:  0.1462840689558989
+Function test_configurations_capacity Took 15.2233 seconds
+Function test_configurations_capacity Took 14.3744 seconds
+capacity before: 45.09443612908407 and after: 57.65936733149285
+0.1760902781094082
+tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+score parameter tensor([5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06,
+        5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06])
+noise parameter tensor([3.1623e-03, 1.8957e-03, 1.1365e-03, 6.8129e-04, 4.0842e-04, 2.4484e-04,
+        1.4678e-04, 8.7992e-05, 5.2750e-05, 3.1623e-05])
+Function annealed_langevin_v3 Took 0.0930 seconds
+zogd iteration #0 input distance from zero: 1072.2762248496492 loss: 34.14788657581153
+zogd iteration #1 input distance from zero: 1072.0163029447435 loss: 34.27243857961117
+Function zeroth_grad_optimization Took 32.6829 seconds
+Function test_configurations_capacity Took 1.7554 seconds
+tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+score parameter tensor([5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06,
+        5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06])
+noise parameter tensor([3.1623e-03, 1.8957e-03, 1.1365e-03, 6.8129e-04, 4.0842e-04, 2.4484e-04,
+        1.4678e-04, 8.7992e-05, 5.2750e-05, 3.1623e-05])
+Function annealed_langevin_v3 Took 0.0592 seconds
+zogd iteration #0 input distance from zero: 1089.8508425533148 loss: 52.009424723917476
+zogd iteration #1 input distance from zero: 1089.7680628708113 loss: 52.266838755118435
+Function zeroth_grad_optimization Took 32.3897 seconds
+Function test_configurations_capacity Took 1.7240 seconds
+tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+score parameter tensor([5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06,
+        5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06])
+noise parameter tensor([3.1623e-03, 1.8957e-03, 1.1365e-03, 6.8129e-04, 4.0842e-04, 2.4484e-04,
+        1.4678e-04, 8.7992e-05, 5.2750e-05, 3.1623e-05])
+Function annealed_langevin_v3 Took 0.0407 seconds
+zogd iteration #0 input distance from zero: 1087.5276550464664 loss: 41.713788525848315
+zogd iteration #1 input distance from zero: 1087.9065312594976 loss: 41.89986658590904
+Function zeroth_grad_optimization Took 32.3367 seconds
+Function test_configurations_capacity Took 1.7523 seconds
+tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+score parameter tensor([5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06,
+        5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06])
+noise parameter tensor([3.1623e-03, 1.8957e-03, 1.1365e-03, 6.8129e-04, 4.0842e-04, 2.4484e-04,
+        1.4678e-04, 8.7992e-05, 5.2750e-05, 3.1623e-05])
+Function annealed_langevin_v3 Took 0.0382 seconds
+zogd iteration #0 input distance from zero: 1087.750807062172 loss: 53.07508675867721
+zogd iteration #1 input distance from zero: 1087.757946091138 loss: 53.53262308708595
+Function zeroth_grad_optimization Took 32.4988 seconds
+Function test_configurations_capacity Took 1.7090 seconds
+tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+score parameter tensor([5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06,
+        5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06])
+noise parameter tensor([3.1623e-03, 1.8957e-03, 1.1365e-03, 6.8129e-04, 4.0842e-04, 2.4484e-04,
+        1.4678e-04, 8.7992e-05, 5.2750e-05, 3.1623e-05])
+Function annealed_langevin_v3 Took 0.0475 seconds
+zogd iteration #0 input distance from zero: 1072.8306836192423 loss: 38.550241138010016
+zogd iteration #1 input distance from zero: 1072.2935629587998 loss: 38.71514852765173
+Function zeroth_grad_optimization Took 32.3928 seconds
+Function test_configurations_capacity Took 1.7303 seconds
+tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+score parameter tensor([5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06,
+        5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06])
+noise parameter tensor([3.1623e-03, 1.8957e-03, 1.1365e-03, 6.8129e-04, 4.0842e-04, 2.4484e-04,
+        1.4678e-04, 8.7992e-05, 5.2750e-05, 3.1623e-05])
+Function annealed_langevin_v3 Took 0.0421 seconds
+zogd iteration #0 input distance from zero: 1073.3222806487986 loss: 39.56346959068327
+zogd iteration #1 input distance from zero: 1073.328112875305 loss: 39.68813515818832
+Function zeroth_grad_optimization Took 32.4978 seconds
+Function test_configurations_capacity Took 1.7441 seconds
+tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+score parameter tensor([5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06,
+        5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06])
+noise parameter tensor([3.1623e-03, 1.8957e-03, 1.1365e-03, 6.8129e-04, 4.0842e-04, 2.4484e-04,
+        1.4678e-04, 8.7992e-05, 5.2750e-05, 3.1623e-05])
+Function annealed_langevin_v3 Took 0.0479 seconds
+zogd iteration #0 input distance from zero: 1063.5453872459984 loss: 46.72489049363179
+zogd iteration #1 input distance from zero: 1063.7899621660933 loss: 46.94012914354056
+Function zeroth_grad_optimization Took 32.9405 seconds
+Function test_configurations_capacity Took 1.7743 seconds
+tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+score parameter tensor([5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06,
+        5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06])
+noise parameter tensor([3.1623e-03, 1.8957e-03, 1.1365e-03, 6.8129e-04, 4.0842e-04, 2.4484e-04,
+        1.4678e-04, 8.7992e-05, 5.2750e-05, 3.1623e-05])
+Function annealed_langevin_v3 Took 0.0385 seconds
+zogd iteration #0 input distance from zero: 1081.0972240408796 loss: 36.07790787258253
+zogd iteration #1 input distance from zero: 1080.9421648413681 loss: 36.119017041784176
+Function zeroth_grad_optimization Took 32.5415 seconds
+Function test_configurations_capacity Took 1.7099 seconds
+tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+score parameter tensor([5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06,
+        5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06])
+noise parameter tensor([3.1623e-03, 1.8957e-03, 1.1365e-03, 6.8129e-04, 4.0842e-04, 2.4484e-04,
+        1.4678e-04, 8.7992e-05, 5.2750e-05, 3.1623e-05])
+Function annealed_langevin_v3 Took 0.0445 seconds
+zogd iteration #0 input distance from zero: 1075.0930421066491 loss: 54.97960709924938
+zogd iteration #1 input distance from zero: 1074.8665710958137 loss: 55.06029987286377
+Function zeroth_grad_optimization Took 32.5245 seconds
+Function test_configurations_capacity Took 1.7465 seconds
+tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+score parameter tensor([5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06,
+        5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06])
+noise parameter tensor([3.1623e-03, 1.8957e-03, 1.1365e-03, 6.8129e-04, 4.0842e-04, 2.4484e-04,
+        1.4678e-04, 8.7992e-05, 5.2750e-05, 3.1623e-05])
+Function annealed_langevin_v3 Took 0.0428 seconds
+zogd iteration #0 input distance from zero: 1082.0267559778595 loss: 57.25484606077259
+zogd iteration #1 input distance from zero: 1081.3083136340751 loss: 57.720972317752356
+Function zeroth_grad_optimization Took 32.5289 seconds
+Function test_configurations_capacity Took 1.7131 seconds
+tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+score parameter tensor([5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06,
+        5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06])
+noise parameter tensor([3.1623e-03, 1.8957e-03, 1.1365e-03, 6.8129e-04, 4.0842e-04, 2.4484e-04,
+        1.4678e-04, 8.7992e-05, 5.2750e-05, 3.1623e-05])
+Function annealed_langevin_v3 Took 0.0383 seconds
+zogd iteration #0 input distance from zero: 1079.3597995977802 loss: 49.778873669709334
+zogd iteration #1 input distance from zero: 1079.3494883687827 loss: 49.98551358432542
+Function zeroth_grad_optimization Took 32.6680 seconds
+Function test_configurations_capacity Took 1.7694 seconds
+tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+score parameter tensor([5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06,
+        5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06])
+noise parameter tensor([3.1623e-03, 1.8957e-03, 1.1365e-03, 6.8129e-04, 4.0842e-04, 2.4484e-04,
+        1.4678e-04, 8.7992e-05, 5.2750e-05, 3.1623e-05])
+Function annealed_langevin_v3 Took 0.0367 seconds
+zogd iteration #0 input distance from zero: 1095.4024715351754 loss: 60.2094761285282
+zogd iteration #1 input distance from zero: 1095.6648972456073 loss: 60.35626680204196
+Function zeroth_grad_optimization Took 32.4573 seconds
+Function test_configurations_capacity Took 1.7130 seconds
+tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+score parameter tensor([5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06,
+        5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06])
+noise parameter tensor([3.1623e-03, 1.8957e-03, 1.1365e-03, 6.8129e-04, 4.0842e-04, 2.4484e-04,
+        1.4678e-04, 8.7992e-05, 5.2750e-05, 3.1623e-05])
+Function annealed_langevin_v3 Took 0.0384 seconds
+zogd iteration #0 input distance from zero: 1075.6848418355999 loss: 41.00236237064124
+zogd iteration #1 input distance from zero: 1075.9902566298558 loss: 41.14729907358533
+Function zeroth_grad_optimization Took 32.2097 seconds
+Function test_configurations_capacity Took 1.7479 seconds
+tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+score parameter tensor([5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06,
+        5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06])
+noise parameter tensor([3.1623e-03, 1.8957e-03, 1.1365e-03, 6.8129e-04, 4.0842e-04, 2.4484e-04,
+        1.4678e-04, 8.7992e-05, 5.2750e-05, 3.1623e-05])
+Function annealed_langevin_v3 Took 0.0375 seconds
+zogd iteration #0 input distance from zero: 1072.6337111437106 loss: 26.659620314054216
+zogd iteration #1 input distance from zero: 1072.4972046074492 loss: 26.703404972056468
+Function zeroth_grad_optimization Took 32.4387 seconds
+Function test_configurations_capacity Took 1.7589 seconds
+tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+score parameter tensor([5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06,
+        5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06])
+noise parameter tensor([3.1623e-03, 1.8957e-03, 1.1365e-03, 6.8129e-04, 4.0842e-04, 2.4484e-04,
+        1.4678e-04, 8.7992e-05, 5.2750e-05, 3.1623e-05])
+Function annealed_langevin_v3 Took 0.0548 seconds
+zogd iteration #0 input distance from zero: 1065.2001898298329 loss: 43.05288310668909
+zogd iteration #1 input distance from zero: 1065.2635763049966 loss: 43.19720682900713
+Function zeroth_grad_optimization Took 32.4511 seconds
+Function test_configurations_capacity Took 1.7482 seconds
+tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+score parameter tensor([5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06,
+        5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06])
+noise parameter tensor([3.1623e-03, 1.8957e-03, 1.1365e-03, 6.8129e-04, 4.0842e-04, 2.4484e-04,
+        1.4678e-04, 8.7992e-05, 5.2750e-05, 3.1623e-05])
+Function annealed_langevin_v3 Took 0.0437 seconds
+zogd iteration #0 input distance from zero: 1073.1410694257313 loss: 58.10549121711014
+zogd iteration #1 input distance from zero: 1072.3117523832702 loss: 58.30062956810821
+Function zeroth_grad_optimization Took 32.4071 seconds
+Function test_configurations_capacity Took 1.7242 seconds
+test diffusion mean rate:  57.857580547529196
+input std:  0.2891685564040949
+output std:  0.1501484956572466
+Function test_configurations_capacity Took 15.3814 seconds
+Function test_configurations_capacity Took 14.0873 seconds
+capacity before: 49.95512627956174 and after: 60.4882797075693
+0.1771772772322789
+input std:  0.28939377567504615
+output std:  0.14536091076798113
+Function test_configurations_capacity Took 16.0783 seconds
+Function test_configurations_capacity Took 14.0557 seconds
+capacity before: 45.04856768983431 and after: 59.96824938917305
+0.17216196272360434
+input std:  0.2823798491419402
+output std:  0.13966536773306618
+Function test_configurations_capacity Took 14.0339 seconds
+Function test_configurations_capacity Took 13.9746 seconds
+capacity before: 42.47291589123866 and after: 55.502312086129955
+0.17513944697838052
+input std:  0.27940225497881355
+output std:  0.14118137455706795
+Function test_configurations_capacity Took 13.9793 seconds
+Function test_configurations_capacity Took 14.0588 seconds
+capacity before: 42.67543550789924 and after: 58.119186426443044
+0.1577307405256108
+input std:  0.29054848734519745
+output std:  0.14193689524651784
+Function test_configurations_capacity Took 20.0192 seconds
+Function test_configurations_capacity Took 14.1841 seconds
+capacity before: 49.065202575479454 and after: 62.72683916859552
+0.1529986895753769
+input std:  0.2857420804483451
+output std:  0.14673287082406963
+Function test_configurations_capacity Took 15.2710 seconds
+Function test_configurations_capacity Took 14.1261 seconds
+capacity before: 46.82691349036201 and after: 60.22091302550237
+0.15481591449921345
+input std:  0.2863771647315895
+output std:  0.14980869680564748
+Function test_configurations_capacity Took 15.2402 seconds
+Function test_configurations_capacity Took 14.1613 seconds
+capacity before: 41.59254906317432 and after: 53.87809007973147
+0.1593442042203756
+input std:  0.28236550265532645
+output std:  0.13887837168196393
+Function test_configurations_capacity Took 15.3021 seconds
+Function test_configurations_capacity Took 14.1908 seconds
+capacity before: 42.6314412542518 and after: 55.964613073435665
+0.17230679148623432
+input std:  0.2922343640370417
+output std:  0.1443478105975102
+Function test_configurations_capacity Took 14.4246 seconds
+Function test_configurations_capacity Took 14.1643 seconds
+capacity before: 44.38266025338776 and after: 58.70860373712527
+0.16351306587615644
+input std:  0.2791494348902133
+output std:  0.14349723731708344
+Function test_configurations_capacity Took 13.8915 seconds
+Function test_configurations_capacity Took 14.6980 seconds
+capacity before: 52.97879297927636 and after: 67.82496528883918
+0.17715282556961892
+input std:  0.2868735516934227
+output std:  0.14061698609469775
+Function test_configurations_capacity Took 15.2922 seconds
+Function test_configurations_capacity Took 14.2538 seconds
+capacity before: 49.91763927620832 and after: 62.99805501672451
+0.17625944393565418
+input std:  0.2856946530153049
+output std:  0.1390593117594796
+Function test_configurations_capacity Took 15.4244 seconds
+Function test_configurations_capacity Took 13.9792 seconds
+capacity before: 49.729563569703785 and after: 62.020857408073866
+0.1788886606603804
+input std:  0.28874600776785647
+output std:  0.14140963991212857
+Function test_configurations_capacity Took 15.3483 seconds
+Function test_configurations_capacity Took 13.9969 seconds
+capacity before: 49.72952024476906 and after: 64.09906549479234
+0.17954297222726728
+input std:  0.28606946331148986
+output std:  0.1388467545914716
+Function test_configurations_capacity Took 15.1681 seconds
+Function test_configurations_capacity Took 14.2018 seconds
+capacity before: 45.25621268119245 and after: 59.77080477573754
+0.18574911180643677
+input std:  0.28827910710946825
+output std:  0.13912967157077805
+Function test_configurations_capacity Took 15.2886 seconds
+Function test_configurations_capacity Took 14.0854 seconds
+capacity before: 47.42216138783262 and after: 62.44433262371621
+0.19620277941905256
+input std:  0.28968841396375633
+output std:  0.1406096558375523
+Function test_configurations_capacity Took 15.2571 seconds
+Function test_configurations_capacity Took 14.2254 seconds
+capacity before: 46.45667423445572 and after: 57.22934357790104
+0.20113553301647155
+input std:  0.2789127811351734
+output std:  0.14160154556335267
+Function test_configurations_capacity Took 15.1233 seconds
+Function test_configurations_capacity Took 14.1093 seconds
+capacity before: 46.10988449008901 and after: 59.04364417151135
+0.2044766147323745
+input std:  0.28455389151640476
+output std:  0.13310123568323015
+Function test_configurations_capacity Took 13.9857 seconds
+Function test_configurations_capacity Took 14.2423 seconds
+capacity before: 49.36629162958764 and after: 63.86671527697531
+0.1831811277236297
+input std:  0.28948352850024384
+output std:  0.14487186514834555
+Function test_configurations_capacity Took 15.2564 seconds
+Function test_configurations_capacity Took 14.0740 seconds
+capacity before: 50.344653691825926 and after: 63.22473080622858
+0.1963181235837873
+input std:  0.2855954979415648
+output std:  0.13878937259404076
+Function test_configurations_capacity Took 15.2153 seconds
+Function test_configurations_capacity Took 14.5165 seconds
+capacity before: 43.38272252852197 and after: 57.0966848317127
+0.19002789110903073
+input std:  0.28777759604389713
+output std:  0.1388624729635074
+Function test_configurations_capacity Took 15.2292 seconds
+Function test_configurations_capacity Took 14.2238 seconds
+capacity before: 45.464899712088716 and after: 58.82584792790778
+0.19928667882933498
+input std:  0.29024613700054314
+output std:  0.13752009638661328
+Function test_configurations_capacity Took 15.1616 seconds
+Function test_configurations_capacity Took 14.0506 seconds
+capacity before: 49.457333211169306 and after: 62.02902133812453
+0.19912126054058385
+input std:  0.2820554398927858
+output std:  0.1398306079718153
+Function test_configurations_capacity Took 15.3345 seconds
+Function test_configurations_capacity Took 14.0841 seconds
+capacity before: 46.82990800913972 and after: 60.20276800701275
+0.1908421883369974
+input std:  0.28455584781358784
+output std:  0.141694369537979
+Function test_configurations_capacity Took 15.2288 seconds
+Function test_configurations_capacity Took 14.0838 seconds
+capacity before: 45.620800520963655 and after: 58.03248551292812
+0.19071378939841127
+input std:  0.2855481284963843
+output std:  0.13690484975022174
+Function test_configurations_capacity Took 15.4593 seconds
+Function test_configurations_capacity Took 13.8954 seconds
+capacity before: 45.86576680280921 and after: 57.59455237829233
+0.18382000415628014
+input std:  0.29161208120906645
+output std:  0.13568920904303797
+Function test_configurations_capacity Took 15.2582 seconds
+Function test_configurations_capacity Took 14.1799 seconds
+capacity before: 50.93822849291916 and after: 65.35077076950802
+0.1823111407889207
+input std:  0.28890861739054463
+output std:  0.13550464521791597
+Function test_configurations_capacity Took 15.7298 seconds
+Function test_configurations_capacity Took 14.1364 seconds
+capacity before: 46.69374364011428 and after: 58.02574684836645
+0.17277975588635228
+input std:  0.2916611526819648
+output std:  0.13763564145462284
+Function test_configurations_capacity Took 15.4872 seconds
+Function test_configurations_capacity Took 14.2081 seconds
+capacity before: 48.170531317801704 and after: 59.587049514397634
+0.18811133669139463
+input std:  0.2895950451802574
+output std:  0.13433273042510913
+Function test_configurations_capacity Took 15.3115 seconds
+Function test_configurations_capacity Took 14.0390 seconds
+capacity before: 50.69878787362011 and after: 64.49737542941327
+0.1885944189091458
+input std:  0.2854046728933396
+output std:  0.13241096407156913
+Function test_configurations_capacity Took 15.3124 seconds
+Function test_configurations_capacity Took 14.2139 seconds
+capacity before: 48.95405115116599 and after: 61.23861748486393
+0.19082975694700519
+input std:  0.2956215116144279
+output std:  0.13580558061918246
+Function test_configurations_capacity Took 15.5928 seconds
+Function test_configurations_capacity Took 14.2264 seconds
+capacity before: 50.49626251234557 and after: 63.02015057269042
+0.19236434076410264
+input std:  0.29155230433296253
+output std:  0.13280433430296515
+Function test_configurations_capacity Took 15.2042 seconds
+Function test_configurations_capacity Took 14.1371 seconds
+capacity before: 48.40334758913905 and after: 60.105819907004104
+0.18600751164736268
+input std:  0.28543636336992384
+output std:  0.13815481304471958
+Function test_configurations_capacity Took 15.3345 seconds
+Function test_configurations_capacity Took 14.0655 seconds
+capacity before: 48.78291619008503 and after: 60.8135323836546
+0.18677767769347214
+input std:  0.2886641777600577
+output std:  0.1381874479407996
+Function test_configurations_capacity Took 15.1083 seconds
+Function test_configurations_capacity Took 14.1697 seconds
+capacity before: 51.49190746193752 and after: 64.74850200998115
+0.1871559790561649
+input std:  0.28333755464593224
+output std:  0.13748165662739076
+Function test_configurations_capacity Took 15.3436 seconds
+Function test_configurations_capacity Took 14.2066 seconds
+capacity before: 46.211014069142195 and after: 60.0496846766382
+0.1881858422569737
+input std:  0.2827063142299216
+output std:  0.13302874029435335
+Function test_configurations_capacity Took 15.3694 seconds
+Function test_configurations_capacity Took 14.1141 seconds
+capacity before: 44.85813639999198 and after: 59.95093912016419
+0.18547198613624777
+input std:  0.2922623132483087
+output std:  0.13996987483668072
+Function test_configurations_capacity Took 15.1822 seconds
+Function test_configurations_capacity Took 14.2026 seconds
+capacity before: 44.01996385702548 and after: 56.433005046938725
+0.18583674391792893
+input std:  0.2893332854085949
+output std:  0.13458763991322314
+Function test_configurations_capacity Took 15.2271 seconds
+Function test_configurations_capacity Took 14.3771 seconds
+capacity before: 47.73276562222704 and after: 63.08513905946946
+0.1752893701751955
+input std:  0.28450561894350235
+output std:  0.13746729390177095
+Function test_configurations_capacity Took 15.2179 seconds
+Function test_configurations_capacity Took 14.1328 seconds
+capacity before: 44.88107196955774 and after: 60.63543108095736
+0.17006477059345387
+input std:  0.2829700905852939
+output std:  0.13269452513586347
+Function test_configurations_capacity Took 15.3124 seconds
+Function test_configurations_capacity Took 14.2002 seconds
+capacity before: 45.33604876270692 and after: 60.03593666514965
+0.1716379260636197
+input std:  0.29040957421193464
+output std:  0.13628970994923065
+Function test_configurations_capacity Took 15.4433 seconds
+Function test_configurations_capacity Took 14.2402 seconds
+capacity before: 50.7533387902146 and after: 65.40662650150634
+0.16305806528199066
+input std:  0.2865848590474646
+output std:  0.13622336119729736
+Function test_configurations_capacity Took 15.1834 seconds
+Function test_configurations_capacity Took 14.1406 seconds
+capacity before: 46.958226157431326 and after: 62.08468076957356
+0.16863204595716708
+input std:  0.2877884803687005
+output std:  0.13335916086223804
+Function test_configurations_capacity Took 15.2131 seconds
+Function test_configurations_capacity Took 14.1254 seconds
+capacity before: 44.210108057357125 and after: 58.346148861115715
+0.17197138293111963
+input std:  0.2875954725611051
+output std:  0.1350685142776624
+Function test_configurations_capacity Took 15.1869 seconds
+Function test_configurations_capacity Took 14.2196 seconds
+capacity before: 45.17035744905974 and after: 58.021479548052874
+0.17367705790889643
+input std:  0.2864187573218086
+output std:  0.13373065125994815
+Function test_configurations_capacity Took 15.3097 seconds
+Function test_configurations_capacity Took 14.3766 seconds
+capacity before: 45.75378907280699 and after: 60.10752261389167
+0.16966305063325188
+input std:  0.28421291866626514
+output std:  0.1328357788879042
+Function test_configurations_capacity Took 15.4917 seconds
+Function test_configurations_capacity Took 14.1699 seconds
+capacity before: 50.724407713747624 and after: 65.55894895433757
+0.16549378979086277
+input std:  0.28706588927781845
+output std:  0.13603427244399513
+Function test_configurations_capacity Took 15.2691 seconds
+Function test_configurations_capacity Took 14.1885 seconds
+capacity before: 51.73757279307229 and after: 65.84962001815839
+0.17135982887263093
+input std:  0.2874013854329591
+output std:  0.13199830637757837
+Function test_configurations_capacity Took 15.2259 seconds
+Function test_configurations_capacity Took 14.2522 seconds
+capacity before: 48.5592397499268 and after: 63.77665743678299
+0.17997159591346318
+input std:  0.2896069398388502
+output std:  0.1306607549613378
+Function test_configurations_capacity Took 15.0681 seconds
+Function test_configurations_capacity Took 14.2481 seconds
+capacity before: 53.04875126860015 and after: 66.92564094671334
+0.17789539140879726
+input std:  0.2898002348354411
+output std:  0.12913132262872162
+Function test_configurations_capacity Took 15.2503 seconds
+Function test_configurations_capacity Took 14.2422 seconds
+capacity before: 53.145451274591906 and after: 69.83312303690467
+0.17427950722498767
+input std:  0.28432825279050966
+output std:  0.13111590261515133
+Function test_configurations_capacity Took 15.1964 seconds
+Function test_configurations_capacity Took 14.6785 seconds
+capacity before: 48.18246536028294 and after: 62.262337291008684
+0.17872488959646077
+input std:  0.28821931786053867
+output std:  0.13918591606645095
+Function test_configurations_capacity Took 15.2525 seconds
+Function test_configurations_capacity Took 14.0737 seconds
+capacity before: 46.93713704702016 and after: 60.93004410432461
+0.17962967756014708
+input std:  0.2845776758977137
+output std:  0.1305232544620251
+Function test_configurations_capacity Took 15.0005 seconds
+Function test_configurations_capacity Took 14.1840 seconds
+capacity before: 47.46214142366968 and after: 61.19382150790709
+0.17623519912725022
+input std:  0.2913822206033196
+output std:  0.13178598284461784
+Function test_configurations_capacity Took 15.3437 seconds
+Function test_configurations_capacity Took 14.0922 seconds
+capacity before: 46.65850184397863 and after: 60.185188086719236
+0.16921527567308256
+input std:  0.28311331294883163
+output std:  0.1286966751471388
+Function test_configurations_capacity Took 14.7341 seconds
+Function test_configurations_capacity Took 14.1696 seconds
+capacity before: 47.86389007943775 and after: 62.34962225120037
+0.16617297129910566
+input std:  0.28855289826413993
+output std:  0.1358916047382331
+Function test_configurations_capacity Took 15.1768 seconds
+Function test_configurations_capacity Took 14.1661 seconds
+capacity before: 48.60866693797019 and after: 64.02416542894771
+0.1623029577507081
+input std:  0.29075806250374453
+output std:  0.12806268051162378
+Function test_configurations_capacity Took 15.1202 seconds
+Function test_configurations_capacity Took 14.2266 seconds
+capacity before: 50.14062339332413 and after: 65.64346562410182
+0.16103768931022927
+input std:  0.29089504050764436
+output std:  0.135021075012454
+Function test_configurations_capacity Took 15.0943 seconds
+Function test_configurations_capacity Took 13.9766 seconds
+capacity before: 42.49522901809172 and after: 56.39270981110645
+0.1575029065345778
+input std:  0.28674231793883803
+output std:  0.13332869724038837
+Function test_configurations_capacity Took 15.3049 seconds
+Function test_configurations_capacity Took 14.1090 seconds
+capacity before: 49.2320530360515 and after: 60.95733065529453
+0.1571330129276974
+input std:  0.28880565587843204
+output std:  0.12927868907331322
+Function test_configurations_capacity Took 15.1838 seconds
+Function test_configurations_capacity Took 14.2120 seconds
+capacity before: 47.74013503056427 and after: 61.542582451284005
+0.1561750539315973
+tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+score parameter tensor([5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06,
+        5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06])
+noise parameter tensor([3.1623e-03, 1.8957e-03, 1.1365e-03, 6.8129e-04, 4.0842e-04, 2.4484e-04,
+        1.4678e-04, 8.7992e-05, 5.2750e-05, 3.1623e-05])
+Function annealed_langevin_v3 Took 0.1397 seconds
+zogd iteration #0 input distance from zero: 1063.5883818653297 loss: 46.81053049685788
+zogd iteration #1 input distance from zero: 1063.5670685689017 loss: 46.94352168983265
+Function zeroth_grad_optimization Took 32.4445 seconds
+Function test_configurations_capacity Took 1.6879 seconds
+tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+score parameter tensor([5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06,
+        5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06])
+noise parameter tensor([3.1623e-03, 1.8957e-03, 1.1365e-03, 6.8129e-04, 4.0842e-04, 2.4484e-04,
+        1.4678e-04, 8.7992e-05, 5.2750e-05, 3.1623e-05])
+Function annealed_langevin_v3 Took 0.0576 seconds
+zogd iteration #0 input distance from zero: 1072.5078761926363 loss: 34.20820649978611
+zogd iteration #1 input distance from zero: 1072.61547326215 loss: 34.30839244595638
+Function zeroth_grad_optimization Took 32.5724 seconds
+Function test_configurations_capacity Took 1.7442 seconds
+tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+score parameter tensor([5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06,
+        5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06])
+noise parameter tensor([3.1623e-03, 1.8957e-03, 1.1365e-03, 6.8129e-04, 4.0842e-04, 2.4484e-04,
+        1.4678e-04, 8.7992e-05, 5.2750e-05, 3.1623e-05])
+Function annealed_langevin_v3 Took 0.0403 seconds
+zogd iteration #0 input distance from zero: 1080.7614196958916 loss: 36.04812308724757
+zogd iteration #1 input distance from zero: 1080.9655037368539 loss: 36.105973892544284
+Function zeroth_grad_optimization Took 32.4611 seconds
+Function test_configurations_capacity Took 1.6913 seconds
+tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+score parameter tensor([5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06,
+        5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06])
+noise parameter tensor([3.1623e-03, 1.8957e-03, 1.1365e-03, 6.8129e-04, 4.0842e-04, 2.4484e-04,
+        1.4678e-04, 8.7992e-05, 5.2750e-05, 3.1623e-05])
+Function annealed_langevin_v3 Took 0.0425 seconds
+zogd iteration #0 input distance from zero: 1087.923039888018 loss: 52.98241520048307
+zogd iteration #1 input distance from zero: 1087.8290484213558 loss: 53.232160578948715
+Function zeroth_grad_optimization Took 32.5461 seconds
+Function test_configurations_capacity Took 1.7237 seconds
+tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+score parameter tensor([5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06,
+        5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06])
+noise parameter tensor([3.1623e-03, 1.8957e-03, 1.1365e-03, 6.8129e-04, 4.0842e-04, 2.4484e-04,
+        1.4678e-04, 8.7992e-05, 5.2750e-05, 3.1623e-05])
+Function annealed_langevin_v3 Took 0.0394 seconds
+zogd iteration #0 input distance from zero: 1072.4931917552228 loss: 58.13900609850327
+zogd iteration #1 input distance from zero: 1072.5956465170927 loss: 58.28558523568141
+Function zeroth_grad_optimization Took 32.5313 seconds
+Function test_configurations_capacity Took 1.6966 seconds
+tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+score parameter tensor([5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06,
+        5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06])
+noise parameter tensor([3.1623e-03, 1.8957e-03, 1.1365e-03, 6.8129e-04, 4.0842e-04, 2.4484e-04,
+        1.4678e-04, 8.7992e-05, 5.2750e-05, 3.1623e-05])
+Function annealed_langevin_v3 Took 0.0422 seconds
+zogd iteration #0 input distance from zero: 1090.2273125384256 loss: 52.180021336664865
+zogd iteration #1 input distance from zero: 1090.1350538594395 loss: 52.42523367565663
+Function zeroth_grad_optimization Took 32.5859 seconds
+Function test_configurations_capacity Took 1.7343 seconds
+tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+score parameter tensor([5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06,
+        5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06])
+noise parameter tensor([3.1623e-03, 1.8957e-03, 1.1365e-03, 6.8129e-04, 4.0842e-04, 2.4484e-04,
+        1.4678e-04, 8.7992e-05, 5.2750e-05, 3.1623e-05])
+Function annealed_langevin_v3 Took 0.0377 seconds
+zogd iteration #0 input distance from zero: 1081.6243754582692 loss: 57.1169197550291
+zogd iteration #1 input distance from zero: 1081.6219803300764 loss: 57.46232835912569
+Function zeroth_grad_optimization Took 32.5346 seconds
+Function test_configurations_capacity Took 1.7140 seconds
+tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+score parameter tensor([5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06,
+        5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06])
+noise parameter tensor([3.1623e-03, 1.8957e-03, 1.1365e-03, 6.8129e-04, 4.0842e-04, 2.4484e-04,
+        1.4678e-04, 8.7992e-05, 5.2750e-05, 3.1623e-05])
+Function annealed_langevin_v3 Took 0.0374 seconds
+zogd iteration #0 input distance from zero: 1075.1852225977727 loss: 40.90489047684832
+zogd iteration #1 input distance from zero: 1075.2272231727925 loss: 40.99133920695712
+Function zeroth_grad_optimization Took 32.4592 seconds
+Function test_configurations_capacity Took 1.7384 seconds
+tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+score parameter tensor([5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06,
+        5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06])
+noise parameter tensor([3.1623e-03, 1.8957e-03, 1.1365e-03, 6.8129e-04, 4.0842e-04, 2.4484e-04,
+        1.4678e-04, 8.7992e-05, 5.2750e-05, 3.1623e-05])
+Function annealed_langevin_v3 Took 0.0445 seconds
+zogd iteration #0 input distance from zero: 1072.7144900258058 loss: 26.612419827757186
+zogd iteration #1 input distance from zero: 1072.7557570093131 loss: 26.68283475676339
+Function zeroth_grad_optimization Took 32.4882 seconds
+Function test_configurations_capacity Took 1.7133 seconds
+tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+score parameter tensor([5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06,
+        5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06])
+noise parameter tensor([3.1623e-03, 1.8957e-03, 1.1365e-03, 6.8129e-04, 4.0842e-04, 2.4484e-04,
+        1.4678e-04, 8.7992e-05, 5.2750e-05, 3.1623e-05])
+Function annealed_langevin_v3 Took 0.0373 seconds
+zogd iteration #0 input distance from zero: 1065.14403765838 loss: 43.104898105356604
+zogd iteration #1 input distance from zero: 1065.0216136314139 loss: 43.29739631614565
+Function zeroth_grad_optimization Took 32.4484 seconds
+Function test_configurations_capacity Took 1.7243 seconds
+tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+score parameter tensor([5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06,
+        5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06])
+noise parameter tensor([3.1623e-03, 1.8957e-03, 1.1365e-03, 6.8129e-04, 4.0842e-04, 2.4484e-04,
+        1.4678e-04, 8.7992e-05, 5.2750e-05, 3.1623e-05])
+Function annealed_langevin_v3 Took 0.0368 seconds
+zogd iteration #0 input distance from zero: 1095.647789693929 loss: 60.345964182530906
+zogd iteration #1 input distance from zero: 1095.2919763803723 loss: 60.53202188182378
+Function zeroth_grad_optimization Took 32.4522 seconds
+Function test_configurations_capacity Took 1.7561 seconds
+tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+score parameter tensor([5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06,
+        5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06])
+noise parameter tensor([3.1623e-03, 1.8957e-03, 1.1365e-03, 6.8129e-04, 4.0842e-04, 2.4484e-04,
+        1.4678e-04, 8.7992e-05, 5.2750e-05, 3.1623e-05])
+Function annealed_langevin_v3 Took 0.0419 seconds
+zogd iteration #0 input distance from zero: 1073.1909387013382 loss: 39.58751461257055
+zogd iteration #1 input distance from zero: 1073.0655754075474 loss: 39.79817768964856
+Function zeroth_grad_optimization Took 32.6157 seconds
+Function test_configurations_capacity Took 1.7126 seconds
+tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+score parameter tensor([5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06,
+        5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06])
+noise parameter tensor([3.1623e-03, 1.8957e-03, 1.1365e-03, 6.8129e-04, 4.0842e-04, 2.4484e-04,
+        1.4678e-04, 8.7992e-05, 5.2750e-05, 3.1623e-05])
+Function annealed_langevin_v3 Took 0.0400 seconds
+zogd iteration #0 input distance from zero: 1086.71459212526 loss: 41.589588382174654
+zogd iteration #1 input distance from zero: 1086.3998581959609 loss: 41.74492308760371
+Function zeroth_grad_optimization Took 32.4376 seconds
+Function test_configurations_capacity Took 1.7038 seconds
+tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+score parameter tensor([5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06,
+        5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06])
+noise parameter tensor([3.1623e-03, 1.8957e-03, 1.1365e-03, 6.8129e-04, 4.0842e-04, 2.4484e-04,
+        1.4678e-04, 8.7992e-05, 5.2750e-05, 3.1623e-05])
+Function annealed_langevin_v3 Took 0.0353 seconds
+zogd iteration #0 input distance from zero: 1072.9217489080747 loss: 38.57753067394208
+zogd iteration #1 input distance from zero: 1072.9115347316138 loss: 38.6831536062695
+Function zeroth_grad_optimization Took 32.6301 seconds
+Function test_configurations_capacity Took 1.7399 seconds
+tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+score parameter tensor([5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06,
+        5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06])
+noise parameter tensor([3.1623e-03, 1.8957e-03, 1.1365e-03, 6.8129e-04, 4.0842e-04, 2.4484e-04,
+        1.4678e-04, 8.7992e-05, 5.2750e-05, 3.1623e-05])
+Function annealed_langevin_v3 Took 0.0383 seconds
+zogd iteration #0 input distance from zero: 1075.3988260731971 loss: 55.089331469889984
+zogd iteration #1 input distance from zero: 1074.8428025332144 loss: 55.31291741340354
+Function zeroth_grad_optimization Took 32.5150 seconds
+Function test_configurations_capacity Took 1.7667 seconds
+tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+score parameter tensor([5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06,
+        5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06])
+noise parameter tensor([3.1623e-03, 1.8957e-03, 1.1365e-03, 6.8129e-04, 4.0842e-04, 2.4484e-04,
+        1.4678e-04, 8.7992e-05, 5.2750e-05, 3.1623e-05])
+Function annealed_langevin_v3 Took 0.0375 seconds
+zogd iteration #0 input distance from zero: 1078.1313360160484 loss: 49.926192854858144
+zogd iteration #1 input distance from zero: 1077.3741245328106 loss: 50.08810579253325
+Function zeroth_grad_optimization Took 32.7224 seconds
+Function test_configurations_capacity Took 1.7642 seconds
+test diffusion mean rate:  59.487381571620254
+input std:  0.28386818041045964
+output std:  0.13881024859708174
+Function test_configurations_capacity Took 15.6005 seconds
+Function test_configurations_capacity Took 14.0852 seconds
+capacity before: 47.67800202835361 and after: 62.286337735529
+0.15480980985751516
+input std:  0.28361144976848046
+output std:  0.13105933342756532
+Function test_configurations_capacity Took 15.9752 seconds
+Function test_configurations_capacity Took 13.9819 seconds
+capacity before: 47.57031861054025 and after: 61.66013598775068
+0.15815584552323853
+input std:  0.28691386940123254
+output std:  0.12677862259902684
+Function test_configurations_capacity Took 13.9684 seconds
+Function test_configurations_capacity Took 14.0707 seconds
+capacity before: 48.94514011611049 and after: 62.4757664530202
+0.16391756221596324
+input std:  0.2893812343089779
+output std:  0.13216125664977327
+Function test_configurations_capacity Took 14.0300 seconds
+Function test_configurations_capacity Took 14.0636 seconds
+capacity before: 51.86915837333251 and after: 65.36206640701927
+0.1691794067422221
+input std:  0.2914703053459713
+output std:  0.13497177917507674
+Function test_configurations_capacity Took 13.8825 seconds
+Function test_configurations_capacity Took 14.2161 seconds
+capacity before: 46.78118144120278 and after: 62.58684387422224
+0.17369244116697144
+input std:  0.29065348609649133
+output std:  0.13099859626175003
+Function test_configurations_capacity Took 15.3294 seconds
+Function test_configurations_capacity Took 14.1180 seconds
+capacity before: 48.72742196419933 and after: 63.83809417174614
+0.1895048472545176
+input std:  0.28741061688981917
+output std:  0.13265263170666206
+Function test_configurations_capacity Took 15.1215 seconds
+Function test_configurations_capacity Took 14.1727 seconds
+capacity before: 45.781051807659935 and after: 60.6184081545867
+0.19290345608220333
+input std:  0.2843177643317431
+output std:  0.12527220472514727
+Function test_configurations_capacity Took 15.2916 seconds
+Function test_configurations_capacity Took 14.0620 seconds
+capacity before: 49.11732814947511 and after: 64.54123797004817
+0.20333865501538292
+input std:  0.28727979054252967
+output std:  0.1333054399271079
+Function test_configurations_capacity Took 15.3796 seconds
+Function test_configurations_capacity Took 14.1951 seconds
+capacity before: 50.524662429133926 and after: 63.673656218054
+0.1988900342347634
+input std:  0.2871889468769669
+output std:  0.12842569484233538
+Function test_configurations_capacity Took 15.1190 seconds
+Function test_configurations_capacity Took 14.1406 seconds
+capacity before: 45.45186219897682 and after: 60.030652053252126
+0.19655408347102588
+input std:  0.2836963989415279
+output std:  0.12677839093927287
+Function test_configurations_capacity Took 15.2370 seconds
+Function test_configurations_capacity Took 14.4410 seconds
+capacity before: 49.30637140155655 and after: 63.79316336175647
+0.1913267734802641
+input std:  0.2872661739081295
+output std:  0.13514423576525922
+Function test_configurations_capacity Took 15.2851 seconds
+Function test_configurations_capacity Took 14.2034 seconds
+capacity before: 44.618665929561246 and after: 58.320853101207376
+0.18393849673874535
+input std:  0.2746400568268042
+output std:  0.13146150312900595
+Function test_configurations_capacity Took 15.2843 seconds
+Function test_configurations_capacity Took 14.1203 seconds
+capacity before: 53.56412868044889 and after: 66.73745495926966
+0.18335463352651674
+input std:  0.2864698520673924
+output std:  0.12290969605183448
+Function test_configurations_capacity Took 15.0854 seconds
+Function test_configurations_capacity Took 14.2201 seconds
+capacity before: 49.63119826051603 and after: 66.02920145643778
+0.18447665121297557
+input std:  0.2882123363963643
+output std:  0.13017369933538517
+Function test_configurations_capacity Took 15.2113 seconds
+Function test_configurations_capacity Took 14.2590 seconds
+capacity before: 46.563424206355435 and after: 61.9121333998533
+0.18519301540220248
+input std:  0.2829783965283535
+output std:  0.11830066762903628
+Function test_configurations_capacity Took 15.3511 seconds
+Function test_configurations_capacity Took 14.1850 seconds
+capacity before: 48.37928591827798 and after: 64.18601813528522
+0.17312640586985842
+input std:  0.28688236265254063
+output std:  0.12298525934709192
+Function test_configurations_capacity Took 15.1170 seconds
+Function test_configurations_capacity Took 14.1925 seconds
+capacity before: 49.18635612435247 and after: 62.50617773104259
+0.17181902240451857
+input std:  0.28628934845466536
+output std:  0.12664699128289877
+Function test_configurations_capacity Took 15.1125 seconds
+Function test_configurations_capacity Took 14.2449 seconds
+capacity before: 45.02842986537094 and after: 59.32587408283142
+0.15782251308893094
+input std:  0.2929795763998886
+output std:  0.1232660835323926
+Function test_configurations_capacity Took 15.1971 seconds
+Function test_configurations_capacity Took 14.1638 seconds
+capacity before: 50.4727539989744 and after: 66.16581767878658
+0.1560989621527889
+input std:  0.2865521292416987
+output std:  0.13152315170017384
+Function test_configurations_capacity Took 15.2072 seconds
+Function test_configurations_capacity Took 14.1787 seconds
+capacity before: 47.6704732459834 and after: 61.747703595347055
+0.15904462980662093
+input std:  0.28486647542413795
+output std:  0.12451364042381996
+Function test_configurations_capacity Took 15.1637 seconds
+Function test_configurations_capacity Took 14.1589 seconds
+capacity before: 43.42639419462357 and after: 58.47753219178844
+0.16426943845101882
+input std:  0.2882720296939339
+output std:  0.12353940802949068
+Function test_configurations_capacity Took 15.6548 seconds
+Function test_configurations_capacity Took 14.2593 seconds
+capacity before: 46.71949772066303 and after: 61.40428808820607
+0.16469302512212414
+input std:  0.2907327488474216
+output std:  0.12487624749081092
+Function test_configurations_capacity Took 15.1549 seconds
+Function test_configurations_capacity Took 14.0310 seconds
+capacity before: 46.70353498628626 and after: 62.61115023989372
+0.16973447542918146
+input std:  0.29079670505218713
+output std:  0.12272501094837822
+Function test_configurations_capacity Took 15.3005 seconds
+Function test_configurations_capacity Took 14.0721 seconds
+capacity before: 47.92390505153337 and after: 61.43234172506132
+0.1697749811862346
+input std:  0.28723495237828434
+output std:  0.12703092014815714
+Function test_configurations_capacity Took 15.2943 seconds
+Function test_configurations_capacity Took 14.2701 seconds
+capacity before: 50.439599628769585 and after: 63.17598253849294
+0.16717619296069328
+input std:  0.2867956440832795
+output std:  0.12449664998929945
+Function test_configurations_capacity Took 15.1222 seconds
+Function test_configurations_capacity Took 14.2540 seconds
+capacity before: 53.11052830886535 and after: 68.15002776483934
+0.1685286778376393
+input std:  0.28692022745472756
+output std:  0.12434250841282772
+Function test_configurations_capacity Took 15.1664 seconds
+Function test_configurations_capacity Took 14.0578 seconds
+capacity before: 51.27035809892517 and after: 62.62016270859793
+0.16590546667862777
+input std:  0.2897651657828339
+output std:  0.12202375205079055
+Function test_configurations_capacity Took 15.1359 seconds
+Function test_configurations_capacity Took 14.2510 seconds
+capacity before: 49.95616448214453 and after: 65.59616902305508
+0.16512583532317512
+input std:  0.28284466992077306
+output std:  0.12245777556573727
+Function test_configurations_capacity Took 15.1967 seconds
+Function test_configurations_capacity Took 14.1496 seconds
+capacity before: 42.7286714386184 and after: 56.7196513924427
+0.16884827283302983
+input std:  0.2857084979100734
+output std:  0.12085309932908607
+Function test_configurations_capacity Took 15.0994 seconds
+Function test_configurations_capacity Took 14.1693 seconds
+capacity before: 53.4784685283216 and after: 66.85532051156926
+0.1769352641146592
+input std:  0.2823840106931987
+output std:  0.1234054020760417
+Function test_configurations_capacity Took 15.0703 seconds
+Function test_configurations_capacity Took 14.0646 seconds
+capacity before: 46.95326727936733 and after: 59.58452235797721
+0.17101475588481835
+input std:  0.2871748312858961
+output std:  0.12061057737951066
+Function test_configurations_capacity Took 15.8715 seconds
+Function test_configurations_capacity Took 14.0711 seconds
+capacity before: 42.40597889531111 and after: 57.32463757736198
+0.1810347321400441
+input std:  0.2903224242706277
+output std:  0.12609981198338877
+Function test_configurations_capacity Took 15.1758 seconds
+Function test_configurations_capacity Took 14.0422 seconds
+capacity before: 49.54217318694071 and after: 63.878006929956705
+0.17707650775684772
+input std:  0.28682136188849927
+output std:  0.12220753645672154
+Function test_configurations_capacity Took 15.0898 seconds
+Function test_configurations_capacity Took 14.0544 seconds
+capacity before: 50.55439616315138 and after: 64.85963074660225
+0.1731496158817201
+input std:  0.28611819982449077
+output std:  0.12354984917396934
+Function test_configurations_capacity Took 15.1736 seconds
+Function test_configurations_capacity Took 14.1137 seconds
+capacity before: 44.02632977775521 and after: 57.89756667536718
+0.16911669297123286
+input std:  0.2888748094778702
+output std:  0.11990417094634251
+Function test_configurations_capacity Took 14.7755 seconds
+Function test_configurations_capacity Took 14.0892 seconds
+capacity before: 47.12009187570552 and after: 61.79552532290074
+0.16584725436717
+input std:  0.2865440436138458
+output std:  0.12298842609420317
+Function test_configurations_capacity Took 13.2358 seconds
+Function test_configurations_capacity Took 14.1603 seconds
+capacity before: 43.53368309366573 and after: 59.82074041714786
+0.1654599100613911
+input std:  0.2881826361137189
+output std:  0.1215430968755863
+Function test_configurations_capacity Took 13.4351 seconds
+Function test_configurations_capacity Took 14.1215 seconds
+capacity before: 46.06671308931263 and after: 59.97229718925826
+0.17147256953178114
+input std:  0.2902503660859579
+output std:  0.11872238367798313
+Function test_configurations_capacity Took 14.6937 seconds
+Function test_configurations_capacity Took 14.0763 seconds
+capacity before: 48.60793069662469 and after: 63.357858100772546
+0.17175380712695562
+input std:  0.28125767485879144
+output std:  0.1185020134637439
+Function test_configurations_capacity Took 13.3257 seconds
+Function test_configurations_capacity Took 14.1313 seconds
+capacity before: 50.26668318534825 and after: 64.64683477210491
+0.17385177318636563
+input std:  0.2910474233820862
+output std:  0.11597539070591012
+Function test_configurations_capacity Took 13.5286 seconds
+Function test_configurations_capacity Took 13.9867 seconds
+capacity before: 46.519684784598255 and after: 62.792219267494175
+0.17793626651759917
+input std:  0.28472455363361643
+output std:  0.12198821777706605
+Function test_configurations_capacity Took 13.4000 seconds
+Function test_configurations_capacity Took 14.6372 seconds
+capacity before: 49.507861022175774 and after: 62.28766266977525
+0.16275828155035849
+input std:  0.28652911652349383
+output std:  0.11626922872447805
+Function test_configurations_capacity Took 14.0678 seconds
+Function test_configurations_capacity Took 14.0804 seconds
+capacity before: 52.78934787952806 and after: 68.2882535637324
+0.15786290245623485
+input std:  0.28600540820660664
+output std:  0.12160392701127717
+Function test_configurations_capacity Took 14.8689 seconds
+Function test_configurations_capacity Took 14.1781 seconds
+capacity before: 46.23145285942003 and after: 61.85509373841854
+0.16575121845602636
+input std:  0.29266305560185957
+output std:  0.11846557747347942
+Function test_configurations_capacity Took 14.8418 seconds
+Function test_configurations_capacity Took 14.1560 seconds
+capacity before: 44.875747488783546 and after: 61.321972566734715
+0.1625050824597758
+input std:  0.2788237884338958
+output std:  0.11753465831680375
+Function test_configurations_capacity Took 15.0219 seconds
+Function test_configurations_capacity Took 14.0469 seconds
+capacity before: 42.6289285558866 and after: 56.609601633468976
+0.16357399279747548
+input std:  0.2840544832680971
+output std:  0.11903943249387931
+Function test_configurations_capacity Took 14.5640 seconds
+Function test_configurations_capacity Took 14.0639 seconds
+capacity before: 42.93837419690681 and after: 58.12361407641279
+0.1582495857131472
+input std:  0.2864959614658079
+output std:  0.11738195554561633
+Function test_configurations_capacity Took 14.4430 seconds
+Function test_configurations_capacity Took 14.2396 seconds
+capacity before: 45.017831251812645 and after: 61.13763831339428
+0.15216191103125526
+input std:  0.28204559766814047
+output std:  0.12257324199891041
+Function test_configurations_capacity Took 14.6043 seconds
+Function test_configurations_capacity Took 14.1125 seconds
+capacity before: 48.69473962523687 and after: 65.96381246513994
+0.1521897607612473
+input std:  0.2890896939486694
+output std:  0.11901735599263072
+Function test_configurations_capacity Took 14.4156 seconds
+Function test_configurations_capacity Took 14.1978 seconds
+capacity before: 47.6619698242374 and after: 61.4397903544217
+0.14734493247849526
+input std:  0.28495699542563063
+output std:  0.1199250071011201
+Function test_configurations_capacity Took 14.0941 seconds
+Function test_configurations_capacity Took 14.2138 seconds
+capacity before: 48.7923607124188 and after: 65.68207733437872
+0.15133567080708205
+input std:  0.28650812006592025
+output std:  0.1171711854050368
+Function test_configurations_capacity Took 14.6101 seconds
+Function test_configurations_capacity Took 14.5475 seconds
+capacity before: 46.79323011277328 and after: 60.76029429157849
+0.15253635879880495
+input std:  0.293588575974309
+output std:  0.12028049954991066
+Function test_configurations_capacity Took 14.6134 seconds
+Function test_configurations_capacity Took 14.0907 seconds
+capacity before: 51.66899357019642 and after: 68.02680265270129
+0.15526356287501816
+input std:  0.2844154876851458
+output std:  0.11504586248644634
+Function test_configurations_capacity Took 14.7510 seconds
+Function test_configurations_capacity Took 14.0758 seconds
+capacity before: 51.19770455568757 and after: 67.98561108214447
+0.1516527567372416
+input std:  0.2881792837598719
+output std:  0.11508997399639558
+Function test_configurations_capacity Took 14.8064 seconds
+Function test_configurations_capacity Took 14.1159 seconds
+capacity before: 47.3393108707257 and after: 60.86555060534939
+0.15653351220721307
+input std:  0.291811725794085
+output std:  0.11648484597710776
+Function test_configurations_capacity Took 14.6855 seconds
+Function test_configurations_capacity Took 13.9267 seconds
+capacity before: 42.49850857265308 and after: 58.13806897768655
+0.15928282158302626
+input std:  0.2963536695000433
+output std:  0.12020315841058117
+Function test_configurations_capacity Took 14.8460 seconds
+Function test_configurations_capacity Took 14.1064 seconds
+capacity before: 44.86912468646098 and after: 62.8255487107236
+0.1696061799852001
+input std:  0.2844916709433302
+output std:  0.1158256204794402
+Function test_configurations_capacity Took 14.8770 seconds
+Function test_configurations_capacity Took 13.9262 seconds
+capacity before: 48.473177129782854 and after: 65.2594675143156
+0.1636764625290869
+input std:  0.2868169344302929
+output std:  0.11835568020970998
+Function test_configurations_capacity Took 14.9146 seconds
+Function test_configurations_capacity Took 13.7971 seconds
+capacity before: 52.04192034347355 and after: 68.67986161141242
+0.15962967314281007
+input std:  0.28571842657135216
+output std:  0.11723277928658954
+Function test_configurations_capacity Took 14.2248 seconds
+Function test_configurations_capacity Took 14.0142 seconds
+capacity before: 45.82960938983273 and after: 60.49995127217481
+0.14955448873063312
+tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+score parameter tensor([5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06,
+        5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06])
+noise parameter tensor([3.1623e-03, 1.8957e-03, 1.1365e-03, 6.8129e-04, 4.0842e-04, 2.4484e-04,
+        1.4678e-04, 8.7992e-05, 5.2750e-05, 3.1623e-05])
+Function annealed_langevin_v3 Took 0.1600 seconds
+zogd iteration #0 input distance from zero: 1065.1660586999578 loss: 43.09450630616493
+zogd iteration #1 input distance from zero: 1065.0538185551127 loss: 43.188175047517035
+Function zeroth_grad_optimization Took 35.0018 seconds
+Function test_configurations_capacity Took 1.8581 seconds
+tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+score parameter tensor([5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06,
+        5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06])
+noise parameter tensor([3.1623e-03, 1.8957e-03, 1.1365e-03, 6.8129e-04, 4.0842e-04, 2.4484e-04,
+        1.4678e-04, 8.7992e-05, 5.2750e-05, 3.1623e-05])
+Function annealed_langevin_v3 Took 0.0681 seconds
+zogd iteration #0 input distance from zero: 1079.1890052481085 loss: 49.699879589808205
+zogd iteration #1 input distance from zero: 1079.201550174817 loss: 50.000051912456
+Function zeroth_grad_optimization Took 35.1119 seconds
+Function test_configurations_capacity Took 1.9155 seconds
+tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+score parameter tensor([5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06,
+        5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06])
+noise parameter tensor([3.1623e-03, 1.8957e-03, 1.1365e-03, 6.8129e-04, 4.0842e-04, 2.4484e-04,
+        1.4678e-04, 8.7992e-05, 5.2750e-05, 3.1623e-05])
+Function annealed_langevin_v3 Took 0.0585 seconds
+zogd iteration #0 input distance from zero: 1064.118963212716 loss: 46.78863981376928
+zogd iteration #1 input distance from zero: 1064.3186950789222 loss: 46.888127965729375
+Function zeroth_grad_optimization Took 35.0126 seconds
+Function test_configurations_capacity Took 1.8694 seconds
+tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+score parameter tensor([5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06,
+        5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06])
+noise parameter tensor([3.1623e-03, 1.8957e-03, 1.1365e-03, 6.8129e-04, 4.0842e-04, 2.4484e-04,
+        1.4678e-04, 8.7992e-05, 5.2750e-05, 3.1623e-05])
+Function annealed_langevin_v3 Took 0.0457 seconds
+zogd iteration #0 input distance from zero: 1072.3368699341422 loss: 34.17196080162314
+zogd iteration #1 input distance from zero: 1072.2335844987276 loss: 34.307330789717966
+Function zeroth_grad_optimization Took 34.9322 seconds
+Function test_configurations_capacity Took 1.8552 seconds
+tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+score parameter tensor([5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06,
+        5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06])
+noise parameter tensor([3.1623e-03, 1.8957e-03, 1.1365e-03, 6.8129e-04, 4.0842e-04, 2.4484e-04,
+        1.4678e-04, 8.7992e-05, 5.2750e-05, 3.1623e-05])
+Function annealed_langevin_v3 Took 0.0463 seconds
+zogd iteration #0 input distance from zero: 1087.6634946292434 loss: 41.63911032487634
+zogd iteration #1 input distance from zero: 1087.3093543385642 loss: 41.937893576605475
+Function zeroth_grad_optimization Took 34.9295 seconds
+Function test_configurations_capacity Took 1.8407 seconds
+tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+score parameter tensor([5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06,
+        5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06])
+noise parameter tensor([3.1623e-03, 1.8957e-03, 1.1365e-03, 6.8129e-04, 4.0842e-04, 2.4484e-04,
+        1.4678e-04, 8.7992e-05, 5.2750e-05, 3.1623e-05])
+Function annealed_langevin_v3 Took 0.0410 seconds
+zogd iteration #0 input distance from zero: 1072.6674467187956 loss: 26.638849861232533
+zogd iteration #1 input distance from zero: 1072.6913042396227 loss: 26.71082912305672
+Function zeroth_grad_optimization Took 35.2832 seconds
+Function test_configurations_capacity Took 1.8850 seconds
+tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+score parameter tensor([5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06,
+        5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06])
+noise parameter tensor([3.1623e-03, 1.8957e-03, 1.1365e-03, 6.8129e-04, 4.0842e-04, 2.4484e-04,
+        1.4678e-04, 8.7992e-05, 5.2750e-05, 3.1623e-05])
+Function annealed_langevin_v3 Took 0.0407 seconds
+zogd iteration #0 input distance from zero: 1089.8150504625812 loss: 52.14272364383032
+zogd iteration #1 input distance from zero: 1089.5097836492305 loss: 52.4372537061998
+Function zeroth_grad_optimization Took 34.8330 seconds
+Function test_configurations_capacity Took 1.8556 seconds
+tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+score parameter tensor([5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06,
+        5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06])
+noise parameter tensor([3.1623e-03, 1.8957e-03, 1.1365e-03, 6.8129e-04, 4.0842e-04, 2.4484e-04,
+        1.4678e-04, 8.7992e-05, 5.2750e-05, 3.1623e-05])
+Function annealed_langevin_v3 Took 0.0473 seconds
+zogd iteration #0 input distance from zero: 1080.6520937105493 loss: 36.051473174206954
+zogd iteration #1 input distance from zero: 1080.3808500986577 loss: 36.118263383992804
+Function zeroth_grad_optimization Took 35.1782 seconds
+Function test_configurations_capacity Took 1.8924 seconds
+tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+score parameter tensor([5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06,
+        5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06])
+noise parameter tensor([3.1623e-03, 1.8957e-03, 1.1365e-03, 6.8129e-04, 4.0842e-04, 2.4484e-04,
+        1.4678e-04, 8.7992e-05, 5.2750e-05, 3.1623e-05])
+Function annealed_langevin_v3 Took 0.0403 seconds
+zogd iteration #0 input distance from zero: 1075.299185348746 loss: 41.00826661440883
+zogd iteration #1 input distance from zero: 1075.0575729065235 loss: 41.121610774590906
+Function zeroth_grad_optimization Took 35.1160 seconds
+Function test_configurations_capacity Took 1.8609 seconds
+tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+score parameter tensor([5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06,
+        5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06])
+noise parameter tensor([3.1623e-03, 1.8957e-03, 1.1365e-03, 6.8129e-04, 4.0842e-04, 2.4484e-04,
+        1.4678e-04, 8.7992e-05, 5.2750e-05, 3.1623e-05])
+Function annealed_langevin_v3 Took 0.0408 seconds
+zogd iteration #0 input distance from zero: 1081.2936503613555 loss: 57.215799759161285
+zogd iteration #1 input distance from zero: 1081.2244306435764 loss: 57.51662749900001
+Function zeroth_grad_optimization Took 35.1730 seconds
+Function test_configurations_capacity Took 1.7580 seconds
+tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+score parameter tensor([5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06,
+        5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06])
+noise parameter tensor([3.1623e-03, 1.8957e-03, 1.1365e-03, 6.8129e-04, 4.0842e-04, 2.4484e-04,
+        1.4678e-04, 8.7992e-05, 5.2750e-05, 3.1623e-05])
+Function annealed_langevin_v3 Took 0.0400 seconds
+zogd iteration #0 input distance from zero: 1075.5054389408865 loss: 54.928645828728406
+zogd iteration #1 input distance from zero: 1075.7830259827801 loss: 55.22246882120474
+Function zeroth_grad_optimization Took 32.5033 seconds
+Function test_configurations_capacity Took 1.7426 seconds
+tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+score parameter tensor([5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06,
+        5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06])
+noise parameter tensor([3.1623e-03, 1.8957e-03, 1.1365e-03, 6.8129e-04, 4.0842e-04, 2.4484e-04,
+        1.4678e-04, 8.7992e-05, 5.2750e-05, 3.1623e-05])
+Function annealed_langevin_v3 Took 0.0390 seconds
+zogd iteration #0 input distance from zero: 1088.0648332292162 loss: 53.015080582506286
+zogd iteration #1 input distance from zero: 1088.0006090716688 loss: 53.56112756727527
+Function zeroth_grad_optimization Took 32.5185 seconds
+Function test_configurations_capacity Took 1.7368 seconds
+tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+score parameter tensor([5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06,
+        5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06])
+noise parameter tensor([3.1623e-03, 1.8957e-03, 1.1365e-03, 6.8129e-04, 4.0842e-04, 2.4484e-04,
+        1.4678e-04, 8.7992e-05, 5.2750e-05, 3.1623e-05])
+Function annealed_langevin_v3 Took 0.0387 seconds
+zogd iteration #0 input distance from zero: 1072.960920394688 loss: 58.16187748420648
+zogd iteration #1 input distance from zero: 1072.6079513729665 loss: 58.39351141738298
+Function zeroth_grad_optimization Took 32.5810 seconds
+Function test_configurations_capacity Took 1.7391 seconds
+tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+score parameter tensor([5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06,
+        5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06])
+noise parameter tensor([3.1623e-03, 1.8957e-03, 1.1365e-03, 6.8129e-04, 4.0842e-04, 2.4484e-04,
+        1.4678e-04, 8.7992e-05, 5.2750e-05, 3.1623e-05])
+Function annealed_langevin_v3 Took 0.0419 seconds
+zogd iteration #0 input distance from zero: 1072.667083929255 loss: 38.556921087042035
+zogd iteration #1 input distance from zero: 1072.800759472172 loss: 38.713355906655366
+Function zeroth_grad_optimization Took 32.4154 seconds
+Function test_configurations_capacity Took 1.7436 seconds
+tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+score parameter tensor([5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06,
+        5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06])
+noise parameter tensor([3.1623e-03, 1.8957e-03, 1.1365e-03, 6.8129e-04, 4.0842e-04, 2.4484e-04,
+        1.4678e-04, 8.7992e-05, 5.2750e-05, 3.1623e-05])
+Function annealed_langevin_v3 Took 0.0465 seconds
+zogd iteration #0 input distance from zero: 1095.3868469937884 loss: 60.222082441167295
+zogd iteration #1 input distance from zero: 1095.7453214524373 loss: 60.48826274192533
+Function zeroth_grad_optimization Took 32.5664 seconds
+Function test_configurations_capacity Took 1.7356 seconds
+tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+score parameter tensor([5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06,
+        5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06])
+noise parameter tensor([3.1623e-03, 1.8957e-03, 1.1365e-03, 6.8129e-04, 4.0842e-04, 2.4484e-04,
+        1.4678e-04, 8.7992e-05, 5.2750e-05, 3.1623e-05])
+Function annealed_langevin_v3 Took 0.0445 seconds
+zogd iteration #0 input distance from zero: 1073.0960708718208 loss: 39.666662713941406
+zogd iteration #1 input distance from zero: 1073.161605058452 loss: 39.92467746119151
+Function zeroth_grad_optimization Took 32.6319 seconds
+Function test_configurations_capacity Took 1.7268 seconds
+test diffusion mean rate:  60.62926004527432
+input std:  0.2875185254185046
+output std:  0.11616497985904409
+Function test_configurations_capacity Took 15.3945 seconds
+Function test_configurations_capacity Took 14.2048 seconds
+capacity before: 48.2247165701724 and after: 64.50042337622801
+0.148267880941917
+input std:  0.2839155563886367
+output std:  0.11221977609424398
+Function test_configurations_capacity Took 16.0973 seconds
+Function test_configurations_capacity Took 14.4233 seconds
+capacity before: 50.457751697069675 and after: 67.99378730620965
+0.15835461776509144
+input std:  0.28788643385645063
+output std:  0.11520821385943304
+Function test_configurations_capacity Took 14.0255 seconds
+Function test_configurations_capacity Took 13.8992 seconds
+capacity before: 47.49249856400892 and after: 62.04364507738396
+0.159480778758216
+input std:  0.2868201527524111
+output std:  0.1165352322027058
+Function test_configurations_capacity Took 14.1095 seconds
+Function test_configurations_capacity Took 14.1558 seconds
+capacity before: 49.432654249887534 and after: 64.89957887891038
+0.1574968394983949
+input std:  0.29179568781785026
+output std:  0.11751311228027579
+Function test_configurations_capacity Took 15.2137 seconds
+Function test_configurations_capacity Took 14.1437 seconds
+capacity before: 49.839729715358956 and after: 64.06645228255107
+0.16298964649095088
+input std:  0.28171172135531475
+output std:  0.12098621050224007
+Function test_configurations_capacity Took 15.1586 seconds
+Function test_configurations_capacity Took 14.0648 seconds
+capacity before: 46.73704397379896 and after: 63.45439250550568
+0.16575421567850418
+input std:  0.2880728637842225
+output std:  0.11247325041651571
+Function test_configurations_capacity Took 15.9895 seconds
+Function test_configurations_capacity Took 14.4509 seconds
+capacity before: 45.40791574417001 and after: 61.98150583342924
+0.16341482502965415
+input std:  0.2863366158954822
+output std:  0.11414130559447823
+Function test_configurations_capacity Took 15.5866 seconds
+Function test_configurations_capacity Took 14.1644 seconds
+capacity before: 42.254666223862394 and after: 57.43722765491466
+0.163868485664123
+input std:  0.28208046476237414
+output std:  0.11536873214196104
+Function test_configurations_capacity Took 15.1553 seconds
+Function test_configurations_capacity Took 14.0075 seconds
+capacity before: 47.062117989257985 and after: 63.77570871491534
+0.17684731736948142
+input std:  0.28534829120593275
+output std:  0.11296677446667845
+Function test_configurations_capacity Took 15.0244 seconds
+Function test_configurations_capacity Took 14.1511 seconds
+capacity before: 50.55909645291538 and after: 63.36111566861748
+0.17935934059389094
+input std:  0.2866955660069953
+output std:  0.11250481036656693
+Function test_configurations_capacity Took 15.1101 seconds
+Function test_configurations_capacity Took 14.2782 seconds
+capacity before: 53.97814444750114 and after: 69.41411516488475
+0.1791557762017328
+input std:  0.28535908334577814
+output std:  0.11403696250352521
+Function test_configurations_capacity Took 19.7016 seconds
+Function test_configurations_capacity Took 14.0624 seconds
+capacity before: 46.67284570914111 and after: 63.1856234926118
+0.17629723377349713
+input std:  0.28626199544846215
+output std:  0.11095363356019602
+Function test_configurations_capacity Took 15.6196 seconds
+Function test_configurations_capacity Took 14.1348 seconds
+capacity before: 45.67971076057611 and after: 61.059563674767666
+0.17434990915256898
+input std:  0.28494658765859304
+output std:  0.10823682303063578
+Function test_configurations_capacity Took 15.0800 seconds
+Function test_configurations_capacity Took 14.1960 seconds
+capacity before: 51.041919185889874 and after: 68.67442090151678
+0.17486156702097277
+input std:  0.28428468644919813
+output std:  0.10961223672289674
+Function test_configurations_capacity Took 15.3307 seconds
+Function test_configurations_capacity Took 14.1238 seconds
+capacity before: 48.81937680528699 and after: 63.08771790218921
+0.16646794971156634
+input std:  0.2903169303659601
+output std:  0.11094431115916605
+Function test_configurations_capacity Took 15.1610 seconds
+Function test_configurations_capacity Took 14.0827 seconds
+capacity before: 49.56844603132021 and after: 65.05237359280757
+0.1625158101222136
+input std:  0.2850789546673865
+output std:  0.11265686756731186
+Function test_configurations_capacity Took 15.1067 seconds
+Function test_configurations_capacity Took 14.1429 seconds
+capacity before: 43.4017807128683 and after: 61.23816287940733
+0.16409067325802024
+input std:  0.2857482923201233
+output std:  0.11124622110457837
+Function test_configurations_capacity Took 15.1549 seconds
+Function test_configurations_capacity Took 14.0721 seconds
+capacity before: 47.750257571763555 and after: 63.25723318402686
+0.1742064877855914
+input std:  0.28875553043186397
+output std:  0.1079983026938574
+Function test_configurations_capacity Took 15.0618 seconds
+Function test_configurations_capacity Took 14.0810 seconds
+capacity before: 42.37901633700763 and after: 56.450648308767384
+0.16067969196080817
+input std:  0.28292830567740695
+output std:  0.10931711591750247
+Function test_configurations_capacity Took 15.0657 seconds
+Function test_configurations_capacity Took 14.2016 seconds
+capacity before: 41.715928115057075 and after: 58.59650644628888
+0.15823688380849782
+input std:  0.29127827950459856
+output std:  0.11211054409025886
+Function test_configurations_capacity Took 15.2405 seconds
+Function test_configurations_capacity Took 14.0896 seconds
+capacity before: 45.17575981513839 and after: 60.247518620284644
+0.1529181997320645
+input std:  0.2797333106188475
+output std:  0.1097936706524133
+Function test_configurations_capacity Took 15.1733 seconds
+Function test_configurations_capacity Took 14.1957 seconds
+capacity before: 43.73771342930189 and after: 59.26416747493402
+0.151165633959686
+input std:  0.2840182473404991
+output std:  0.11108251183387344
+Function test_configurations_capacity Took 15.5774 seconds
+Function test_configurations_capacity Took 14.2174 seconds
+capacity before: 46.91377924775324 and after: 60.93602676474218
+0.15318002141770332
+input std:  0.28301053659861775
+output std:  0.10993434665030645
+Function test_configurations_capacity Took 15.2281 seconds
+Function test_configurations_capacity Took 14.1939 seconds
+capacity before: 49.680328670326745 and after: 66.29236342405542
+0.15052051885430098
+input std:  0.285116387537812
+output std:  0.11449633559761647
+Function test_configurations_capacity Took 15.2133 seconds
+Function test_configurations_capacity Took 14.1171 seconds
+capacity before: 50.04219993825155 and after: 64.89298207635923
+0.15962604820625995
+input std:  0.29003406000055026
+output std:  0.10914559612463447
+Function test_configurations_capacity Took 15.2767 seconds
+Function test_configurations_capacity Took 14.1165 seconds
+capacity before: 49.72149713894718 and after: 62.446292731916735
+0.16927400751065869
+input std:  0.29042299298151414
+output std:  0.11415813807609031
+Function test_configurations_capacity Took 15.2754 seconds
+Function test_configurations_capacity Took 14.2094 seconds
+capacity before: 44.860694047637544 and after: 59.983621608889756
+0.17114856300118703
+input std:  0.2875049151949398
+output std:  0.10431838648702839
+Function test_configurations_capacity Took 15.4386 seconds
+Function test_configurations_capacity Took 14.0861 seconds
+capacity before: 46.27129425051881 and after: 62.26359668873266
+0.16478462033078828
+input std:  0.28194357701356404
+output std:  0.11132633971557598
+Function test_configurations_capacity Took 15.0647 seconds
+Function test_configurations_capacity Took 14.0861 seconds
+capacity before: 45.84156539674629 and after: 60.934611163119456
+0.17374913407529904
+input std:  0.28508172399769754
+output std:  0.11188275940625653
+Function test_configurations_capacity Took 15.2241 seconds
+Function test_configurations_capacity Took 14.1928 seconds
+capacity before: 48.20525266949072 and after: 62.454258687420165
+0.18013008936384325
+input std:  0.29101181502053364
+output std:  0.10983869779379912
+Function test_configurations_capacity Took 15.1522 seconds
+Function test_configurations_capacity Took 14.0797 seconds
+capacity before: 44.893369537312694 and after: 58.80326562833512
+0.1806344824072096
+input std:  0.2835071229382591
+output std:  0.10963622677748706
+Function test_configurations_capacity Took 15.4895 seconds
+Function test_configurations_capacity Took 14.0943 seconds
+capacity before: 45.74400751423831 and after: 61.34563430114339
+0.17360723771490907
+input std:  0.2839548119285463
+output std:  0.10580146876771647
+Function test_configurations_capacity Took 15.2578 seconds
+Function test_configurations_capacity Took 14.4539 seconds
+capacity before: 48.83883902842462 and after: 62.46264360744423
+0.16730774773929658
+input std:  0.2810789111056901
+output std:  0.1066329299582271
+Function test_configurations_capacity Took 15.1542 seconds
+Function test_configurations_capacity Took 14.1757 seconds
+capacity before: 47.92215177851247 and after: 63.053554771896394
+0.16841569308672538
+input std:  0.29282886740110764
+output std:  0.10511475999214248
+Function test_configurations_capacity Took 15.0688 seconds
+Function test_configurations_capacity Took 14.0676 seconds
+capacity before: 44.705308224478436 and after: 62.74765813111256
+0.1574255066593285
+input std:  0.28526105773792676
+output std:  0.11500864500684932
+Function test_configurations_capacity Took 15.4688 seconds
+Function test_configurations_capacity Took 14.0535 seconds
+capacity before: 49.58984813817683 and after: 62.70605706931427
+0.14981365063142701
+input std:  0.28331226684030325
+output std:  0.10319822411217536
+Function test_configurations_capacity Took 15.1630 seconds
+Function test_configurations_capacity Took 14.1370 seconds
+capacity before: 44.10648103054807 and after: 58.41329000405184
+0.14080263262220746
+input std:  0.28071207979768326
+output std:  0.10870858910243127
+Function test_configurations_capacity Took 15.2303 seconds
+Function test_configurations_capacity Took 14.1213 seconds
+capacity before: 51.621182229760784 and after: 68.8797970026525
+0.14731331165999992
+input std:  0.28241842238716536
+output std:  0.10606810793478363
+Function test_configurations_capacity Took 15.2319 seconds
+Function test_configurations_capacity Took 14.0185 seconds
+capacity before: 47.49215599111305 and after: 61.712400203140575
+0.1411666397885191
+input std:  0.2813909999007893
+output std:  0.10508103956472617
+Function test_configurations_capacity Took 15.2217 seconds
+Function test_configurations_capacity Took 14.2387 seconds
+capacity before: 46.04699168162526 and after: 61.702456365368974
+0.14119574832189036
+input std:  0.28639821167991775
+output std:  0.1054259072986548
+Function test_configurations_capacity Took 15.1326 seconds
+Function test_configurations_capacity Took 14.2914 seconds
+capacity before: 51.25223341113659 and after: 68.46058919121856
+0.14699261478978512
+input std:  0.29080928814653306
+output std:  0.10573456395162392
+Function test_configurations_capacity Took 15.1721 seconds
+Function test_configurations_capacity Took 14.1498 seconds
+capacity before: 50.191515958763915 and after: 67.92440119758815
+0.15398322026267278
+input std:  0.2869085749333437
+output std:  0.10302375492004089
+Function test_configurations_capacity Took 15.1222 seconds
+Function test_configurations_capacity Took 14.3039 seconds
+capacity before: 49.58479664929416 and after: 65.34266895081626
+0.16388141671831372
+input std:  0.2850924822666323
+output std:  0.10264030266121944
+Function test_configurations_capacity Took 15.5559 seconds
+Function test_configurations_capacity Took 13.9621 seconds
+capacity before: 51.65666834257798 and after: 68.80370503034354
+0.16311581146324186
+input std:  0.2853508807943366
+output std:  0.10273787397637715
+Function test_configurations_capacity Took 15.2299 seconds
+Function test_configurations_capacity Took 14.0673 seconds
+capacity before: 54.179967615091485 and after: 69.31502400261026
+0.16557227572375058
+input std:  0.2905931512747626
+output std:  0.1118984901437339
+Function test_configurations_capacity Took 15.1715 seconds
+Function test_configurations_capacity Took 14.1590 seconds
+capacity before: 46.49259984444967 and after: 59.752919014662986
+0.16331195114630617
+input std:  0.28373980736405974
+output std:  0.10659160296662128
+Function test_configurations_capacity Took 14.9752 seconds
+Function test_configurations_capacity Took 14.1988 seconds
+capacity before: 44.82849979797695 and after: 61.057287041624264
+0.16701006755180198
+input std:  0.29204641657557084
+output std:  0.10639646425833671
+Function test_configurations_capacity Took 15.1768 seconds
+Function test_configurations_capacity Took 14.1394 seconds
+capacity before: 54.186108520414756 and after: 70.67498861259216
+0.16011612830647204
+input std:  0.28775056840853885
+output std:  0.10679597945486145
+Function test_configurations_capacity Took 14.0029 seconds
+Function test_configurations_capacity Took 14.0846 seconds
+capacity before: 49.58647048023067 and after: 66.94096999054297
+0.1636333893470483
+input std:  0.28546017035423554
+output std:  0.10235005101546231
+Function test_configurations_capacity Took 15.2525 seconds
+Function test_configurations_capacity Took 14.2703 seconds
+capacity before: 50.78649781851779 and after: 69.35442531371311
+0.16327415473978246
+input std:  0.2889681889646723
+output std:  0.10490664841988794
+Function test_configurations_capacity Took 15.3463 seconds
+Function test_configurations_capacity Took 13.9858 seconds
+capacity before: 58.75242134098542 and after: 76.59470124360078
+0.1658654537367708
+input std:  0.29020515381529677
+output std:  0.10209598910402004
+Function test_configurations_capacity Took 15.2199 seconds
+Function test_configurations_capacity Took 14.1263 seconds
+capacity before: 47.296651251774705 and after: 64.90765917126114
+0.1694738838431815
+input std:  0.28537281065036973
+output std:  0.10681876489627126
+Function test_configurations_capacity Took 15.2532 seconds
+Function test_configurations_capacity Took 14.1851 seconds
+capacity before: 41.8757168320463 and after: 55.92182403539778
+0.16222971861547325
+input std:  0.28886211704562176
+output std:  0.1047392277928724
+Function test_configurations_capacity Took 15.0854 seconds
+Function test_configurations_capacity Took 14.4719 seconds
+capacity before: 43.68225606645969 and after: 63.11678120318781
+0.1647665957656081
+input std:  0.28169987978226685
+output std:  0.10540618216492696
+Function test_configurations_capacity Took 15.1284 seconds
+Function test_configurations_capacity Took 14.1908 seconds
+capacity before: 49.121850423170784 and after: 65.82129861931836
+0.1736184118681356
+input std:  0.2828146792565687
+output std:  0.10362701328903487
+Function test_configurations_capacity Took 15.0991 seconds
+Function test_configurations_capacity Took 14.1454 seconds
+capacity before: 50.66497742842505 and after: 68.03830490840461
+0.17213207233429723
+input std:  0.28716370236609123
+output std:  0.10258655193866927
+Function test_configurations_capacity Took 15.2174 seconds
+Function test_configurations_capacity Took 14.1592 seconds
+capacity before: 45.790842734702345 and after: 62.42569401334427
+0.16721986670186792
+input std:  0.28402218300993504
+output std:  0.10157004392382664
+Function test_configurations_capacity Took 15.2024 seconds
+Function test_configurations_capacity Took 14.1332 seconds
+capacity before: 46.84299185807416 and after: 61.74171573890271
+0.16241696989612325
+input std:  0.2818006587409283
+output std:  0.0976480373259924
+Function test_configurations_capacity Took 15.2075 seconds
+Function test_configurations_capacity Took 14.2572 seconds
+capacity before: 45.31180316191596 and after: 62.60403333631721
+0.16150132885817953
+input std:  0.29079777519834005
+output std:  0.10475401089578512
+Function test_configurations_capacity Took 15.0788 seconds
+Function test_configurations_capacity Took 14.1922 seconds
+capacity before: 46.96793537971861 and after: 62.020821624245386
+0.15865931453514978
+tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+score parameter tensor([5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06,
+        5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06])
+noise parameter tensor([3.1623e-03, 1.8957e-03, 1.1365e-03, 6.8129e-04, 4.0842e-04, 2.4484e-04,
+        1.4678e-04, 8.7992e-05, 5.2750e-05, 3.1623e-05])
+Function annealed_langevin_v3 Took 0.1695 seconds
+zogd iteration #0 input distance from zero: 1072.921851052905 loss: 38.61705252713944
+zogd iteration #1 input distance from zero: 1073.0975228259495 loss: 38.724628265464524
+Function zeroth_grad_optimization Took 32.5412 seconds
+Function test_configurations_capacity Took 1.7176 seconds
+tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+score parameter tensor([5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06,
+        5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06])
+noise parameter tensor([3.1623e-03, 1.8957e-03, 1.1365e-03, 6.8129e-04, 4.0842e-04, 2.4484e-04,
+        1.4678e-04, 8.7992e-05, 5.2750e-05, 3.1623e-05])
+Function annealed_langevin_v3 Took 0.0674 seconds
+zogd iteration #0 input distance from zero: 1074.8315951585944 loss: 54.70240256556427
+zogd iteration #1 input distance from zero: 1074.8489025168783 loss: 54.9092555878529
+Function zeroth_grad_optimization Took 32.3593 seconds
+Function test_configurations_capacity Took 1.7103 seconds
+tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+score parameter tensor([5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06,
+        5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06])
+noise parameter tensor([3.1623e-03, 1.8957e-03, 1.1365e-03, 6.8129e-04, 4.0842e-04, 2.4484e-04,
+        1.4678e-04, 8.7992e-05, 5.2750e-05, 3.1623e-05])
+Function annealed_langevin_v3 Took 0.0398 seconds
+zogd iteration #0 input distance from zero: 1074.0253348673364 loss: 39.56572070565952
+zogd iteration #1 input distance from zero: 1073.630886114918 loss: 39.73835183768629
+Function zeroth_grad_optimization Took 32.5223 seconds
+Function test_configurations_capacity Took 1.7436 seconds
+tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+score parameter tensor([5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06,
+        5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06])
+noise parameter tensor([3.1623e-03, 1.8957e-03, 1.1365e-03, 6.8129e-04, 4.0842e-04, 2.4484e-04,
+        1.4678e-04, 8.7992e-05, 5.2750e-05, 3.1623e-05])
+Function annealed_langevin_v3 Took 0.0519 seconds
+zogd iteration #0 input distance from zero: 1079.1377519854618 loss: 49.62655843861407
+zogd iteration #1 input distance from zero: 1079.398101223645 loss: 49.81696310166254
+Function zeroth_grad_optimization Took 32.8385 seconds
+Function test_configurations_capacity Took 1.7494 seconds
+tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+score parameter tensor([5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06,
+        5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06])
+noise parameter tensor([3.1623e-03, 1.8957e-03, 1.1365e-03, 6.8129e-04, 4.0842e-04, 2.4484e-04,
+        1.4678e-04, 8.7992e-05, 5.2750e-05, 3.1623e-05])
+Function annealed_langevin_v3 Took 0.0395 seconds
+zogd iteration #0 input distance from zero: 1075.4496909162476 loss: 40.94453307993453
+zogd iteration #1 input distance from zero: 1075.2217858343365 loss: 41.153425012524124
+Function zeroth_grad_optimization Took 32.4496 seconds
+Function test_configurations_capacity Took 1.7370 seconds
+tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+score parameter tensor([5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06,
+        5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06])
+noise parameter tensor([3.1623e-03, 1.8957e-03, 1.1365e-03, 6.8129e-04, 4.0842e-04, 2.4484e-04,
+        1.4678e-04, 8.7992e-05, 5.2750e-05, 3.1623e-05])
+Function annealed_langevin_v3 Took 0.0375 seconds
+zogd iteration #0 input distance from zero: 1087.8077557578988 loss: 53.12542775534323
+zogd iteration #1 input distance from zero: 1087.6312052093945 loss: 53.34736577613499
+Function zeroth_grad_optimization Took 32.4432 seconds
+Function test_configurations_capacity Took 1.7565 seconds
+tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+score parameter tensor([5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06,
+        5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06])
+noise parameter tensor([3.1623e-03, 1.8957e-03, 1.1365e-03, 6.8129e-04, 4.0842e-04, 2.4484e-04,
+        1.4678e-04, 8.7992e-05, 5.2750e-05, 3.1623e-05])
+Function annealed_langevin_v3 Took 0.0479 seconds
+zogd iteration #0 input distance from zero: 1090.6069367554385 loss: 52.20133560515247
+zogd iteration #1 input distance from zero: 1090.8306049346102 loss: 52.46665155194387
+Function zeroth_grad_optimization Took 32.7330 seconds
+Function test_configurations_capacity Took 1.7408 seconds
+tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+score parameter tensor([5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06,
+        5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06])
+noise parameter tensor([3.1623e-03, 1.8957e-03, 1.1365e-03, 6.8129e-04, 4.0842e-04, 2.4484e-04,
+        1.4678e-04, 8.7992e-05, 5.2750e-05, 3.1623e-05])
+Function annealed_langevin_v3 Took 0.0534 seconds
+zogd iteration #0 input distance from zero: 1063.9043605334857 loss: 46.7325404673352
+zogd iteration #1 input distance from zero: 1063.6954424330988 loss: 47.02639681486878
+Function zeroth_grad_optimization Took 32.5247 seconds
+Function test_configurations_capacity Took 1.8038 seconds
+tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+score parameter tensor([5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06,
+        5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06])
+noise parameter tensor([3.1623e-03, 1.8957e-03, 1.1365e-03, 6.8129e-04, 4.0842e-04, 2.4484e-04,
+        1.4678e-04, 8.7992e-05, 5.2750e-05, 3.1623e-05])
+Function annealed_langevin_v3 Took 0.0386 seconds
+zogd iteration #0 input distance from zero: 1072.2710645372692 loss: 34.113753854915686
+zogd iteration #1 input distance from zero: 1072.1835888282853 loss: 34.3282646944808
+Function zeroth_grad_optimization Took 32.4213 seconds
+Function test_configurations_capacity Took 1.7648 seconds
+tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+score parameter tensor([5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06,
+        5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06])
+noise parameter tensor([3.1623e-03, 1.8957e-03, 1.1365e-03, 6.8129e-04, 4.0842e-04, 2.4484e-04,
+        1.4678e-04, 8.7992e-05, 5.2750e-05, 3.1623e-05])
+Function annealed_langevin_v3 Took 0.0466 seconds
+zogd iteration #0 input distance from zero: 1087.4111880897117 loss: 41.55614025870348
+zogd iteration #1 input distance from zero: 1087.4268557917453 loss: 41.66711111647164
+Function zeroth_grad_optimization Took 32.4382 seconds
+Function test_configurations_capacity Took 1.7386 seconds
+tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+score parameter tensor([5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06,
+        5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06])
+noise parameter tensor([3.1623e-03, 1.8957e-03, 1.1365e-03, 6.8129e-04, 4.0842e-04, 2.4484e-04,
+        1.4678e-04, 8.7992e-05, 5.2750e-05, 3.1623e-05])
+Function annealed_langevin_v3 Took 0.0375 seconds
+zogd iteration #0 input distance from zero: 1072.806246581188 loss: 58.45230877254447
+zogd iteration #1 input distance from zero: 1072.8413480540517 loss: 58.67687406235632
+Function zeroth_grad_optimization Took 32.5526 seconds
+Function test_configurations_capacity Took 1.7313 seconds
+tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+score parameter tensor([5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06,
+        5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06])
+noise parameter tensor([3.1623e-03, 1.8957e-03, 1.1365e-03, 6.8129e-04, 4.0842e-04, 2.4484e-04,
+        1.4678e-04, 8.7992e-05, 5.2750e-05, 3.1623e-05])
+Function annealed_langevin_v3 Took 0.0405 seconds
+zogd iteration #0 input distance from zero: 1072.4243288392445 loss: 26.66070086719678
+zogd iteration #1 input distance from zero: 1072.185585868877 loss: 26.744123850995503
+Function zeroth_grad_optimization Took 32.5342 seconds
+Function test_configurations_capacity Took 1.7297 seconds
+tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+score parameter tensor([5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06,
+        5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06])
+noise parameter tensor([3.1623e-03, 1.8957e-03, 1.1365e-03, 6.8129e-04, 4.0842e-04, 2.4484e-04,
+        1.4678e-04, 8.7992e-05, 5.2750e-05, 3.1623e-05])
+Function annealed_langevin_v3 Took 0.0438 seconds
+zogd iteration #0 input distance from zero: 1080.9082082774328 loss: 36.07781015510591
+zogd iteration #1 input distance from zero: 1081.3133896344566 loss: 36.18691205184269
+Function zeroth_grad_optimization Took 32.4628 seconds
+Function test_configurations_capacity Took 1.7453 seconds
+tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+score parameter tensor([5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06,
+        5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06])
+noise parameter tensor([3.1623e-03, 1.8957e-03, 1.1365e-03, 6.8129e-04, 4.0842e-04, 2.4484e-04,
+        1.4678e-04, 8.7992e-05, 5.2750e-05, 3.1623e-05])
+Function annealed_langevin_v3 Took 0.0390 seconds
+zogd iteration #0 input distance from zero: 1081.5466923977306 loss: 57.13424134085759
+zogd iteration #1 input distance from zero: 1081.70993984884 loss: 57.31060846260834
+Function zeroth_grad_optimization Took 32.6968 seconds
+Function test_configurations_capacity Took 1.7676 seconds
+tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+score parameter tensor([5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06,
+        5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06])
+noise parameter tensor([3.1623e-03, 1.8957e-03, 1.1365e-03, 6.8129e-04, 4.0842e-04, 2.4484e-04,
+        1.4678e-04, 8.7992e-05, 5.2750e-05, 3.1623e-05])
+Function annealed_langevin_v3 Took 0.0389 seconds
+zogd iteration #0 input distance from zero: 1064.877393569429 loss: 43.03081837672647
+zogd iteration #1 input distance from zero: 1064.7918595502929 loss: 43.14214339034538
+Function zeroth_grad_optimization Took 32.6574 seconds
+Function test_configurations_capacity Took 1.7736 seconds
+tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+score parameter tensor([5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06,
+        5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06])
+noise parameter tensor([3.1623e-03, 1.8957e-03, 1.1365e-03, 6.8129e-04, 4.0842e-04, 2.4484e-04,
+        1.4678e-04, 8.7992e-05, 5.2750e-05, 3.1623e-05])
+Function annealed_langevin_v3 Took 0.0376 seconds
+zogd iteration #0 input distance from zero: 1095.3356110793457 loss: 60.428547596241685
+zogd iteration #1 input distance from zero: 1095.394353853475 loss: 60.587834283787664
+Function zeroth_grad_optimization Took 32.5909 seconds
+Function test_configurations_capacity Took 1.7826 seconds
+test diffusion mean rate:  61.9450645287012
+input std:  0.2852705693068969
+output std:  0.09952468099705189
+Function test_configurations_capacity Took 15.6259 seconds
+Function test_configurations_capacity Took 14.0148 seconds
+capacity before: 48.64848666848448 and after: 65.95301330554692
+0.1524151101123475
+input std:  0.2914785455447329
+output std:  0.10380614976101525
+Function test_configurations_capacity Took 16.0741 seconds
+Function test_configurations_capacity Took 13.9203 seconds
+capacity before: 42.74199446593314 and after: 59.35601092536503
+0.14788285949527716
+input std:  0.28746045000075876
+output std:  0.0963724896748385
+Function test_configurations_capacity Took 13.9205 seconds
+Function test_configurations_capacity Took 13.8398 seconds
+capacity before: 50.033483370794784 and after: 67.95290377637295
+0.150028415295893
+input std:  0.28766703802715565
+output std:  0.10290886526547172
+Function test_configurations_capacity Took 15.6357 seconds
+Function test_configurations_capacity Took 14.0595 seconds
+capacity before: 44.15823957803763 and after: 59.114275892611026
+0.1406756307372338
+input std:  0.2851727181214766
+output std:  0.10807117643050927
+Function test_configurations_capacity Took 15.1795 seconds
+Function test_configurations_capacity Took 14.2077 seconds
+capacity before: 46.291257470830956 and after: 63.0965007454604
+0.13914652360028795
+input std:  0.2873714069018026
+output std:  0.10194643848290064
+Function test_configurations_capacity Took 15.2800 seconds
+Function test_configurations_capacity Took 14.0727 seconds
+capacity before: 46.663408997470036 and after: 62.60673840353937
+0.137800852989019
+input std:  0.2883402854726529
+output std:  0.10172980785508765
+Function test_configurations_capacity Took 13.9613 seconds
+Function test_configurations_capacity Took 14.0864 seconds
+capacity before: 42.47556049839665 and after: 57.65684840582532
+0.13846964549076993
+input std:  0.2861774055132424
+output std:  0.09972810345377642
+Function test_configurations_capacity Took 13.8164 seconds
+Function test_configurations_capacity Took 14.2819 seconds
+capacity before: 46.27161797942502 and after: 60.92061344091215
+0.1415849054635511
+input std:  0.2865457677346363
+output std:  0.09992234981039666
+Function test_configurations_capacity Took 15.0327 seconds
+Function test_configurations_capacity Took 14.0355 seconds
+capacity before: 46.176975806853534 and after: 62.43815158815245
+0.1369945383826093
+input std:  0.28650293940519833
+output std:  0.0992190132289622
+Function test_configurations_capacity Took 14.9868 seconds
+Function test_configurations_capacity Took 14.2005 seconds
+capacity before: 45.727265828411845 and after: 63.21685091075502
+0.1294198155261883
+input std:  0.28617966305513615
+output std:  0.09790715234810145
+Function test_configurations_capacity Took 15.1549 seconds
+Function test_configurations_capacity Took 14.3766 seconds
+capacity before: 42.949251178358566 and after: 60.95457073346894
+0.12878939364205083
+input std:  0.28916068505687387
+output std:  0.10199734659882491
+Function test_configurations_capacity Took 15.0059 seconds
+Function test_configurations_capacity Took 14.0884 seconds
+capacity before: 47.62678462218841 and after: 64.07368904633849
+0.12464646470739324
+input std:  0.2860017925160525
+output std:  0.10089561395182685
+Function test_configurations_capacity Took 15.1488 seconds
+Function test_configurations_capacity Took 14.1271 seconds
+capacity before: 51.20322765509546 and after: 69.97887189984753
+0.12914601156335914
+input std:  0.2845449326863406
+output std:  0.09993227359439118
+Function test_configurations_capacity Took 15.3630 seconds
+Function test_configurations_capacity Took 14.2540 seconds
+capacity before: 44.48994040230042 and after: 62.95870159310456
+0.1340943036680777
+input std:  0.285036993161126
+output std:  0.10280042605161119
+Function test_configurations_capacity Took 15.0866 seconds
+Function test_configurations_capacity Took 14.0519 seconds
+capacity before: 47.54510440959832 and after: 62.604914678939046
+0.12841858158895542
+input std:  0.2917030428606765
+output std:  0.10105638238674622
+Function test_configurations_capacity Took 14.7862 seconds
+Function test_configurations_capacity Took 14.3129 seconds
+capacity before: 49.565744418470814 and after: 64.9472079772669
+0.13539941159726526
+input std:  0.2855434845594523
+output std:  0.09682249765711633
+Function test_configurations_capacity Took 15.3098 seconds
+Function test_configurations_capacity Took 14.2081 seconds
+capacity before: 49.00240806667526 and after: 61.97114453339175
+0.14002346893975776
+input std:  0.28720947862206875
+output std:  0.09934065335567756
+Function test_configurations_capacity Took 15.3231 seconds
+Function test_configurations_capacity Took 14.0640 seconds
+capacity before: 43.41352950603616 and after: 60.35876991356567
+0.14325453421279366
+input std:  0.28365690206439304
+output std:  0.09526554487196975
+Function test_configurations_capacity Took 15.2834 seconds
+Function test_configurations_capacity Took 14.2918 seconds
+capacity before: 44.404706923941774 and after: 59.91669187952337
+0.1495731096309735
+input std:  0.28168225745233166
+output std:  0.09378096922526336
+Function test_configurations_capacity Took 15.0734 seconds
+Function test_configurations_capacity Took 14.2015 seconds
+capacity before: 48.388965979273905 and after: 66.33734013989454
+0.15815206300756995
+input std:  0.2857327678912249
+output std:  0.09562252557646901
+Function test_configurations_capacity Took 15.1577 seconds
+Function test_configurations_capacity Took 14.1944 seconds
+capacity before: 41.834308965678275 and after: 58.82785703907651
+0.15770242703274068
+input std:  0.285935164574658
+output std:  0.0971502195142567
+Function test_configurations_capacity Took 15.1893 seconds
+Function test_configurations_capacity Took 14.1655 seconds
+capacity before: 48.76608232717767 and after: 67.80149036422854
+0.1621753029277993
+input std:  0.2912833885281058
+output std:  0.0965101425849236
+Function test_configurations_capacity Took 15.1397 seconds
+Function test_configurations_capacity Took 14.1731 seconds
+capacity before: 44.961775029390836 and after: 60.76148424293541
+0.16295511584416764
+input std:  0.28796475243401687
+output std:  0.09590785885018308
+Function test_configurations_capacity Took 15.6233 seconds
+Function test_configurations_capacity Took 14.1427 seconds
+capacity before: 44.01457889532465 and after: 60.12037110294227
+0.16524859845846301
+input std:  0.2849180757913032
+output std:  0.09849032130827778
+Function test_configurations_capacity Took 15.2378 seconds
+Function test_configurations_capacity Took 14.2766 seconds
+capacity before: 43.021214158308176 and after: 59.30180203183732
+0.17075922897759574
+input std:  0.28196430337123235
+output std:  0.1008605734070878
+Function test_configurations_capacity Took 15.2395 seconds
+Function test_configurations_capacity Took 14.0728 seconds
+capacity before: 43.29518558953882 and after: 59.81176600062328
+0.1720112105674614
+input std:  0.28635350738812676
+output std:  0.0987236146931629
+Function test_configurations_capacity Took 15.1749 seconds
+Function test_configurations_capacity Took 14.4507 seconds
+capacity before: 42.64530775693541 and after: 59.981513748708664
+0.16260899264155798
+input std:  0.2884516287923868
+output std:  0.09658874681844118
+Function test_configurations_capacity Took 15.2813 seconds
+Function test_configurations_capacity Took 14.1039 seconds
+capacity before: 44.25568444587875 and after: 60.428454897125
+0.16235734877646438
+input std:  0.28314110664236275
+output std:  0.09666296512294624
+Function test_configurations_capacity Took 15.1721 seconds
+Function test_configurations_capacity Took 14.2627 seconds
+capacity before: 48.92021518384963 and after: 65.73452272339772
+0.15192791829415073
+input std:  0.28482941877779294
+output std:  0.09751791746898776
+Function test_configurations_capacity Took 15.0122 seconds
+Function test_configurations_capacity Took 14.0909 seconds
+capacity before: 51.33159417756289 and after: 67.7483590215338
+0.1524693947084285
+input std:  0.2881291083013118
+output std:  0.09450988492180945
+Function test_configurations_capacity Took 15.1751 seconds
+Function test_configurations_capacity Took 14.3438 seconds
+capacity before: 45.814024935524856 and after: 63.80527299380943
+0.1535445931934192
+input std:  0.28858494423450054
+output std:  0.0964830240976333
+Function test_configurations_capacity Took 15.0857 seconds
+Function test_configurations_capacity Took 14.1716 seconds
+capacity before: 47.71381692864648 and after: 63.42719576260511
+0.15594453273308334
+input std:  0.2907851799464429
+output std:  0.0956614778376792
+Function test_configurations_capacity Took 15.1661 seconds
+Function test_configurations_capacity Took 14.0775 seconds
+capacity before: 43.11167513510145 and after: 59.848815689187084
+0.15536961752711403
+input std:  0.28322666842669936
+output std:  0.09337347894586137
+Function test_configurations_capacity Took 15.1027 seconds
+Function test_configurations_capacity Took 14.4771 seconds
+capacity before: 47.15401246822691 and after: 61.87982899667475
+0.16090156479816145
+input std:  0.2879967822289671
+output std:  0.0945729361816488
+Function test_configurations_capacity Took 15.1970 seconds
+Function test_configurations_capacity Took 14.0618 seconds
+capacity before: 41.96020773001695 and after: 59.55853440514572
+0.15951048825249342
+input std:  0.2920681457366498
+output std:  0.09817609683041309
+Function test_configurations_capacity Took 15.3594 seconds
+Function test_configurations_capacity Took 14.0937 seconds
+capacity before: 43.83795880678034 and after: 61.119404196857936
+0.16248590030922852
+input std:  0.2870270419778805
+output std:  0.10306813229051767
+Function test_configurations_capacity Took 15.2218 seconds
+Function test_configurations_capacity Took 14.1219 seconds
+capacity before: 52.24106178810527 and after: 65.98090572512791
+0.16983366299550523
+input std:  0.28507916389673726
+output std:  0.0961160320636
+Function test_configurations_capacity Took 15.2011 seconds
+Function test_configurations_capacity Took 14.1231 seconds
+capacity before: 47.63791281680488 and after: 61.991199611287136
+0.17234984213400623
+input std:  0.29011372552509207
+output std:  0.09272476007097931
+Function test_configurations_capacity Took 15.3488 seconds
+Function test_configurations_capacity Took 14.1607 seconds
+capacity before: 46.81704830767546 and after: 62.2394039145025
+0.18311340924777633
+input std:  0.2860697969248208
+output std:  0.09224475862831844
+Function test_configurations_capacity Took 15.1633 seconds
+Function test_configurations_capacity Took 14.1296 seconds
+capacity before: 50.88443726212765 and after: 65.22706463437376
+0.18321309113689052
+input std:  0.2831457534262826
+output std:  0.09903358581792958
+Function test_configurations_capacity Took 15.1917 seconds
+Function test_configurations_capacity Took 14.1365 seconds
+capacity before: 45.356840576079584 and after: 58.60430864128173
+0.18165221907330892
+input std:  0.2804465595116957
+output std:  0.09148101802559093
+Function test_configurations_capacity Took 15.1667 seconds
+Function test_configurations_capacity Took 14.2644 seconds
+capacity before: 54.80524835699758 and after: 68.86800961186324
+0.1755808935026692
+input std:  0.2853415825243247
+output std:  0.09901941688826205
+Function test_configurations_capacity Took 15.2208 seconds
+Function test_configurations_capacity Took 14.2027 seconds
+capacity before: 47.62843663227076 and after: 61.433460731201436
+0.16823121239258362
+input std:  0.284374795237953
+output std:  0.09061848207056937
+Function test_configurations_capacity Took 15.0696 seconds
+Function test_configurations_capacity Took 14.4420 seconds
+capacity before: 45.05548591964959 and after: 60.871811804318654
+0.16720551983119147
+input std:  0.283807648081534
+output std:  0.09636683541690363
+Function test_configurations_capacity Took 15.2067 seconds
+Function test_configurations_capacity Took 14.2109 seconds
+capacity before: 50.59068951021051 and after: 64.98091761383381
+0.16888129320801615
+input std:  0.28110363964023627
+output std:  0.09700078832348416
+Function test_configurations_capacity Took 15.1895 seconds
+Function test_configurations_capacity Took 14.1997 seconds
+capacity before: 49.2719082182042 and after: 65.8701153953561
+0.16303700280016678
+input std:  0.2866689631216579
+output std:  0.09281552759645283
+Function test_configurations_capacity Took 15.1688 seconds
+Function test_configurations_capacity Took 14.1539 seconds
+capacity before: 46.17647262194832 and after: 61.95782715752049
+0.15868617316357891
+input std:  0.2858025604310245
+output std:  0.09720107740165455
+Function test_configurations_capacity Took 15.1501 seconds
+Function test_configurations_capacity Took 14.0268 seconds
+capacity before: 45.4648521182162 and after: 59.67092317536955
+0.15144588286992425
+input std:  0.28030986039595773
+output std:  0.09226414123793605
+Function test_configurations_capacity Took 15.3254 seconds
+Function test_configurations_capacity Took 14.2385 seconds
+capacity before: 44.88180519796525 and after: 64.79141862891255
+0.15285508127496789
+input std:  0.2903611505891113
+output std:  0.09554194516510922
+Function test_configurations_capacity Took 15.4211 seconds
+Function test_configurations_capacity Took 14.2346 seconds
+capacity before: 49.152270668007375 and after: 65.03448782594964
+0.14378406873731722
+input std:  0.2868658075212713
+output std:  0.09387459762813022
+Function test_configurations_capacity Took 15.4824 seconds
+Function test_configurations_capacity Took 14.2111 seconds
+capacity before: 55.208038124162144 and after: 71.0314807875017
+0.1451022286281268
+input std:  0.2901388450180492
+output std:  0.09749397617037882
+Function test_configurations_capacity Took 15.1710 seconds
+Function test_configurations_capacity Took 14.2821 seconds
+capacity before: 45.159524917261884 and after: 60.134629776099395
+0.14255463389502127
+input std:  0.2843330243458866
+output std:  0.09395256074395754
+Function test_configurations_capacity Took 15.2560 seconds
+Function test_configurations_capacity Took 14.2375 seconds
+capacity before: 50.9548864652063 and after: 66.57683620225225
+0.13821024253945552
+input std:  0.284299290092856
+output std:  0.0902610033998067
+Function test_configurations_capacity Took 14.9739 seconds
+Function test_configurations_capacity Took 14.1825 seconds
+capacity before: 43.570202804694496 and after: 61.27168603798532
+0.1320303051229239
+input std:  0.28770105222834336
+output std:  0.09759162868129553
+Function test_configurations_capacity Took 15.2620 seconds
+Function test_configurations_capacity Took 14.1378 seconds
+capacity before: 50.62336218053649 and after: 67.76102374071758
+0.13073807912290533
+input std:  0.2845515306898393
+output std:  0.09581937279403792
+Function test_configurations_capacity Took 15.2454 seconds
+Function test_configurations_capacity Took 14.2042 seconds
+capacity before: 51.057738529906835 and after: 68.25345363909157
+0.12726964914602537
+input std:  0.28259168116106403
+output std:  0.09803459628771881
+Function test_configurations_capacity Took 15.2403 seconds
+Function test_configurations_capacity Took 14.0632 seconds
+capacity before: 48.04337559313866 and after: 66.48047738050292
+0.12543950864693626
+input std:  0.28487978313018664
+output std:  0.09325080284125846
+Function test_configurations_capacity Took 15.1400 seconds
+Function test_configurations_capacity Took 14.2743 seconds
+capacity before: 47.938685580833614 and after: 67.61036683930612
+0.12879692254794853
+input std:  0.2878725766147611
+output std:  0.0939005079372947
+Function test_configurations_capacity Took 15.1549 seconds
+Function test_configurations_capacity Took 14.2849 seconds
+capacity before: 47.39117270492805 and after: 63.343196341022335
+0.11613378135037886
+input std:  0.2845853696989199
+output std:  0.0904295026961673
+Function test_configurations_capacity Took 15.2697 seconds
+Function test_configurations_capacity Took 14.0611 seconds
+capacity before: 43.32857710760112 and after: 60.00552870807329
+0.12788493248390848
+tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+score parameter tensor([5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06,
+        5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06])
+noise parameter tensor([3.1623e-03, 1.8957e-03, 1.1365e-03, 6.8129e-04, 4.0842e-04, 2.4484e-04,
+        1.4678e-04, 8.7992e-05, 5.2750e-05, 3.1623e-05])
+Function annealed_langevin_v3 Took 0.1964 seconds
+zogd iteration #0 input distance from zero: 1087.2239261712314 loss: 53.0976605461787
+zogd iteration #1 input distance from zero: 1086.3731887372674 loss: 53.402877149949006
+Function zeroth_grad_optimization Took 32.4185 seconds
+Function test_configurations_capacity Took 1.7243 seconds
+tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+score parameter tensor([5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06,
+        5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06])
+noise parameter tensor([3.1623e-03, 1.8957e-03, 1.1365e-03, 6.8129e-04, 4.0842e-04, 2.4484e-04,
+        1.4678e-04, 8.7992e-05, 5.2750e-05, 3.1623e-05])
+Function annealed_langevin_v3 Took 0.0550 seconds
+zogd iteration #0 input distance from zero: 1095.8709736037467 loss: 60.38486800287801
+zogd iteration #1 input distance from zero: 1095.8523097102116 loss: 60.612775128680966
+Function zeroth_grad_optimization Took 32.4320 seconds
+Function test_configurations_capacity Took 1.7318 seconds
+tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+score parameter tensor([5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06,
+        5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06])
+noise parameter tensor([3.1623e-03, 1.8957e-03, 1.1365e-03, 6.8129e-04, 4.0842e-04, 2.4484e-04,
+        1.4678e-04, 8.7992e-05, 5.2750e-05, 3.1623e-05])
+Function annealed_langevin_v3 Took 0.0439 seconds
+zogd iteration #0 input distance from zero: 1072.9959891380104 loss: 38.58075245632871
+zogd iteration #1 input distance from zero: 1073.1271439486868 loss: 38.67485334249386
+Function zeroth_grad_optimization Took 32.6593 seconds
+Function test_configurations_capacity Took 1.7192 seconds
+tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+score parameter tensor([5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06,
+        5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06])
+noise parameter tensor([3.1623e-03, 1.8957e-03, 1.1365e-03, 6.8129e-04, 4.0842e-04, 2.4484e-04,
+        1.4678e-04, 8.7992e-05, 5.2750e-05, 3.1623e-05])
+Function annealed_langevin_v3 Took 0.0473 seconds
+zogd iteration #0 input distance from zero: 1063.8505345897079 loss: 46.836118691290004
+zogd iteration #1 input distance from zero: 1063.9236687793446 loss: 47.044211127521365
+Function zeroth_grad_optimization Took 32.6630 seconds
+Function test_configurations_capacity Took 1.7911 seconds
+tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+score parameter tensor([5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06,
+        5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06])
+noise parameter tensor([3.1623e-03, 1.8957e-03, 1.1365e-03, 6.8129e-04, 4.0842e-04, 2.4484e-04,
+        1.4678e-04, 8.7992e-05, 5.2750e-05, 3.1623e-05])
+Function annealed_langevin_v3 Took 0.0389 seconds
+zogd iteration #0 input distance from zero: 1078.85750359967 loss: 49.712412500006934
+zogd iteration #1 input distance from zero: 1078.8413868620412 loss: 50.063728235437864
+Function zeroth_grad_optimization Took 32.5104 seconds
+Function test_configurations_capacity Took 1.7104 seconds
+tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+score parameter tensor([5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06,
+        5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06])
+noise parameter tensor([3.1623e-03, 1.8957e-03, 1.1365e-03, 6.8129e-04, 4.0842e-04, 2.4484e-04,
+        1.4678e-04, 8.7992e-05, 5.2750e-05, 3.1623e-05])
+Function annealed_langevin_v3 Took 0.0448 seconds
+zogd iteration #0 input distance from zero: 1082.1098451260216 loss: 57.14873452012629
+zogd iteration #1 input distance from zero: 1081.884942516584 loss: 57.333351943263175
+Function zeroth_grad_optimization Took 32.7027 seconds
+Function test_configurations_capacity Took 1.7498 seconds
+tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+score parameter tensor([5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06,
+        5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06])
+noise parameter tensor([3.1623e-03, 1.8957e-03, 1.1365e-03, 6.8129e-04, 4.0842e-04, 2.4484e-04,
+        1.4678e-04, 8.7992e-05, 5.2750e-05, 3.1623e-05])
+Function annealed_langevin_v3 Took 0.0416 seconds
+zogd iteration #0 input distance from zero: 1072.3787022039246 loss: 58.231569984074206
+zogd iteration #1 input distance from zero: 1072.3895380035863 loss: 58.59434451984884
+Function zeroth_grad_optimization Took 33.1154 seconds
+Function test_configurations_capacity Took 1.8514 seconds
+tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+score parameter tensor([5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06,
+        5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06])
+noise parameter tensor([3.1623e-03, 1.8957e-03, 1.1365e-03, 6.8129e-04, 4.0842e-04, 2.4484e-04,
+        1.4678e-04, 8.7992e-05, 5.2750e-05, 3.1623e-05])
+Function annealed_langevin_v3 Took 0.0389 seconds
+zogd iteration #0 input distance from zero: 1087.7076201290201 loss: 41.86416577749421
+zogd iteration #1 input distance from zero: 1087.2918861778319 loss: 42.053814128468744
+Function zeroth_grad_optimization Took 33.9869 seconds
+Function test_configurations_capacity Took 1.8341 seconds
+tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+score parameter tensor([5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06,
+        5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06])
+noise parameter tensor([3.1623e-03, 1.8957e-03, 1.1365e-03, 6.8129e-04, 4.0842e-04, 2.4484e-04,
+        1.4678e-04, 8.7992e-05, 5.2750e-05, 3.1623e-05])
+Function annealed_langevin_v3 Took 0.0471 seconds
+zogd iteration #0 input distance from zero: 1089.9196680424675 loss: 52.162077837737115
+zogd iteration #1 input distance from zero: 1089.2984339354007 loss: 52.32945327093947
+Function zeroth_grad_optimization Took 33.0928 seconds
+Function test_configurations_capacity Took 1.7325 seconds
+tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+score parameter tensor([5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06,
+        5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06])
+noise parameter tensor([3.1623e-03, 1.8957e-03, 1.1365e-03, 6.8129e-04, 4.0842e-04, 2.4484e-04,
+        1.4678e-04, 8.7992e-05, 5.2750e-05, 3.1623e-05])
+Function annealed_langevin_v3 Took 0.0483 seconds
+zogd iteration #0 input distance from zero: 1081.3271402406103 loss: 36.112763138248646
+zogd iteration #1 input distance from zero: 1081.5225234642817 loss: 36.23813672582483
+Function zeroth_grad_optimization Took 32.6908 seconds
+Function test_configurations_capacity Took 1.7554 seconds
+tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+score parameter tensor([5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06,
+        5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06])
+noise parameter tensor([3.1623e-03, 1.8957e-03, 1.1365e-03, 6.8129e-04, 4.0842e-04, 2.4484e-04,
+        1.4678e-04, 8.7992e-05, 5.2750e-05, 3.1623e-05])
+Function annealed_langevin_v3 Took 0.0404 seconds
+zogd iteration #0 input distance from zero: 1073.2432486516846 loss: 39.55687832992233
+zogd iteration #1 input distance from zero: 1073.1731093218636 loss: 39.705735786655346
+Function zeroth_grad_optimization Took 33.0072 seconds
+Function test_configurations_capacity Took 1.7796 seconds
+tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+score parameter tensor([5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06,
+        5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06])
+noise parameter tensor([3.1623e-03, 1.8957e-03, 1.1365e-03, 6.8129e-04, 4.0842e-04, 2.4484e-04,
+        1.4678e-04, 8.7992e-05, 5.2750e-05, 3.1623e-05])
+Function annealed_langevin_v3 Took 0.0366 seconds
+zogd iteration #0 input distance from zero: 1072.944880538615 loss: 26.666371534421057
+zogd iteration #1 input distance from zero: 1072.4460650939805 loss: 26.769649527868044
+Function zeroth_grad_optimization Took 32.5909 seconds
+Function test_configurations_capacity Took 1.7311 seconds
+tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+score parameter tensor([5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06,
+        5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06])
+noise parameter tensor([3.1623e-03, 1.8957e-03, 1.1365e-03, 6.8129e-04, 4.0842e-04, 2.4484e-04,
+        1.4678e-04, 8.7992e-05, 5.2750e-05, 3.1623e-05])
+Function annealed_langevin_v3 Took 0.0383 seconds
+zogd iteration #0 input distance from zero: 1065.15583653834 loss: 43.09586156746199
+zogd iteration #1 input distance from zero: 1064.9689122141704 loss: 43.24277993913361
+Function zeroth_grad_optimization Took 32.6421 seconds
+Function test_configurations_capacity Took 1.7811 seconds
+tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+score parameter tensor([5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06,
+        5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06])
+noise parameter tensor([3.1623e-03, 1.8957e-03, 1.1365e-03, 6.8129e-04, 4.0842e-04, 2.4484e-04,
+        1.4678e-04, 8.7992e-05, 5.2750e-05, 3.1623e-05])
+Function annealed_langevin_v3 Took 0.0379 seconds
+zogd iteration #0 input distance from zero: 1072.7178268916136 loss: 34.22057345873435
+zogd iteration #1 input distance from zero: 1072.9914078569923 loss: 34.34275753088387
+Function zeroth_grad_optimization Took 34.0103 seconds
+Function test_configurations_capacity Took 1.8343 seconds
+tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+score parameter tensor([5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06,
+        5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06])
+noise parameter tensor([3.1623e-03, 1.8957e-03, 1.1365e-03, 6.8129e-04, 4.0842e-04, 2.4484e-04,
+        1.4678e-04, 8.7992e-05, 5.2750e-05, 3.1623e-05])
+Function annealed_langevin_v3 Took 0.0486 seconds
+zogd iteration #0 input distance from zero: 1075.1822121275134 loss: 40.836799323629364
+zogd iteration #1 input distance from zero: 1075.1628111764746 loss: 40.98433679993817
+Function zeroth_grad_optimization Took 33.3995 seconds
+Function test_configurations_capacity Took 1.7900 seconds
+tensor([1.0000, 0.5995, 0.3594, 0.2154, 0.1292, 0.0774, 0.0464, 0.0278, 0.0167,
+        0.0100])
+score parameter tensor([5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06,
+        5.0000e-06, 5.0000e-06, 5.0000e-06, 5.0000e-06])
+noise parameter tensor([3.1623e-03, 1.8957e-03, 1.1365e-03, 6.8129e-04, 4.0842e-04, 2.4484e-04,
+        1.4678e-04, 8.7992e-05, 5.2750e-05, 3.1623e-05])
+Function annealed_langevin_v3 Took 0.0408 seconds
+zogd iteration #0 input distance from zero: 1074.802013728549 loss: 54.809864382676864
+zogd iteration #1 input distance from zero: 1074.8292063943102 loss: 55.03299855472344
+Function zeroth_grad_optimization Took 32.5684 seconds
+Function test_configurations_capacity Took 1.7544 seconds
+test diffusion mean rate:  61.90895084351203
+input std:  0.2840462118934036
+output std:  0.09353507785051997
+Function test_configurations_capacity Took 15.3558 seconds
+Function test_configurations_capacity Took 14.1081 seconds
+capacity before: 42.71056304728644 and after: 57.259205483489964
+0.12883307556585116
+input std:  0.287303035921079
+output std:  0.09321598697664596
+Function test_configurations_capacity Took 16.1138 seconds
+Function test_configurations_capacity Took 14.0534 seconds
+capacity before: 47.14445568761313 and after: 62.31792629730354
+0.1361796057053995
+input std:  0.28534656537654246
+output std:  0.08673160053931045
+Function test_configurations_capacity Took 14.0092 seconds
+Function test_configurations_capacity Took 14.0857 seconds
+capacity before: 41.95922824274242 and after: 56.542583088253856
+0.1406983428410915
+input std:  0.2859960916980852
+output std:  0.08943796613864702
+Function test_configurations_capacity Took 14.0283 seconds
+Function test_configurations_capacity Took 14.1434 seconds
+capacity before: 51.340257061633956 and after: 67.3220693152546
+0.13433823761480684
+input std:  0.2876233237579754
+output std:  0.09773386810403004
+Function test_configurations_capacity Took 15.1953 seconds
+Function test_configurations_capacity Took 14.3450 seconds
+capacity before: 43.88130310560322 and after: 58.547095045916514
+0.1303662900166374
+input std:  0.28277915911309187
+output std:  0.08856035973130147
+Function test_configurations_capacity Took 15.2497 seconds
+Function test_configurations_capacity Took 14.2304 seconds
+capacity before: 44.66408064215665 and after: 61.6100234039027
+0.12752419899476183
+input std:  0.28292795295314654
+output std:  0.09335140127579016
+Function test_configurations_capacity Took 14.2503 seconds
+Function test_configurations_capacity Took 14.1793 seconds
+capacity before: 49.832211438930386 and after: 68.14299646855305
+0.1324155713266903
+input std:  0.2847832992732387
+output std:  0.09143544358176327
+Function test_configurations_capacity Took 15.1806 seconds
+Function test_configurations_capacity Took 14.2267 seconds
+capacity before: 45.63375493381156 and after: 59.39041454098427
+0.13434197787480823
+input std:  0.2894584388443956
+output std:  0.09660956910075581
+Function test_configurations_capacity Took 15.2194 seconds
+Function test_configurations_capacity Took 14.1132 seconds
+capacity before: 45.15300571697917 and after: 60.493373043292955
+0.14766612934211562
+input std:  0.28625371955465856
+output std:  0.08797535367292697
+Function test_configurations_capacity Took 15.2786 seconds
+Function test_configurations_capacity Took 14.1240 seconds
+capacity before: 47.85471877387834 and after: 65.90045487113761
+0.14896009643638636
+input std:  0.2818928600143664
+output std:  0.09292027761495956
+Function test_configurations_capacity Took 13.8663 seconds
+Function test_configurations_capacity Took 14.3286 seconds
+capacity before: 41.63598639700133 and after: 55.70785908154312
+0.14618196450673018
+input std:  0.2906249931251654
+output std:  0.09972117641375774
+Function test_configurations_capacity Took 14.0036 seconds
+Function test_configurations_capacity Took 14.1682 seconds
+capacity before: 46.882475877690254 and after: 61.583923264843754
+0.147641147490206
+input std:  0.28984795760516713
+output std:  0.09293447419550864
+Function test_configurations_capacity Took 15.1069 seconds
+Function test_configurations_capacity Took 14.1432 seconds
+capacity before: 49.948647801763094 and after: 67.88992618645068
+0.14405286056269156
+input std:  0.2884309326718747
+output std:  0.095189562028087
+Function test_configurations_capacity Took 15.0987 seconds
+Function test_configurations_capacity Took 14.1618 seconds
+capacity before: 42.97288493177703 and after: 58.000851677923414
+0.15385485882167088
+input std:  0.28355516259245633
+output std:  0.08920186215940543
+Function test_configurations_capacity Took 20.2970 seconds
+Function test_configurations_capacity Took 14.2552 seconds
+capacity before: 44.992279656413544 and after: 62.3111474068334
+0.1489148950175975
+input std:  0.2834190925303389
+output std:  0.09207780170239027
+Function test_configurations_capacity Took 15.2348 seconds
+Function test_configurations_capacity Took 14.1605 seconds
+capacity before: 51.04222002846133 and after: 65.74330712543964
+0.15896097857954308
+input std:  0.2867338674589349
+output std:  0.09367945502364194
+Function test_configurations_capacity Took 15.1183 seconds
+Function test_configurations_capacity Took 14.3336 seconds
+capacity before: 45.07147519392549 and after: 60.40638565419924
+0.15758722504868253
+input std:  0.28899644728215124
+output std:  0.09540104074587957
+Function test_configurations_capacity Took 15.1364 seconds
+Function test_configurations_capacity Took 14.2852 seconds
+capacity before: 46.19058251025921 and after: 61.21584864217114
+0.15793476296627945
+input std:  0.28381241473832686
+output std:  0.09355773790247542
+Function test_configurations_capacity Took 15.1978 seconds
+Function test_configurations_capacity Took 14.1268 seconds
+capacity before: 49.74567752209758 and after: 63.89040295926701
+0.1460212846777424
+input std:  0.2835819364821009
+output std:  0.08947325046885446
+Function test_configurations_capacity Took 15.0896 seconds
+Function test_configurations_capacity Took 14.2528 seconds
+capacity before: 43.68311334488416 and after: 60.934922841968884
+0.1460534862514588
+input std:  0.28591960833275515
+output std:  0.08953197421639573
+Function test_configurations_capacity Took 15.1893 seconds
+Function test_configurations_capacity Took 14.2057 seconds
+capacity before: 45.730829129891944 and after: 62.53068950553772
+0.14967277279889551
+input std:  0.2853524160151982
+output std:  0.09023697218455796
+Function test_configurations_capacity Took 15.2008 seconds
+Function test_configurations_capacity Took 14.1819 seconds
+capacity before: 46.9864875298924 and after: 61.75836258343777
+0.14409536769435718
+input std:  0.2872957466833867
+output std:  0.09236333185499987
+Function test_configurations_capacity Took 15.1221 seconds
+Function test_configurations_capacity Took 14.2933 seconds
+capacity before: 44.66466924699317 and after: 60.042781388741055
+0.15112264887520935
+input std:  0.29002162963890515
+output std:  0.08826918090737977
+Function test_configurations_capacity Took 15.1090 seconds
+Function test_configurations_capacity Took 14.1530 seconds
+capacity before: 45.32150097963566 and after: 59.37703428623608
+0.15189620267961595
+input std:  0.2913799435671096
+output std:  0.08885495981793108
+Function test_configurations_capacity Took 15.2192 seconds
+Function test_configurations_capacity Took 14.5364 seconds
+capacity before: 52.68120642964351 and after: 69.24155045057788
+0.15514997047855286
+input std:  0.2886948536914893
+output std:  0.09187008362291962
+Function test_configurations_capacity Took 15.1984 seconds
+Function test_configurations_capacity Took 14.2864 seconds
+capacity before: 50.079212865667444 and after: 66.81069129018609
+0.14883987639785096
+input std:  0.28454104889942067
+output std:  0.08891904490594926
+Function test_configurations_capacity Took 15.3374 seconds
+Function test_configurations_capacity Took 14.1514 seconds
+capacity before: 52.55668156859714 and after: 69.4998400267368
+0.15650010472552517
+input std:  0.28559339591931693
+output std:  0.08827753972900679
+Function test_configurations_capacity Took 19.8345 seconds
+Function test_configurations_capacity Took 14.2259 seconds
+capacity before: 45.825155135300996 and after: 61.02645082999226
+0.15325091647915606
+input std:  0.28744730033563803
+output std:  0.08898260962753851
+Function test_configurations_capacity Took 15.0295 seconds
+Function test_configurations_capacity Took 14.3174 seconds
+capacity before: 45.416423120590665 and after: 62.82167855438294
+0.1647238928902112
+input std:  0.2872626809751217
+output std:  0.08494916547391548
+Function test_configurations_capacity Took 15.2512 seconds
+Function test_configurations_capacity Took 14.2944 seconds
+capacity before: 47.881626822633685 and after: 63.12859142692654
+0.1620132324168961
+input std:  0.28811384835804765
+output std:  0.09139230579037554
+Function test_configurations_capacity Took 15.2648 seconds
+Function test_configurations_capacity Took 14.1361 seconds
+capacity before: 50.07909562032616 and after: 66.09872096152476
+0.15394106704854413
+input std:  0.2851624324203118
+output std:  0.09555836139777346
+Function test_configurations_capacity Took 15.1204 seconds
+Function test_configurations_capacity Took 14.1718 seconds
+capacity before: 45.51212439600523 and after: 62.52417681792528
+0.1545224157990009
+input std:  0.2886363548945275
+output std:  0.09034106039286688
+Function test_configurations_capacity Took 15.2514 seconds
+Function test_configurations_capacity Took 14.2483 seconds
+capacity before: 47.04230561503046 and after: 62.87821886920995
+0.15174073719710784
+input std:  0.28880077188283304
+output std:  0.08859883051948526
+Function test_configurations_capacity Took 15.1351 seconds
+Function test_configurations_capacity Took 14.1933 seconds
+capacity before: 44.30644549558584 and after: 61.37822299721273
+0.1494609033454924
+input std:  0.288391989125223
+output std:  0.08885491480794386
+Function test_configurations_capacity Took 15.2170 seconds
+Function test_configurations_capacity Took 14.2446 seconds
+capacity before: 46.19052706533519 and after: 63.2518494061852
+0.15461354497751167
+input std:  0.28735037846494665
+output std:  0.09018306017303972
+Function test_configurations_capacity Took 15.5447 seconds
+Function test_configurations_capacity Took 14.2347 seconds
+capacity before: 47.64292786756883 and after: 62.185980852574204
+0.15679039314697257
+input std:  0.28568381461069997
+output std:  0.08919278007031131
+Function test_configurations_capacity Took 15.1437 seconds
+Function test_configurations_capacity Took 13.9310 seconds
+capacity before: 42.00012871191055 and after: 59.782655182213816
+0.14782125097061102
+input std:  0.28624207230877946
+output std:  0.08991123990612035
+Function test_configurations_capacity Took 15.1618 seconds
+Function test_configurations_capacity Took 14.2189 seconds
+capacity before: 49.17560243070933 and after: 65.16542200650846
+0.15107866586619295
+input std:  0.2854354565395574
+output std:  0.0869168339754664
+Function test_configurations_capacity Took 15.2312 seconds
+Function test_configurations_capacity Took 14.3086 seconds
+capacity before: 52.15370095482153 and after: 67.62604919211478
+0.13943017417114123
+input std:  0.28508019173829036
+output std:  0.08950701927003739
+Function test_configurations_capacity Took 16.4520 seconds
+Function test_configurations_capacity Took 18.3644 seconds
+capacity before: 46.20789910608883 and after: 62.350743696144676
+0.13236873261343876
+Traceback (most recent call last):
+  File "C:\Users\tomer\Documents\Projects\Generative_RIS_Optimization\Regression_Model\main.py", line 1568, in <module>
+    main()
+  File "C:\Users\tomer\Documents\Projects\Generative_RIS_Optimization\Regression_Model\main.py", line 1311, in main
+    diffusion_active_training(net_diffusion,
+  File "C:\Users\tomer\Documents\Projects\Generative_RIS_Optimization\Regression_Model\main.py", line 748, in diffusion_active_training
+    grad_inp_64 = zo_estimate_gradient(capacity_physfad, improved_X , tx_x, tx_y, epsilon, 64, device,broadcast_tx=False)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\tomer\Documents\Projects\Generative_RIS_Optimization\Regression_Model\utils.py", line 209, in zo_estimate_gradient
+    f_x_plus_eps[i] = func(normalized_x_plus_epsilon,current_tx_x,current_tx_y)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\tomer\Documents\Projects\Generative_RIS_Optimization\Regression_Model\main.py", line 705, in <lambda>
+    capacity_physfad = lambda x,tx_x,tx_y: -capacity_loss(physfad(x, tx_x, tx_y)[0], sigmaN=torch.tensor(1,dtype=torch.float64),list_out=True, device=device)
+                                                          ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\tomer\Documents\Projects\Generative_RIS_Optimization\Regression_Model\PhysFadPy.py", line 44, in __call__
+    H = self.GetH(freq, W,
+        ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\tomer\Documents\Projects\Generative_RIS_Optimization\Regression_Model\PhysFadPy.py", line 260, in GetH
+    return self.GetH_batched(freq, W_full,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\tomer\Documents\Projects\Generative_RIS_Optimization\Regression_Model\PhysFadPy.py", line 240, in GetH_batched
+    W_diag_elem = torch.diagonal(W, dim1=-2, dim2=-1)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt
