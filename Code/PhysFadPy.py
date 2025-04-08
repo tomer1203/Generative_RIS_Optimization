@@ -19,11 +19,6 @@ class physfad_c():
 
 
     def __call__(self,ris_configuration_normalized,cond_tx_x,cond_tx_y,recalculate_W=False,precalced_W=None):
-        # (freq, x_tx, y_tx, parameters["fres_tx"], chi_tx, gamma_tx,
-        #  x_rx, y_rx, fres_rx, chi_rx, gamma_rx,
-        #  x_env, y_env, fres_env, chi_env, gamma_env, x_ris_c, y_ris_c) = self.parameters
-        # if torch.any(~torch.isfinite(ris_configuration_normalized)):
-        #     print("in physfad H calculations received configuration with non-finite values")
         if not torch.is_tensor(ris_configuration_normalized):
             ris_configuration_normalized = torch.tensor(ris_configuration_normalized, device=self.device)
 
@@ -41,22 +36,26 @@ class physfad_c():
         current_parameters["fres_ris"] = fres_ris_c
         current_parameters["chi_ris"] = chi_ris_c
         current_parameters["gamma_ris"] = gamma_ris_c
+        # W is given as input (precalculated outside the class)
         if precalced_W is not None:
             W = precalced_W
+        # W is already calculated in the dictionary (cached)
         elif (cond_tx_x,cond_tx_y) in self.W_dict and not recalculate_W:
             W = self.W_dict[(cond_tx_x,cond_tx_y)]
+        # W is not calculated yet, so we need to calculate it and cache it
         else:
             W = self.get_bessel_w(current_parameters, self.device)
-            print(W[0][0][1])
             self.W_dict[(cond_tx_x,cond_tx_y)] = W
         H = self.GetH(current_parameters, W)
         return H,W
 
     def clear_bessel_mem(self):
         self.W_dict = LimitedSizeDict(size_limit=128)
-    def generate_tx_location(self,size,device):
-        x_tx_orig = torch.tensor([0, 0, 0]).repeat(size, 1).to(device)
-        y_tx_orig = torch.tensor([4, 4.5, 5]).repeat(size, 1).to(device)
+    def generate_tx_location(self,size,device,modify=True):
+        x_tx_orig = torch.tensor([0, 0, 0]).repeat(size, 1).to(device).type(torch.float64)
+        y_tx_orig = torch.tensor([4, 4.5, 5]).repeat(size, 1).to(device).type(torch.float64)
+        if not modify:
+            return x_tx_orig, y_tx_orig
         tx_x_diff = 19.5 * torch.rand([size, 3], device=device,dtype=torch.float64) - 3.3 # 19.5 *
         tx_y_diff = 11.5 * torch.rand([size, 3], device=device,dtype=torch.float64) - 2.8
         tx_x, tx_y = x_tx_orig + tx_x_diff, y_tx_orig + tx_y_diff
@@ -149,27 +148,15 @@ class physfad_c():
         N_RIS = len(self.parameters["x_ris"][0])
         self.N_RIS = N_RIS
         self.N_RIS_PARAMS = 3*N_RIS
-        # logical_fres_ris = torch.reshape(torch.tensor(random.choices([True, False], k=ris_num_samples * N_RIS)), [ris_num_samples, N_RIS])
-        # resonant_freq =(1.1-0.9)*torch.rand(ris_num_samples, N_RIS)+0.9
-        # non_resonant_freq = (5-1.1)*torch.rand(ris_num_samples, N_RIS)+1.1
-        # parameters["fres_ris"] = logical_fres_ris * resonant_freq + (~ logical_fres_ris) * non_resonant_freq
-        # chi_ris = 0.2*torch.ones([ris_num_samples,x_ris.shape[1]])
-        # gamma_ris = 0*torch.ones([ris_num_samples,x_ris.shape[1]])
+
         self.parameters["x_ris"] = self.parameters["x_ris"][0].unsqueeze(0).to(self.device).type(torch.float64)
         self.parameters["y_ris"] = self.parameters["y_ris"][0].unsqueeze(0).to(self.device).type(torch.float64)
-        RISConfiguration = np.loadtxt("RandomConfiguration.txt")
-        self.parameters["fres_ris"] = torch.tensor(RISConfiguration[0:88]).unsqueeze(0).to(self.device).type(torch.float64)
-        self.parameters["chi_ris"] = torch.tensor(RISConfiguration[88:176]).unsqueeze(0).to(self.device).type(torch.float64)
-        self.parameters["gamma_ris"] = torch.tensor(RISConfiguration[176:264]).unsqueeze(0).to(self.device).type(torch.float64)
+        # RISConfiguration = np.loadtxt("RandomConfiguration.txt")
+        # self.parameters["fres_ris"] = torch.tensor(RISConfiguration[0:88]).unsqueeze(0).to(self.device).type(torch.float64)
+        # self.parameters["chi_ris"] = torch.tensor(RISConfiguration[88:176]).unsqueeze(0).to(self.device).type(torch.float64)
+        # self.parameters["gamma_ris"] = torch.tensor(RISConfiguration[176:264]).unsqueeze(0).to(self.device).type(torch.float64)
 
 
-
-
-        # torch.autograd.set_detect_anomaly(True)
-        W = self.get_bessel_w(self.parameters, self.device)
-        self.W = W # default W
-
-        return W
     def besselj(self,order,z):
         return 1
     def bessely(self,order,z):
@@ -218,8 +205,6 @@ class physfad_c():
         # print("batched Physfad")
         epsilon = 0.00000001
         k = 2 * torch.pi * parameters["freq"]
-        # x = torch.cat([x_tx, x_rx, x_env, x_ris],1)
-        # y = torch.cat([y_tx, y_rx, y_env, y_ris],1)
         batch_size = parameters["fres_ris"].shape[0]
         fres = torch.cat([parameters["fres_tx"].repeat(batch_size,1), parameters["fres_rx"].repeat(batch_size,1), parameters["fres_env"].repeat(batch_size,1), parameters["fres_ris"]], 1)
         chi = torch.cat([parameters["chi_tx"].repeat(batch_size,1), parameters["chi_rx"].repeat(batch_size,1), parameters["chi_env"].repeat(batch_size,1), parameters["chi_ris"]], 1)
@@ -242,8 +227,7 @@ class physfad_c():
         inv_alpha = (two_pi_fres2.unsqueeze(2) - two_pi_freq2.unsqueeze(1)) / (chi2.unsqueeze(2)) + 1j * ((
                     k2.unsqueeze(1) / 4) + two_pi_freq.unsqueeze(1) * gamma.unsqueeze(2) / chi2.unsqueeze(2))
         inv_alpha = inv_alpha.type(torch.complex64)
-        # if torch.any(~torch.isfinite(inv_alpha)):
-        #     print("oh no1")
+
         W = W_full.clone().repeat(batch_size,1,1,1)
         # width = W.size(0)
         Mask = torch.eye(W.size(2)).repeat(batch_size,len(parameters["freq"]), 1, 1).bool()
@@ -251,14 +235,11 @@ class physfad_c():
         W_diag_elem = torch.diagonal(W, dim1=-2, dim2=-1)
         W_diag_matrix = torch.zeros(W.shape, dtype=torch.complex64, device=self.device)
         W_diag_matrix.diagonal(dim1=-2, dim2=-1).copy_(W_diag_elem)
-        # if torch.any(~torch.isfinite(W_diag_matrix)):
-        #     print("oh no2")
+
         V = torch.linalg.solve_ex(W, W_diag_matrix)[0]
-        # if torch.any(~torch.isfinite(V)):
-        #     print("oh no3")
+
         H = V[:,:, N_T: (N_T + N_R), 0: N_T]
-        # if torch.any(~torch.isfinite(H)):
-        #     print("oh no4")
+
         return H
 
     def GetH(self,parameters, W_full):

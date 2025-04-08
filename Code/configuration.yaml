@@ -2,13 +2,13 @@
 batch_size : 32
 seed : 4
 # run configuration(what do you want to do?)
-load_model : False                                                            # take existing trained model
-diffusion_mode : False                                                        # train the diffusion model
-training_mode : False                                                         # train the gradient digital twin model
-activate_train_and_optimize : False                                           # train the gradient digital twin model using the active learning
-find_optimal_lr : True                                                        # a setting used to find the best learning rate for the physfad optimization
-optimize_model : True                                                         # run a test for all different optimisation methods and compare them
+load_model : True                                                             # take existing trained model
+diffusion_train_mode : False                                                  # train the diffusion model
+find_optimal_lr : False                                                       # a setting used to find the best learning rate for the physfad optimization
+test_models_optimization_per_iteration : True                                 # run a test for all different optimisation methods and compare them by iteration
 run_snr_graph : False                                                         # compare all different optimisation methods on different snr values
+run_room_visualization : False                                                # generate a mapping of the room with the best configuration using ALD
+show_room_graph : False                                                       # visualize the generated room's graph
 
 # Simulation Parameters
 environment_file_name : "ComplexEnclosure2"
@@ -31,11 +31,14 @@ model_output_capacity : False                                                 # 
 tx_size : 6                                                                   # number of tx parameters (3 transmitters,2 values for x and y)
 diffusion_sigma_inp_size : 1                                                  # another input for the sigma
 # [MATH] diffusion_inp_size : input_size+tx_size+diffusion_sigma_inp_size     # set in conf class
+diffusion_epsilon : 0.5                                                       # the epsilon value for the diffusion model (Step size) (0.5)
+diffusion_min_sigma : 0.01                                                    # the minimum sigma value for the diffusion model (0.01)
+diffusion_max_sigma : 1                                                       # the maximum sigma value for the diffusion model (1)
 
 # general training settings
 max_epochs : 150
-ep_log_interval : 1                                                           # every how many epochs should a message be printed
-lrn_rate : 0.0005                                                             # learning rate for the training. originally divided by 10
+ep_log_interval : 64                                                          # every how many epochs should a message be printed
+lrn_rate : 0.00005                                                            # learning rate for the training. originally divided by 10
 
 # general optimisation settings
 optim_lr : 0.002                                                              # the learning rate for the optimization step. originally 0.008
@@ -43,4 +46,5 @@ num_of_opt_iter : 3000                                                        # 
 
 # active training parameters
 new_configuration_chance : 0.75                                               # chance to generate a new configuration and not choose one of the previous ones.
+active_train_memory_size : 128                                                # how many configurations to keep in the memory in the same time
 lmbda : 0.2                                                                   # strength of regularizer hyperparameter

@@ -21,8 +21,8 @@ from copy import deepcopy
 #     if len(H.shape)==4:
 #         return capacity_loss(H,torch.ones(H.shape[1],device=device),noise,list_out=list_out),H
 #     return capacity_loss(H,torch.ones(H.shape[0]),noise,list_out=list_out),H
-def batched_physfad(i,ris_configuration,tx_x,tx_y,physfad,batch_size):
-    batch_of_H,W = physfad(ris_configuration[i * batch_size:(i + 1) * batch_size], tx_x,tx_y)
+def batched_physfad(i,ris_configuration,tx_x,tx_y,physfad,batch_size,precalculate_W=None):
+    batch_of_H,W = physfad(ris_configuration[i * batch_size:(i + 1) * batch_size], tx_x,tx_y,precalced_W=precalculate_W)
     if batch_size == 1:
         batch_of_H = batch_of_H.unsqueeze(0)
     return batch_of_H.detach(),W
@@ -44,7 +44,7 @@ def test_configurations_capacity_serial(physfad,ris_configuration,tx_x,tx_y,devi
         H = physfad(ris_configuration,tx_x,tx_y)[0]
     return capacity_loss(H,sigmaN=noise,list_out=list_out,device=device),H
 @utils.timeit
-def test_configurations_capacity(physfad,ris_configuration,tx_x,tx_y,device,list_out=False,noise=None):
+def test_configurations_capacity(physfad,ris_configuration,tx_x,tx_y,device,list_out=False,noise=None,precalculate_W=None):
     tx_size = tx_x.shape[0]
     ris_configuration_size = ris_configuration.shape[0]
     batch_size = ris_configuration_size // tx_size
@@ -57,7 +57,7 @@ def test_configurations_capacity(physfad,ris_configuration,tx_x,tx_y,device,list
                 txy_ls = tx_y.unsqueeze(1)
                 phys_ls = [physfad]*tx_size
                 batch_ls = [batch_size]*tx_size
-                results = executer.map(batched_physfad,range(len(tx_x)),conf_ls,txx_ls,txy_ls,phys_ls,batch_ls)
+                results = executer.map(batched_physfad,range(len(tx_x)),conf_ls,txx_ls,txy_ls,phys_ls,batch_ls,precalculate_W)
             for i,(H_batch,W) in enumerate(results):
                 H[i*batch_size:(i+1)*batch_size] = H_batch
                 physfad.W_dict[(tx_x[i].unsqueeze(0),tx_y[i].unsqueeze(0))] = W
