@@ -7,122 +7,182 @@ import scipy.io
 from ChannelMatrixEvaluation import test_configurations_capacity
 import torch
 ## DEBUG!!
-from utils import get_physfad_grads,copy_with_gradients
+from utils import get_simulation_grads,copy_with_gradients
 from rate_model import capacity_loss
-class RISDataset(T.utils.data.Dataset):
-
-    def __init__(self, RIS_config_path, H_realizations_file, H_capacity_path, RIS_Gradients_path,tx_location_file,batch_size, virtual_batch_size=256, output_size =120, output_shape =(4, 3), calculate_capacity = False,calculate_gradients=False, physfad=None, only_fres=False, m_rows=None, device=T.device("cpu")):
-        # ris_configs_np = np.loadtxt(RIS_config_file,delimiter=",", dtype=np.float32)
-        # H_realiz_np = np.loadtxt(H_realizations_file,delimiter=",", dtype=np.float32)
-        enclosure = {}
-        scipy.io.loadmat(RIS_config_path, enclosure)
-        ris_configs_np = enclosure["RISConfiguration"]
-        enclosure = {}
-        scipy.io.loadmat(H_realizations_file,enclosure)
-        H_realiz_np = enclosure["sampled_Hs"].reshape(-1,output_size*output_shape[0]*output_shape[1])
-
-        scipy.io.loadmat(tx_location_file, enclosure)
-        tx_x_location = enclosure["x_tx_modified"]
-        tx_y_location = enclosure["y_tx_modified"]
-        # scipy.io.loadmat(tx_location_file + "conditional_transmitter_y_location.mat", enclosure)
-        ## DEBUG!!
-        # physfad_capacity, physfad_H = test_configurations_capacity(get_configuration_parameters(device),
-        #                                                            torch.Tensor(ris_configs_np[0, :]).unsqueeze(0).to(device),
-        #                                                            device)
-        ## DEBUG!!
-        # self.pca = PCA(n_components=20)
-        # self.pca.fit(H_realiz_np)
-        # self.reduced_dimensionality_realizations = self.pca.fit_transform(H_realiz_np)
-        if only_fres:
-            self.x_data = T.tensor(ris_configs_np[:,0:45], dtype=T.float32).to(device)
-        else:
-            self.x_data = T.tensor(ris_configs_np, dtype=T.float32).to(device)
-        self.y_data = T.tensor(H_realiz_np, dtype=T.complex64).to(device)
-        self.tx_x = T.tensor(tx_x_location,dtype=T.float32,device=device)
-        self.tx_y = T.tensor(tx_y_location,dtype=T.float32,device=device)
-        if calculate_capacity:
-            print("calculating capacity")
-            self.y_capacity = capacity_loss(self.y_data.reshape((-1,output_size,output_shape[0],output_shape[1])),list_out=True,device=device)
-            np.savetxt(H_capacity_path, self.y_capacity.cpu().detach().numpy(), delimiter=",")
-            print("Done calculating")
-        else:
-            self.y_capacity = T.tensor(np.loadtxt(H_capacity_path, delimiter=",", dtype=np.float32), dtype=T.float32, device=device)
+class abstract_dataset(T.utils.data.Dataset):
+    """
+    Abstract class for the dataset.
+    This class is used to create a dataset for the generative model.
+    """
+    def __init__(self, batch_size, configuration_size, SoW_size, device, max_dataset_size,*args, **kwargs):
+        self.batch_size = batch_size
         self.device = device
-        self.dataset_changed = False
-        self.gradients_path = RIS_Gradients_path
+        self.configuration_size = configuration_size
+        self.configurations = torch.zeros((0, configuration_size), device=device)
+        self.sow_size = SoW_size
+        self.sow = torch.zeros((0, SoW_size), device=device)
+        self.max_dataset_size = max_dataset_size
+        self.data_size = 0
+        self.write_idx = 0
+    def __len__(self):
+        return self.data_size
+    def generate_dataset(self, device, *args, **kwargs):
+        for i in range(0,self.max_dataset_size,self.batch_size):
+            self.add_new_batch(*self.generate_batch(self.batch_size, device, *args, **kwargs))
+        self.data_size = len(self.configurations)
+
+    def generate_sow(self, batch_size, device, *args, **kwargs):
+        """
+        Generate a batch of SoW.
+        :param batch_size: The size of the batch.
+        :param device: The device to use.
+        :return: A batch of SoW.
+        """
+        raise NotImplementedError("This method should be overridden by subclasses.")
+    def generate_configuration(self, batch_size, device,*args, **kwargs):
+        """
+        Generate a batch of configurations.
+        :param batch_size: The size of the batch.
+        :param device: The device to use.
+        :return: A batch of configurations.
+        """
+        raise NotImplementedError("This method should be overridden by subclasses.")
+
+    def generate_batch(self, batch_size, device, save=False,*args, **kwargs):
+        """
+        Generate a batch of data.
+        :param batch_size: The size of the batch.
+        :param device: The device to use.
+        :return: A tuple of configurations and SoW.
+        """
+        configurations = self.generate_configuration(batch_size, device,*args, **kwargs)
+        sow = self.generate_sow(batch_size, device,*args, **kwargs)
+        if save:
+            self.add_new_batch(configurations, sow, batch_size)
+        return (configurations, sow)
+
+    def add_new_batch(self,configuration,sow,batch_size):
+        """
+        Add new items to the dataset.
+        :param batch_size: The size of the batch.
+        :param device: The device to use.
+        :return: A batch of data.
+        """
+        if self.write_idx + batch_size > self.max_dataset_size:
+            raise ValueError("using batch size which does not divide the dataset size evenly")
+        # write the new batch to the dataset
+        self.configurations[self.data_size:self.data_size + batch_size, :] = configuration
+        self.sow[self.data_size:self.data_size + batch_size, :] = sow
+
+        # update indexes
+        self.write_idx += batch_size
+        if self.write_idx == self.max_dataset_size: # check if we need to reset the write index
+            self.write_idx = 0
+        if self.data_size + batch_size <= self.max_dataset_size: # check if data reached the max size
+            self.data_size += batch_size
+        return 1
+
+    def save(self,file_path, *args, **kwargs):
+        """
+        Save the dataset to a file.
+        :param file_path: The path to the file.
+        :return: None
+        """
+        raise NotImplementedError("This method should be overridden by subclasses.")
+
+    def load(self,file_sufix, *args, **kwargs):
+        """
+        Load the dataset from a file.
+        :param file_sufix: The string suffix of the file name.
+        :return: None
+        """
+        raise NotImplementedError("This method should be overridden by subclasses.")
+
+class RISDataset(abstract_dataset):
+    """
+    Dataset for the RIS optimization problem.
+    This dataset is used to train the generative model for the RIS optimization problem.
+    """
+    def __init__(self, batch_size, configuration_size, SoW_size, device, max_dataset_size ,virtual_batch_size=256):
+        super().__init__(batch_size,configuration_size, SoW_size, device, max_dataset_size)
+        self.device = device
         self.batch_size = batch_size
         self.virtual_batch_size = virtual_batch_size
-        if calculate_gradients:
-            self.gradients = self.calc_gradients(physfad)
-        else:
-            self.gradients = torch.load(self.gradients_path,).to(self.device)
 
-        # self.y_data = T.tensor(self.reduced_dimensionality_realizations, \
-        #                        dtype=T.float32).to(device)
-    def calc_gradients(self,physfad,noise=None):
-        # self.gradients = torch.zeros(self.x_data.shape,device=self.device)
-        # for idx,x in enumerate(self.x_data):
-        #     print(idx)
-        #     x_with_grads = x.clone().detach().requires_grad_(True).to(self.device)
-        #     self.gradients[idx] = get_physfad_grads(x_with_grads,physfad,rate_model,noise=None)
-        x_with_grads = copy_with_gradients(self.x_data)
-        self.gradients = torch.zeros_like(x_with_grads)
-        for i in range(len(self.tx_x)):
-            current_tx_x = self.tx_x[i].unsqueeze(0)
-            current_tx_y = self.tx_y[i].unsqueeze(0)
-            current_x = x_with_grads[i*self.virtual_batch_size:(i+1)*self.virtual_batch_size]
-            self.gradients[i*self.virtual_batch_size:(i+1)*self.virtual_batch_size] = \
-                get_physfad_grads(current_x, current_tx_x,current_tx_y, physfad, device=self.device,noise=noise)
 
-        torch.save(self.gradients,self.gradients_path)
-        return self.gradients
+    def generate_configuration(self, batch_size, device=None):
+        """
+        Generate a batch of configurations.
+        :param batch_size: The size of the batch.
+        :param device: The device to use.
+        :return: A batch of configurations.
+        """
+        if device is None:
+            device = self.device
+        return torch.rand([batch_size, self.configuration_size], device=device,dtype=torch.float64)
+
+    def generate_sow(self, batch_size, device, modified_sow=True):
+        """
+        Generate a batch of SoW.
+        :param batch_size: The size of the batch.
+        :param device: The device to use.
+        :return: A batch of SoW.
+        """
+        x_tx_orig = torch.tensor([0, 0, 0]).repeat(batch_size, 1).to(device).type(torch.float64)
+        y_tx_orig = torch.tensor([4, 4.5, 5]).repeat(batch_size, 1).to(device).type(torch.float64)
+        if not modified_sow:
+            sow = torch.hstack([x_tx_orig, y_tx_orig])
+            return sow
+        tx_x_diff = 19.5 * torch.rand([batch_size, 3], device=device, dtype=torch.float64) - 3.3  # 19.5 *
+        tx_y_diff = 11.5 * torch.rand([batch_size, 3], device=device, dtype=torch.float64) - 2.8
+        tx_x, tx_y = x_tx_orig + tx_x_diff, y_tx_orig + tx_y_diff
+        sow = torch.hstack([tx_x, tx_y])
+        return sow
+
+
     def add_new_items(self,X,X_gradients,Y,Y_capacity):
         if X is None:
             return
         if torch.any(~torch.isfinite(X)):
             print("non finite value detected")
-        self.x_data = T.vstack([self.x_data,X])
+        self.configurations = T.vstack([self.x_data,X])
         self.gradients = T.vstack([self.gradients,X_gradients])
         self.y_data = T.vstack([self.y_data,Y])
         self.y_capacity = T.hstack([self.y_capacity,Y_capacity])
-        self.dataset_changed = True
-    def save_dataset(self,RIS_config_file,gradients_file,H_realiz_file,capacity_file):
-        if capacity_file is not None:
-            np.savetxt(capacity_file, self.y_capacity.cpu().detach().numpy(), delimiter=",")
-        if gradients_file is not None:
-            torch.save(self.gradients,gradients_file)
-        if RIS_config_file is not None:
-            scipy.io.savemat(RIS_config_file, {"RISConfiguration": self.x_data.cpu().detach().numpy()})
 
-        if H_realiz_file is not None:
-            scipy.io.savemat(H_realiz_file, {"sampled_Hs": self.y_data.cpu().detach().numpy()})
 
-            # ## DEBUG
-            # enclosure = {}
-            # scipy.io.loadmat(RIS_config_file, enclosure)
-            # ris_config = enclosure["RISConfiguration"]
-            # print(ris_config)
-            # if not torch.equal(self.x_data,T.tensor(ris_config, \
-            #                                         dtype=T.float32).to("cpu")):
-            #     print("data not equal after save")
-            # train_ds_debug = T.tensor(H_realiz_np, dtype=T.float32).to("cpu")
-            # if torch.any(~torch.isfinite(train_ds_debug)):
-            #     print("non finite value detected")
-            # train_ldr_debug = T.utils.data.DataLoader(train_ds_debug, batch_size=32, shuffle=True)
-            # if torch.any(~torch.isfinite(train_ldr_debug)):
-            #     print("non finite value detected")
-            #
-            # ## End DEBUG
+    def load(self,file_sufix, *args, **kwargs):
+        """
+        Load the dataset from a file.
+        :param file_sufix: The string suffix of the file name.
+        :return: None
+        """
+        RIS_file = "../Data/conditional_RISConfiguration"+file_sufix+".mat"  # "../Data/full_range_RISConfiguration.mat" # full_range_RISConfiguration
+        tx_file = "../Data/conditional_transmitter_location"+file_sufix+".mat"
+
+        # load the ris configuration from the file
+        enclosure = {}
+        scipy.io.loadmat(RIS_file, enclosure)
+        ris_configs_np = enclosure["RISConfiguration"]
+
+        # load the transmitter location from the file
+        scipy.io.loadmat(tx_file, enclosure)
+        tx_x_location = enclosure["x_tx_modified"]
+        tx_y_location = enclosure["y_tx_modified"]
+        # scipy.io.loadmat(tx_location_file + "conditional_transmitter_y_location.mat", enclosure)
+
+        self.configurations = T.tensor(ris_configs_np, dtype=T.float32).to(self.device)
+        self.tx_x = T.tensor(tx_x_location, dtype=T.float32, device=self.device)
+        self.tx_y = T.tensor(tx_y_location, dtype=T.float32, device=self.device)
+        self.sow = T.hstack([self.tx_x, self.tx_y])
+        ldr = T.utils.data.DataLoader(self, batch_size=1, shuffle=True)
+
+        return ldr
 
     def __len__(self):
-        return len(self.x_data)//self.batch_size
+        return len(self.configurations)//self.batch_size
 
     def __getitem__(self, idx):
-        preds = self.x_data[self.batch_size*idx:self.batch_size*(idx+1), :]  # or just [idx]
-        tx_x = self.tx_x[int(idx//(self.virtual_batch_size/self.batch_size)),:]#(idx*batch_size)/256
-        tx_y = self.tx_y[int(idx//(self.virtual_batch_size/self.batch_size)),:]
-        gt_capacity = self.y_capacity[self.batch_size*idx:self.batch_size*(idx+1)]
-        gt_gradients = self.gradients[self.batch_size*idx:self.batch_size*(idx+1)]
-        gt = self.y_data[self.batch_size*idx:self.batch_size*(idx+1), :]
-
-        return (preds,gt_gradients,tx_x,tx_y, gt_capacity, gt)  # tuple of two matrices
+        configurations = self.configurations[self.batch_size*idx:self.batch_size*(idx+1), :]  # or just [idx]
+        sow = self.sow[int(idx//(self.virtual_batch_size/self.batch_size)),:]#(idx*batch_size)/256
+        return (configurations,sow)  # tuple of two matrices

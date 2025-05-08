@@ -10,6 +10,29 @@ import matplotlib.pyplot as plt
 #     [(64, 100), (64,)],  # (w0, b0)
 #     [(10, 64), (10,)]  # (w1, b1)
 # ]
+class ConditionalInstanceNorm1d(nn.Module):
+    def __init__(self, cond_dim, feature_dim):
+        super().__init__()
+
+        self.gamma_mlp = nn.Sequential(
+            nn.Linear(cond_dim, feature_dim,dtype=torch.float64),
+            nn.ReLU(),
+            nn.Linear(feature_dim, feature_dim,dtype=torch.float64)
+        )
+        self.beta_mlp = nn.Sequential(
+            nn.Linear(cond_dim, feature_dim,dtype=torch.float64),
+            nn.ReLU(),
+            nn.Linear(feature_dim, feature_dim,dtype=torch.float64)
+        )
+    def forward(self,x,sow):
+        # x = (batch, feature)
+        m = torch.mean(x, dim=-1, keepdim=True)
+        v = torch.var(x,dim=-1, keepdim=True)
+        x_norm = (x - m) / (torch.sqrt(v + 1e-5))
+        gamma = self.gamma_mlp(sow)
+        beta = self.beta_mlp(sow)
+        return x_norm * gamma + beta
+
 
 def get_layer_shapes(layer_sizes):
     layer_shapes = []
@@ -153,21 +176,31 @@ class Net_diffusion(nn.Module):
         prod = lambda lst: reduce(lambda x, y: x * y, lst)
 
         input_size  = config.diffusion_inp_size
-        output_size = config.input_size # the diffusion network is a denoising network
+        output_size = config.physfad_input_size # the diffusion network is a denoising network # TODO: again this is a hack
         hidden_size = config.hidden_size
 
-        self.hid1 = nn.Linear(input_size, hidden_size * 6,dtype=torch.float64)  # 8-(10-10)-1
+        self.hid1 = nn.Linear(input_size, hidden_size * 8,dtype=torch.float64)  # 8-(10-10)-1
         self.dropout1 = nn.Dropout(0.1)
-        self.bn1 = nn.BatchNorm1d(hidden_size * 6,dtype=torch.float64)
-        self.hid2 = nn.Linear(6 * hidden_size, hidden_size * 4,dtype=torch.float64)
-        self.bn2 = nn.BatchNorm1d(hidden_size * 4,dtype=torch.float64)
-        self.hid3 = nn.Linear(4 * hidden_size, hidden_size * 3,dtype=torch.float64)
+        self.bn1 = nn.BatchNorm1d(hidden_size * 8,dtype=torch.float64)
+
+        self.hid2 = nn.Linear(8 * hidden_size, hidden_size * 5,dtype=torch.float64)
+        self.bn2 = nn.BatchNorm1d(hidden_size * 5,dtype=torch.float64)
+
+        self.hid3 = nn.Linear(5 * hidden_size, hidden_size * 3,dtype=torch.float64)
         self.bn3 = nn.BatchNorm1d(hidden_size * 3,dtype=torch.float64)
+
         self.hid4 = nn.Linear(3 * hidden_size, 5 * hidden_size,dtype=torch.float64)
         self.dropout2 = nn.Dropout(0.1)
+
         self.hid5 = nn.Linear(5 * hidden_size, 8 * hidden_size,dtype=torch.float64)
         self.bn4 = nn.BatchNorm1d(8 * hidden_size,dtype=torch.float64)
+
         self.oupt = nn.Linear(8*hidden_size, output_size,dtype=torch.float64)
+        self.instnorm1 = ConditionalInstanceNorm1d(config.sow_size, hidden_size * 8)
+        self.instnorm2 = ConditionalInstanceNorm1d(config.sow_size, hidden_size * 5)
+        self.instnorm3 = ConditionalInstanceNorm1d(config.sow_size, hidden_size * 3)
+        self.instnorm4 = ConditionalInstanceNorm1d(config.sow_size, hidden_size * 5)
+        self.instnorm5 = ConditionalInstanceNorm1d(config.sow_size, hidden_size * 8)
         self.hid1.apply(init_weights)
         self.hid2.apply(init_weights)
         self.hid3.apply(init_weights)
@@ -187,21 +220,21 @@ class Net_diffusion(nn.Module):
         nn.init.xavier_uniform_(self.oupt.weight)
         nn.init.zeros_(self.oupt.bias)
 
-    def forward(self, x):
+    def forward(self, x,sow):
 
-        z = T.relu(self.hid1(x))
+        e1 = self.instnorm1(T.relu(self.hid1(x)),sow) # 8
         # if x.shape[0] != 1:  # batch_size==1
         # z = self.bn1(z)
-        z = T.relu(self.hid2(z))
+        e2 = self.instnorm2(T.relu(self.hid2(e1)),sow) # 5
         # z = self.bn2(z)
-        z = T.relu(self.hid3(z))
+        e3 = self.instnorm3(T.relu(self.hid3(e2)),sow) # 3
         # z = self.bn3(z)
-        z = T.relu(self.hid4(z))
-        z = T.relu(self.bn4(self.hid5(z)))
+        d1 = self.instnorm4(T.relu(self.hid4(e3)),sow) + e2 # 5
+        d2 = self.instnorm5(T.relu(self.bn4(self.hid5(d1))),sow) + e1 # 8
         # z = self.bn4(z)
-        z = self.oupt(z)  # no activation
+        d3 = self.oupt(d2)  # no activation
 
-        normalized_output = T.nn.functional.sigmoid(z)
+        normalized_output = T.nn.functional.sigmoid(d3)
         # normalized_output = T.clip(z,0,1)
         return normalized_output
         # return z

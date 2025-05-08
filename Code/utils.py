@@ -20,6 +20,10 @@ def timeit(func):
         return result
     return timeit_wrapper
 class LimitedSizeDict(OrderedDict):
+    """
+    A dictionary that maintains the order of keys and limits its size to a specified limit.
+    When the limit is reached, the oldest items are removed.
+    """
     def __init__(self, *args, **kwds):
         self.size_limit = kwds.pop("size_limit", None)
         OrderedDict.__init__(self, *args, **kwds)
@@ -69,6 +73,18 @@ def generate_m_random_points_on_Nsphere(batch_size,m,N,device):
     tensor_output = torch.tensor(random_mat / norm_mat,device=device)
     return tensor_output
 def zo_estimate_gradient(func, x_unristricted, tx_x, tx_y, epsilon, m, device,broadcast_tx):
+    """
+    This function estimates the gradient of a function using the zeroth-order optimization method.
+    It generates m random points on the N-sphere and evaluates the function at these points.
+    The gradient is then estimated using the finite difference method.
+    :param func: The function to estimate the gradient of.
+    :param x_unristricted: The point at which to estimate the gradient.
+    :param tx_x: The x-coordinate of the transmitter.
+    :param tx_y: The y-coordinate of the transmitter.
+    :param epsilon: The perturbation size.
+    :param m: The number of random points to generate.
+    :param broadcast_tx: Whether to broadcast the transmitter coordinates.
+    """
     N = x_unristricted.shape[-1]
     batch_size = x_unristricted.shape[0]
     batch_of_rand_vecs = generate_m_random_points_on_Nsphere(batch_size,m,N,device)
@@ -99,20 +115,27 @@ def cosine_similarity(A,B):
     dot_product = (A*B).sum()
     return dot_product/norm
 
-def get_physfad_grads(estOptInp,tx_x,tx_y,physfad,device,noise=None,broadcast_tx=True):
-    physfad_grad = torch.zeros(estOptInp.shape, device=physfad.device)
+def get_simulation_grads(estOptInp,sow,simulation,device,noise=None,broadcast_tx=True):
+    """
+    This function calculates the gradients of the physical fading model with respect to the input.
+    :param estOptInp: The input to the physical fading model.
+    :param tx_x: The x-coordinate of the transmitter.
+    :param tx_y: The y-coordinate of the transmitter.
+    :param simulation: The physical fading model.
+    :param device: The device to perform the calculations on.
+    :param noise: The SNR noise used in the channel achievable rate calculation.
+    :param broadcast_tx: Whether to broadcast the transmitter coordinates.
+    """
+    physfad_grad = torch.zeros(estOptInp.shape, device=simulation.device)
 
     for i in range(estOptInp.shape[0]): # for every element in batch
         # print("physfad " + str(i))
         estOptInp_i = estOptInp[i]
         if broadcast_tx:
-            tx_x_i = tx_x
-            tx_y_i = tx_y
+            sow_i = sow
         else:
-            tx_x_i = tx_x[i].unsqueeze(0)
-            tx_y_i = tx_y[i].unsqueeze(0)
-
-        Y_opt_capacity_i, Y_opt_gt_i = ChannelMatrixEvaluation.test_configurations_capacity(physfad, estOptInp_i,tx_x_i,tx_y_i, device=device, list_out=True,noise=noise)
+            sow_i = sow[i].unsqueeze(0)
+        Y_opt_capacity_i, Y_opt_gt_i = simulation(estOptInp_i,sow_i, list_out=True,snr_noise=noise)
         physfad_grad[i] = torch.autograd.grad(-Y_opt_capacity_i, estOptInp_i, retain_graph=True)[0]
     return physfad_grad
 
@@ -120,7 +143,7 @@ def cosine_score(A,B):
     return 50*(cosine_similarity(A,B)+1)
 
 def get_gradient_score(model_rate,estOptInp,tx_x,tx_y,physfad,device,noise=None):
-    physfad_grad = get_physfad_grads(estOptInp,tx_x,tx_y,physfad,device=device,noise=noise)
+    physfad_grad = get_simulation_grads(estOptInp,tx_x,tx_y,physfad,device=device,noise=noise)
     model_grad = torch.autograd.grad(model_rate, estOptInp,retain_graph=True)[0]
     return cosine_score(physfad_grad,model_grad),physfad_grad,model_grad
 

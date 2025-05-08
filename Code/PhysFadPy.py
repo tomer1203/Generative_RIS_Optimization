@@ -9,7 +9,29 @@ import os
 from matplotlib import pyplot as plt
 from utils import LimitedSizeDict
 from copy import deepcopy
-class physfad_c():
+from contextlib import nullcontext
+import concurrent.futures
+import rate_model
+# TODO: make the simulator generic(simulator_class) and make the physfad class inherit from it and fix all methods(*args, **kwargs)
+class simulator_class:
+    def __init__(self,config,device):
+        self.config = config
+        self.device = device
+
+    def __call__(self,configuration,physical_SoW,*args, **kwargs):
+        """
+        This function is used to calculate the channel matrix H
+        :param configuration: the configuration of the applied simulation
+        :param physical_SoW: state of the world
+        """
+        raise NotImplementedError("This method should be overridden by subclasses.")
+    def change_environment(self,state):
+        """
+        This function is used to change the environment
+        :param state: the state of the environment can either be "clean" or "noisy"
+        """
+        raise NotImplementedError("This method should be overridden by subclasses.")
+class physfad_c(simulator_class):
     def __init__(self,config,device):
         self.config = config
         self.device = device
@@ -18,7 +40,80 @@ class physfad_c():
         self.parameters = {}
 
 
-    def __call__(self,ris_configuration_normalized,cond_tx_x,cond_tx_y,recalculate_W=False,precalced_W=None):
+    def __call__(self,ris_configuration_normalized,physical_SoW,recalculate_W=False,precalced_W=None,snr_noise=None, list_out=False,serial = False):
+        """
+        This function is used to calculate the channel matrix H and the bessel matrix W
+        :param ris_configuration_normalized: the normalized configuration of the RIS
+        :param physical_SoW: state of the world, the x and y coordinates of the transmitter
+        :param recalculate_W: if True, the bessel matrix W will be recalculated
+        :param precalced_W: if not None, the bessel matrix W will be used from the input
+        """
+
+        if serial:
+            return self.serial_call(ris_configuration_normalized,physical_SoW,recalculate_W=recalculate_W,precalced_W=precalced_W,snr_noise=snr_noise,list_out=list_out)
+        cond_tx_x, cond_tx_y = physical_SoW[:, 0:3], physical_SoW[:, 3:6] # TODO: this should use some constants
+
+        tx_size = cond_tx_x.shape[0]
+        ris_configuration_size = ris_configuration_normalized.shape[0]
+        batch_size = ris_configuration_size // tx_size
+        with torch.no_grad() if not ris_configuration_normalized.requires_grad else nullcontext():
+            if tx_size != 1:
+                H = torch.zeros([ris_configuration_size, self.config.output_size, self.config.output_shape[0],
+                                 self.config.output_shape[1]], dtype=torch.complex64)
+                with concurrent.futures.ProcessPoolExecutor() as executer:
+                    conf_ls = [confg.detach() for confg in [ris_configuration_normalized] * tx_size]
+                    txx_ls = cond_tx_x.unsqueeze(1)
+                    txy_ls = cond_tx_y.unsqueeze(1)
+                    batch_ls = [batch_size] * tx_size
+                    if precalced_W is None:
+                        precalculate_W = [None] * tx_size
+                    results = executer.map(self.batched_physfad, range(len(cond_tx_x)), conf_ls, txx_ls, txy_ls,
+                                           batch_ls, precalculate_W)
+                for i, (H_batch, W) in enumerate(results):
+                    H[i * batch_size:(i + 1) * batch_size] = H_batch
+                    self.W_dict[(cond_tx_x[i].unsqueeze(0), cond_tx_y[i].unsqueeze(0))] = W
+
+                return rate_model.capacity_loss(H, sigmaN=snr_noise, list_out=list_out, device=self.device), H
+            else:
+                H = self.get_H_and_W(ris_configuration_normalized, cond_tx_x, cond_tx_y)[0]
+                return rate_model.capacity_loss(H, sigmaN=snr_noise, list_out=list_out, device=self.device), H
+    def serial_call(self,ris_configuration_normalized,physical_SoW,recalculate_W=False,precalced_W=None,snr_noise=None, list_out=False):
+        """
+        This function is used to calculate the channel matrix H and the bessel matrix W
+        :param ris_configuration_normalized: the normalized configuration of the RIS
+        :param physical_SoW: state of the world, the x and y coordinates of the transmitter
+        :param recalculate_W: if True, the bessel matrix W will be recalculated
+        :param precalced_W: if not None, the bessel matrix W will be used from the input
+        """
+        cond_tx_x, cond_tx_y = physical_SoW[:,0:3], physical_SoW[:,3:6]# TODO: This should use some constants
+        tx_size = cond_tx_x.shape[0]
+        ris_configuration_size = ris_configuration_normalized.shape[0]
+        batch_size = ris_configuration_size // tx_size
+        with torch.no_grad() if not ris_configuration_normalized.requires_grad else nullcontext():
+            if tx_size != 1:
+                H = torch.zeros([ris_configuration_size, self.config.output_size, self.config.output_shape[0],
+                                 self.config.output_shape[1]], dtype=torch.complex64)
+                for i in range(len(cond_tx_x)):
+                    batch_of_H = self.get_H_and_W(ris_configuration_normalized[i * batch_size:(i + 1) * batch_size], cond_tx_x[i].unsqueeze(0),
+                                         cond_tx_y[i].unsqueeze(0),recalculate_W,precalced_W)[0]
+                    if batch_size == 1:
+                        batch_of_H = batch_of_H.unsqueeze(0)
+                    H[i * batch_size:(i + 1) * batch_size] = batch_of_H
+
+                return rate_model.capacity_loss(H, sigmaN=snr_noise, list_out=list_out, device=self.device), H
+            H = self.get_H_and_W(ris_configuration_normalized, cond_tx_x, cond_tx_y,recalculate_W,precalced_W)[0]
+        return rate_model.capacity_loss(H, sigmaN=snr_noise, list_out=list_out, device=self.device), H
+        # cond_tx_x, cond_tx_y = physical_SoW[0], physical_SoW[1]
+        # H = self.get_H_and_W(ris_configuration_normalized, cond_tx_x, cond_tx_y,recalculate_W=recalculate_W,precalced_W=precalced_W)[0]
+        # return rate_model.capacity_loss(H, sigmaN=snr_noise, list_out=list_out, device=self.device), H
+    def batched_physfad(self,i, ris_configuration, tx_x, tx_y, batch_size, precalculate_W=None):
+        batch_of_H, W = self.get_H_and_W(ris_configuration[i * batch_size:(i + 1) * batch_size], tx_x, tx_y,
+                                precalced_W=precalculate_W)
+        print(i)
+        if batch_size == 1:
+            batch_of_H = batch_of_H.unsqueeze(0)
+        return batch_of_H.detach(), W
+    def get_H_and_W(self,ris_configuration_normalized,cond_tx_x,cond_tx_y,recalculate_W=False,precalced_W=None):
         if not torch.is_tensor(ris_configuration_normalized):
             ris_configuration_normalized = torch.tensor(ris_configuration_normalized, device=self.device)
 
@@ -48,7 +143,6 @@ class physfad_c():
             self.W_dict[(cond_tx_x,cond_tx_y)] = W
         H = self.GetH(current_parameters, W)
         return H,W
-
     def clear_bessel_mem(self):
         self.W_dict = LimitedSizeDict(size_limit=128)
     def generate_tx_location(self,size,device,modify=True):
@@ -302,19 +396,19 @@ class physfad_c():
             if fres.shape[1] == self.N_RIS_PARAMS:  # filling not needed, return original
                 return fres
         # No gradient Required since we are only optimizing the Resonant Frequency
-        chi_ris = 0.2 * torch.ones((batch_size, number_of_elements), dtype=torch.float64, device=self.device,requires_grad=False)
-        gamma_ris = 0 * torch.zeros((batch_size, number_of_elements), dtype=torch.float64, device=self.device,requires_grad=False)
+        chi_ris = 0.2 * torch.ones((batch_size, number_of_elements), dtype=torch.float64, device=self.device,requires_grad=fres.requires_grad)
+        gamma_ris = 0 * torch.zeros((batch_size, number_of_elements), dtype=torch.float64, device=self.device,requires_grad=fres.requires_grad)
 
         return torch.hstack([fres, chi_ris, gamma_ris])
 
-    def scale_output_to_range(self, normelized_output):
-        batch_size = normelized_output.shape[0]
-        num_config = normelized_output.shape[1]
+    def scale_output_to_range(self, normalized_output):
+        batch_size = normalized_output.shape[0]
+        num_config = normalized_output.shape[1]
         assert num_config % 3 == 0, "configuration count should be divisible by three"
         num_ris_elements = num_config // 3
-        fres_output = normelized_output[:,0 * num_ris_elements:1 * num_ris_elements]
-        chi_output = normelized_output[:,1 * num_ris_elements:2 * num_ris_elements]
-        gamma_output = normelized_output[:,2 * num_ris_elements:3 * num_ris_elements]
+        fres_output = normalized_output[:, 0 * num_ris_elements:1 * num_ris_elements]
+        chi_output = normalized_output[:, 1 * num_ris_elements:2 * num_ris_elements]
+        gamma_output = normalized_output[:, 2 * num_ris_elements:3 * num_ris_elements]
         fres_output_rescaled = fres_output * self.config.fres_max_range
         chi_output_rescaled = chi_output * self.config.chi_max_range
         gamma_output_rescaled = gamma_output * self.config.gamma_max_range
