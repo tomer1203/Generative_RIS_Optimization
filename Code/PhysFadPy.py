@@ -56,7 +56,7 @@ class physfad_c():
         y_tx_orig = torch.tensor([4, 4.5, 5]).repeat(size, 1).to(device).type(torch.float64)
         if not modify:
             return x_tx_orig, y_tx_orig
-        tx_x_diff = 19.5 * torch.rand([size, 3], device=device,dtype=torch.float64) - 3.3 # 19.5 *
+        tx_x_diff = 9.5 * torch.rand([size, 3], device=device,dtype=torch.float64) - 3.3 # 19.5 *
         tx_y_diff = 11.5 * torch.rand([size, 3], device=device,dtype=torch.float64) - 2.8
         tx_x, tx_y = x_tx_orig + tx_x_diff, y_tx_orig + tx_y_diff
         return tx_x,tx_y
@@ -88,6 +88,22 @@ class physfad_c():
             self.parameters["x_env"] = self.stored_x_env
             self.parameters["y_env"] = self.stored_y_env
             self.clean_environment = False
+    def generate_box(self,number_points,x_shift,y_shift,x_scale,y_scale):
+        n = number_points//4 - 1
+        xmin, xmax, ymin, ymax = x_shift, x_shift+(1*x_scale), y_shift, y_shift+(1*y_scale)
+        x = np.concatenate([
+            np.linspace(xmin, xmax, n, endpoint=False),
+            np.full(n, xmax),
+            np.linspace(xmax, xmin, n, endpoint=False),
+            np.full(n, xmin)
+        ])
+        y = np.concatenate([
+            np.full(n, ymin),
+            np.linspace(ymin, ymax, n, endpoint=False),
+            np.full(n, ymax),
+            np.linspace(ymax, ymin, n, endpoint=False)
+        ])
+        return x,y
 
     def set_configuration(self):
         self.parameters["freq"] = torch.tensor(np.linspace(0.9, 1.1, 120));
@@ -114,6 +130,8 @@ class physfad_c():
         enclosure = {}
         enclosure_clean = {}
         # If never generated a noisy environment then generate a new one
+
+
         if os.path.isfile("..//Data//"+self.config.environment_file_name+"Noised.mat"):
             scipy.io.loadmat("..//Data//"+self.config.environment_file_name+".mat", enclosure_clean)
         else:
@@ -131,11 +149,34 @@ class physfad_c():
             scipy.io.savemat("..//Data//"+self.config.environment_file_name+"Noised.mat", {"x_env": x_env.cpu().detach().numpy(),
                                                                                            "y_env": y_env.cpu().detach().numpy()})
 
+
         scipy.io.loadmat("..//Data//"+self.config.environment_file_name+"Noised.mat", enclosure)
         self.parameters["x_env"] = torch.tensor(enclosure['x_env']).to(self.device).type(torch.float64)
         self.parameters["y_env"] = torch.tensor(enclosure['y_env']).to(self.device).type(torch.float64)
         self.parameters["x_env_clean"] = torch.tensor(enclosure_clean['x_env']).to(self.device).type(torch.float64)
         self.parameters["y_env_clean"] = torch.tensor(enclosure_clean['y_env']).to(self.device).type(torch.float64)
+        x_box, y_box = self.generate_box(32, 2, 8, 2, 4)
+        self.parameters["x_env_clean"] = torch.hstack([self.parameters["x_env_clean"], torch.tensor(np.expand_dims(x_box, 0))])
+        self.parameters["y_env_clean"] = torch.hstack([self.parameters["y_env_clean"], torch.tensor(np.expand_dims(y_box, 0))])
+
+        if not os.path.isfile("..//Data//" + self.config.environment_file_name + "Noised_again.mat"):
+            total_env = (self.parameters["x_env"] + self.parameters["y_env"]) / 2
+            mean_env_power = torch.sqrt((total_env ** 2).mean())
+            noise_power = mean_env_power * self.config.environment_noise_power
+            x_env = self.parameters["x_env"] #+ torch.normal(0, noise_power * torch.ones_like(self.parameters["x_env"]))
+            y_env = self.parameters["y_env"] #+ torch.normal(0, noise_power * torch.ones_like(self.parameters["y_env"]))
+            x_box, y_box = self.generate_box(32,2,8,2,4)
+            x_env = torch.hstack([x_env,torch.tensor(np.expand_dims(x_box,0))])
+            y_env = torch.hstack([y_env,torch.tensor(np.expand_dims(y_box,0))])
+
+            plt.scatter(x_env, y_env)
+            plt.show()
+            scipy.io.savemat("..//Data//" + self.config.environment_file_name + "Noised_again.mat",
+                             {"x_env": x_env.cpu().detach().numpy(),
+                              "y_env": y_env.cpu().detach().numpy()})
+        scipy.io.loadmat("..//Data//" + self.config.environment_file_name + "Noised_again.mat", enclosure)
+        self.parameters["x_env"] = torch.tensor(enclosure['x_env']).to(self.device).type(torch.float64) # TODO: note that these lines should be removed in the future.
+        self.parameters["y_env"] = torch.tensor(enclosure['y_env']).to(self.device).type(torch.float64)
         self.parameters["fres_env"] = 10 * torch.ones(self.parameters["x_env"].shape).to(self.device).type(torch.float64)
         self.parameters["chi_env"] = 50 * torch.ones(self.parameters["x_env"].shape).to(self.device).type(torch.float64)
         self.parameters["gamma_env"] = 0 * torch.ones(self.parameters["x_env"].shape).to(self.device).type(torch.float64)

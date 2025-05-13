@@ -9,7 +9,7 @@ import cProfile,pstats,io
 import datetime
 from rate_model import capacity_loss
 import utils
-
+from contextlib import nullcontext
 import concurrent.futures
 
 from copy import deepcopy
@@ -48,7 +48,7 @@ def test_configurations_capacity(physfad,ris_configuration,tx_x,tx_y,device,list
     tx_size = tx_x.shape[0]
     ris_configuration_size = ris_configuration.shape[0]
     batch_size = ris_configuration_size // tx_size
-    with torch.no_grad():
+    with torch.no_grad() if not ris_configuration.requires_grad else nullcontext():
         if tx_size != 1:
             H = torch.zeros([ris_configuration_size, physfad.config.output_size,physfad.config.output_shape[0],physfad.config.output_shape[1]],dtype=torch.complex64)
             with concurrent.futures.ProcessPoolExecutor() as executer:
@@ -57,7 +57,8 @@ def test_configurations_capacity(physfad,ris_configuration,tx_x,tx_y,device,list
                 txy_ls = tx_y.unsqueeze(1)
                 phys_ls = [physfad]*tx_size
                 batch_ls = [batch_size]*tx_size
-                results = executer.map(batched_physfad,range(len(tx_x)),conf_ls,txx_ls,txy_ls,phys_ls,batch_ls,precalculate_W)
+                precalculate_W_ls = [precalculate_W]*tx_size
+                results = executer.map(batched_physfad,range(len(tx_x)),conf_ls,txx_ls,txy_ls,phys_ls,batch_ls,precalculate_W_ls)
             for i,(H_batch,W) in enumerate(results):
                 H[i*batch_size:(i+1)*batch_size] = H_batch
                 physfad.W_dict[(tx_x[i].unsqueeze(0),tx_y[i].unsqueeze(0))] = W
