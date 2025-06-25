@@ -70,7 +70,7 @@ def test_configurations_capacity(physfad,ris_configuration,tx_x,tx_y,device,list
     return capacity_loss(H,sigmaN=noise,list_out=list_out,device=device),H
 
 @utils.timeit
-def simulation_channel_optimization(device,physfad,starting_inp=None,tx_x=None,tx_y=None,noise_power = 1, learning_rate=0.005,num_of_iterations=150,recalculate_W=False):
+def simulation_channel_optimization(device,physfad,starting_inp=None,sow=None,noise_power = 1, learning_rate=0.005,num_of_iterations=150,recalculate_W=False):
     iters = 0
     # num_of_iterations = 150
 
@@ -88,6 +88,7 @@ def simulation_channel_optimization(device,physfad,starting_inp=None,tx_x=None,t
 
     time_lst = []
     physfad_capacity_lst = []
+    print("learning rate old ",learning_rate)
     Inp_optimizer = torch.optim.Adam([estOptInp], lr=learning_rate) # 0.1
     current_loss = torch.Tensor([1])
     physfad_configuration_list = []
@@ -99,7 +100,7 @@ def simulation_channel_optimization(device,physfad,starting_inp=None,tx_x=None,t
         # estOptInp_norm = estOptInp
         # for b in range(batch_size):
         #     H[b] = physfad(estOptInp_norm[b].unsqueeze(0),tx_x[b].unsqueeze(0),tx_y[b].unsqueeze(0))
-        H = physfad(estOptInp_norm,tx_x,tx_y,recalculate_W=recalculate_W)[0]
+        H = physfad(estOptInp_norm,sow,recalculate_W=recalculate_W)[1]
         # scipy.io.savemat("H_python_mat.mat", {"H_python_mat": H.cpu().detach().numpy()})
         # loss = -torch.sum(torch.abs(H[:,0,1]))
         loss = -capacity_loss(H, sigmaN = noise_power,device=device)

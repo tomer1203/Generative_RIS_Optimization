@@ -32,7 +32,13 @@ class LimitedSizeDict(OrderedDict):
     def __setitem__(self, key, value):
         OrderedDict.__setitem__(self, key, value)
         self._check_size_limit()
-
+    def __getitem__(self, key):
+        for k, v in self.items():
+            if type(key) is int:
+                if k == key:
+                    return v
+            elif not torch.any(k-key):
+                return v
     def _check_size_limit(self):
         if self.size_limit is not None:
             while len(self) > self.size_limit:
@@ -52,12 +58,9 @@ def test_dnn_optimization(physfad,opt_inp_lst,tx_x,tx_y,device,noise):
 
 
 def open_virtual_batch(batch):
-    (X, X_gradients, tx_x, tx_y, Y_capacity, Y) = batch  # (predictors, targets)
+    (X, sow) = batch  # (predictors, targets)
     X = X[0]
-    X_gradients = X_gradients[0]
-    Y_capacity = Y_capacity[0]
-    Y = Y[0]
-    return (X, X_gradients, tx_x, tx_y, Y_capacity, Y)
+    return (X, sow)
 
 
 def NMSE(estimations,ground_truth):
@@ -72,7 +75,7 @@ def generate_m_random_points_on_Nsphere(batch_size,m,N,device):
     norm_mat = np.expand_dims(np.linalg.norm(random_mat,axis=2),axis=2)
     tensor_output = torch.tensor(random_mat / norm_mat,device=device)
     return tensor_output
-def zo_estimate_gradient(func, x_unristricted, tx_x, tx_y, epsilon, m, device,broadcast_tx):
+def zo_estimate_gradient(func, x_unristricted, sow, epsilon, m, device,broadcast_tx):
     """
     This function estimates the gradient of a function using the zeroth-order optimization method.
     It generates m random points on the N-sphere and evaluates the function at these points.
@@ -95,16 +98,16 @@ def zo_estimate_gradient(func, x_unristricted, tx_x, tx_y, epsilon, m, device,br
         #  I need to combine both the batches and the locations into the same dimension
         for i,rand_vectors in enumerate(batch_of_rand_vecs):
             if broadcast_tx:
-                current_tx_x, current_tx_y = tx_x, tx_y
+                current_sow = sow
             else:
-                current_tx_x, current_tx_y = tx_x[i].unsqueeze(0), tx_y[i].unsqueeze(0)
+                current_sow = sow[i].unsqueeze(0)
             current_x = x_unristricted[i].type(torch.float64)
             # get sample of points
             normalized_x_plus_epsilon = current_x+epsilon*rand_vectors
             normalized_x_minus_epsilon =current_x-epsilon*rand_vectors
             # test function on sample
-            f_x_plus_eps[i] = func(normalized_x_plus_epsilon,current_tx_x,current_tx_y)
-            f_x_minus_eps[i] = func(normalized_x_minus_epsilon,current_tx_x,current_tx_y)
+            f_x_plus_eps[i] = func(normalized_x_plus_epsilon,current_sow)
+            f_x_minus_eps[i] = func(normalized_x_minus_epsilon,current_sow)
             # TODO: and then I need to reseperate the batches and points into their own dimensions..
     return torch.sum((f_x_plus_eps-f_x_minus_eps).unsqueeze(2)*batch_of_rand_vecs/(2*epsilon),dim=1)/m
 

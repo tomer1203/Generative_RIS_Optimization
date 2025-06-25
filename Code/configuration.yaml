@@ -2,8 +2,8 @@
 batch_size : 32
 seed : 4
 # run configuration(what do you want to do?)
-load_model : False                                                            # take existing trained model
-diffusion_train_mode : True                                                   # train the diffusion model
+load_model : True                                                            # take existing trained model
+diffusion_train_mode : False                                                   # train the diffusion model
 find_optimal_lr : False                                                       # a setting used to find the best learning rate for the physfad optimization
 test_models_optimization_per_iteration : True                                 # run a test for all different optimisation methods and compare them by iteration
 run_snr_graph : False                                                         # compare all different optimisation methods on different snr values

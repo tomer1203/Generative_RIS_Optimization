@@ -133,7 +133,7 @@ class RISDataset(abstract_dataset):
         if not modified_sow:
             sow = torch.hstack([x_tx_orig, y_tx_orig])
             return sow
-        tx_x_diff = 19.5 * torch.rand([batch_size, 3], device=device, dtype=torch.float64) - 3.3  # 19.5 *
+        tx_x_diff = 9.5 * torch.rand([batch_size, 3], device=device, dtype=torch.float64) - 3.3  # 19.5 *
         tx_y_diff = 11.5 * torch.rand([batch_size, 3], device=device, dtype=torch.float64) - 2.8
         tx_x, tx_y = x_tx_orig + tx_x_diff, y_tx_orig + tx_y_diff
         sow = torch.hstack([tx_x, tx_y])

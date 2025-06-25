@@ -169,6 +169,65 @@ def init_weights(m):
         m.bias.data.fill_(0)
 
 # Old network(no use of hypernetwork)
+class Net_diffusion_old(nn.Module):
+    def __init__(self,config):
+        super(Net_diffusion_old, self).__init__()
+        # calculate the product of a list
+        prod = lambda lst: reduce(lambda x, y: x * y, lst)
+
+        input_size  = config.diffusion_inp_size2
+        output_size = config.physfad_input_size # the diffusion network is a denoising network
+        hidden_size = config.hidden_size
+
+        self.hid1 = nn.Linear(input_size, hidden_size * 6,dtype=torch.float64)  # 8-(10-10)-1
+        self.dropout1 = nn.Dropout(0.1)
+        self.bn1 = nn.BatchNorm1d(hidden_size * 6,dtype=torch.float64)
+        self.hid2 = nn.Linear(6 * hidden_size, hidden_size * 4,dtype=torch.float64)
+        self.bn2 = nn.BatchNorm1d(hidden_size * 4,dtype=torch.float64)
+        self.hid3 = nn.Linear(4 * hidden_size, hidden_size * 3,dtype=torch.float64)
+        self.bn3 = nn.BatchNorm1d(hidden_size * 3,dtype=torch.float64)
+        self.hid4 = nn.Linear(3 * hidden_size, 5 * hidden_size,dtype=torch.float64)
+        self.dropout2 = nn.Dropout(0.1)
+        self.hid5 = nn.Linear(5 * hidden_size, 8 * hidden_size,dtype=torch.float64)
+        self.bn4 = nn.BatchNorm1d(8 * hidden_size,dtype=torch.float64)
+        self.oupt = nn.Linear(8*hidden_size, output_size,dtype=torch.float64)
+        self.hid1.apply(init_weights)
+        self.hid2.apply(init_weights)
+        self.hid3.apply(init_weights)
+        self.hid4.apply(init_weights)
+        self.hid5.apply(init_weights)
+        # self.oupt.apply(init_weights)
+        # nn.init.xavier_uniform_(self.hid1.weight)
+        # nn.init.zeros_(self.hid1.bias)
+        # nn.init.xavier_uniform_(self.hid2.weight)
+        # nn.init.zeros_(self.hid2.bias)
+        # nn.init.xavier_uniform_(self.hid3.weight)
+        # nn.init.zeros_(self.hid3.bias)
+        # nn.init.xavier_uniform_(self.hid4.weight)
+        # nn.init.zeros_(self.hid4.bias)
+        # nn.init.xavier_uniform_(self.hid5.weight)
+        # nn.init.zeros_(self.hid5.bias)
+        nn.init.xavier_uniform_(self.oupt.weight)
+        nn.init.zeros_(self.oupt.bias)
+
+    def forward(self, x):
+
+        z = T.relu(self.hid1(x))
+        # if x.shape[0] != 1:  # batch_size==1
+        # z = self.bn1(z)
+        z = T.relu(self.hid2(z))
+        # z = self.bn2(z)
+        z = T.relu(self.hid3(z))
+        # z = self.bn3(z)
+        z = T.relu(self.hid4(z))
+        z = T.relu(self.bn4(self.hid5(z)))
+        # z = self.bn4(z)
+        z = self.oupt(z)  # no activation
+
+        normalized_output = T.nn.functional.sigmoid(z)
+        # normalized_output = T.clip(z,0,1)
+        return normalized_output
+
 class Net_diffusion(nn.Module):
     def __init__(self,config):
         super(Net_diffusion, self).__init__()

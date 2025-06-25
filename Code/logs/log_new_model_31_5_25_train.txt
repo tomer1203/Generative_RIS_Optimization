@@ -1,0 +1,8765 @@
+cpu
+
+batch_size =  32 
+optimizer = Adam
+train learning rate = 0.0001 
+optimization learning rate = 0.002000 
+Collecting RIS configuration 
+Training Diffusion Model
+input std:  0.2854893230845682
+output std:  0.237277339149062
+just finished the before
+capacity before: 37.21184018013436 and after: 38.993813101518235
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.29165992155797277
+output std:  0.2471600842531732
+just finished the before
+capacity before: 37.4821261979768 and after: 38.82168118505991
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.28592679989843606
+output std:  0.24856901328817155
+just finished the before
+capacity before: 38.322788561827316 and after: 39.44816061955558
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.286534688699901
+output std:  0.25762267262039423
+just finished the before
+capacity before: 36.823058138618066 and after: 40.8717460307896
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2886524823848674
+output std:  0.24735217626589984
+just finished the before
+capacity before: 36.51246655607163 and after: 38.40162384319036
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.28685176675631746
+output std:  0.25762243070778507
+just finished the before
+capacity before: 37.29917057074645 and after: 39.66168075846429
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+learning from previous iteration:  5  repeat count:  1 sigma values:  tensor([[0.7997],
+        [0.5601],
+        [0.1700],
+        [0.3942],
+        [0.8441],
+        [0.3993],
+        [0.1771],
+        [0.7425],
+        [0.1250],
+        [0.3847],
+        [0.7571],
+        [0.3789],
+        [0.8589],
+        [0.8252],
+        [0.0832],
+        [0.7353]], dtype=torch.float64)
+input std:  0.25762243070778507
+output std:  0.26737125731401307
+just finished the before
+capacity before: 39.66168075846429 and after: 39.29692592627896
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+learning from previous iteration:  5  repeat count:  1 sigma values:  tensor([[0.7997],
+        [0.5601],
+        [0.1700],
+        [0.3942],
+        [0.8441],
+        [0.3993],
+        [0.1771],
+        [0.7425],
+        [0.1250],
+        [0.3847],
+        [0.7571],
+        [0.3789],
+        [0.8589],
+        [0.8252],
+        [0.0832],
+        [0.7353]], dtype=torch.float64)
+input std:  0.25762243070778507
+output std:  0.2680669269399109
+just finished the before
+capacity before: 39.66168075846429 and after: 39.255344251177824
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2794565115399623
+output std:  0.25872754412528454
+just finished the before
+capacity before: 36.33015419703185 and after: 37.6839486474075
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2844212645776758
+output std:  0.25904121115807766
+just finished the before
+capacity before: 36.17665610245133 and after: 37.26955109577355
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+learning from previous iteration:  8  repeat count:  1 sigma values:  tensor([[0.7212],
+        [0.1557],
+        [0.4637],
+        [0.5959],
+        [0.8244],
+        [0.3947],
+        [0.1269],
+        [0.3706],
+        [0.8566],
+        [0.0717],
+        [0.4896],
+        [0.7310],
+        [0.4929],
+        [0.4914],
+        [0.1827],
+        [0.3377]], dtype=torch.float64)
+input std:  0.25872754412528454
+output std:  0.25890404805889905
+just finished the before
+capacity before: 37.6839486474075 and after: 37.11262621858347
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.28443307380947835
+output std:  0.26860954077407584
+just finished the before
+capacity before: 35.286249116179334 and after: 37.27573586435023
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+learning from previous iteration:  3  repeat count:  1 sigma values:  tensor([[0.1084],
+        [0.7625],
+        [0.2535],
+        [0.5819],
+        [0.3107],
+        [0.1763],
+        [0.4234],
+        [0.2375],
+        [0.3283],
+        [0.2757],
+        [0.2430],
+        [0.0986],
+        [0.4904],
+        [0.1271],
+        [0.7050],
+        [0.0549]], dtype=torch.float64)
+input std:  0.25762267262039423
+output std:  0.27170658259784114
+just finished the before
+capacity before: 40.8717460307896 and after: 38.94925397551817
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.294038616993065
+output std:  0.272240005275424
+just finished the before
+capacity before: 39.43912505288737 and after: 40.46739596851204
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2883910753731373
+output std:  0.2602715196627568
+just finished the before
+capacity before: 38.28535329527724 and after: 38.98218908934524
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.28665966901438733
+output std:  0.2561891385540623
+just finished the before
+capacity before: 37.17315088192271 and after: 37.6971194900478
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2876950354205456
+output std:  0.2675245968080511
+just finished the before
+capacity before: 35.533663661858995 and after: 36.50222433223908
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.28960992254118373
+output std:  0.2614394713584925
+just finished the before
+capacity before: 39.73116027287969 and after: 40.33632404844144
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.28063889297403566
+output std:  0.26185063279666726
+just finished the before
+capacity before: 38.448885311659836 and after: 38.2244119516001
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2865240505524868
+output std:  0.2633042742537799
+just finished the before
+capacity before: 37.160850929892355 and after: 38.332480325368174
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+learning from previous iteration:  4  repeat count:  1 sigma values:  tensor([[0.7795],
+        [0.0428],
+        [0.4213],
+        [0.2481],
+        [0.4672],
+        [0.5608],
+        [0.6598],
+        [0.0485],
+        [0.8255],
+        [0.1959],
+        [0.0934],
+        [0.1585],
+        [0.3106],
+        [0.7422],
+        [0.8608],
+        [0.6574]], dtype=torch.float64)
+input std:  0.24735217626589984
+output std:  0.2563104606001309
+just finished the before
+capacity before: 38.40162384319036 and after: 37.64492760888678
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2889541241099563
+output std:  0.26141368458402614
+just finished the before
+capacity before: 35.754926683959695 and after: 36.44128890594006
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2905734146294053
+output std:  0.25481053300188167
+just finished the before
+capacity before: 36.90966892019498 and after: 37.479280956885766
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.28478631564087376
+output std:  0.2638588293435589
+just finished the before
+capacity before: 37.45080690267238 and after: 39.09142936106473
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+learning from previous iteration:  18  repeat count:  1 sigma values:  tensor([[0.8569],
+        [0.3095],
+        [0.1951],
+        [0.3856],
+        [0.5929],
+        [0.8589],
+        [0.4269],
+        [0.3693],
+        [0.1328],
+        [0.5125],
+        [0.8426],
+        [0.6431],
+        [0.3784],
+        [0.3519],
+        [0.3578],
+        [0.2130]], dtype=torch.float64)
+input std:  0.26185063279666726
+output std:  0.26080947393298964
+just finished the before
+capacity before: 38.2244119516001 and after: 37.72294505702556
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+learning from previous iteration:  19  repeat count:  1 sigma values:  tensor([[0.7023],
+        [0.0794],
+        [0.6234],
+        [0.3564],
+        [0.7626],
+        [0.6969],
+        [0.1900],
+        [0.5140],
+        [0.6140],
+        [0.6536],
+        [0.2842],
+        [0.0753],
+        [0.6762],
+        [0.6712],
+        [0.0263],
+        [0.6816]], dtype=torch.float64)
+input std:  0.2633042742537799
+output std:  0.263248850567268
+just finished the before
+capacity before: 38.332480325368174 and after: 38.4282094536891
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.28627412940026614
+output std:  0.268041035004478
+just finished the before
+capacity before: 38.15687530329052 and after: 39.01396049702076
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2825011336438973
+output std:  0.27353792035865493
+just finished the before
+capacity before: 39.96924119681792 and after: 39.53925597754324
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.28579425191723046
+output std:  0.2710584165095273
+just finished the before
+capacity before: 37.28901585478995 and after: 38.105913575118564
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.28340479917250827
+output std:  0.2496140366744294
+just finished the before
+capacity before: 36.30009310149268 and after: 36.584684147490094
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.29458088062701226
+output std:  0.2546694115317599
+just finished the before
+capacity before: 36.23198730083817 and after: 35.6430249101964
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+learning from previous iteration:  19  repeat count:  1 sigma values:  tensor([[0.7023],
+        [0.0794],
+        [0.6234],
+        [0.3564],
+        [0.7626],
+        [0.6969],
+        [0.1900],
+        [0.5140],
+        [0.6140],
+        [0.6536],
+        [0.2842],
+        [0.0753],
+        [0.6762],
+        [0.6712],
+        [0.0263],
+        [0.6816]], dtype=torch.float64)
+input std:  0.2633042742537799
+output std:  0.2587726695671757
+just finished the before
+capacity before: 38.332480325368174 and after: 38.19685969014344
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2888122908546168
+output std:  0.26113534870100286
+just finished the before
+capacity before: 37.40615891908029 and after: 37.40797089145826
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2837440930963713
+output std:  0.24562520233120919
+just finished the before
+capacity before: 36.798723838432366 and after: 37.80123179475178
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2920046642685817
+output std:  0.27358435932132724
+just finished the before
+capacity before: 37.73310056516259 and after: 38.23532870179662
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2881358297407736
+output std:  0.2613241669033358
+just finished the before
+capacity before: 37.43354264681934 and after: 37.9147947592994
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2837422864249851
+output std:  0.260732641713999
+just finished the before
+capacity before: 35.00893191598476 and after: 36.922091058523314
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.28323346260069854
+output std:  0.2642495826451277
+just finished the before
+capacity before: 38.471773833758455 and after: 39.536686058590504
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.28462346743109473
+output std:  0.26624057462996686
+just finished the before
+capacity before: 35.90927134139639 and after: 35.70698506527845
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.284408792880186
+output std:  0.25951447495910546
+just finished the before
+capacity before: 35.936189795436086 and after: 36.33245860700845
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+learning from previous iteration:  5  repeat count:  1 sigma values:  tensor([[0.7997],
+        [0.5601],
+        [0.1700],
+        [0.3942],
+        [0.8441],
+        [0.3993],
+        [0.1771],
+        [0.7425],
+        [0.1250],
+        [0.3847],
+        [0.7571],
+        [0.3789],
+        [0.8589],
+        [0.8252],
+        [0.0832],
+        [0.7353]], dtype=torch.float64)
+input std:  0.25762243070778507
+output std:  0.2698542935998556
+just finished the before
+capacity before: 39.66168075846429 and after: 38.51858044928915
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+learning from previous iteration:  34  repeat count:  1 sigma values:  tensor([[0.7416],
+        [0.6306],
+        [0.6976],
+        [0.6946],
+        [0.8703],
+        [0.7712],
+        [0.4742],
+        [0.0216],
+        [0.4879],
+        [0.6288],
+        [0.5961],
+        [0.7368],
+        [0.6127],
+        [0.1009],
+        [0.5328],
+        [0.5965]], dtype=torch.float64)
+input std:  0.27358435932132724
+output std:  0.271390327423283
+just finished the before
+capacity before: 38.23532870179662 and after: 37.751419096805925
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+learning from previous iteration:  21  repeat count:  1 sigma values:  tensor([[0.0677],
+        [0.2371],
+        [0.0488],
+        [0.2522],
+        [0.6523],
+        [0.2443],
+        [0.1119],
+        [0.2794],
+        [0.7200],
+        [0.5334],
+        [0.4741],
+        [0.4305],
+        [0.0375],
+        [0.3100],
+        [0.0207],
+        [0.1742]], dtype=torch.float64)
+input std:  0.26141368458402614
+output std:  0.2599147238227549
+just finished the before
+capacity before: 36.44128890594006 and after: 35.32139406117654
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.28911724258987903
+output std:  0.2490910285537442
+just finished the before
+capacity before: 36.92568384725354 and after: 38.0104569103593
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.29024897475118766
+output std:  0.25284956036054085
+just finished the before
+capacity before: 35.047059439955405 and after: 35.42494002036118
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.28609182563030844
+output std:  0.26368375103964403
+just finished the before
+capacity before: 36.458937169143084 and after: 37.97200939218429
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2870599052597472
+output std:  0.25723546393377916
+just finished the before
+capacity before: 37.79924466328828 and after: 37.61923884898516
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+learning from previous iteration:  16  repeat count:  1 sigma values:  tensor([[0.0673],
+        [0.7828],
+        [0.7827],
+        [0.4629],
+        [0.4442],
+        [0.4813],
+        [0.7672],
+        [0.4262],
+        [0.3244],
+        [0.6491],
+        [0.6589],
+        [0.1487],
+        [0.4451],
+        [0.7954],
+        [0.6060],
+        [0.0496]], dtype=torch.float64)
+input std:  0.2675245968080511
+output std:  0.25893549048226333
+just finished the before
+capacity before: 36.50222433223908 and after: 34.64871304538319
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+learning from previous iteration:  37  repeat count:  1 sigma values:  tensor([[0.0630],
+        [0.0971],
+        [0.8158],
+        [0.4306],
+        [0.6821],
+        [0.2862],
+        [0.0847],
+        [0.1215],
+        [0.2064],
+        [0.4916],
+        [0.5581],
+        [0.0172],
+        [0.1352],
+        [0.5435],
+        [0.1911],
+        [0.4369]], dtype=torch.float64)
+input std:  0.2642495826451277
+output std:  0.2615707775686985
+just finished the before
+capacity before: 39.536686058590504 and after: 39.271758915306435
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+learning from previous iteration:  27  repeat count:  1 sigma values:  tensor([[0.2436],
+        [0.0879],
+        [0.8041],
+        [0.6493],
+        [0.4255],
+        [0.1548],
+        [0.2584],
+        [0.7739],
+        [0.4616],
+        [0.3202],
+        [0.3681],
+        [0.5696],
+        [0.5494],
+        [0.1344],
+        [0.2979],
+        [0.3908]], dtype=torch.float64)
+input std:  0.27353792035865493
+output std:  0.27424204874338065
+just finished the before
+capacity before: 39.53925597754324 and after: 39.6893843871225
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.28161219483681665
+output std:  0.2694748438892409
+just finished the before
+capacity before: 37.92356227909562 and after: 40.549313053304544
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.28964159534094935
+output std:  0.2511683781564547
+just finished the before
+capacity before: 35.78634807559564 and after: 36.766753363126455
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2863099872217487
+output std:  0.25574919870361723
+just finished the before
+capacity before: 37.43866835802782 and after: 38.59523142345883
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2835756402603183
+output std:  0.25290145422072197
+just finished the before
+capacity before: 37.414960880904346 and after: 38.26899076709788
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2895783380902643
+output std:  0.24439075664035123
+just finished the before
+capacity before: 37.49987495213561 and after: 35.960889641773825
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2835091578931317
+output std:  0.24957090221600114
+just finished the before
+capacity before: 36.87100450278207 and after: 38.184124686689195
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2867584940445198
+output std:  0.25123203819396406
+just finished the before
+capacity before: 39.03582072609206 and after: 38.35535244421816
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+learning from previous iteration:  17  repeat count:  1 sigma values:  tensor([[0.3679],
+        [0.8221],
+        [0.4734],
+        [0.2309],
+        [0.2081],
+        [0.0710],
+        [0.4370],
+        [0.4580],
+        [0.5979],
+        [0.7319],
+        [0.4846],
+        [0.5769],
+        [0.1511],
+        [0.8218],
+        [0.7182],
+        [0.1622]], dtype=torch.float64)
+input std:  0.2614394713584925
+output std:  0.25386967295912666
+just finished the before
+capacity before: 40.33632404844144 and after: 38.89741152017515
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2911875143923082
+output std:  0.2429570393928128
+just finished the before
+capacity before: 37.31370463315568 and after: 36.46255242742697
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+learning from previous iteration:  0  repeat count:  1 sigma values:  tensor([[0.1812],
+        [0.3164],
+        [0.3018],
+        [0.4986],
+        [0.7986],
+        [0.7471],
+        [0.4112],
+        [0.2699],
+        [0.4167],
+        [0.3978],
+        [0.7433],
+        [0.2181],
+        [0.5481],
+        [0.1810],
+        [0.7208],
+        [0.7488]], dtype=torch.float64)
+input std:  0.237277339149062
+output std:  0.24119955896193565
+just finished the before
+capacity before: 38.993813101518235 and after: 37.37570998860801
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2887319202146798
+output std:  0.2471936904866027
+just finished the before
+capacity before: 37.90305215984518 and after: 36.58109989998722
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2881310182341349
+output std:  0.25185697197919316
+just finished the before
+capacity before: 37.88450423895817 and after: 36.16702177575033
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2825643160245885
+output std:  0.24709833026779454
+just finished the before
+capacity before: 37.169086951381644 and after: 37.340993458407304
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2863236023003333
+output std:  0.24941075072973948
+just finished the before
+capacity before: 37.292356272162124 and after: 37.7291717882393
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.28563587437337495
+output std:  0.2496197393370354
+just finished the before
+capacity before: 38.705053309401414 and after: 38.51494206315524
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.28789390112417473
+output std:  0.25089239471179203
+just finished the before
+capacity before: 35.862340283907415 and after: 35.487130354200175
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+learning from previous iteration:  23  repeat count:  1 sigma values:  tensor([[0.6972],
+        [0.6885],
+        [0.4269],
+        [0.3297],
+        [0.4460],
+        [0.6993],
+        [0.7745],
+        [0.1801],
+        [0.7804],
+        [0.7972],
+        [0.8237],
+        [0.0212],
+        [0.0549],
+        [0.1421],
+        [0.2058],
+        [0.4627]], dtype=torch.float64)
+input std:  0.2638588293435589
+output std:  0.24598017120247215
+just finished the before
+capacity before: 39.09142936106473 and after: 38.27398106702323
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2851176692187903
+output std:  0.24694188889902266
+just finished the before
+capacity before: 36.607558035516725 and after: 35.75529669495686
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.28432247523048926
+output std:  0.23482429420738532
+just finished the before
+capacity before: 35.63047856668574 and after: 35.988815038583354
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2891731948887152
+output std:  0.24906740817087636
+just finished the before
+capacity before: 38.42312328251349 and after: 38.16288065638258
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.28832079882417505
+output std:  0.24234335383863834
+just finished the before
+capacity before: 38.252616821025526 and after: 38.085703327406314
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+learning from previous iteration:  28  repeat count:  1 sigma values:  tensor([[0.7457],
+        [0.7834],
+        [0.7601],
+        [0.3197],
+        [0.0871],
+        [0.8297],
+        [0.2775],
+        [0.3943],
+        [0.6090],
+        [0.1752],
+        [0.7787],
+        [0.4962],
+        [0.8516],
+        [0.6472],
+        [0.1304],
+        [0.4383]], dtype=torch.float64)
+input std:  0.2710584165095273
+output std:  0.24569964962794222
+just finished the before
+capacity before: 38.105913575118564 and after: 36.87714810901011
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.28082815011624174
+output std:  0.24490909807792727
+just finished the before
+capacity before: 37.36141301934492 and after: 37.11196315934201
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2876863589212541
+output std:  0.22850534942191736
+just finished the before
+capacity before: 36.535753965378895 and after: 34.93220128410779
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2896579424799996
+output std:  0.22674167800227424
+just finished the before
+capacity before: 36.54958765930825 and after: 36.35383292373057
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2873246717883364
+output std:  0.2457646864287388
+just finished the before
+capacity before: 36.38234639876817 and after: 36.744370728439755
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+learning from previous iteration:  35  repeat count:  1 sigma values:  tensor([[0.1310],
+        [0.8674],
+        [0.8909],
+        [0.7535],
+        [0.3903],
+        [0.1039],
+        [0.8727],
+        [0.2146],
+        [0.2835],
+        [0.6937],
+        [0.5499],
+        [0.0922],
+        [0.2594],
+        [0.3732],
+        [0.3069],
+        [0.8674]], dtype=torch.float64)
+input std:  0.2613241669033358
+output std:  0.23506856250503944
+just finished the before
+capacity before: 37.9147947592994 and after: 37.61219952776936
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+learning from previous iteration:  49  repeat count:  2 sigma values:  tensor([[0.2193],
+        [0.0791],
+        [0.7237],
+        [0.5844],
+        [0.3829],
+        [0.1394],
+        [0.2326],
+        [0.6965],
+        [0.4154],
+        [0.2881],
+        [0.3313],
+        [0.5126],
+        [0.4944],
+        [0.1210],
+        [0.2681],
+        [0.3517]], dtype=torch.float64)
+input std:  0.27424204874338065
+output std:  0.2537036827504047
+just finished the before
+capacity before: 39.6893843871225 and after: 39.69447207992264
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.28446365953790775
+output std:  0.2342092594332579
+just finished the before
+capacity before: 35.041384870628534 and after: 35.93471576071041
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.28596946500717846
+output std:  0.24331238686021095
+just finished the before
+capacity before: 38.51965158145518 and after: 37.40928483788049
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+learning from previous iteration:  8  repeat count:  1 sigma values:  tensor([[0.7212],
+        [0.1557],
+        [0.4637],
+        [0.5959],
+        [0.8244],
+        [0.3947],
+        [0.1269],
+        [0.3706],
+        [0.8566],
+        [0.0717],
+        [0.4896],
+        [0.7310],
+        [0.4929],
+        [0.4914],
+        [0.1827],
+        [0.3377]], dtype=torch.float64)
+input std:  0.25872754412528454
+output std:  0.23333927681324113
+just finished the before
+capacity before: 37.6839486474075 and after: 36.19859161341227
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2892022080746049
+output std:  0.23270218815471902
+just finished the before
+capacity before: 36.21057256551578 and after: 37.018149958069344
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2854980399150828
+output std:  0.23440388547778457
+just finished the before
+capacity before: 37.16227797388859 and after: 36.75165006631147
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.287088513547956
+output std:  0.238530079374883
+just finished the before
+capacity before: 37.81115978532575 and after: 36.845768703998495
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2876239407238672
+output std:  0.23518155427092302
+just finished the before
+capacity before: 36.36207137591539 and after: 36.46770243890303
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.28461786379784376
+output std:  0.24959047537800813
+just finished the before
+capacity before: 36.442788130061224 and after: 36.68409368634482
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.28074115097430236
+output std:  0.23518290804249037
+just finished the before
+capacity before: 36.05614787009708 and after: 35.54719488602984
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2847716239415798
+output std:  0.23834998943278649
+just finished the before
+capacity before: 40.38274571934199 and after: 39.224754093123536
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2853573267174916
+output std:  0.23951598867942192
+just finished the before
+capacity before: 37.14609768150916 and after: 37.0444866130872
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2802100107199588
+output std:  0.23544512866793357
+just finished the before
+capacity before: 38.08962365359917 and after: 38.48781554104313
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.28665410302179817
+output std:  0.24036463508991207
+just finished the before
+capacity before: 38.1619190365752 and after: 38.18802052771157
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.283935660413461
+output std:  0.23984997960842983
+just finished the before
+capacity before: 40.192869539435904 and after: 39.978116518638515
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.28057239529873684
+output std:  0.2316486261919104
+just finished the before
+capacity before: 37.929012797639736 and after: 37.71314002532879
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2875502918363065
+output std:  0.24096780596663056
+just finished the before
+capacity before: 39.150314651703205 and after: 38.146409719344476
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+learning from previous iteration:  41  repeat count:  2 sigma values:  tensor([[0.6674],
+        [0.5676],
+        [0.6278],
+        [0.6251],
+        [0.7832],
+        [0.6941],
+        [0.4268],
+        [0.0194],
+        [0.4391],
+        [0.5659],
+        [0.5365],
+        [0.6631],
+        [0.5514],
+        [0.0908],
+        [0.4795],
+        [0.5369]], dtype=torch.float64)
+input std:  0.271390327423283
+output std:  0.24408923640751817
+just finished the before
+capacity before: 37.751419096805925 and after: 38.40384540173645
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+learning from previous iteration:  60  repeat count:  1 sigma values:  tensor([[0.8680],
+        [0.3660],
+        [0.7916],
+        [0.2976],
+        [0.4143],
+        [0.0976],
+        [0.2861],
+        [0.0963],
+        [0.4927],
+        [0.8260],
+        [0.4724],
+        [0.6944],
+        [0.8605],
+        [0.5518],
+        [0.3955],
+        [0.1300]], dtype=torch.float64)
+input std:  0.2471936904866027
+output std:  0.22733497162340413
+just finished the before
+capacity before: 36.58109989998722 and after: 36.64630614184665
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2826045855810249
+output std:  0.23827635490918897
+just finished the before
+capacity before: 38.54068207594601 and after: 38.623846311171036
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2813597101190815
+output std:  0.22900924071456494
+just finished the before
+capacity before: 37.29247493909608 and after: 36.73895592346345
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2926055047203543
+output std:  0.23890335698617088
+just finished the before
+capacity before: 38.923167598844664 and after: 38.186226201578876
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.28489204259733236
+output std:  0.23440652196077882
+just finished the before
+capacity before: 38.54368819046526 and after: 38.997417108099185
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.28573290661920037
+output std:  0.23968221292165848
+just finished the before
+capacity before: 38.42900824520282 and after: 39.54351953415818
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.28797876314762894
+output std:  0.2241743104050943
+just finished the before
+capacity before: 37.019142480733166 and after: 37.055985116234524
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+learning from previous iteration:  11  repeat count:  1 sigma values:  tensor([[0.5278],
+        [0.7619],
+        [0.4052],
+        [0.6404],
+        [0.7724],
+        [0.6598],
+        [0.6046],
+        [0.6101],
+        [0.2207],
+        [0.0137],
+        [0.2368],
+        [0.0802],
+        [0.1825],
+        [0.6371],
+        [0.6211],
+        [0.5746]], dtype=torch.float64)
+input std:  0.26860954077407584
+output std:  0.23391505218277378
+just finished the before
+capacity before: 37.27573586435023 and after: 36.37245418296566
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.28657533100162247
+output std:  0.22517444981568577
+just finished the before
+capacity before: 36.80189317518101 and after: 37.132207213219885
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2834329503456125
+output std:  0.23129979888100352
+just finished the before
+capacity before: 39.03169503536922 and after: 37.44146480618298
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.28696291166116583
+output std:  0.21501596240181456
+just finished the before
+capacity before: 35.31557333059101 and after: 35.290834588999445
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.28675889355635015
+output std:  0.22147162860715597
+just finished the before
+capacity before: 35.054923334536625 and after: 36.519257898262055
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.29098418306418
+output std:  0.224277456579981
+just finished the before
+capacity before: 38.38150986709853 and after: 37.75605205226851
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.287221969652111
+output std:  0.2297633938609354
+just finished the before
+capacity before: 38.54950806077463 and after: 38.83695846132827
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.28442893233111743
+output std:  0.23015686510061567
+just finished the before
+capacity before: 37.72299031707713 and after: 37.46160413844479
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2879146202000241
+output std:  0.21755769679080472
+just finished the before
+capacity before: 38.722948087189735 and after: 37.266811035767816
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+learning from previous iteration:  105  repeat count:  1 sigma values:  tensor([[0.6537],
+        [0.1545],
+        [0.8833],
+        [0.3844],
+        [0.7419],
+        [0.3105],
+        [0.8410],
+        [0.2594],
+        [0.4919],
+        [0.7706],
+        [0.0746],
+        [0.3297],
+        [0.2075],
+        [0.2538],
+        [0.5243],
+        [0.6140]], dtype=torch.float64)
+input std:  0.21501596240181456
+output std:  0.20194916102640945
+just finished the before
+capacity before: 35.290834588999445 and after: 35.85908037691425
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.28553537236282134
+output std:  0.21795730416082812
+just finished the before
+capacity before: 37.508612480731415 and after: 36.06837689268971
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+learning from previous iteration:  5  repeat count:  1 sigma values:  tensor([[0.7997],
+        [0.5601],
+        [0.1700],
+        [0.3942],
+        [0.8441],
+        [0.3993],
+        [0.1771],
+        [0.7425],
+        [0.1250],
+        [0.3847],
+        [0.7571],
+        [0.3789],
+        [0.8589],
+        [0.8252],
+        [0.0832],
+        [0.7353]], dtype=torch.float64)
+input std:  0.25762243070778507
+output std:  0.22296916831740557
+just finished the before
+capacity before: 39.66168075846429 and after: 37.94503685632606
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2863874396639746
+output std:  0.22225080696277147
+just finished the before
+capacity before: 37.8906088451362 and after: 36.180459877525244
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.283531776020649
+output std:  0.21745073946581125
+just finished the before
+capacity before: 36.31068404904629 and after: 37.203935342877905
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2879498418397106
+output std:  0.23328585092578535
+just finished the before
+capacity before: 38.24426541459091 and after: 37.04353875393028
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2851959790508398
+output std:  0.20503914016066555
+just finished the before
+capacity before: 34.413817044984974 and after: 34.51901913838376
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.28622034076889813
+output std:  0.2287050229335176
+just finished the before
+capacity before: 35.93411109829333 and after: 37.525018967324364
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2918052887531932
+output std:  0.21576166970087687
+just finished the before
+capacity before: 36.71928579271655 and after: 36.48525959657225
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2814167681073722
+output std:  0.22258134213270026
+just finished the before
+capacity before: 36.200330219120914 and after: 36.54539851175983
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.29071592838963667
+output std:  0.22175294111909166
+just finished the before
+capacity before: 36.629862288075586 and after: 35.18883248499255
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.28597655657696164
+output std:  0.2176505310518558
+just finished the before
+capacity before: 38.2937445148414 and after: 38.33606485192332
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2882664872146248
+output std:  0.20858133307268042
+just finished the before
+capacity before: 37.493071009810954 and after: 35.62357723709073
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.28068559195966264
+output std:  0.21344046044326762
+just finished the before
+capacity before: 38.47861051128265 and after: 39.307640721261606
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2874384441630881
+output std:  0.207050684765466
+just finished the before
+capacity before: 36.89203807095156 and after: 37.25964673593661
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.28562894923069176
+output std:  0.21759698298557306
+just finished the before
+capacity before: 37.477262803298515 and after: 37.42259423060908
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+learning from previous iteration:  11  repeat count:  1 sigma values:  tensor([[0.5278],
+        [0.7619],
+        [0.4052],
+        [0.6404],
+        [0.7724],
+        [0.6598],
+        [0.6046],
+        [0.6101],
+        [0.2207],
+        [0.0137],
+        [0.2368],
+        [0.0802],
+        [0.1825],
+        [0.6371],
+        [0.6211],
+        [0.5746]], dtype=torch.float64)
+input std:  0.26860954077407584
+output std:  0.21740829918216267
+just finished the before
+capacity before: 37.27573586435023 and after: 36.03100904495055
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.28103070288288673
+output std:  0.21480108282923438
+just finished the before
+capacity before: 35.08658233362782 and after: 35.810477111696585
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.28749576047925196
+output std:  0.21529873128445715
+just finished the before
+capacity before: 37.62500872683772 and after: 38.51775164619352
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2854416654637495
+output std:  0.2119048789712916
+just finished the before
+capacity before: 37.24507850147808 and after: 36.57911724205693
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.28282660557876366
+output std:  0.207759021594724
+just finished the before
+capacity before: 36.40252078689686 and after: 35.936655036423836
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2824613799679636
+output std:  0.21132541172993904
+just finished the before
+capacity before: 38.86130408920632 and after: 37.761674920384294
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.28911555144205814
+output std:  0.20356273522852728
+just finished the before
+capacity before: 37.80388550911363 and after: 36.518597978867504
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2855380965877606
+output std:  0.22193150779278417
+just finished the before
+capacity before: 37.337380551935496 and after: 37.31841833752085
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.29161338020437694
+output std:  0.2142426566083369
+just finished the before
+capacity before: 36.843302271474336 and after: 34.95677119164847
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.28509498864953337
+output std:  0.21640618131968106
+just finished the before
+capacity before: 39.07601851121958 and after: 39.18494682593885
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2796586713553219
+output std:  0.1974100417266516
+just finished the before
+capacity before: 38.60028110940358 and after: 37.329885955512566
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+learning from previous iteration:  93  repeat count:  1 sigma values:  tensor([[0.2272],
+        [0.7068],
+        [0.4668],
+        [0.0597],
+        [0.8167],
+        [0.2746],
+        [0.0640],
+        [0.3227],
+        [0.5082],
+        [0.1708],
+        [0.1656],
+        [0.5346],
+        [0.2942],
+        [0.8904],
+        [0.7518],
+        [0.5691]], dtype=torch.float64)
+input std:  0.24096780596663056
+output std:  0.20619842360921428
+just finished the before
+capacity before: 38.146409719344476 and after: 37.804813150126336
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2937048294288303
+output std:  0.21220204932455178
+just finished the before
+capacity before: 37.24568850632879 and after: 36.8443867624859
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.28345182551988324
+output std:  0.2031388985036112
+just finished the before
+capacity before: 38.83785524837201 and after: 39.086496696768705
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+learning from previous iteration:  59  repeat count:  2 sigma values:  tensor([[0.1630],
+        [0.2848],
+        [0.2716],
+        [0.4488],
+        [0.7188],
+        [0.6724],
+        [0.3701],
+        [0.2429],
+        [0.3751],
+        [0.3580],
+        [0.6690],
+        [0.1963],
+        [0.4933],
+        [0.1629],
+        [0.6487],
+        [0.6739]], dtype=torch.float64)
+input std:  0.24119955896193565
+output std:  0.19748736544259637
+just finished the before
+capacity before: 37.37570998860801 and after: 37.494054896668004
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+learning from previous iteration:  68  repeat count:  1 sigma values:  tensor([[0.1768],
+        [0.8767],
+        [0.6918],
+        [0.6425],
+        [0.4883],
+        [0.2351],
+        [0.6731],
+        [0.7186],
+        [0.2523],
+        [0.2356],
+        [0.6724],
+        [0.6170],
+        [0.7869],
+        [0.4625],
+        [0.7644],
+        [0.6450]], dtype=torch.float64)
+input std:  0.23482429420738532
+output std:  0.18928045334983448
+just finished the before
+capacity before: 35.988815038583354 and after: 35.18887524709629
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+learning from previous iteration:  137  repeat count:  1 sigma values:  tensor([[0.3432],
+        [0.7081],
+        [0.2676],
+        [0.2113],
+        [0.3548],
+        [0.0685],
+        [0.7379],
+        [0.1253],
+        [0.7105],
+        [0.8037],
+        [0.6073],
+        [0.2331],
+        [0.5346],
+        [0.4049],
+        [0.8885],
+        [0.5855]], dtype=torch.float64)
+input std:  0.1974100417266516
+output std:  0.19173824168058745
+just finished the before
+capacity before: 37.329885955512566 and after: 38.31184403222948
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.287065183545543
+output std:  0.21147772254650307
+just finished the before
+capacity before: 37.016158217876445 and after: 37.017971912525894
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+learning from previous iteration:  68  repeat count:  1 sigma values:  tensor([[0.1768],
+        [0.8767],
+        [0.6918],
+        [0.6425],
+        [0.4883],
+        [0.2351],
+        [0.6731],
+        [0.7186],
+        [0.2523],
+        [0.2356],
+        [0.6724],
+        [0.6170],
+        [0.7869],
+        [0.4625],
+        [0.7644],
+        [0.6450]], dtype=torch.float64)
+input std:  0.23482429420738532
+output std:  0.18812041551871925
+just finished the before
+capacity before: 35.988815038583354 and after: 35.258461610454
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+learning from previous iteration:  25  repeat count:  2 sigma values:  tensor([[0.6321],
+        [0.0714],
+        [0.5611],
+        [0.3208],
+        [0.6863],
+        [0.6272],
+        [0.1710],
+        [0.4626],
+        [0.5526],
+        [0.5882],
+        [0.2558],
+        [0.0678],
+        [0.6086],
+        [0.6040],
+        [0.0237],
+        [0.6134]], dtype=torch.float64)
+input std:  0.263248850567268
+output std:  0.20677391040706097
+just finished the before
+capacity before: 38.4282094536891 and after: 37.24089377430083
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.28962949906340196
+output std:  0.20608155527288996
+just finished the before
+capacity before: 38.23232100747961 and after: 37.59908261524416
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2873081118835786
+output std:  0.21352517400834084
+just finished the before
+capacity before: 36.996892402746944 and after: 38.097332648074755
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.28368247941729696
+output std:  0.20813455902398462
+just finished the before
+capacity before: 37.93995144214777 and after: 37.946706846722364
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2856089132594557
+output std:  0.2017567779400845
+just finished the before
+capacity before: 37.72519436869705 and after: 37.16209478738254
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2826348413370832
+output std:  0.19932427600599756
+just finished the before
+capacity before: 36.63109062194996 and after: 38.32240134135496
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2848874780693674
+output std:  0.2042203523547734
+just finished the before
+capacity before: 36.890743122908965 and after: 36.51381656209564
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2955235982783668
+output std:  0.20235071643734015
+just finished the before
+capacity before: 36.4390823388754 and after: 35.48708817428361
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+learning from previous iteration:  120  repeat count:  1 sigma values:  tensor([[0.1853],
+        [0.3525],
+        [0.3820],
+        [0.0588],
+        [0.6941],
+        [0.0836],
+        [0.1772],
+        [0.2366],
+        [0.2326],
+        [0.2937],
+        [0.7078],
+        [0.1868],
+        [0.1583],
+        [0.8009],
+        [0.7620],
+        [0.2351]], dtype=torch.float64)
+input std:  0.22258134213270026
+output std:  0.20163419048603753
+just finished the before
+capacity before: 36.54539851175983 and after: 36.58812695804765
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.28719024427281253
+output std:  0.1952295949715667
+just finished the before
+capacity before: 37.961178276262956 and after: 37.47131625543399
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.29379046377129003
+output std:  0.19968911015380073
+just finished the before
+capacity before: 40.19519432297525 and after: 40.38793368142551
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.286513753036255
+output std:  0.2007118485127963
+just finished the before
+capacity before: 37.094343765164126 and after: 35.996307613853034
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+learning from previous iteration:  136  repeat count:  1 sigma values:  tensor([[0.0881],
+        [0.0951],
+        [0.6414],
+        [0.6140],
+        [0.8213],
+        [0.0474],
+        [0.1240],
+        [0.3458],
+        [0.6791],
+        [0.8987],
+        [0.5098],
+        [0.2525],
+        [0.7872],
+        [0.1642],
+        [0.0454],
+        [0.4798]], dtype=torch.float64)
+input std:  0.21640618131968106
+output std:  0.19864487810919024
+just finished the before
+capacity before: 39.18494682593885 and after: 38.63391878663876
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+learning from previous iteration:  137  repeat count:  1 sigma values:  tensor([[0.3432],
+        [0.7081],
+        [0.2676],
+        [0.2113],
+        [0.3548],
+        [0.0685],
+        [0.7379],
+        [0.1253],
+        [0.7105],
+        [0.8037],
+        [0.6073],
+        [0.2331],
+        [0.5346],
+        [0.4049],
+        [0.8885],
+        [0.5855]], dtype=torch.float64)
+input std:  0.1974100417266516
+output std:  0.18557099284538062
+just finished the before
+capacity before: 37.329885955512566 and after: 37.33813023503882
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2820709029366726
+output std:  0.1992115538451112
+just finished the before
+capacity before: 36.30195381120329 and after: 35.73231452700496
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.28067029381351
+output std:  0.20471936551315464
+just finished the before
+capacity before: 39.11513124807916 and after: 39.61789208245417
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+learning from previous iteration:  151  repeat count:  1 sigma values:  tensor([[0.1776],
+        [0.5557],
+        [0.3887],
+        [0.0433],
+        [0.6650],
+        [0.3095],
+        [0.0309],
+        [0.2330],
+        [0.6622],
+        [0.0896],
+        [0.3628],
+        [0.6256],
+        [0.0335],
+        [0.8650],
+        [0.0820],
+        [0.2832]], dtype=torch.float64)
+input std:  0.19932427600599756
+output std:  0.18526820499965946
+just finished the before
+capacity before: 38.32240134135496 and after: 38.466680623737176
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+learning from previous iteration:  82  repeat count:  1 sigma values:  tensor([[0.7921],
+        [0.7097],
+        [0.8107],
+        [0.4858],
+        [0.6234],
+        [0.3044],
+        [0.2702],
+        [0.2555],
+        [0.4974],
+        [0.8307],
+        [0.6812],
+        [0.2272],
+        [0.0144],
+        [0.7903],
+        [0.6063],
+        [0.2355]], dtype=torch.float64)
+input std:  0.23440388547778457
+output std:  0.19353410948698865
+just finished the before
+capacity before: 36.75165006631147 and after: 36.81476851335505
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.28506974464726964
+output std:  0.19725522914593552
+just finished the before
+capacity before: 36.37784394880922 and after: 37.1177886647578
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.28914940379521303
+output std:  0.1994518481298597
+just finished the before
+capacity before: 38.869277913307805 and after: 37.619941717955356
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2859476613339362
+output std:  0.21270445461715443
+just finished the before
+capacity before: 37.48705571478803 and after: 37.54937701029965
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+learning from previous iteration:  163  repeat count:  2 sigma values:  tensor([[0.7129],
+        [0.6388],
+        [0.7296],
+        [0.4372],
+        [0.5611],
+        [0.2739],
+        [0.2432],
+        [0.2299],
+        [0.4476],
+        [0.7477],
+        [0.6131],
+        [0.2045],
+        [0.0130],
+        [0.7112],
+        [0.5456],
+        [0.2120]], dtype=torch.float64)
+input std:  0.19353410948698865
+output std:  0.19053668875664767
+just finished the before
+capacity before: 36.81476851335505 and after: 36.67661794397176
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+learning from previous iteration:  47  repeat count:  2 sigma values:  tensor([[0.0606],
+        [0.7045],
+        [0.7045],
+        [0.4166],
+        [0.3998],
+        [0.4332],
+        [0.6905],
+        [0.3836],
+        [0.2920],
+        [0.5842],
+        [0.5930],
+        [0.1339],
+        [0.4006],
+        [0.7158],
+        [0.5454],
+        [0.0447]], dtype=torch.float64)
+input std:  0.25893549048226333
+output std:  0.202672447671335
+just finished the before
+capacity before: 34.64871304538319 and after: 33.65845714135898
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+learning from previous iteration:  118  repeat count:  1 sigma values:  tensor([[0.0474],
+        [0.1051],
+        [0.1554],
+        [0.1758],
+        [0.3791],
+        [0.5045],
+        [0.5234],
+        [0.7149],
+        [0.5178],
+        [0.7189],
+        [0.8916],
+        [0.1701],
+        [0.8448],
+        [0.7479],
+        [0.8764],
+        [0.4923]], dtype=torch.float64)
+input std:  0.2287050229335176
+output std:  0.20054271229970727
+just finished the before
+capacity before: 37.525018967324364 and after: 36.8416544702489
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+learning from previous iteration:  113  repeat count:  2 sigma values:  tensor([[0.7197],
+        [0.5040],
+        [0.1530],
+        [0.3548],
+        [0.7597],
+        [0.3594],
+        [0.1594],
+        [0.6683],
+        [0.1125],
+        [0.3462],
+        [0.6814],
+        [0.3410],
+        [0.7730],
+        [0.7427],
+        [0.0749],
+        [0.6617]], dtype=torch.float64)
+input std:  0.22296916831740557
+output std:  0.1922795468931906
+just finished the before
+capacity before: 37.94503685632606 and after: 38.41224323170585
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+learning from previous iteration:  94  repeat count:  3 sigma values:  tensor([[0.6007],
+        [0.5108],
+        [0.5650],
+        [0.5626],
+        [0.7049],
+        [0.6247],
+        [0.3841],
+        [0.0175],
+        [0.3952],
+        [0.5093],
+        [0.4829],
+        [0.5968],
+        [0.4963],
+        [0.0817],
+        [0.4315],
+        [0.4832]], dtype=torch.float64)
+input std:  0.24408923640751817
+output std:  0.2045129213426303
+just finished the before
+capacity before: 38.40384540173645 and after: 38.129649090064504
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.28573481447541454
+output std:  0.1951985733168833
+just finished the before
+capacity before: 37.79248311944748 and after: 38.14401160127649
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+learning from previous iteration:  129  repeat count:  1 sigma values:  tensor([[0.5434],
+        [0.6843],
+        [0.6426],
+        [0.4728],
+        [0.2630],
+        [0.2037],
+        [0.2398],
+        [0.7526],
+        [0.0354],
+        [0.0475],
+        [0.7805],
+        [0.6490],
+        [0.3758],
+        [0.0668],
+        [0.1609],
+        [0.4510]], dtype=torch.float64)
+input std:  0.21529873128445715
+output std:  0.19091841413070718
+just finished the before
+capacity before: 38.51775164619352 and after: 39.11371284331284
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+learning from previous iteration:  102  repeat count:  2 sigma values:  tensor([[0.4750],
+        [0.6858],
+        [0.3646],
+        [0.5764],
+        [0.6951],
+        [0.5938],
+        [0.5442],
+        [0.5491],
+        [0.1986],
+        [0.0123],
+        [0.2131],
+        [0.0722],
+        [0.1643],
+        [0.5734],
+        [0.5590],
+        [0.5172]], dtype=torch.float64)
+input std:  0.23391505218277378
+output std:  0.1902543686659232
+just finished the before
+capacity before: 36.37245418296566 and after: 36.40309241649221
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2983050215610279
+output std:  0.20179016860580182
+just finished the before
+capacity before: 37.276161350726355 and after: 37.832265863635556
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2849884330710026
+output std:  0.18346486997978068
+just finished the before
+capacity before: 37.10462263762218 and after: 37.053962092513856
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+learning from previous iteration:  62  repeat count:  1 sigma values:  tensor([[0.5177],
+        [0.4708],
+        [0.0495],
+        [0.4922],
+        [0.4231],
+        [0.1759],
+        [0.6072],
+        [0.4567],
+        [0.7815],
+        [0.3472],
+        [0.2033],
+        [0.3166],
+        [0.2413],
+        [0.5443],
+        [0.8983],
+        [0.4122]], dtype=torch.float64)
+input std:  0.24709833026779454
+output std:  0.19609042716446037
+just finished the before
+capacity before: 37.340993458407304 and after: 37.54067240370989
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2882633006206325
+output std:  0.2045397768564366
+just finished the before
+capacity before: 37.61731665764733 and after: 37.83324619869454
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2862710622949358
+output std:  0.20456306691540088
+just finished the before
+capacity before: 36.95633972411828 and after: 37.5579011685853
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.289784634765758
+output std:  0.19710460972320568
+just finished the before
+capacity before: 36.744843566740215 and after: 38.69747604412494
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.28951747016873475
+output std:  0.1949984124535643
+just finished the before
+capacity before: 39.420936173690606 and after: 37.83562980266828
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2891749812133058
+output std:  0.1889594236700317
+just finished the before
+capacity before: 36.88462659212884 and after: 37.781879045676206
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+learning from previous iteration:  163  repeat count:  2 sigma values:  tensor([[0.7129],
+        [0.6388],
+        [0.7296],
+        [0.4372],
+        [0.5611],
+        [0.2739],
+        [0.2432],
+        [0.2299],
+        [0.4476],
+        [0.7477],
+        [0.6131],
+        [0.2045],
+        [0.0130],
+        [0.7112],
+        [0.5456],
+        [0.2120]], dtype=torch.float64)
+input std:  0.19353410948698865
+output std:  0.18603269884939516
+just finished the before
+capacity before: 36.81476851335505 and after: 37.00479004180951
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2799385282867785
+output std:  0.19544861485208734
+just finished the before
+capacity before: 36.29155805596415 and after: 34.718117524776716
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.27985984765084926
+output std:  0.1828863589459521
+just finished the before
+capacity before: 35.49778600611381 and after: 36.70799288528544
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.28946370892720275
+output std:  0.188819669428696
+just finished the before
+capacity before: 35.50965092438669 and after: 35.61567041689226
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.285943710255936
+output std:  0.2019754237525618
+just finished the before
+capacity before: 36.750623136084016 and after: 37.60928761677438
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2898269296740935
+output std:  0.19680996731844938
+just finished the before
+capacity before: 37.529210585692226 and after: 36.17784132311151
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2862203490605362
+output std:  0.1862523376531559
+just finished the before
+capacity before: 37.25694370142044 and after: 36.77705882740443
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2827627943536731
+output std:  0.18685237709430913
+just finished the before
+capacity before: 37.68426912317561 and after: 37.2122342841069
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.28381906867967244
+output std:  0.19046551903090772
+just finished the before
+capacity before: 37.40948521636713 and after: 36.61886451304511
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+learning from previous iteration:  78  repeat count:  1 sigma values:  tensor([[0.5690],
+        [0.1521],
+        [0.1043],
+        [0.3049],
+        [0.8184],
+        [0.6308],
+        [0.2508],
+        [0.7591],
+        [0.2255],
+        [0.8309],
+        [0.1638],
+        [0.1934],
+        [0.3527],
+        [0.1704],
+        [0.1658],
+        [0.5151]], dtype=torch.float64)
+input std:  0.2342092594332579
+output std:  0.1847016711864665
+just finished the before
+capacity before: 35.93471576071041 and after: 35.19565854080399
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2884773031367949
+output std:  0.18108282247942073
+just finished the before
+capacity before: 35.34149710198807 and after: 34.590289938206794
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.28867952011257497
+output std:  0.18375079159946395
+just finished the before
+capacity before: 36.65306094958445 and after: 34.83224270930585
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2838819130566212
+output std:  0.1865776269062447
+just finished the before
+capacity before: 36.93949643805491 and after: 37.86168163517114
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.28901959272219024
+output std:  0.18382905407043926
+just finished the before
+capacity before: 35.98875358032722 and after: 35.28132432695057
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.292051734149062
+output std:  0.19504563878520673
+just finished the before
+capacity before: 34.7331743222266 and after: 34.378649073952005
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2876965034555525
+output std:  0.18768607775393698
+just finished the before
+capacity before: 35.70864322741315 and after: 35.676592466123374
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2834246755908682
+output std:  0.1783871228567605
+just finished the before
+capacity before: 37.41151506775152 and after: 36.27147960963241
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.28775825200401667
+output std:  0.18778438311236553
+just finished the before
+capacity before: 36.91699693300086 and after: 36.89174111092058
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2906461029692133
+output std:  0.18575761864844628
+just finished the before
+capacity before: 36.22217968673891 and after: 36.638489659753674
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2848865455196296
+output std:  0.18117872824053563
+just finished the before
+capacity before: 36.80940413751857 and after: 35.92451065378235
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2793178909585465
+output std:  0.19441376266406704
+just finished the before
+capacity before: 36.717275709531094 and after: 36.51238505507993
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2796191425155055
+output std:  0.18116626900154134
+just finished the before
+capacity before: 37.35078583618919 and after: 36.501191263494576
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+learning from previous iteration:  79  repeat count:  1 sigma values:  tensor([[0.3650],
+        [0.5256],
+        [0.3603],
+        [0.3479],
+        [0.4975],
+        [0.6782],
+        [0.7608],
+        [0.1937],
+        [0.1190],
+        [0.7953],
+        [0.0715],
+        [0.4175],
+        [0.1023],
+        [0.1261],
+        [0.6247],
+        [0.0966]], dtype=torch.float64)
+input std:  0.24331238686021095
+output std:  0.17853433281779515
+just finished the before
+capacity before: 37.40928483788049 and after: 37.409293246068195
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.28629242066090327
+output std:  0.18425371684337588
+just finished the before
+capacity before: 38.858126807394896 and after: 38.041299284497356
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.28504708299007336
+output std:  0.17198988968426066
+just finished the before
+capacity before: 37.13680867272789 and after: 37.17772928181276
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2886001444630123
+output std:  0.1810639691597517
+just finished the before
+capacity before: 38.25774572386196 and after: 36.22125489684859
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2856718319924434
+output std:  0.1826090258186666
+just finished the before
+capacity before: 38.824395852018164 and after: 37.0091982460925
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.285420867260471
+output std:  0.1962426954270261
+just finished the before
+capacity before: 37.79628333051457 and after: 36.86742212451787
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.285494671185682
+output std:  0.1859327964803026
+just finished the before
+capacity before: 37.908248400106935 and after: 37.22325852032949
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+learning from previous iteration:  127  repeat count:  2 sigma values:  tensor([[0.4750],
+        [0.6858],
+        [0.3646],
+        [0.5764],
+        [0.6951],
+        [0.5938],
+        [0.5442],
+        [0.5491],
+        [0.1986],
+        [0.0123],
+        [0.2131],
+        [0.0722],
+        [0.1643],
+        [0.5734],
+        [0.5590],
+        [0.5172]], dtype=torch.float64)
+input std:  0.21740829918216267
+output std:  0.17850588632781444
+just finished the before
+capacity before: 36.03100904495055 and after: 36.58874118118384
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+learning from previous iteration:  162  repeat count:  2 sigma values:  tensor([[0.1598],
+        [0.5001],
+        [0.3498],
+        [0.0389],
+        [0.5985],
+        [0.2785],
+        [0.0278],
+        [0.2097],
+        [0.5959],
+        [0.0806],
+        [0.3265],
+        [0.5631],
+        [0.0302],
+        [0.7785],
+        [0.0738],
+        [0.2549]], dtype=torch.float64)
+input std:  0.18526820499965946
+output std:  0.17147902462931258
+just finished the before
+capacity before: 38.466680623737176 and after: 37.57729773170043
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+learning from previous iteration:  158  repeat count:  2 sigma values:  tensor([[0.0793],
+        [0.0856],
+        [0.5772],
+        [0.5526],
+        [0.7391],
+        [0.0427],
+        [0.1116],
+        [0.3112],
+        [0.6112],
+        [0.8088],
+        [0.4588],
+        [0.2273],
+        [0.7085],
+        [0.1478],
+        [0.0408],
+        [0.4318]], dtype=torch.float64)
+input std:  0.19864487810919024
+output std:  0.18103782868219276
+just finished the before
+capacity before: 38.63391878663876 and after: 38.21552938784893
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2844472776376386
+output std:  0.18205981097300364
+just finished the before
+capacity before: 37.05380335110903 and after: 36.925589449754234
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.28798283981294387
+output std:  0.1772701016451534
+just finished the before
+capacity before: 36.48243002228697 and after: 35.913410359977476
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2878243653266084
+output std:  0.18520197909393643
+just finished the before
+capacity before: 38.98904073379207 and after: 37.24283779268697
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2798103424799873
+output std:  0.18495379394831818
+just finished the before
+capacity before: 36.93464876274706 and after: 37.00467526153713
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.28321833101725147
+output std:  0.1889296918891756
+just finished the before
+capacity before: 39.3803781929181 and after: 37.958110410022385
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.28861180791839286
+output std:  0.18253429741562524
+just finished the before
+capacity before: 37.69165764939918 and after: 36.27253320111643
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2908799291566119
+output std:  0.17707954201619527
+just finished the before
+capacity before: 38.10057646780618 and after: 37.63102385643915
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2875289764229639
+output std:  0.177665290296448
+just finished the before
+capacity before: 37.702701171775956 and after: 37.19317249466433
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.28405938043500445
+output std:  0.1647306208366406
+just finished the before
+capacity before: 36.62394403565913 and after: 37.67236678085156
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.28665946334281284
+output std:  0.1853450962194422
+just finished the before
+capacity before: 37.218321626825514 and after: 36.78039508926889
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2860691078025327
+output std:  0.1768502895705371
+just finished the before
+capacity before: 35.86597959979253 and after: 35.8706145749788
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.28812255688560867
+output std:  0.1644293294191018
+just finished the before
+capacity before: 35.878739687142 and after: 36.21605471385083
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.291969614356848
+output std:  0.17949197045214466
+just finished the before
+capacity before: 39.204848748894904 and after: 38.50549335356403
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.289254562563735
+output std:  0.17480530754036597
+just finished the before
+capacity before: 37.287408012118206 and after: 35.476365212914345
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2876725611578089
+output std:  0.19126488292415406
+just finished the before
+capacity before: 37.083263871768395 and after: 39.45598855887398
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2849780821589378
+output std:  0.18853720759118744
+just finished the before
+capacity before: 37.91407459216378 and after: 38.00739613458249
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2889541261848901
+output std:  0.17490802133139255
+just finished the before
+capacity before: 36.16079264210906 and after: 35.63730030780807
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2846413332999904
+output std:  0.17860198390434917
+just finished the before
+capacity before: 37.72271521854969 and after: 37.757257661687504
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.290579241077306
+output std:  0.17148379039848993
+just finished the before
+capacity before: 36.697662376626766 and after: 36.240590281874645
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.28930080198797253
+output std:  0.17850990661779725
+just finished the before
+capacity before: 36.62687863068778 and after: 34.54359589367746
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+learning from previous iteration:  227  repeat count:  1 sigma values:  tensor([[0.4369],
+        [0.8211],
+        [0.8592],
+        [0.4920],
+        [0.2881],
+        [0.0227],
+        [0.1724],
+        [0.4435],
+        [0.7463],
+        [0.6559],
+        [0.4454],
+        [0.6355],
+        [0.6005],
+        [0.1546],
+        [0.3855],
+        [0.6034]], dtype=torch.float64)
+input std:  0.17949197045214466
+output std:  0.16888005942043952
+just finished the before
+capacity before: 38.50549335356403 and after: 37.987001821614776
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2833053188769153
+output std:  0.16335034150313782
+just finished the before
+capacity before: 36.17765997970276 and after: 34.37973568619916
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2855257196778742
+output std:  0.17482490504266054
+just finished the before
+capacity before: 35.49451657629277 and after: 37.08358202520306
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2876464560989562
+output std:  0.16068040310148857
+just finished the before
+capacity before: 36.03397923038529 and after: 34.839959616230274
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.28869895108635757
+output std:  0.17860762697561308
+just finished the before
+capacity before: 37.24726101752327 and after: 37.204812701279295
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+learning from previous iteration:  239  repeat count:  1 sigma values:  tensor([[0.1520],
+        [0.3277],
+        [0.7588],
+        [0.4705],
+        [0.4283],
+        [0.1579],
+        [0.6204],
+        [0.4579],
+        [0.8537],
+        [0.8933],
+        [0.6108],
+        [0.5455],
+        [0.4732],
+        [0.1498],
+        [0.2506],
+        [0.5563]], dtype=torch.float64)
+input std:  0.17860762697561308
+output std:  0.16666495351321237
+just finished the before
+capacity before: 37.204812701279295 and after: 37.20337404193137
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+learning from previous iteration:  177  repeat count:  2 sigma values:  tensor([[0.4659],
+        [0.4237],
+        [0.0445],
+        [0.4429],
+        [0.3808],
+        [0.1583],
+        [0.5465],
+        [0.4110],
+        [0.7034],
+        [0.3125],
+        [0.1830],
+        [0.2849],
+        [0.2172],
+        [0.4899],
+        [0.8085],
+        [0.3710]], dtype=torch.float64)
+input std:  0.19609042716446037
+output std:  0.16606535672668649
+just finished the before
+capacity before: 37.54067240370989 and after: 36.705183065298584
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2839008124037807
+output std:  0.16929782877228275
+just finished the before
+capacity before: 36.381440943437966 and after: 35.90453826197519
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2860627354126686
+output std:  0.17306892929472312
+just finished the before
+capacity before: 34.33440899071061 and after: 34.431586465164266
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.28501408908617376
+output std:  0.17245083580728796
+just finished the before
+capacity before: 35.59948603195459 and after: 36.49996233260295
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2860904265671661
+output std:  0.1788464400445361
+just finished the before
+capacity before: 37.09915191252443 and after: 37.13435904873426
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+learning from previous iteration:  207  repeat count:  1 sigma values:  tensor([[0.6652],
+        [0.7373],
+        [0.6193],
+        [0.7801],
+        [0.6153],
+        [0.3657],
+        [0.5266],
+        [0.5953],
+        [0.3408],
+        [0.2233],
+        [0.6624],
+        [0.4219],
+        [0.5879],
+        [0.6110],
+        [0.7707],
+        [0.8995]], dtype=torch.float64)
+input std:  0.17198988968426066
+output std:  0.15589250853662037
+just finished the before
+capacity before: 37.17772928181276 and after: 37.08126218708202
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+learning from previous iteration:  132  repeat count:  1 sigma values:  tensor([[0.5581],
+        [0.2263],
+        [0.6081],
+        [0.6335],
+        [0.0154],
+        [0.6329],
+        [0.2830],
+        [0.4004],
+        [0.4674],
+        [0.0815],
+        [0.7113],
+        [0.6964],
+        [0.0773],
+        [0.7060],
+        [0.0434],
+        [0.3532]], dtype=torch.float64)
+input std:  0.21132541172993904
+output std:  0.16538522661268668
+just finished the before
+capacity before: 37.761674920384294 and after: 36.73370948118493
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+learning from previous iteration:  190  repeat count:  1 sigma values:  tensor([[0.7225],
+        [0.8838],
+        [0.2484],
+        [0.4648],
+        [0.0547],
+        [0.1828],
+        [0.0373],
+        [0.7019],
+        [0.3617],
+        [0.5809],
+        [0.8256],
+        [0.6492],
+        [0.2493],
+        [0.1612],
+        [0.3799],
+        [0.6352]], dtype=torch.float64)
+input std:  0.18685237709430913
+output std:  0.16105068321047666
+just finished the before
+capacity before: 37.2122342841069 and after: 37.67192445935012
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.28747054680461515
+output std:  0.17208777610389392
+just finished the before
+capacity before: 37.50987160635059 and after: 36.8461781165241
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.28718130566417593
+output std:  0.16244658080006977
+just finished the before
+capacity before: 36.187194375250456 and after: 36.37381734939918
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+learning from previous iteration:  207  repeat count:  1 sigma values:  tensor([[0.6652],
+        [0.7373],
+        [0.6193],
+        [0.7801],
+        [0.6153],
+        [0.3657],
+        [0.5266],
+        [0.5953],
+        [0.3408],
+        [0.2233],
+        [0.6624],
+        [0.4219],
+        [0.5879],
+        [0.6110],
+        [0.7707],
+        [0.8995]], dtype=torch.float64)
+input std:  0.17198988968426066
+output std:  0.15356392391562906
+just finished the before
+capacity before: 37.17772928181276 and after: 37.3072393420477
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.28528686063681813
+output std:  0.17431538660115095
+just finished the before
+capacity before: 36.984363302762425 and after: 36.14086527204931
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.28423468842663857
+output std:  0.16136603474178327
+just finished the before
+capacity before: 36.66889522300609 and after: 36.38994786566087
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2818664485738893
+output std:  0.1600497719513581
+just finished the before
+capacity before: 36.058313824293165 and after: 35.289020660296586
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.28398305066479873
+output std:  0.1570915422552546
+just finished the before
+capacity before: 36.557398041914155 and after: 35.71313487272069
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2804935760214581
+output std:  0.15974404088057195
+just finished the before
+capacity before: 36.694117578787356 and after: 36.09569725267944
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.28651266882008675
+output std:  0.16623853385882717
+just finished the before
+capacity before: 37.799468781756204 and after: 36.63388323116927
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2877981516839423
+output std:  0.16357283999523214
+just finished the before
+capacity before: 34.96269553968947 and after: 35.341004817070804
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.28418889664427216
+output std:  0.1661550817260073
+just finished the before
+capacity before: 37.29188055855996 and after: 37.26989010244847
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.28792914958720656
+output std:  0.1614118419191378
+just finished the before
+capacity before: 38.4585122346228 and after: 37.28310080295861
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+learning from previous iteration:  183  repeat count:  3 sigma values:  tensor([[0.6416],
+        [0.5749],
+        [0.6567],
+        [0.3935],
+        [0.5050],
+        [0.2465],
+        [0.2189],
+        [0.2069],
+        [0.4029],
+        [0.6729],
+        [0.5518],
+        [0.1841],
+        [0.0117],
+        [0.6401],
+        [0.4911],
+        [0.1908]], dtype=torch.float64)
+input std:  0.18603269884939516
+output std:  0.15898208716533216
+just finished the before
+capacity before: 37.00479004180951 and after: 36.781406229987724
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2894816100815766
+output std:  0.1768412614172704
+just finished the before
+capacity before: 38.27000726959123 and after: 37.44174374525228
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+learning from previous iteration:  224  repeat count:  1 sigma values:  tensor([[0.2208],
+        [0.3447],
+        [0.0559],
+        [0.3233],
+        [0.7379],
+        [0.6818],
+        [0.3769],
+        [0.0880],
+        [0.7091],
+        [0.1361],
+        [0.0934],
+        [0.0972],
+        [0.3832],
+        [0.3292],
+        [0.0289],
+        [0.7923]], dtype=torch.float64)
+input std:  0.1853450962194422
+output std:  0.16282050813587792
+just finished the before
+capacity before: 36.78039508926889 and after: 37.74593827509026
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+learning from previous iteration:  244  repeat count:  1 sigma values:  tensor([[0.4161],
+        [0.5286],
+        [0.0319],
+        [0.1289],
+        [0.5687],
+        [0.5051],
+        [0.2049],
+        [0.1159],
+        [0.3798],
+        [0.4593],
+        [0.0586],
+        [0.1148],
+        [0.7286],
+        [0.8777],
+        [0.3278],
+        [0.8424]], dtype=torch.float64)
+input std:  0.17245083580728796
+output std:  0.15736758076144802
+just finished the before
+capacity before: 36.49996233260295 and after: 36.3581030588457
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2834939132196284
+output std:  0.16342752852202508
+just finished the before
+capacity before: 36.44569889917254 and after: 34.58518686777081
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.28288673368083356
+output std:  0.170378290703948
+just finished the before
+capacity before: 38.01693862631004 and after: 37.09991035544575
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+learning from previous iteration:  216  repeat count:  1 sigma values:  tensor([[0.2012],
+        [0.5508],
+        [0.1575],
+        [0.0328],
+        [0.2786],
+        [0.3132],
+        [0.5835],
+        [0.1844],
+        [0.8527],
+        [0.0306],
+        [0.0422],
+        [0.5632],
+        [0.6407],
+        [0.7279],
+        [0.3361],
+        [0.5538]], dtype=torch.float64)
+input std:  0.1772701016451534
+output std:  0.15653841806564067
+just finished the before
+capacity before: 35.913410359977476 and after: 35.282756952649656
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.28504474004323765
+output std:  0.16364312070763098
+just finished the before
+capacity before: 37.10058968280006 and after: 37.35674488224426
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.28709078581886205
+output std:  0.15814456909888752
+just finished the before
+capacity before: 36.78884264492657 and after: 36.841336480256565
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.29436679938354776
+output std:  0.17243165559595283
+just finished the before
+capacity before: 37.85149321712808 and after: 36.62285950163756
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.28417748774481966
+output std:  0.1634236030155379
+just finished the before
+capacity before: 35.035607333837845 and after: 34.81670687665992
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.286148666297972
+output std:  0.16618941903832327
+just finished the before
+capacity before: 36.01281516001781 and after: 35.72201321374311
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.29302601099715686
+output std:  0.1654611186753399
+just finished the before
+capacity before: 36.53454964598885 and after: 35.79373035908566
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+learning from previous iteration:  232  repeat count:  1 sigma values:  tensor([[0.2700],
+        [0.3593],
+        [0.6740],
+        [0.6199],
+        [0.8567],
+        [0.8737],
+        [0.7701],
+        [0.4661],
+        [0.5305],
+        [0.3604],
+        [0.5858],
+        [0.2160],
+        [0.3059],
+        [0.4920],
+        [0.0237],
+        [0.2315]], dtype=torch.float64)
+input std:  0.17860198390434917
+output std:  0.1540204811666703
+just finished the before
+capacity before: 37.757257661687504 and after: 37.96320885984241
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.28641675370561603
+output std:  0.16152001220619527
+just finished the before
+capacity before: 34.337636983343636 and after: 35.69879882019319
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+learning from previous iteration:  240  repeat count:  2 sigma values:  tensor([[0.1368],
+        [0.2949],
+        [0.6829],
+        [0.4234],
+        [0.3855],
+        [0.1421],
+        [0.5584],
+        [0.4121],
+        [0.7683],
+        [0.8039],
+        [0.5497],
+        [0.4909],
+        [0.4259],
+        [0.1348],
+        [0.2256],
+        [0.5006]], dtype=torch.float64)
+input std:  0.16666495351321237
+output std:  0.15644482495605808
+just finished the before
+capacity before: 37.20337404193137 and after: 37.34881981052163
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2839968803247419
+output std:  0.16746639016730278
+just finished the before
+capacity before: 37.31607068534729 and after: 36.30726326188568
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.28415625080724904
+output std:  0.16803337263198642
+just finished the before
+capacity before: 37.69004967798587 and after: 37.48321962261722
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2823780202461263
+output std:  0.15902322483538786
+just finished the before
+capacity before: 37.66319845536471 and after: 36.21332816584376
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2889441795571148
+output std:  0.16261597949036385
+just finished the before
+capacity before: 36.75507364715166 and after: 34.650035242863396
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+learning from previous iteration:  191  repeat count:  1 sigma values:  tensor([[0.5327],
+        [0.6478],
+        [0.7333],
+        [0.6999],
+        [0.5094],
+        [0.8251],
+        [0.5062],
+        [0.0166],
+        [0.0840],
+        [0.1071],
+        [0.2243],
+        [0.3502],
+        [0.5677],
+        [0.1368],
+        [0.6801],
+        [0.8884]], dtype=torch.float64)
+input std:  0.19046551903090772
+output std:  0.15542334488042214
+just finished the before
+capacity before: 36.61886451304511 and after: 36.527457500442324
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+learning from previous iteration:  230  repeat count:  1 sigma values:  tensor([[0.4343],
+        [0.7681],
+        [0.2190],
+        [0.7999],
+        [0.8211],
+        [0.3997],
+        [0.3244],
+        [0.5943],
+        [0.0182],
+        [0.1277],
+        [0.5933],
+        [0.4605],
+        [0.6746],
+        [0.8721],
+        [0.7043],
+        [0.2440]], dtype=torch.float64)
+input std:  0.18853720759118744
+output std:  0.16018464635619242
+just finished the before
+capacity before: 38.00739613458249 and after: 37.635834957695955
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.28885663382396487
+output std:  0.1649101604550097
+just finished the before
+capacity before: 37.54791488123344 and after: 36.3688803186036
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2877637191419488
+output std:  0.15308007573907845
+just finished the before
+capacity before: 36.71237219755919 and after: 34.30211535319277
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.29092129034728464
+output std:  0.1584890629828784
+just finished the before
+capacity before: 36.339588772373034 and after: 35.329833259762225
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2914173981307364
+output std:  0.16110994933694855
+just finished the before
+capacity before: 34.869598572358996 and after: 34.886417547442925
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.28409044544210443
+output std:  0.15776765884628838
+just finished the before
+capacity before: 35.59961958221926 and after: 34.900118999305704
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.29391709679492667
+output std:  0.15352602253674213
+just finished the before
+capacity before: 35.990822090854365 and after: 36.086303760290164
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+learning from previous iteration:  250  repeat count:  1 sigma values:  tensor([[0.7252],
+        [0.7288],
+        [0.5544],
+        [0.5649],
+        [0.2578],
+        [0.1581],
+        [0.5874],
+        [0.4229],
+        [0.6171],
+        [0.3414],
+        [0.3536],
+        [0.2790],
+        [0.2326],
+        [0.7193],
+        [0.1825],
+        [0.7370]], dtype=torch.float64)
+input std:  0.16244658080006977
+output std:  0.14781858127298894
+just finished the before
+capacity before: 36.37381734939918 and after: 36.42458781306599
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+learning from previous iteration:  168  repeat count:  3 sigma values:  tensor([[0.0545],
+        [0.6341],
+        [0.6340],
+        [0.3749],
+        [0.3598],
+        [0.3898],
+        [0.6215],
+        [0.3452],
+        [0.2628],
+        [0.5258],
+        [0.5337],
+        [0.1205],
+        [0.3605],
+        [0.6443],
+        [0.4908],
+        [0.0402]], dtype=torch.float64)
+input std:  0.202672447671335
+output std:  0.16234298135882896
+just finished the before
+capacity before: 33.65845714135898 and after: 33.42860635774446
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2894954268011281
+output std:  0.17085594130180934
+just finished the before
+capacity before: 37.95868414023896 and after: 36.55493427600844
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+learning from previous iteration:  218  repeat count:  1 sigma values:  tensor([[0.6934],
+        [0.7442],
+        [0.6231],
+        [0.0645],
+        [0.7956],
+        [0.8575],
+        [0.3660],
+        [0.6270],
+        [0.5754],
+        [0.0783],
+        [0.0107],
+        [0.1322],
+        [0.7762],
+        [0.4690],
+        [0.1461],
+        [0.4594]], dtype=torch.float64)
+input std:  0.18495379394831818
+output std:  0.15360353783622596
+just finished the before
+capacity before: 37.00467526153713 and after: 36.25524150090591
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.28471134697251943
+output std:  0.16711046829432225
+just finished the before
+capacity before: 37.299094085361205 and after: 35.033446723809455
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.28351429084163204
+output std:  0.16187138027174036
+just finished the before
+capacity before: 38.17334864711775 and after: 36.60240598633338
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+learning from previous iteration:  214  repeat count:  3 sigma values:  tensor([[0.0714],
+        [0.0771],
+        [0.5195],
+        [0.4973],
+        [0.6652],
+        [0.0384],
+        [0.1005],
+        [0.2801],
+        [0.5501],
+        [0.7279],
+        [0.4129],
+        [0.2045],
+        [0.6376],
+        [0.1330],
+        [0.0368],
+        [0.3887]], dtype=torch.float64)
+input std:  0.18103782868219276
+output std:  0.15704323881343693
+just finished the before
+capacity before: 38.21552938784893 and after: 38.68731029168292
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2872941312457962
+output std:  0.15909426128269408
+just finished the before
+capacity before: 35.20313485710767 and after: 35.32141925864817
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2825591071252003
+output std:  0.16141110895670954
+just finished the before
+capacity before: 37.472857703648565 and after: 37.27228071567542
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2802386882097941
+output std:  0.16390718227340986
+just finished the before
+capacity before: 38.36692961831915 and after: 37.04894044658137
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.28403966398906105
+output std:  0.15669124363292297
+just finished the before
+capacity before: 36.16401609531789 and after: 36.06491970339115
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.28452970804009425
+output std:  0.15192921289115216
+just finished the before
+capacity before: 37.497621992163346 and after: 35.71156462366112
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.28469488392796016
+output std:  0.16511636280666836
+just finished the before
+capacity before: 39.59229813069883 and after: 39.008704569028815
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.28530219305093857
+output std:  0.1608102631872978
+just finished the before
+capacity before: 36.775755512476636 and after: 35.66507900189626
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2839547076525123
+output std:  0.1499408046476785
+just finished the before
+capacity before: 35.84925380317025 and after: 36.14030059532549
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+learning from previous iteration:  224  repeat count:  1 sigma values:  tensor([[0.2208],
+        [0.3447],
+        [0.0559],
+        [0.3233],
+        [0.7379],
+        [0.6818],
+        [0.3769],
+        [0.0880],
+        [0.7091],
+        [0.1361],
+        [0.0934],
+        [0.0972],
+        [0.3832],
+        [0.3292],
+        [0.0289],
+        [0.7923]], dtype=torch.float64)
+input std:  0.1853450962194422
+output std:  0.15424070874179957
+just finished the before
+capacity before: 36.78039508926889 and after: 37.586423051026266
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.29123330363537836
+output std:  0.1621325350590564
+just finished the before
+capacity before: 37.13438856120344 and after: 35.49330576069413
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.28592776239683426
+output std:  0.15674398658534364
+just finished the before
+capacity before: 35.92186164431888 and after: 35.19463362073992
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.28774559771981295
+output std:  0.16024151221109575
+just finished the before
+capacity before: 38.2016004373183 and after: 37.5194880888217
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2812993062890756
+output std:  0.1543352969948377
+just finished the before
+capacity before: 37.14276831104222 and after: 36.66167580140753
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2883052037219119
+output std:  0.15706491888207955
+just finished the before
+capacity before: 36.49829433198839 and after: 36.16299818379589
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2835916800462697
+output std:  0.1504474625582637
+just finished the before
+capacity before: 35.58555854960602 and after: 34.99701146730038
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.28454565953229716
+output std:  0.1613702415808155
+just finished the before
+capacity before: 37.6946605108626 and after: 36.84054441987236
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.29180421073374874
+output std:  0.166154826733951
+just finished the before
+capacity before: 37.49109982901828 and after: 38.253396076406496
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.28537772884997215
+output std:  0.14595374268115768
+just finished the before
+capacity before: 36.115803133972584 and after: 34.40669212762355
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+learning from previous iteration:  229  repeat count:  1 sigma values:  tensor([[0.3018],
+        [0.8458],
+        [0.0769],
+        [0.3556],
+        [0.4805],
+        [0.7607],
+        [0.8493],
+        [0.0400],
+        [0.1745],
+        [0.0807],
+        [0.1127],
+        [0.3775],
+        [0.4872],
+        [0.2640],
+        [0.6392],
+        [0.6777]], dtype=torch.float64)
+input std:  0.19126488292415406
+output std:  0.15972660887900123
+just finished the before
+capacity before: 39.45598855887398 and after: 38.71335315826662
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.28302104973007974
+output std:  0.15854532948020827
+just finished the before
+capacity before: 38.547098774755 and after: 38.63727529354294
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.28843208434821854
+output std:  0.15664211815306903
+just finished the before
+capacity before: 35.65536389709317 and after: 35.63979258848116
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.28721920607264917
+output std:  0.15914851084933815
+just finished the before
+capacity before: 38.845564214311416 and after: 37.43755577526479
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.28598649336551474
+output std:  0.16246984933927755
+just finished the before
+capacity before: 36.10146810080009 and after: 36.67088522369739
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.28861331569687393
+output std:  0.15288095697370993
+just finished the before
+capacity before: 38.08384890188718 and after: 38.21434274187534
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2894873920759806
+output std:  0.15677636134229667
+just finished the before
+capacity before: 35.73911242040752 and after: 34.73978371555936
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.28226596244535634
+output std:  0.14743441100396332
+just finished the before
+capacity before: 36.813550281138234 and after: 36.44175029408481
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.28498157207719116
+output std:  0.15149379860497728
+just finished the before
+capacity before: 36.33990565979798 and after: 36.54469110479984
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.28964694482735864
+output std:  0.15144486846479482
+just finished the before
+capacity before: 36.64725143062446 and after: 36.37947909508326
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+learning from previous iteration:  208  repeat count:  1 sigma values:  tensor([[0.1615],
+        [0.4462],
+        [0.8341],
+        [0.8795],
+        [0.5101],
+        [0.5389],
+        [0.2244],
+        [0.6164],
+        [0.7011],
+        [0.0361],
+        [0.4498],
+        [0.0182],
+        [0.7950],
+        [0.8940],
+        [0.4408],
+        [0.6857]], dtype=torch.float64)
+input std:  0.1810639691597517
+output std:  0.13896989913689584
+just finished the before
+capacity before: 36.22125489684859 and after: 36.877831446533435
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.28466316893029514
+output std:  0.1569021556286623
+just finished the before
+capacity before: 37.4489721609567 and after: 37.54223515590898
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+learning from previous iteration:  285  repeat count:  1 sigma values:  tensor([[0.1600],
+        [0.5919],
+        [0.0203],
+        [0.7151],
+        [0.8497],
+        [0.6247],
+        [0.1402],
+        [0.1810],
+        [0.4886],
+        [0.7212],
+        [0.1720],
+        [0.2264],
+        [0.0234],
+        [0.5246],
+        [0.4664],
+        [0.1749]], dtype=torch.float64)
+input std:  0.1584890629828784
+output std:  0.13162510844122216
+just finished the before
+capacity before: 35.329833259762225 and after: 35.82395369027425
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+learning from previous iteration:  310  repeat count:  1 sigma values:  tensor([[0.1483],
+        [0.2080],
+        [0.8963],
+        [0.4664],
+        [0.7666],
+        [0.8071],
+        [0.4755],
+        [0.7224],
+        [0.5270],
+        [0.0183],
+        [0.5829],
+        [0.0633],
+        [0.7969],
+        [0.2244],
+        [0.7801],
+        [0.1625]], dtype=torch.float64)
+input std:  0.1504474625582637
+output std:  0.13352979065832607
+just finished the before
+capacity before: 34.99701146730038 and after: 35.829209310343664
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.28049465829254583
+output std:  0.14110109028190274
+just finished the before
+capacity before: 35.66286049379781 and after: 35.229985861943604
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2852451330437468
+output std:  0.1603281724822764
+just finished the before
+capacity before: 37.84612816562602 and after: 38.16762138997009
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.283854698261439
+output std:  0.14351064624202514
+just finished the before
+capacity before: 37.02562618543274 and after: 36.5235016814555
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.285419426226538
+output std:  0.15084078061754308
+just finished the before
+capacity before: 37.258784205098564 and after: 36.71226129705161
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+learning from previous iteration:  289  repeat count:  2 sigma values:  tensor([[0.6527],
+        [0.6559],
+        [0.4990],
+        [0.5084],
+        [0.2320],
+        [0.1423],
+        [0.5287],
+        [0.3806],
+        [0.5554],
+        [0.3073],
+        [0.3182],
+        [0.2511],
+        [0.2093],
+        [0.6474],
+        [0.1643],
+        [0.6633]], dtype=torch.float64)
+input std:  0.14781858127298894
+output std:  0.13590552458649924
+just finished the before
+capacity before: 36.42458781306599 and after: 36.46578323166546
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2840345681631954
+output std:  0.14093436351238628
+just finished the before
+capacity before: 37.09977405640771 and after: 35.688790757671086
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2867771243739002
+output std:  0.14538540352350976
+just finished the before
+capacity before: 37.04100981961342 and after: 37.45744250728403
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.292976919281009
+output std:  0.1468811677109547
+just finished the before
+capacity before: 36.20144657884638 and after: 35.554561692959695
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.28626320815023815
+output std:  0.1432903238182313
+just finished the before
+capacity before: 35.26554942420073 and after: 34.02731436899379
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2877551814403833
+output std:  0.1521208468576217
+just finished the before
+capacity before: 38.0302006679444 and after: 36.66067720489012
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.28536458395751474
+output std:  0.15928817091764835
+just finished the before
+capacity before: 36.55598827496191 and after: 35.383952890240025
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.288170041412637
+output std:  0.15333723489176504
+just finished the before
+capacity before: 36.12894649862481 and after: 35.01533912424293
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+learning from previous iteration:  244  repeat count:  1 sigma values:  tensor([[0.4161],
+        [0.5286],
+        [0.0319],
+        [0.1289],
+        [0.5687],
+        [0.5051],
+        [0.2049],
+        [0.1159],
+        [0.3798],
+        [0.4593],
+        [0.0586],
+        [0.1148],
+        [0.7286],
+        [0.8777],
+        [0.3278],
+        [0.8424]], dtype=torch.float64)
+input std:  0.17245083580728796
+output std:  0.1432155951942044
+just finished the before
+capacity before: 36.49996233260295 and after: 35.683567318411235
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.28444091322129117
+output std:  0.1481749770378751
+just finished the before
+capacity before: 37.59305400583182 and after: 37.49024681865073
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.28707737215876605
+output std:  0.15276146260788326
+just finished the before
+capacity before: 38.86969114917342 and after: 38.05805563666781
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2933764001602539
+output std:  0.13579036106054326
+just finished the before
+capacity before: 36.89259924301946 and after: 34.66778779630316
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2856453603364504
+output std:  0.1527800567258526
+just finished the before
+capacity before: 37.848353367139026 and after: 37.62750254913732
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2839262507983195
+output std:  0.14424537561826295
+just finished the before
+capacity before: 38.382796324781616 and after: 37.81423017168707
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2867167910275415
+output std:  0.14772177619760568
+just finished the before
+capacity before: 37.512757114780655 and after: 36.00194041761198
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.28111279712888065
+output std:  0.15155940552496114
+just finished the before
+capacity before: 37.04381803218502 and after: 37.63081983310859
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2876876085618656
+output std:  0.14366440423024818
+just finished the before
+capacity before: 37.18806458953014 and after: 37.30945334711889
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2868622075729758
+output std:  0.1452600433343592
+just finished the before
+capacity before: 39.24212807757607 and after: 37.968627757621626
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2829886177996754
+output std:  0.1474226841208026
+just finished the before
+capacity before: 36.873467301445736 and after: 36.244126988631926
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2852237660490296
+output std:  0.14718158074134066
+just finished the before
+capacity before: 36.643316710631595 and after: 36.68350673145319
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.2855424907238619
+output std:  0.14689451115725533
+just finished the before
+capacity before: 37.41564065980473 and after: 36.560449528932374
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+learning from previous iteration:  342  repeat count:  1 sigma values:  tensor([[0.4345],
+        [0.1572],
+        [0.2210],
+        [0.0395],
+        [0.7808],
+        [0.3137],
+        [0.4277],
+        [0.5643],
+        [0.7308],
+        [0.4450],
+        [0.1326],
+        [0.4588],
+        [0.3917],
+        [0.3933],
+        [0.2018],
+        [0.1399]], dtype=torch.float64)
+input std:  0.15276146260788326
+output std:  0.13669199525558448
+just finished the before
+capacity before: 38.05805563666781 and after: 37.9685759789729
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.28637669303597274
+output std:  0.14159743879843872
+just finished the before
+capacity before: 39.981075236731186 and after: 37.30078265126576
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+finished the gradient approximation
+input std:  0.28617940768830913
+output std:  0.14474693203865477
+just finished the before
+capacity before: 36.64241155482148 and after: 37.34882785496295
+0
+1
+2
+3
+4
+5
+6
+Traceback (most recent call last):
+  File "C:\Users\tomer\Documents\Projects\Generate_Optimizations_code_rewrite\Generative_RIS_Optimization\Code\main.py", line 786, in <module>
+    main()
+  File "C:\Users\tomer\Documents\Projects\Generate_Optimizations_code_rewrite\Generative_RIS_Optimization\Code\main.py", line 759, in main
+    diffusion_active_training(net_diffusion,train_ldr, test_ldr, optimizer_diffusion, simulation, config, device=device)
+  File "C:\Users\tomer\Documents\Projects\Generate_Optimizations_code_rewrite\Generative_RIS_Optimization\Code\main.py", line 325, in diffusion_active_training
+    approx_grad_inp_64 = zo_gradient_approximation.loss_and_gradient(improved_X,sow,snr_noise=None,m=64,epsilon = epsilon,broadcast_tx=False)[1]
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\tomer\Documents\Projects\Generate_Optimizations_code_rewrite\Generative_RIS_Optimization\Code\benchmarks.py", line 102, in loss_and_gradient
+    f_x_plus_eps[i] = -self.simulation(normalized_x_plus_epsilon, current_sow, snr_noise=snr_noise, list_out=True, *args, **kwargs)[0]
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\tomer\Documents\Projects\Generate_Optimizations_code_rewrite\Generative_RIS_Optimization\Code\PhysFadPy.py", line 76, in __call__
+    return self.serial_call(ris_configuration_normalized,physical_SoW,recalculate_W=recalculate_W,precalced_W=precalced_W,snr_noise=snr_noise,list_out=list_out)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\tomer\Documents\Projects\Generate_Optimizations_code_rewrite\Generative_RIS_Optimization\Code\PhysFadPy.py", line 127, in serial_call
+    H = self.get_H_and_W(ris_configuration_normalized, cond_tx_x, cond_tx_y,recalculate_W,precalced_W)[0]
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\tomer\Documents\Projects\Generate_Optimizations_code_rewrite\Generative_RIS_Optimization\Code\PhysFadPy.py", line 169, in get_H_and_W
+    H = self.GetH(current_parameters, W)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\tomer\Documents\Projects\Generate_Optimizations_code_rewrite\Generative_RIS_Optimization\Code\PhysFadPy.py", line 422, in GetH
+    return self.GetH_batched(parameters, W_full)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\tomer\Documents\Projects\Generate_Optimizations_code_rewrite\Generative_RIS_Optimization\Code\PhysFadPy.py", line 380, in GetH_batched
+    V = torch.linalg.solve_ex(W, W_diag_matrix)[0]
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt
