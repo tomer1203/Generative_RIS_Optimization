@@ -2,8 +2,8 @@
 batch_size : 32
 seed : 4
 # run configuration(what do you want to do?)
-load_model : True                                                             # take existing trained model
-diffusion_train_mode : False                                                  # train the diffusion model
+load_model : True                                                            # take existing trained model
+diffusion_train_mode : False                                                   # train the diffusion model
 find_optimal_lr : False                                                       # a setting used to find the best learning rate for the physfad optimization
 test_models_optimization_per_iteration : True                                 # run a test for all different optimisation methods and compare them by iteration
 run_snr_graph : False                                                         # compare all different optimisation methods on different snr values
@@ -16,12 +16,14 @@ environment_noise_power : 0.01
 
 
 # sizes of input output of the model
-input_size : 135                                                              # number of configuration parameters
+physfad_virtual_batch_size : 256                                              # number of samples which use the same sow.
+physfad_input_size : 135                                                      # number of configuration parameters
 output_size : 120                                                             # number of frequencies in the channel
 output_shape : [4,3]                                                          # num of transmitter, num of receivers
 fres_max_range : 20   # 5                                                     # resonant frequency is between 0 and 5
 chi_max_range : 30    # 100                                                   # chi values are between 0 and 100
 gamma_max_range : 30  # 100                                                   # gamma values are between 0 and 100
+active_learning_mem_size : 256
 
 # model parameters
 hidden_size : 40
@@ -29,6 +31,7 @@ model_output_capacity : False                                                 # 
 
 # diffusion model parameters
 tx_size : 6                                                                   # number of tx parameters (3 transmitters,2 values for x and y)
+# [MATH] sow_size : tx_size+1                                                 # number of tx parameters + 1 for the sigma
 diffusion_sigma_inp_size : 1                                                  # another input for the sigma
 # [MATH] diffusion_inp_size : input_size+tx_size+diffusion_sigma_inp_size     # set in conf class
 diffusion_epsilon : 0.5                                                       # the epsilon value for the diffusion model (Step size) (0.5)

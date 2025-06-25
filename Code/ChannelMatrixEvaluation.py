@@ -9,7 +9,7 @@ import cProfile,pstats,io
 import datetime
 from rate_model import capacity_loss
 import utils
-
+from contextlib import nullcontext
 import concurrent.futures
 
 from copy import deepcopy
@@ -25,13 +25,14 @@ def batched_physfad(i,ris_configuration,tx_x,tx_y,physfad,batch_size,precalculat
     batch_of_H,W = physfad(ris_configuration[i * batch_size:(i + 1) * batch_size], tx_x,tx_y,precalced_W=precalculate_W)
     if batch_size == 1:
         batch_of_H = batch_of_H.unsqueeze(0)
-    return batch_of_H.detach(),W
+    return batch_of_H,W
 
+@utils.timeit
 def test_configurations_capacity_serial(physfad,ris_configuration,tx_x,tx_y,device,list_out=False,noise=None):
     tx_size = tx_x.shape[0]
     ris_configuration_size = ris_configuration.shape[0]
     batch_size = ris_configuration_size // tx_size
-    with torch.no_grad():
+    with torch.no_grad() if not ris_configuration.requires_grad else nullcontext():
         if tx_size != 1:
             H = torch.zeros([ris_configuration_size, physfad.config.output_size,physfad.config.output_shape[0],physfad.config.output_shape[1]],dtype=torch.complex64)
             for i in range(len(tx_x)):
@@ -48,7 +49,7 @@ def test_configurations_capacity(physfad,ris_configuration,tx_x,tx_y,device,list
     tx_size = tx_x.shape[0]
     ris_configuration_size = ris_configuration.shape[0]
     batch_size = ris_configuration_size // tx_size
-    with torch.no_grad():
+    with torch.no_grad() if not ris_configuration.requires_grad else nullcontext():
         if tx_size != 1:
             H = torch.zeros([ris_configuration_size, physfad.config.output_size,physfad.config.output_shape[0],physfad.config.output_shape[1]],dtype=torch.complex64)
             with concurrent.futures.ProcessPoolExecutor() as executer:
@@ -57,6 +58,8 @@ def test_configurations_capacity(physfad,ris_configuration,tx_x,tx_y,device,list
                 txy_ls = tx_y.unsqueeze(1)
                 phys_ls = [physfad]*tx_size
                 batch_ls = [batch_size]*tx_size
+                if precalculate_W is None:
+                    precalculate_W = [None]*tx_size
                 results = executer.map(batched_physfad,range(len(tx_x)),conf_ls,txx_ls,txy_ls,phys_ls,batch_ls,precalculate_W)
             for i,(H_batch,W) in enumerate(results):
                 H[i*batch_size:(i+1)*batch_size] = H_batch
@@ -67,7 +70,7 @@ def test_configurations_capacity(physfad,ris_configuration,tx_x,tx_y,device,list
     return capacity_loss(H,sigmaN=noise,list_out=list_out,device=device),H
 
 @utils.timeit
-def physfad_channel_optimization(device,physfad,starting_inp=None,tx_x=None,tx_y=None,noise_power = 1, learning_rate=0.005,num_of_iterations=150,recalculate_W=False):
+def simulation_channel_optimization(device,physfad,starting_inp=None,sow=None,noise_power = 1, learning_rate=0.005,num_of_iterations=150,recalculate_W=False):
     iters = 0
     # num_of_iterations = 150
 
@@ -85,6 +88,7 @@ def physfad_channel_optimization(device,physfad,starting_inp=None,tx_x=None,tx_y
 
     time_lst = []
     physfad_capacity_lst = []
+    print("learning rate old ",learning_rate)
     Inp_optimizer = torch.optim.Adam([estOptInp], lr=learning_rate) # 0.1
     current_loss = torch.Tensor([1])
     physfad_configuration_list = []
@@ -96,7 +100,7 @@ def physfad_channel_optimization(device,physfad,starting_inp=None,tx_x=None,tx_y
         # estOptInp_norm = estOptInp
         # for b in range(batch_size):
         #     H[b] = physfad(estOptInp_norm[b].unsqueeze(0),tx_x[b].unsqueeze(0),tx_y[b].unsqueeze(0))
-        H = physfad(estOptInp_norm,tx_x,tx_y,recalculate_W=recalculate_W)[0]
+        H = physfad(estOptInp_norm,sow,recalculate_W=recalculate_W)[1]
         # scipy.io.savemat("H_python_mat.mat", {"H_python_mat": H.cpu().detach().numpy()})
         # loss = -torch.sum(torch.abs(H[:,0,1]))
         loss = -capacity_loss(H, sigmaN = noise_power,device=device)
@@ -158,6 +162,7 @@ def random_search_optimization(physfad,iteration_limit=300,device='cpu',time_lim
 
         iters = iters + 1
     return time_lst, random_search_capacity_lst
+import utils
 @utils.timeit
 def zeroth_grad_optimization(device,physfad,starting_inp=None,tx_x=None,tx_y=None,noise_power=1,num_of_iterations=200):
     inp_size = 264

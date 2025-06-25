@@ -26,7 +26,9 @@ class Config(Singleton):
         self.evaluate_expressions()
 
     def evaluate_expressions(self):
-        self.diffusion_inp_size = self.input_size + self.tx_size + self.diffusion_sigma_inp_size
+        self.sow_size = self.tx_size + 1 # 1 for the SNR noise
+        self.diffusion_inp_size2 = self.physfad_input_size + self.tx_size + self.diffusion_sigma_inp_size # TODO: Remove this
+        self.diffusion_inp_size = self.physfad_input_size # TODO: probably need to figure this as well
 
     def set_mode(self, mode):
         mode_func = getattr(self, mode)
