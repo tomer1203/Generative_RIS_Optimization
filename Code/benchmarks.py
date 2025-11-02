@@ -50,9 +50,10 @@ class benchmark_interface:
         current_configuration = input_configuration
         if self.require_grad:
             current_configuration = copy_with_gradients(current_configuration,self.device)
-
+        print(self.name, ": Starting benchmark run for", num_of_iterations, "iterations.")
         current_configuration = self.setup(current_configuration,*args, **kwargs)  # Setup the benchmark if needed
         for i in range(num_of_iterations):
+            print(self.simulation.current_state)
             # Evaluate the benchmark function
             output_channel, performance = self(current_configuration,sow, snr_noise, *args, **kwargs)
             # Evaluate the loss and gradient
@@ -102,6 +103,7 @@ class zo_benchmark(benchmark_interface):
             # TODO: broadcast this(currently broadcasting only the random_points)..
             #  I need to combine both the batches and the locations into the same dimension
             for i, rand_vectors in enumerate(batch_of_rand_vecs):
+                print("zo ",i," out of ", len(batch_of_rand_vecs))
                 if self.broadcast_sow:
                     current_sow = sow
 

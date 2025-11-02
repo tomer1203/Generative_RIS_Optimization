@@ -20,15 +20,23 @@ class Config(Singleton):
         with open("configuration.yaml", 'r') as yaml_stream:
             config = yaml.load(yaml_stream,Loader)
         for k, v in config.items():
-            setattr(self, k, v)
+            if type(v) is dict:
+                if config['simulation_type'] == k:
+                    for k2, v2 in v.items():
+                        setattr(self, k2, v2)
+            else:
+                setattr(self, k, v)
 
         # add all the configurations which require some mathematical evaluations
         self.evaluate_expressions()
 
     def evaluate_expressions(self):
-        self.sow_size = self.tx_size + 1 # 1 for the SNR noise
-        self.diffusion_inp_size2 = self.physfad_input_size + self.tx_size + self.diffusion_sigma_inp_size # TODO: Remove this
-        self.diffusion_inp_size = self.physfad_input_size # TODO: probably need to figure this as well
+        if self.simulation_type == 'sionna':
+            num_of_profiles = 2 # amplitude and phase
+            self.input_size = self.num_of_ris * num_of_profiles * self.ris_num_modes*self.ris_num_rows*self.ris_num_cols
+        self.conditional_size = self.sow_size + 1 # 1 for the SNR noise
+        self.diffusion_inp_size2 = self.input_size + self.conditional_size + self.diffusion_sigma_inp_size # TODO: Remove this
+        self.diffusion_inp_size = self.input_size # TODO: probably need to figure this as well
 
     def set_mode(self, mode):
         mode_func = getattr(self, mode)

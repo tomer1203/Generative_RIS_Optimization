@@ -3,7 +3,7 @@ batch_size : 32
 seed : 4
 # run configuration(what do you want to do?)
 load_model : True                                                            # take existing trained model
-diffusion_train_mode : False                                                   # train the diffusion model
+diffusion_train_mode : True                                                   # train the diffusion model
 find_optimal_lr : False                                                       # a setting used to find the best learning rate for the physfad optimization
 test_models_optimization_per_iteration : True                                 # run a test for all different optimisation methods and compare them by iteration
 run_snr_graph : False                                                         # compare all different optimisation methods on different snr values
@@ -13,31 +13,60 @@ show_room_graph : False                                                       # 
 # Simulation Parameters
 environment_file_name : "ComplexEnclosure2"
 environment_noise_power : 0.01
-
-
+simulation_type : "physfad"                                                # type of simulation to run. sionna or physfad
+############################## sionna parameters   ##############################
+sionna :
+    virtual_batch_size: 256                                              # number of samples which use the same sow.
+    # [MATH] input_size : num_of_ris * ris_num_modes*ris_num_rows*ris_num_cols  # this comes out to be 10,000
+    output_size : 100                                                       # number of frequencies in the channel
+    output_shape : [2,1]
+    # ris parameters
+    num_of_ris : 2                                                          # number of RIS in the environment (not dynamic keep at 2)
+    ris_num_rows : 50                                                       # number of rows in the RIS
+    ris_num_cols : 50                                                       # number of columns in the RIS
+    ris_num_modes : 2                                                       # number of reradiation modes in the RIS
+    ris1_location : [90,55,5]                                               # location of the first RIS in the environment
+    ris2_location : [0,55,5]                                               # location of the second RIS in the environment
+    # antenna parameters
+    num_of_tx_ant : 1                                                           # number of transmitters in the environment
+    num_of_rx_ant : 1                                                           # number of receivers in the environment
+    sow_size : 6                                                            # number of rx parameters (2 receivers ,3 values for x and y and z)
+    num_of_samples : 1000                                                     # number of samples to simulate in the environment
+    num_of_paths : 10                                                        # number of paths to simulate in the environment
+    subcarrier_spacing : 15000                                                  # subcarrier spacing in the environment
+    tx_position : [8.5,21,27]                                          # position of the transmitter in the environment
+    rx1_position : [30,90,1.5]                                          # position of the first receiver in the environment
+    rx2_position : [70,90,1.5]                                          # position of the second receiver in the environment
+    # model parameters
+    hidden_size : 1500
+    active_learning_mem_size : 256
+############################## physfad parameters  ##############################
 # sizes of input output of the model
-physfad_virtual_batch_size : 256                                              # number of samples which use the same sow.
-physfad_input_size : 135                                                      # number of configuration parameters
-output_size : 120                                                             # number of frequencies in the channel
-output_shape : [4,3]                                                          # num of transmitter, num of receivers
-fres_max_range : 20   # 5                                                     # resonant frequency is between 0 and 5
-chi_max_range : 30    # 100                                                   # chi values are between 0 and 100
-gamma_max_range : 30  # 100                                                   # gamma values are between 0 and 100
-active_learning_mem_size : 256
+physfad :
+    virtual_batch_size : 256                                              # number of samples which use the same sow.
+    input_size : 135                                                      # number of configuration parameters
+    output_size : 120                                                             # number of frequencies in the channel
+    output_shape : [4,3]                                                          # num of transmitter, num of receivers
+    fres_max_range : 20   # 5                                                     # resonant frequency is between 0 and 5
+    chi_max_range : 30    # 100                                                   # chi values are between 0 and 100
+    gamma_max_range : 30  # 100                                                   # gamma values are between 0 and 100
+    active_learning_mem_size : 256
 
-# model parameters
-hidden_size : 40
-model_output_capacity : False                                                 # change if the model outputs the channel or capacity. all other functions change accordingly
+    # model parameters
+    hidden_size : 40
+    model_output_capacity : False                                                 # change if the model outputs the channel or capacity. all other functions change accordingly
 
-# diffusion model parameters
-tx_size : 6                                                                   # number of tx parameters (3 transmitters,2 values for x and y)
-# [MATH] sow_size : tx_size+1                                                 # number of tx parameters + 1 for the sigma
+    # diffusion model parameters
+    sow_size : 6                                                              # number of tx parameters (3 transmitters,2 values for x and y)
+    test_woodbury_transform : False                                               # whether to use woodbury transform or not
+# [MATH] conditional_size : sow_size+1                                                 # number of tx parameters + 1 for the sigma
 diffusion_sigma_inp_size : 1                                                  # another input for the sigma
 # [MATH] diffusion_inp_size : input_size+tx_size+diffusion_sigma_inp_size     # set in conf class
 diffusion_epsilon : 0.5                                                       # the epsilon value for the diffusion model (Step size) (0.5)
 diffusion_min_sigma : 0.01                                                    # the minimum sigma value for the diffusion model (0.01)
 diffusion_max_sigma : 1                                                       # the maximum sigma value for the diffusion model (1)
 
+############################## training parameters ##############################
 # general training settings
 max_epochs : 150
 ep_log_interval : 64                                                          # every how many epochs should a message be printed

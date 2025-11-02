@@ -7,6 +7,7 @@ from collections import OrderedDict
 import os
 from functools import wraps
 import time
+import tensorflow as tf
 
 def timeit(func):
     @wraps(func)
@@ -75,6 +76,31 @@ def generate_m_random_points_on_Nsphere(batch_size,m,N,device):
     norm_mat = np.expand_dims(np.linalg.norm(random_mat,axis=2),axis=2)
     tensor_output = torch.tensor(random_mat / norm_mat,device=device)
     return tensor_output
+def test_linearity_assumption(func, x_unristricted, sow, epsilon, m, device):
+    """
+    This function tests the linearity assumption of a function by estimating the gradient using the zeroth-order optimization method.
+    It generates m random points on the N-sphere and evaluates the function at these points.
+    The gradient is then estimated using the finite difference method.
+    """
+    N = x_unristricted.shape[-1]
+    batch_size = x_unristricted.shape[0]
+    rand_vec = generate_m_random_points_on_Nsphere(batch_size,1,N,device)
+    f_x_plus_eps = torch.zeros(m, device=device,dtype=torch.float64)
+    epsilons = []
+    with torch.no_grad():
+        for i in range(m):
+            current_sow = sow[0].unsqueeze(0)
+            current_x = x_unristricted[0].type(torch.float64)
+            frac = (i-(m/2))/m
+            # get sample of points
+            normalized_x_plus_epsilon = current_x+frac*epsilon*rand_vec[0]
+            print(normalized_x_plus_epsilon.shape)
+            epsilons.append(frac*epsilon)
+            # test function on sample
+            f_x_plus_eps[i] = func(normalized_x_plus_epsilon,current_sow)
+    plt.plot(epsilons, f_x_plus_eps.cpu().detach().numpy(), label='f(x+eps)')
+    plt.show()
+    return f_x_plus_eps
 def zo_estimate_gradient(func, x_unristricted, sow, epsilon, m, device,broadcast_tx):
     """
     This function estimates the gradient of a function using the zeroth-order optimization method.
@@ -118,7 +144,7 @@ def cosine_similarity(A,B):
     dot_product = (A*B).sum()
     return dot_product/norm
 
-def get_simulation_grads(estOptInp,sow,simulation,device,noise=None,broadcast_tx=True):
+def get_simulation_grads(estOptInp,sow,simulation,device,config,noise=None,broadcast_tx=True):
     """
     This function calculates the gradients of the physical fading model with respect to the input.
     :param estOptInp: The input to the physical fading model.
@@ -129,6 +155,8 @@ def get_simulation_grads(estOptInp,sow,simulation,device,noise=None,broadcast_tx
     :param noise: The SNR noise used in the channel achievable rate calculation.
     :param broadcast_tx: Whether to broadcast the transmitter coordinates.
     """
+    if simulation.name == "sionna":
+        return get_simulation_grads_sionna(estOptInp,sow,simulation,device,config,noise,broadcast_tx)
     physfad_grad = torch.zeros(estOptInp.shape, device=simulation.device)
 
     for i in range(estOptInp.shape[0]): # for every element in batch
@@ -140,6 +168,21 @@ def get_simulation_grads(estOptInp,sow,simulation,device,noise=None,broadcast_tx
             sow_i = sow[i].unsqueeze(0)
         Y_opt_capacity_i, Y_opt_gt_i = simulation(estOptInp_i,sow_i, list_out=True,snr_noise=noise)
         physfad_grad[i] = torch.autograd.grad(-Y_opt_capacity_i, estOptInp_i, retain_graph=True)[0]
+    return physfad_grad
+def get_simulation_grads_sionna(estOptInp,sow,simulation,device,config,noise,broadcast_tx):
+    physfad_grad = torch.zeros(estOptInp.shape, device=simulation.device)
+    for i in range(estOptInp.shape[0]):  # for every element in batch
+
+        if broadcast_tx:
+            sow_i = sow
+        else:
+            sow_i = sow[i].unsqueeze(0)
+        estOptInp_i_tf = to_tf(estOptInp[i].unsqueeze(0))
+        est_opt_var = tf.Variable(estOptInp_i_tf, trainable=True)
+        with tf.GradientTape() as tape:
+            Y_opt_capacity_i, Y_opt_gt_i = simulation(est_opt_var, sow_i, list_out=True, snr_noise=noise)
+
+        physfad_grad[i] = to_torch(tape.gradient(Y_opt_capacity_i, tape.watched_variables())[0])
     return physfad_grad
 
 def cosine_score(A,B):
@@ -172,4 +215,28 @@ def save_fig(fname,path):
     :param fname:  File name or path to save the figure.
     """
     plt.savefig(os.path.join(path, fname), bbox_inches='tight', format='pdf', transparent=True)
+def reduce_sionna_shape(tf_tensor):
+    """
+    Reduces the shape of a TensorFlow tensor by combining the antenna dimensions and transposing the frequency dimension.
+    """
+    (batch_size,num_rx,num_rx_ant,num_tx,num_tx_ant,time_steps,frequencies) = tf_tensor.shape
+    tf_reshaped = tf.reshape(tf_tensor,(batch_size,num_rx*num_rx_ant,num_tx*num_tx_ant,frequencies)) # combine antenna dims
+    tf_reshaped = tf.transpose(tf_reshaped,perm=[0,3,1,2]) # frequency before tx-rx
+    return tf_reshaped
+def to_torch(tf_tensor):
+    """
+    Converts a TensorFlow tensor to a PyTorch tensor.
+    :param tf_tensor: The TensorFlow tensor to convert.
+    :return: The converted PyTorch tensor.
+    """
+
+    return torch.tensor(tf_tensor.numpy())
+def to_tf(torch_tensor):
+    """
+    Converts a PyTorch tensor to a TensorFlow tensor.
+    :param torch_tensor: The PyTorch tensor to convert.
+    :return: The converted TensorFlow tensor.
+    """
+
+    return tf.convert_to_tensor(torch_tensor.cpu().detach().numpy(), dtype=tf.float64)
 

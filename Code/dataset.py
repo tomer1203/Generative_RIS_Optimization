@@ -18,17 +18,17 @@ class abstract_dataset(T.utils.data.Dataset):
         self.batch_size = batch_size
         self.device = device
         self.configuration_size = configuration_size
-        self.configurations = torch.zeros((0, configuration_size), device=device)
-        self.sow_size = SoW_size
-        self.sow = torch.zeros((0, SoW_size), device=device)
         self.max_dataset_size = max_dataset_size
+        self.configurations = torch.zeros((self.max_dataset_size, configuration_size), device=device)
+        self.sow_size = SoW_size
+        self.sow = torch.zeros((self.max_dataset_size, SoW_size), device=device)
         self.data_size = 0
         self.write_idx = 0
     def __len__(self):
         return self.data_size
     def generate_dataset(self, device, *args, **kwargs):
         for i in range(0,self.max_dataset_size,self.batch_size):
-            self.add_new_batch(*self.generate_batch(self.batch_size, device, *args, **kwargs))
+            self.add_new_batch(*self.generate_batch(self.batch_size, device, *args, **kwargs),batch_size=self.batch_size)
         self.data_size = len(self.configurations)
 
     def generate_sow(self, batch_size, device, *args, **kwargs):
@@ -97,8 +97,74 @@ class abstract_dataset(T.utils.data.Dataset):
         :return: None
         """
         raise NotImplementedError("This method should be overridden by subclasses.")
+class sionna_dataset(abstract_dataset):
+    """
+    Dataset for the Sionna RIS optimization problem.
+    This dataset is used to train the generative model for the Sionna RIS optimization problem.
+    """
+    def __init__(self,config, batch_size, configuration_size, SoW_size, device, max_dataset_size ,virtual_batch_size=256):
+        super().__init__(batch_size,configuration_size, SoW_size, device, max_dataset_size)
+        self.config = config
+        self.device = device
+        self.virtual_batch_size = virtual_batch_size
 
-class RISDataset(abstract_dataset):
+    def generate_configuration(self, batch_size, device=None):
+        """
+        Generate a batch of configurations.
+        :param batch_size: The size of the batch.
+        :param device: The device to use.
+        :return: A batch of configurations.
+        """
+        if device is None:
+            device = self.device
+        return torch.rand([batch_size, self.configuration_size], device=device, dtype=torch.float64)
+
+    def generate_sow(self, batch_size, device, modified_sow=True):
+        """
+        Generate a batch of SoW.
+        :param batch_size: The size of the batch.
+        :param device: The device to use.
+        :return: A batch of SoW.
+        """
+        rx1_orig = torch.tensor(self.config.rx1_position).repeat(batch_size, 1).to(device).type(torch.float64)
+        rx2_orig = torch.tensor(self.config.rx2_position).repeat(batch_size, 1).to(device).type(torch.float64)
+        if not modified_sow:
+            sow = torch.hstack([rx1_orig, rx2_orig])
+            return sow
+        rx1_diff = 5 * torch.rand([batch_size, 3], device=device, dtype=torch.float64)
+        rx2_diff = 5 * torch.rand([batch_size, 3], device=device, dtype=torch.float64)
+        rx1, rx2 = rx1_orig + rx1_diff, rx2_orig + rx2_diff
+        sow = torch.hstack([rx1, rx2])
+        return sow
+
+    def add_new_items(self, X, X_gradients, Y, Y_capacity):
+        if X is None:
+            return
+        if torch.any(~torch.isfinite(X)):
+            print("non finite value detected")
+        self.configurations = T.vstack([self.x_data, X])
+        self.gradients = T.vstack([self.gradients, X_gradients])
+        self.y_data = T.vstack([self.y_data, Y])
+        self.y_capacity = T.hstack([self.y_capacity, Y_capacity])
+
+    def load(self, file_sufix, *args, **kwargs):
+        """
+        Load the dataset from a file.
+        :param file_sufix: The string suffix of the file name.
+        :return: None
+        """
+        self.generate_dataset(self.device)
+        ldr = T.utils.data.DataLoader(self, batch_size=1, shuffle=True)
+        return ldr
+
+    def __len__(self):
+        return len(self.configurations) // self.batch_size
+
+    def __getitem__(self, idx):
+        configurations = self.configurations[self.batch_size * idx:self.batch_size * (idx + 1), :]  # or just [idx]
+        sow = self.sow[int(idx // (self.virtual_batch_size / self.batch_size)), :]  # (idx*batch_size)/256
+        return (configurations, sow)  # tuple of two matrices
+class physfad_dataset(abstract_dataset):
     """
     Dataset for the RIS optimization problem.
     This dataset is used to train the generative model for the RIS optimization problem.
@@ -126,6 +192,7 @@ class RISDataset(abstract_dataset):
         Generate a batch of SoW.
         :param batch_size: The size of the batch.
         :param device: The device to use.
+        :param modified_sow: Whether to randomize the locations of the transmitter or leave them in their default location.
         :return: A batch of SoW.
         """
         x_tx_orig = torch.tensor([0, 0, 0]).repeat(batch_size, 1).to(device).type(torch.float64)

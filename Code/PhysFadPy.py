@@ -7,13 +7,20 @@ import datetime
 from memory_profiler import profile
 import os
 from matplotlib import pyplot as plt
-from utils import LimitedSizeDict
+from utils import LimitedSizeDict,to_tf,to_torch,reduce_sionna_shape
 from copy import deepcopy
 from contextlib import nullcontext
 import concurrent.futures
 import rate_model
 import time
 from functools import wraps
+import sionna
+import tensorflow as tf
+
+from sionna import PI
+from sionna.rt import load_scene, Transmitter, Receiver, RIS, PlanarArray, \
+                      r_hat, normalize, Camera
+
 
 def timeit(func):
     @wraps(func)
@@ -40,12 +47,104 @@ class simulator_class:
         :param physical_SoW: state of the world
         """
         raise NotImplementedError("This method should be overridden by subclasses.")
+    def set_configuration(self,config):
+        """
+        This function is used to set the configuration of the simulation
+        :return: None
+        """
+        raise NotImplementedError("This method should be overridden by subclasses.")
     def change_environment(self,state): # TODO: need to override this method in the subclasses
         """
         This function is used to change the environment
         :param state: the state of the environment can either be "clean" or "noisy"
         """
         raise NotImplementedError("This method should be overridden by subclasses.")
+class sionna_c(simulator_class):
+    def __init__(self,config,device):
+        super().__init__(config, device)
+        self.name = "sionna"
+        self.config = config
+        self.device = device
+
+    def __call__(self, configuration, physical_SoW, snr_noise=None,list_out=False, *args, **kwargs):
+        torch_input = False
+        H_ls = []
+        cond_batch_size = physical_SoW.shape[0]
+        conf_batch_size = configuration.shape[0]
+        batch_size = conf_batch_size // cond_batch_size
+        for i in range(len(physical_SoW)): # iterate over the given sow
+            print(i, len(physical_SoW))
+            self.scene.get("rx1").position = physical_SoW[i, 0:3]
+            self.scene.get("rx2").position = physical_SoW[i, 3:6]
+            ris_size = self.config.ris_num_modes*self.config.ris_num_rows*self.config.ris_num_cols
+            if not (isinstance(configuration, tf.Tensor) or isinstance(configuration, tf.Variable)):
+                torch_input = True
+                configuration = to_tf(configuration) # note that this breaks the gradients for any torch input
+            ris_shape = [self.config.ris_num_modes,self.config.ris_num_rows,self.config.ris_num_cols]
+            for j in range(batch_size): # iterate each configuration of each sow
+                ris1_amplitude = tf.reshape(configuration[i*batch_size+j, 0*ris_size:1*ris_size],ris_shape)
+                ris1_phase     = tf.reshape(configuration[i*batch_size+j, 1*ris_size:2*ris_size],ris_shape)
+                ris2_amplitude = tf.reshape(configuration[i*batch_size+j, 2*ris_size:3*ris_size],ris_shape)
+                ris2_phase     = tf.reshape(configuration[i*batch_size+j, 3*ris_size:4*ris_size],ris_shape)
+                self.ris1.amplitude_profile.values = ris1_amplitude / tf.sqrt(tf.reduce_mean(ris1_amplitude ** 2, axis=[1, 2], keepdims=True))
+                self.ris1.phase_profile.values     = ris1_phase
+                self.ris2.amplitude_profile.values = ris2_amplitude / tf.sqrt(tf.reduce_mean(ris2_amplitude ** 2, axis=[1, 2], keepdims=True))
+                self.ris2.phase_profile.values     = ris2_phase
+
+                paths = self.scene.compute_paths()
+                a, tau = paths.cir()
+                h_freq = sionna.channel.cir_to_ofdm_channel(sionna.channel.subcarrier_frequencies(self.config.output_size, self.config.subcarrier_spacing), a, tau, normalize=False)
+                H_ls.append(reduce_sionna_shape(h_freq))
+        H = tf.concat(H_ls,axis=0)
+        rate = rate_model.capacity_loss_tf(H,sigmaN=snr_noise, list_out=list_out)
+        if torch_input:
+            rate = to_torch(rate)
+        return rate,H
+    def set_configuration(self, config):
+        self.scene = load_scene(sionna.rt.scene.munich)
+        self.scene.frequency = 3e9  # Carrier frequency [Hz]
+        self.scene.tx_array = PlanarArray(1, 1, 0.5, 0.5, "iso", "V")
+        self.scene.rx_array = PlanarArray(1, 1, 0.5, 0.5, "iso", "V")
+
+        # Place a transmitter
+        self.tx = Transmitter("tx", position=config.tx_position)
+        self.scene.add(self.tx)
+
+        # Place receivers
+        self.rx1 = Receiver("rx1", position=config.rx1_position)
+        self.scene.add(self.rx1)
+        self.rx2 = Receiver("rx2", position=config.rx2_position)
+        self.scene.add(self.rx2)
+
+        # Place RIS
+        self.ris1 = RIS(name="ris1",
+                   position=config.ris1_location,
+                   num_rows=config.ris_num_rows,
+                   num_cols=config.ris_num_cols,
+                   num_modes=config.ris_num_modes,
+                   color=[0.8, 0, 0],
+                   look_at=(self.tx.position + self.rx1.position) / 2)  # Look in between TX and RX1
+        self.scene.add(self.ris1)
+
+        self.ris2 = RIS(name="ris2",
+                   position=config.ris2_location,
+                   num_rows=config.ris_num_rows,
+                   num_cols=config.ris_num_cols,
+                   num_modes=config.ris_num_modes,
+                   color=[0, 0, 0.8],
+                   look_at=(self.tx.position + self.rx2.position) / 2)  # Look in between TX and RX2
+        self.scene.add(self.ris2)
+        # this camera is adjusted for the munich scene
+        self.scene.add(Camera("cam",
+                         position=[-0,250,150],
+                         look_at=[60,30,-25]))
+    def change_environment(self,state):
+        """
+        This function is used to change the environment
+        :param state: the state of the environment can either be "clean" or "noisy"
+        """
+        raise NotImplementedError("This method should be overridden by subclasses.")
+
 class physfad_c(simulator_class):
     def __init__(self,config,device):
         """
@@ -56,6 +155,7 @@ class physfad_c(simulator_class):
         super().__init__(config, device)
         self.config = config
         self.device = device
+        self.name = "physfad"
         self.W_dict = LimitedSizeDict(size_limit=128)
         self.clean_environment = False
         self.parameters = {}
@@ -69,6 +169,7 @@ class physfad_c(simulator_class):
         :param physical_SoW: state of the world, the x and y coordinates of the transmitter
         :param recalculate_W: if True, the bessel matrix W will be recalculated
         :param precalced_W: if not None, the bessel matrix W will be used from the input
+        returns the channel capacity and the channel matrix H
         """
         serial = True # TODO: remove this
         if serial or physical_SoW.shape[0] == 1:
@@ -77,11 +178,11 @@ class physfad_c(simulator_class):
         cond_tx_x, cond_tx_y = physical_SoW[:, 0:3], physical_SoW[:, 3:6] # TODO: this should use some constants
 
         tx_size = cond_tx_x.shape[0]
-        ris_configuration_size = ris_configuration_normalized.shape[0]
-        batch_size = ris_configuration_size // tx_size
+        configuration_batch_size = ris_configuration_normalized.shape[0]
+        batch_size = configuration_batch_size // tx_size
         with torch.no_grad() if not ris_configuration_normalized.requires_grad else nullcontext():
             if tx_size != 1:
-                H = torch.zeros([ris_configuration_size, self.config.output_size, self.config.output_shape[0],
+                H = torch.zeros([configuration_batch_size, self.config.output_size, self.config.output_shape[0],
                                  self.config.output_shape[1]], dtype=torch.complex64)
                 with concurrent.futures.ProcessPoolExecutor() as executer:
                     conf_ls = [confg.detach() for confg in [ris_configuration_normalized] * tx_size]
@@ -166,10 +267,15 @@ class physfad_c(simulator_class):
             # print("calculating W")
             W = self.get_bessel_w(current_parameters, self.device)
             self.W_dict[cond_tx_x] = W
+        if self.config.test_woodbury_transform and current_parameters["first_calculation_in_environment"]:
+            self.parameters["first_calculation_in_environment"] = False
+            self.parameters["W_inv"],self.parameters["default_W"] = self.calculate_initial_W_inverse(current_parameters,W)
         H = self.GetH(current_parameters, W)
+
         return H,W
     def clear_bessel_mem(self):
         self.W_dict = LimitedSizeDict(size_limit=128)
+        self.parameters["first_calculation_in_environment"] = True
     # def generate_tx_location(self,size,device,modify=True):
     #     x_tx_orig = torch.tensor([0, 0, 0]).repeat(size, 1).to(device).type(torch.float64)
     #     y_tx_orig = torch.tensor([4, 4.5, 5]).repeat(size, 1).to(device).type(torch.float64)
@@ -197,31 +303,17 @@ class physfad_c(simulator_class):
         This function is used to change the environment
         :param state: the state of the environment can either be "clean" or "noisy"
         """
-        self.parameters_states[self.current_state] = deepcopy(self.parameters)
-        self.parameters = self.parameters_states[state]
+        self.parameters_states[self.current_state] = deepcopy(self.parameters) # saves any changes made to the current environment
+        self.parameters = self.parameters_states[state] # loads the parameters of the new environment
         if state != self.current_state:
+            print(f"Changing environment from {self.current_state} to {state}")
             self.current_state = state
+            self.parameters["first_calculation_in_environment"] = True
             self.clear_bessel_mem() # only delete the bessel memory if the environment was actually changed
 
-    def save_and_change_to_clean_environment(self):
-        if not self.clean_environment:
-            self.clear_bessel_mem()
-            self.stored_x_env = self.parameters["x_env"]
-            self.stored_y_env = self.parameters["y_env"]
-            # plt.scatter(x_env, y_env)
-            # plt.show()
-            self.parameters["x_env"] = self.parameters["x_env_clean"]
-            self.parameters["y_env"] = self.parameters["y_env_clean"]
-            self.clean_environment = True
-    #
-    # def reload_original_environment(self):
-    #     if self.clean_environment:
-    #         self.clear_bessel_mem()
-    #         self.parameters["x_env"] = self.stored_x_env
-    #         self.parameters["y_env"] = self.stored_y_env
-    #         self.clean_environment = False
 
-    def set_configuration(self):
+
+    def set_configuration(self,config):
         self.parameters["freq"] = torch.tensor(np.linspace(0.9, 1.1, 120));
 
         ## Configurable Dipole Properties
@@ -271,6 +363,7 @@ class physfad_c(simulator_class):
         self.parameters["fres_env"] = 10 * torch.ones(self.parameters["x_env"].shape).to(self.device).type(torch.float64)
         self.parameters["chi_env"] = 50 * torch.ones(self.parameters["x_env"].shape).to(self.device).type(torch.float64)
         self.parameters["gamma_env"] = 0 * torch.ones(self.parameters["x_env"].shape).to(self.device).type(torch.float64)
+        self.parameters["first_calculation_in_environment"] = True
         self.parameters_states["noisy"] = deepcopy(self.parameters)
         RIS_loc = {}
         scipy.io.loadmat("..//PhysFad//ExampleRIS.mat", RIS_loc)
@@ -316,8 +409,8 @@ class physfad_c(simulator_class):
             This function is a reimplementation of the PhysFad algorithm to calculate the bessel matrix W.
         """
         k = 2 * torch.pi * parameters["freq"]
-        x = torch.cat([parameters["x_tx"], parameters["x_rx"], parameters["x_env"], parameters["x_ris"]], 1)
-        y = torch.cat([parameters["y_tx"], parameters["y_rx"], parameters["y_env"], parameters["y_ris"]], 1)
+        x = torch.cat([parameters["x_tx"], parameters["x_rx"], parameters["x_ris"], parameters["x_env"]], 1)
+        y = torch.cat([parameters["y_tx"], parameters["y_rx"], parameters["y_ris"], parameters["y_env"]], 1)
 
         N_T = len(parameters["x_tx"][0])
         N_R = len(parameters["x_rx"][0])
@@ -347,13 +440,13 @@ class physfad_c(simulator_class):
             It is optimized to handle batches of parameters for faster computation. This makes it less readable but more efficient for large datasets.
             for more details see the original PhysFad paper
         """
-        # print("batched Physfad")
+        print("batched Physfad")
         epsilon = 0.00000001
         k = 2 * torch.pi * parameters["freq"]
         batch_size = parameters["fres_ris"].shape[0]
-        fres = torch.cat([parameters["fres_tx"].repeat(batch_size,1), parameters["fres_rx"].repeat(batch_size,1), parameters["fres_env"].repeat(batch_size,1), parameters["fres_ris"]], 1)
-        chi = torch.cat([parameters["chi_tx"].repeat(batch_size,1), parameters["chi_rx"].repeat(batch_size,1), parameters["chi_env"].repeat(batch_size,1), parameters["chi_ris"]], 1)
-        gamma = torch.cat([parameters["gamma_tx"].repeat(batch_size,1), parameters["gamma_rx"].repeat(batch_size,1), parameters["gamma_env"].repeat(batch_size,1), parameters["gamma_ris"]], 1)
+        fres = torch.cat([parameters["fres_tx"].repeat(batch_size,1), parameters["fres_rx"].repeat(batch_size,1), parameters["fres_ris"], parameters["fres_env"].repeat(batch_size,1)], 1)
+        chi = torch.cat([parameters["chi_tx"].repeat(batch_size,1), parameters["chi_rx"].repeat(batch_size,1), parameters["chi_ris"], parameters["chi_env"].repeat(batch_size,1)], 1)
+        gamma = torch.cat([parameters["gamma_tx"].repeat(batch_size,1), parameters["gamma_rx"].repeat(batch_size,1), parameters["gamma_ris"], parameters["gamma_env"].repeat(batch_size,1)], 1)
 
         N_T = len(parameters["x_tx"][0])
         N_R = len(parameters["x_rx"][0])
@@ -380,12 +473,74 @@ class physfad_c(simulator_class):
         W_diag_elem = torch.diagonal(W, dim1=-2, dim2=-1)
         W_diag_matrix = torch.zeros(W.shape, dtype=torch.complex64, device=self.device)
         W_diag_matrix.diagonal(dim1=-2, dim2=-1).copy_(W_diag_elem)
-        V = torch.linalg.solve_ex(W, W_diag_matrix)[0]
-
-
+        if self.config.test_woodbury_transform:
+            start = time.time()
+            V = torch.linalg.solve_ex(W, W_diag_matrix)[0]
+            end = time.time()
+            print("original solve time:  ",end - start)
+            start = time.time()
+            dW = W - self.parameters["default_W"].repeat(batch_size,1,1,1)
+            # dW[~Mask] = 0
+            if dW[Mask].abs().max() < 1e-10:
+                print("dW min value: ", dW[Mask].abs().min())
+                dW[Mask] = dW[Mask] + epsilon
+            W_inv = self.inverse_W_woodbury(self.parameters["W_inv"].repeat(batch_size,1,1,1), dW, N_T + N_R + N_RIS, N, 1)
+            end = time.time()
+            # print(end - start)
+            V_tag = W_inv @ W_diag_matrix
+            print("error between woodbury and original solve: ", torch.sum(torch.abs(H - V_tag[:,:, N_T: (N_T + N_R), 0: N_T])))
+        else:
+            V = torch.linalg.solve_ex(W, W_diag_matrix)[0]
         H = V[:,:, N_T: (N_T + N_R), 0: N_T]
-
         return H
+    @timeit
+    def inverse_W_woodbury(self,W_orig_inv,dW,m,N,batch_size):
+        """
+        calculate the inverse (W_orig+dW)^-1 using the woodbury formula
+        inputs: for N>m
+        - W = BxFxNxN or FxNxN matrix
+        - W_inv = W^(-1) BxFxNxN or NxN matrix
+        - dW = BxFxNxN or NxN diagonal matrix filled up to row m
+        - m = the rank of dW
+        - N = the Height/Width of the W matrix
+        - B/batch_size = batch_size
+        this whole inversion takes O(m^3) time compared to O(N^3) time
+        returns (W+dW)^-1
+        """
+        if len(W_orig_inv.shape) == 4: # BxFxNxN matrix's (B=batch,F=freq,N=mat_size)
+            F = W_orig_inv.shape[1]
+            I = torch.eye(m,dtype=torch.complex64).repeat(batch_size,F,1,1)
+            U,V = torch.zeros([batch_size,F,N,m],dtype=torch.complex64),torch.zeros([batch_size,F,m,N],dtype=torch.complex64)
+            U[:,:,0:m,0:m] = I
+            C = dW[:,:,0:m,0:m]
+            V[:,:,0:m,0:m] = I
+        elif len(W_orig_inv.shape) == 3: # FxNxN matrix's (F=freq,N=mat_size)
+            F = W_orig_inv.shape[0]
+            I = torch.eye(m,dtype=torch.complex64).repeat(F,1,1) # Fxmxm
+            U, V = torch.zeros([F,N,m],dtype=torch.complex64), torch.zeros([F,m,N],dtype=torch.complex64)
+            U[:,0:m, 0:m] = I
+            C = dW[:,0:m,0:m]
+            V[:,0:m, 0:m] = I
+        else:
+            assert False, "W_orig_inv has invalid shape"
+        return self.woodbury_matrix_inversion(W_orig_inv,U,C,V)
+
+    def woodbury_matrix_inversion(self,R_inv,U,C,V):
+        """
+           calculate the inverse: (R+UCV)^-1 using Sherman–Morrison–Woodbury formula
+           (R+UCV)^-1 = R^(-1) - R^(-1)*U*(C^(-1) +VR^(-1)U)^(-1)*VR^(-1)
+            inputs: for N>m
+            - R = NxN matrix
+            - R_inv = R^(-1) NxN matrix
+            - U = mxN matrix
+            - V = Nxm matrix
+            - C = mxm matrix
+            this whole inversion takes O(m^3) time compared to O(N^3) time
+            returns (R+UCV)^-1
+        """
+        C_inv = torch.linalg.pinv(C)
+        reduced_rank_inv = torch.linalg.solve_ex((C_inv + V @ R_inv @ U), V @ R_inv)[0] # this is an O(m^3) operation
+        return R_inv - R_inv @ U @ reduced_rank_inv
     @timeit
     def solve1(self, W, W_diag_matrix):
         """
@@ -419,6 +574,45 @@ class physfad_c(simulator_class):
         except RuntimeError as e:
             print("Error in solving the equation:", e)
             return None
+    def calculate_initial_W_inverse(self,parameters, W_full):
+        # print("normal Physfad")
+        if parameters["fres_ris"].shape[0] != 1:
+            parameters["fres_ris"] = parameters["fres_ris"][0].unsqueeze(0)
+            parameters["chi_ris"] = parameters["chi_ris"][0].unsqueeze(0)
+            parameters["gamma_ris"] = parameters["gamma_ris"][0].unsqueeze(0)
+
+        epsilon = 0.00000001
+        k=2*torch.pi*parameters["freq"]
+        # x = torch.cat([x_tx, x_rx, x_env, x_ris],1)
+        # y = torch.cat([y_tx, y_rx, y_env, y_ris],1)
+
+        fres = torch.cat([parameters["fres_tx"], parameters["fres_rx"], parameters["fres_ris"], parameters["fres_env"]],1)
+        chi = torch.cat([parameters["chi_tx"], parameters["chi_rx"], parameters["chi_ris"], parameters["chi_env"]],1)
+        gamma = torch.cat([parameters["gamma_tx"], parameters["gamma_rx"], parameters["gamma_ris"], parameters["gamma_env"]],1)
+
+        N_T   = len(parameters["x_tx"][0])
+        N_R   = len(parameters["x_rx"][0])
+        N_E   = len(parameters["x_env"][0])
+        N_RIS = len(parameters["x_ris"][0])
+        N = N_T + N_R + N_E + N_RIS
+        pi = torch.pi
+        k2 = (torch.pow(k, 2)).to(self.device)
+        two_pi = 2 * pi
+        two_pi_freq = (two_pi * parameters["freq"]).to(self.device)
+        two_pi_freq2 = torch.pow(two_pi_freq, 2)
+        chi2 = torch.pow(chi[0, :], 2)+epsilon
+        gamma_ = gamma[0,:]
+        two_pi_fres2 = torch.pow((two_pi * fres[0, :]), 2)
+
+        inv_alpha = (two_pi_fres2.unsqueeze(1) - two_pi_freq2.unsqueeze(0)) / (chi2.unsqueeze(1)) + 1j * ((k2.unsqueeze(0) / 4) + two_pi_freq.unsqueeze(0) * gamma_.unsqueeze(1) / chi2.unsqueeze(1))
+        inv_alpha = inv_alpha.type(torch.complex64)
+        W = W_full.clone()
+        # width = W.size(0)
+        Mask = torch.eye(W.size(1)).repeat(len(parameters["freq"]), 1, 1).bool()
+        W[Mask] = inv_alpha.T.reshape(-1)
+        first_W_inv = torch.linalg.inv(W)
+        return first_W_inv,W
+
     def GetH(self,parameters, W_full):
 
         if parameters["fres_ris"].shape[0]!=1:
@@ -429,9 +623,9 @@ class physfad_c(simulator_class):
         k=2*torch.pi*parameters["freq"]
         # x = torch.cat([x_tx, x_rx, x_env, x_ris],1)
         # y = torch.cat([y_tx, y_rx, y_env, y_ris],1)
-        fres = torch.cat([parameters["fres_tx"], parameters["fres_rx"], parameters["fres_env"], parameters["fres_ris"]],1)
-        chi = torch.cat([parameters["chi_tx"], parameters["chi_rx"], parameters["chi_env"], parameters["chi_ris"]],1)
-        gamma = torch.cat([parameters["gamma_tx"], parameters["gamma_rx"], parameters["gamma_env"], parameters["gamma_ris"]],1)
+        fres = torch.cat([parameters["fres_tx"], parameters["fres_rx"],parameters["fres_ris"], parameters["fres_env"]],1)
+        chi = torch.cat([parameters["chi_tx"], parameters["chi_rx"], parameters["chi_ris"], parameters["chi_env"]],1)
+        gamma = torch.cat([parameters["gamma_tx"], parameters["gamma_rx"], parameters["gamma_ris"], parameters["gamma_env"]],1)
 
         N_T   = len(parameters["x_tx"][0])
         N_R   = len(parameters["x_rx"][0])
@@ -457,9 +651,28 @@ class physfad_c(simulator_class):
         W_diag_elem = torch.diagonal(W,dim1=-2,dim2=-1)
         W_diag_matrix = torch.zeros(W.shape,dtype=torch.complex64,device=self.device)
         W_diag_matrix.diagonal(dim1=-2,dim2=-1).copy_(W_diag_elem)
-
-        V = torch.linalg.solve(W, W_diag_matrix)
+        if self.config.test_woodbury_transform:
+            start = time.time()
+            V = torch.linalg.solve(W, W_diag_matrix)
+            end = time.time()
+            print(end - start)
+            start = time.time()
+            dW = W - self.parameters["default_W"]
+            # dW[~Mask] = 0
+            # print("dW max value: ", dW[Mask].abs().max())
+            if dW[Mask].abs().max() < 1e-10:
+                print("dW max value: ", dW[Mask].abs().max())
+                dW[Mask] = dW[Mask]+epsilon/20
+            W_inv = self.inverse_W_woodbury(self.parameters["W_inv"], dW, N_T + N_R + N_RIS, N, 1)
+            end = time.time()
+            print(end - start)
+            V_tag = W_inv @ W_diag_matrix
+            print("error between woodbury and original solve: ",
+                  torch.sum(torch.abs(H - V_tag[:, N_T: (N_T + N_R), 0: N_T])))
+        else:
+            V = torch.linalg.solve(W, W_diag_matrix)
         H = V[:,N_T: (N_T + N_R), 0: N_T]
+        # H = V_tag[:,N_T: (N_T + N_R), 0: N_T]
 
         return H
 

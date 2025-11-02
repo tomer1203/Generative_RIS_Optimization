@@ -27,7 +27,7 @@ def batched_physfad(i,ris_configuration,tx_x,tx_y,physfad,batch_size,precalculat
         batch_of_H = batch_of_H.unsqueeze(0)
     return batch_of_H,W
 
-@utils.timeit
+# @utils.timeit
 def test_configurations_capacity_serial(physfad,ris_configuration,tx_x,tx_y,device,list_out=False,noise=None):
     tx_size = tx_x.shape[0]
     ris_configuration_size = ris_configuration.shape[0]
